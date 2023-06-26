@@ -1,0 +1,23 @@
+type: string
+title: ACORDStandardVersionCodeContent_Type
+description: TBD
+enum:
+  - AML_1_0_0
+  - AML_1_1_0
+  - AML_1_2_0
+  - AML_1_3_0
+  - AML_1_3_1
+  - AML_1_4_0
+  - AML_1_5_0
+  - AML_1_5_1
+  - AML_1_6_0
+  - AML_2_0_0
+  - AML_2_1_0
+  - AML_2_2_0
+  - AML_2_2_1
+  - AML_2_3_0
+  - AML_2_3_1
+  - AML_2_4_0
+  - AML_2_4_1
+  - AML_2_4_2
+  - AML_2_4_3

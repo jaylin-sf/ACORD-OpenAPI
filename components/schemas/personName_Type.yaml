@@ -1,0 +1,39 @@
+type: object
+title: Person Name Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\personNameTypeCode_Type.yaml
+      indexName:
+        type: string
+        maxLength: 255
+      fullName:
+        type: string
+        maxLength: 255
+      surname:
+        type: string
+        maxLength: 255
+      givenName:
+        type: string
+        maxLength: 255
+      otherGivenName:
+        type: string
+        maxLength: 255
+      combinedGivenNames:
+        type: string
+        maxLength: 255
+      personTitlePrefix:
+        type: string
+        maxLength: 255
+      personTitlePrefixCode:
+        $ref: .\personTitlePrefixCode_Type.yaml
+      nameSuffix:
+        type: string
+        maxLength: 255
+      nickname:
+        type: string
+        maxLength: 255
+      initials:
+        type: string
+        maxLength: 255

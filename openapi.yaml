@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  version: 1.4.0.20230227
+  title: ACORD Messaging Library Common Objects
+  description: Common objects for current AML release.
+  termsOfService: https://www.acord.org/terms-of-use
+  contact:
+    name: ACORD
+    url: http://www.acord.org
+    email: memberservices@acord.org
+  license:
+    name: ACORD Terms of Use
+    url: https://www.acord.org/terms-of-use
+servers:
+  - url: >-
+      https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
+    description: SwaggerHub API Auto Mocking
+paths:
+  /quotation/{id}:
+    get:
+      tags:
+        - Quotation
+      summary: Get quotation by id
+      description: Get quotation details by id sent via Webhook
+      operationId: GetQuotationById
+      parameters:
+        - name: id
+          in: path
+          description: Quotation Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\sendingSystem_Type.yaml
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+components:
+  securitySchemes:
+    sctpUsername:
+      type: apiKey
+      in: header
+      name: SCTP-USERNAME
+    sctpPassword:
+      type: apiKey
+      in: header
+      name: SCTP-PASSWORD
+security:
+  - sctpUsername: []
+    sctpPassword: []

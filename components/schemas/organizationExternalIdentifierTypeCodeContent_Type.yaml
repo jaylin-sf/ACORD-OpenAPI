@@ -1,0 +1,16 @@
+type: string
+title: OrganizationExternalIdentifierTypeCodeContent Type
+description: TBD
+enum:
+  - ABN
+  - ABR
+  - ACN
+  - AFS
+  - ASIC
+  - BusinessRegistrationCertificate
+  - DUNSNumberCode
+  - GroupAccountId
+  - IncorporationCertificate
+  - JurisdictionId
+  - OtherId
+  - UnincorporatedClub

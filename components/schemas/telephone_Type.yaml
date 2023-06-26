@@ -1,0 +1,23 @@
+type: object
+title: Telephone Type
+allOf:
+  - $ref: .\communicationMethod_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\telephoneTypeCode_Type.yaml
+      dayIndicator:
+        type: boolean
+      eveningIndicator:
+        type: boolean
+      asOfDate:
+        type: string
+        format: date
+      phoneNumber:
+        type: string
+        minLength: 1
+        maxLength: 32
+        pattern: \+\S+\-\S+\-\S+(\+\S+)?
+      phoneNumberUnformatted:
+        type: string

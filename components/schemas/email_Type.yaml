@@ -1,0 +1,13 @@
+type: object
+title: Email Type
+allOf:
+  - $ref: .\communicationMethod_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\emailTypeCode_Type.yaml
+      emailAddress:
+        type: string
+        maxLength: 255
+      asOfDate:
+        type: string
+        format: date

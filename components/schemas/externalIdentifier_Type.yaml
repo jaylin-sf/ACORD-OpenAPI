@@ -1,0 +1,31 @@
+type: object
+title: ExternalIdentifier Type
+required:
+  - typeCode
+  - id
+properties:
+  typeCode:
+    $ref: .\externalIdentifierTypeCode_Type.yaml
+  sourceURI:
+    type: string
+    format: uri
+  jurisdictionCode:
+    oneOf:
+      - type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
+          attributes:
+            type: object
+            properties:
+              codeListReference:
+                type: string
+      - type: string
+        maxLength: 255
+  id:
+    type: string
+    maxLength: 255
+  identifierDescription:
+    type: string

@@ -1,0 +1,7 @@
+type: string
+title: EmailTypeCodeContent_Type
+description: The Email Code content enumeration
+enum:
+  - Business
+  - Personal
+  - Unknown

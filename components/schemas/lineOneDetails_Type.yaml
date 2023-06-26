@@ -1,0 +1,17 @@
+type: object
+title: Line One Details Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      streetName:
+        type: string
+        maxLength: 255
+      streetNumber:
+        type: string
+        maxLength: 255
+      unitNumber:
+        type: string
+        maxLength: 255
+      unitFloorNumber:
+        type: string
+        maxLength: 255

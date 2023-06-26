@@ -1,0 +1,8 @@
+type: object
+title: Extensions Type
+properties:
+  attributes:
+    type: object
+    properties:
+      extensionsDomain:
+        type: string

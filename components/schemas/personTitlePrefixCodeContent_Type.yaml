@@ -1,0 +1,55 @@
+type: string
+title: Person Title Prefix Code Content Type
+description: TBD
+enum:
+  - AdjunctProfessor
+  - Admiral
+  - Advocate
+  - Archbishop
+  - AssociateProfessor
+  - Bishop
+  - Brigadier
+  - Captain
+  - Colonel
+  - Commissioner
+  - Director
+  - Doctor
+  - Economist
+  - EstateLate
+  - Father
+  - General
+  - Honourable
+  - HonourableJudge
+  - Inspector
+  - Judge
+  - Justice
+  - Lady
+  - Lieutenant
+  - LieutenantColonel
+  - LieutenantCommander
+  - Lord
+  - Magistrate
+  - Major
+  - Minister
+  - Miss
+  - Mr
+  - MrJnr
+  - Mrs
+  - MrSnr
+  - Ms
+  - Pastor
+  - Professor
+  - ProfessorEmerita
+  - ProfessorEmeritus
+  - Psychologist
+  - Rabbi
+  - RevOrReverend
+  - Sergeant
+  - Sir
+  - Sister
+  - SnrSup
+  - Sup
+  - TheHonourable
+  - Trust
+  - Trustee
+  - Unknown

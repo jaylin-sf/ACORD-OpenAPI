@@ -1,0 +1,20 @@
+type: object
+title: PersonReference Type
+properties:
+  attributes:
+    type: object
+    properties:
+      personReference:
+        type: string
+  externalIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\personExternalIdentifier_Type.yaml
+      - $ref: .\personExternalIdentifier_Type.yaml
+  personName:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\personName_Type.yaml
+      - $ref: .\personName_Type.yaml

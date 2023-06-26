@@ -1,0 +1,10 @@
+type: object
+title: ACORD Aggregate Type
+properties:
+  attributes:
+    type: object
+    properties:
+      key:
+        type: string
+  extensions:
+    $ref: .\extensions_Type.yaml

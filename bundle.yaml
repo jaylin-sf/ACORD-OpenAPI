@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  version: 1.4.0.20230227
+  title: ACORD Messaging Library Common Objects
+  description: Common objects for current AML release.
+  termsOfService: https://www.acord.org/terms-of-use
+  contact:
+    name: ACORD
+    url: http://www.acord.org
+    email: memberservices@acord.org
+  license:
+    name: ACORD Terms of Use
+    url: https://www.acord.org/terms-of-use
+servers:
+  - url: https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
+    description: SwaggerHub API Auto Mocking
+paths:
+  /quotation/{id}:
+    get:
+      tags:
+        - Quotation
+      summary: Get quotation by id
+      description: Get quotation details by id sent via Webhook
+      operationId: GetQuotationById
+      parameters:
+        - name: id
+          in: path
+          description: Quotation Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sendingSystem_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+components:
+  securitySchemes:
+    sctpUsername:
+      type: apiKey
+      in: header
+      name: SCTP-USERNAME
+    sctpPassword:
+      type: apiKey
+      in: header
+      name: SCTP-PASSWORD
+  schemas:
+    extensions_Type:
+      type: object
+      title: Extensions Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            extensionsDomain:
+              type: string
+    ACORDAggregate_Type:
+      type: object
+      title: ACORD Aggregate Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            key:
+              type: string
+        extensions:
+          $ref: '#/components/schemas/extensions_Type'
+    endPointSystem_Type:
+      type: object
+      title: EndPointSystem_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            systemVendorId:
+              type: string
+              maxLength: 255
+            systemVendorName:
+              type: string
+              maxLength: 255
+            vendorProductName:
+              type: string
+              maxLength: 255
+            vendorProductVersion:
+              type: string
+              maxLength: 255
+    sendingSystem_Type:
+      type: object
+      title: Sending System
+      allOf:
+        - $ref: '#/components/schemas/endPointSystem_Type'
+        - properties: {}
+    apiError_Type:
+      type: object
+      title: API Error Details
+      description: API Error Details
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+    apiErrorResponse_Type:
+      type: object
+      title: API Error Response
+      description: API Error Response
+      properties:
+        error:
+          $ref: '#/components/schemas/apiError_Type'
+security:
+  - sctpUsername: []
+    sctpPassword: []

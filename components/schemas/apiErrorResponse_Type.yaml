@@ -1,0 +1,6 @@
+type: object
+title: API Error Response
+description: API Error Response
+properties:
+  error:
+    $ref: .\apiError_Type.yaml

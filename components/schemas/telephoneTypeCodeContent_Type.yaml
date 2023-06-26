@@ -1,0 +1,12 @@
+type: string
+title: TelephoneTypeCodeContent_Type
+description: The Telephone Code content enumeration
+enum:
+  - Fax
+  - InternetProtocol
+  - Marine
+  - Pager
+  - TextTelephone
+  - Unknown
+  - Wired
+  - Wireless

@@ -1,0 +1,17 @@
+type: object
+title: EndPointSystem_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      systemVendorId:
+        type: string
+        maxLength: 255
+      systemVendorName:
+        type: string
+        maxLength: 255
+      vendorProductName:
+        type: string
+        maxLength: 255
+      vendorProductVersion:
+        type: string
+        maxLength: 255

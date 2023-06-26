@@ -1,0 +1,17 @@
+type: object
+title: Mailing Address Type
+allOf:
+  - $ref: .\contactAddress_Type.yaml
+  - properties:
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\mailingAddressExternalIdentifier_Type.yaml
+          - $ref: .\mailingAddressExternalIdentifier_Type.yaml
+      postalBarcode:
+        type: string
+      postalBarcodeSortPlan:
+        type: string
+      postalNationalSortPlan:
+        type: string

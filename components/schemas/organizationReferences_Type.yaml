@@ -1,0 +1,22 @@
+type: object
+title: Organization References Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      attributes:
+        type: object
+        properties:
+          organizationReference:
+            type: string
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\organizationExternalIdentifier_Type.yaml
+          - $ref: .\organizationExternalIdentifier_Type.yaml
+      organizationName:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\organizationName_Type.yaml
+          - $ref: .\organizationName_Type.yaml

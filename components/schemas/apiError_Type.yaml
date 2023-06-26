@@ -1,0 +1,8 @@
+type: object
+title: API Error Details
+description: API Error Details
+properties:
+  code:
+    type: number
+  message:
+    type: string

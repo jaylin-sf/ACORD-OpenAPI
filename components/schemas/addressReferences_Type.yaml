@@ -1,0 +1,10 @@
+type: object
+title: Address References Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      attributes:
+        type: object
+        properties:
+          addressReference:
+            type: string

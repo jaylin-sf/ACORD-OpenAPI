@@ -1,0 +1,17 @@
+type: string
+title: PersonExternalIdentifierTypeCodeContent Type
+description: TBD
+enum:
+  - ABN
+  - DriversLicenseId
+  - GovernmentId
+  - JurisdictionId
+  - LocalIdentityDocument
+  - NRIC
+  - OtherId
+  - PassportId
+  - PoliceWarrantCard
+  - TFN
+  - ValidTravelDocument
+  - VisaId
+  - WorkPermitId

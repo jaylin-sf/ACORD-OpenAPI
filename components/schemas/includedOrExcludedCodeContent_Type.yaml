@@ -1,0 +1,7 @@
+type: string
+title: IncludedOrExcludedCodeContent_Type
+description: TBD
+enum:
+  - Excluded
+  - Included
+  - NotApplicable

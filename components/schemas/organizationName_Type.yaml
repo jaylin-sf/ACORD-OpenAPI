@@ -1,0 +1,13 @@
+type: object
+title: Organization Name Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\organizationNameTypeCode_Type.yaml
+      indexName:
+        type: string
+        maxLength: 255
+      fullName:
+        type: string
+        maxLength: 255

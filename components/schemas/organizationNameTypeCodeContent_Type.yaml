@@ -1,0 +1,13 @@
+type: string
+title: OrganizationNameTypeCodeContent Type
+description: The type code content of the Organization name
+enum:
+  - Alias
+  - Branch
+  - Division
+  - DoingBusinessAs
+  - Previous
+  - Primary
+  - Registered
+  - Retailer
+  - TradingBusinessAs

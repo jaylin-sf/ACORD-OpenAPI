@@ -1,0 +1,28 @@
+type: string
+title: CoreRoleCodeContent_Type
+description: The Core Role Code content enumeration
+enum:
+  - Agency
+  - Broker
+  - Bureau
+  - ClaimAdministrator
+  - Customer
+  - DataCollectionAgency
+  - EmployeeSecurityId
+  - Employer
+  - FundOrganization
+  - Insured
+  - Insurer
+  - Jurisdiction
+  - ManagingGeneralAgent
+  - PlacingExchange
+  - Police
+  - PostalAuthority
+  - PremiumFinanceCompany
+  - Producer
+  - ProducerLicensingAppointmentExchange
+  - RegulatoryAgency
+  - ServiceProvider
+  - ThirdPartyAdministrator
+  - ThirdPartyEntity
+  - Underwriter

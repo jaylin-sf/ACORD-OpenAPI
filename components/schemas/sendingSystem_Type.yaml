@@ -1,0 +1,5 @@
+type: object
+title: Sending System
+allOf:
+  - $ref: .\endPointSystem_Type.yaml
+  - properties: {}

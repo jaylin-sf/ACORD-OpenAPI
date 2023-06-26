@@ -1,0 +1,5 @@
+type: object
+title: Receiver_Type
+allOf:
+  - $ref: .\endPointActor_Type.yaml
+  - properties: {}

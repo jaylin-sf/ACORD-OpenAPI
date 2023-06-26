@@ -1,0 +1,15 @@
+type: object
+title: Communication Method Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      primaryIndicator:
+        type: boolean
+      previousIndicator:
+        type: boolean
+      communicationPreferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\communicationPreferences_Type.yaml
+          - $ref: .\communicationPreferences_Type.yaml

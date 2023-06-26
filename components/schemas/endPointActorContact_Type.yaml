@@ -1,0 +1,38 @@
+type: object
+title: EndPointActorContact_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      userAccessLevelCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      roleCode:
+        $ref: .\endPointActorContactRoleCode_Type.yaml
+      telephone:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\telephone_Type.yaml
+          - $ref: .\telephone_Type.yaml
+      email:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\email_Type.yaml
+          - $ref: .\email_Type.yaml
+      mailingAddress:
+        $ref: .\mailingAddress_Type.yaml

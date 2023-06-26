@@ -1,0 +1,8 @@
+type: string
+title: EndPointActorContactRoleCodeContent_Type
+description: TBD
+enum:
+  - Broker
+  - Insured
+  - Insurer
+  - Other

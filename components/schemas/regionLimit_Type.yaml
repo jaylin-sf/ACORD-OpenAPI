@@ -1,0 +1,30 @@
+type: object
+title: Region Limit
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      includedOrExcludedCode:
+        $ref: .\includedOrExcludedCode_Type.yaml
+      description:
+        type: string
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryName:
+        type: string
+        maxLength: 255
+      regionPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

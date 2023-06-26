@@ -1,0 +1,64 @@
+type: object
+title: MessageHeader_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - messageId
+      - correlationId
+      - messageDateTime
+    properties:
+      ACORDStandardVersionCode:
+        $ref: .\ACORDStandardVersionCode_Type.yaml
+      messageId:
+        type: string
+        format: uuid
+        pattern: >-
+          [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
+      correlationId:
+        type: string
+        format: uuid
+        pattern: >-
+          [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
+      messageDateTime:
+        type: string
+        format: date-time
+      sender:
+        $ref: .\sender_Type.yaml
+      receiver:
+        $ref: .\receiver_Type.yaml
+      processingIntermediary:
+        $ref: .\processingIntermediary_Type.yaml
+      sendingSystem:
+        $ref: .\sendingSystem_Type.yaml
+      accountNumberId:
+        type: string
+        maxLength: 255
+      batchId:
+        type: string
+        maxLength: 255
+      messageDocumentCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      batchSequenceNumberNumeric:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      batchPeriod:
+        $ref: .\batchPeriod_Type.yaml
+      messageSubmissionTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      totalBatchCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

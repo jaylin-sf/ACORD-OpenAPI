@@ -1,0 +1,12 @@
+type: object
+title: Assigned Identifier Type
+required:
+  - roleCode
+  - id
+properties:
+  roleCode:
+    $ref: .\coreRoleCode_Type.yaml
+  id:
+    type: string
+  identifierDescription:
+    type: string

@@ -1,0 +1,9 @@
+type: string
+title: Person Name Type Code Content Type
+description: The type code content of the Person name
+enum:
+  - Alias
+  - AlsoKnownAs
+  - Maiden
+  - Previous
+  - Primary

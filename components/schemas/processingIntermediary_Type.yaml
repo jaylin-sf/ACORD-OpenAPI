@@ -1,0 +1,5 @@
+type: object
+title: ProcessingIntermediary_Type
+allOf:
+  - $ref: .\endPointActor_Type.yaml
+  - properties: {}

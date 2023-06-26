@@ -1,0 +1,14 @@
+type: object
+title: Communication Preferences Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      priorityRank:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      contactPeriod:
+        $ref: .\contactPeriod_Type.yaml
+      blackoutPeriod:
+        $ref: .\blackoutPeriod_Type.yaml
+      doNotContactIndicator:
+        type: boolean

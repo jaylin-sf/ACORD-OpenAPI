@@ -1,0 +1,5 @@
+type: string
+title: MailingAddressExternalIdentifierTypeCodeContent Type
+description: TBD
+enum:
+  - PostalAuthority

@@ -1,0 +1,17 @@
+type: object
+title: EndPointActor_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      roleCode:
+        $ref: .\coreRoleCode_Type.yaml
+      organizationReferences:
+        $ref: .\organizationReferences_Type.yaml
+      address:
+        $ref: .\address_Type.yaml
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\endPointActorContact_Type.yaml
+          - $ref: .\endPointActorContact_Type.yaml

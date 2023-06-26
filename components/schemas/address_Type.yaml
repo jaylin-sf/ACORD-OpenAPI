@@ -1,0 +1,121 @@
+type: object
+title: Address Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      fullAddressDescription:
+        type: string
+        maxLength: 255
+      lineOne:
+        type: string
+        maxLength: 255
+      lineOneDetails:
+        $ref: .\lineOneDetails_Type.yaml
+      lineTwo:
+        type: string
+        maxLength: 255
+      lineThree:
+        type: string
+        maxLength: 255
+      lineFour:
+        type: string
+        maxLength: 255
+      cityName:
+        type: string
+        maxLength: 255
+      suburbName:
+        type: string
+        maxLength: 255
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      stateOrProvinceName:
+        type: string
+        maxLength: 255
+      postalCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryName:
+        type: string
+        maxLength: 255
+      countyCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countyName:
+        type: string
+        maxLength: 255
+      regionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      regionName:
+        type: string
+        maxLength: 255
+      regionLimit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\regionLimit_Type.yaml
+          - $ref: .\regionLimit_Type.yaml

@@ -1,0 +1,19 @@
+type: object
+title: Contact Address Type
+allOf:
+  - $ref: .\communicationMethod_Type.yaml
+  - properties:
+      attentionName:
+        type: string
+        maxLength: 255
+      asOfDate:
+        type: string
+        format: date
+      addressReferences:
+        $ref: .\addressReferences_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
