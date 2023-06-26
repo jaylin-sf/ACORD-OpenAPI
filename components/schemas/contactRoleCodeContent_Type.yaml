@@ -1,0 +1,16 @@
+type: string
+title: ContactRoleCodeContent Type
+description: The Contact Role Code content enumeration
+enum:
+  - Authorization
+  - Broker
+  - ClaimContact
+  - ClaimHandler
+  - Insured
+  - Insurer
+  - LegalOfficer
+  - Other
+  - PreferredContact
+  - PreferredInsuranceBuyingContact
+  - Processor
+  - Underwriter

@@ -1,0 +1,23 @@
+type: object
+title: Contact Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      roleCode:
+        $ref: .\contactRoleCode_Type.yaml
+      telephone:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\telephone_Type.yaml
+          - $ref: .\telephone_Type.yaml
+      email:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\email_Type.yaml
+          - $ref: .\email_Type.yaml
+      mailingAddress:
+        $ref: .\mailingAddress_Type.yaml
