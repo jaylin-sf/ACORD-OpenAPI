@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sendingSystem_Type'
+                $ref: '#/components/schemas/transactionFunctionCodeContent_Type'
         '400':
           description: Bad Request.
           content:
@@ -60,50 +60,110 @@ components:
       in: header
       name: SCTP-PASSWORD
   schemas:
-    extensions_Type:
-      type: object
-      title: Extensions Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            extensionsDomain:
-              type: string
-    ACORDAggregate_Type:
-      type: object
-      title: ACORD Aggregate Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            key:
-              type: string
-        extensions:
-          $ref: '#/components/schemas/extensions_Type'
-    endPointSystem_Type:
-      type: object
-      title: EndPointSystem_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            systemVendorId:
-              type: string
-              maxLength: 255
-            systemVendorName:
-              type: string
-              maxLength: 255
-            vendorProductName:
-              type: string
-              maxLength: 255
-            vendorProductVersion:
-              type: string
-              maxLength: 255
-    sendingSystem_Type:
-      type: object
-      title: Sending System
-      allOf:
-        - $ref: '#/components/schemas/endPointSystem_Type'
-        - properties: {}
+    transactionFunctionCodeContent_Type:
+      type: string
+      title: Transaction Function Code Content Type
+      description: TBD
+      enum:
+        - AdjustmentOfDeclaration
+        - AdjustmentOfDeclarationFinalization
+        - AKC
+        - AKP
+        - ARC
+        - ARP
+        - ClaimInformation
+        - ClaimPolicyDetails
+        - ConfirmedCancellation
+        - ConfirmedClosing
+        - ConfirmedLapse
+        - ConfirmedReinstatement
+        - CoverAcceptance
+        - CreateApplication
+        - CreateFundMember
+        - CreateFundMemberCover
+        - DeclineClosing
+        - DeclinedQuotation
+        - DeclinedRequestForQuotation
+        - DeclinePolicyOrder
+        - DeclineToRenew
+        - DecreaseCover
+        - FirmQuotation
+        - FNOL
+        - FROI
+        - FundInformation
+        - GetCurrentCoverOnly
+        - GetFullCurrentHistory
+        - GetMemberDetailsAndCurrentCover
+        - GetMemberDetailsAndFullCoverHistory
+        - GetMemberDetailsOnly
+        - GetUnderwritingResultFromUnderwritingEngine
+        - IncreaseCover
+        - IndicativeQuotation
+        - InitialPolicyVariationApproval
+        - InitialPolicyVariationDecline
+        - InitialPolicyVariationRequest
+        - LapseCover
+        - LifeEvent
+        - LodgeClaim
+        - MemberInformation
+        - PassApplicationToUnderwritingEngine
+        - PassQuoteToUnderwritingEngine
+        - POC
+        - PolicyEndorsement
+        - PolicyIssuance
+        - Property
+        - QuotationReferred
+        - RaiseApplicationEvent
+        - RaiseClaimEvent
+        - RaiseRequirementEvent
+        - ReferralRequired
+        - RegulatoryAcceptanceOfAppointment
+        - RegulatoryAcceptanceOfAppointmentRenewal
+        - RegulatoryAcceptanceOfAppointmentTermination
+        - RegulatoryAcceptanceOfNonresidentLicenseApplication
+        - RegulatoryAcceptanceOfNonresidentLicenseRenewalApplication
+        - RegulatoryAcceptanceOfResidentLicenseApplication
+        - RegulatoryAcceptanceOfResidentLicenseRenewalApplication
+        - RegulatoryDeclineOfAppointment
+        - RegulatoryDeclineOfAppointmentRenewal
+        - RegulatoryDeclineOfAppointmentTermination
+        - RegulatoryDeclineOfNonresidentLicenseApplication
+        - RegulatoryDeclineOfNonresidentLicenseRenewalApplication
+        - RegulatoryDeclineOfResidentLicenseApplication
+        - RegulatoryDeclineOfResidentLicenseRenewalApplication
+        - RegulatoryDeferralOfAppointment
+        - RegulatoryDeferralOfAppointmentRenewal
+        - RegulatoryDeferralOfAppointmentTermination
+        - RegulatoryDeferralOfNonresidentLicenseApplication
+        - RegulatoryDeferralOfNonresidentLicenseRenewalApplication
+        - RegulatoryDeferralOfResidentLicenseApplication
+        - RegulatoryDeferralOfResidentLicenseRenewalApplication
+        - RegulatoryNonresidentLicenseApplication
+        - RegulatoryNonresidentLicenseRenewalApplication
+        - RegulatoryNotificationOfAppointment
+        - RegulatoryNotificationOfAppointmentRenewal
+        - RegulatoryNotificationOfAppointmentTermination
+        - RegulatoryResidentLicenseApplication
+        - RegulatoryResidentLicenseRenewalApplication
+        - RenewalInvitation
+        - RequestAdditionalInformation
+        - RequestForAdjustedQuotation
+        - RequestForCancellation
+        - RequestForClosing
+        - RequestForCover
+        - RequestForIllustration
+        - RequestForIssuance
+        - RequestForQuotation
+        - RequestForReferral
+        - RequestForReinstatement
+        - SendAdditionalInformation
+        - SROI
+        - SupplyAdditonalInformation
+        - TransferCover
+        - UnsuccessfulQuotation
+        - UpdateCover
+        - UpdateRequirement
+        - Vehicle
     apiError_Type:
       type: object
       title: API Error Details
