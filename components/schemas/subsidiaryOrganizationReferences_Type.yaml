@@ -1,0 +1,5 @@
+type: object
+title: Subsidiary Organization References Type
+allOf:
+  - $ref: .\organizationReferences_Type.yaml
+  - properties: {}

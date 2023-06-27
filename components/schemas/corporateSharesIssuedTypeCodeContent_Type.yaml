@@ -1,0 +1,12 @@
+type: string
+title: CorporateSharesIssuedTypeCodeContent_Type
+description: TBD
+enum:
+  - Convertible
+  - FullyDiluted
+  - NonVoting
+  - Outstanding
+  - Preferred
+  - Voting
+  - VotingOwnedByDirectors
+  - VotingOwnedByOfficers

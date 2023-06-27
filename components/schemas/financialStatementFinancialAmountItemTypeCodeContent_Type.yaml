@@ -1,0 +1,19 @@
+type: string
+title: Financial Statement Financial Amount Item Type Code Content Type
+description: TBD
+enum:
+  - BudgetedGrossRevenue
+  - Cash
+  - CurrentAssets
+  - CurrentLiabilities
+  - Expense
+  - FundBalance
+  - GrossIncome
+  - Inventory
+  - LargestGrossIncome
+  - LongTermDebt
+  - NetIncome
+  - NetWorth
+  - TotalAssets
+  - TotalLiabilities
+  - TotalRevenue

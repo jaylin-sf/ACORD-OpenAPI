@@ -1,0 +1,9 @@
+type: string
+title: FinancialStatement Type Code Content Type
+description: TBD
+enum:
+  - Audited
+  - Compiled
+  - Internal
+  - Reviewed
+  - Unaudited

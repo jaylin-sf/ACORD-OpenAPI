@@ -1,0 +1,15 @@
+type: object
+title: Shareholder Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      ownedShareCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      sharesHeldPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      directorOrOfficerIndicator:
+        type: boolean
+      boardOfDirectorsRepresentedIndicator:
+        type: boolean

@@ -1,0 +1,20 @@
+type: object
+title: Ownership Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      ownerCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      shareholder:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\shareholder_Type.yaml
+          - $ref: .\shareholder_Type.yaml
+      owner:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\owner_Type.yaml
+          - $ref: .\owner_Type.yaml

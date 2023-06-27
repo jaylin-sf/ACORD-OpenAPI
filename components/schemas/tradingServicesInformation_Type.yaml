@@ -1,0 +1,25 @@
+type: object
+title: Trading Services Information Type
+properties:
+  financialInstitutionTypeCode:
+    $ref: .\financialInstitutionTypeCode_Type.yaml
+  tradingServicesOfferedIndicator:
+    type: boolean
+  tradingServicesTypeCode:
+    oneOf:
+      - type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
+          attributes:
+            type: object
+            properties:
+              codeListReference:
+                type: string
+      - type: string
+        maxLength: 255
+  tradingServicesPercent:
+    type: string
+    pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

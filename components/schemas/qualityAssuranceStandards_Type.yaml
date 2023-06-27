@@ -1,0 +1,21 @@
+type: object
+title: Quality Assurance Standards Type
+properties:
+  typeCode:
+    oneOf:
+      - type: object
+        required:
+          - value
+        properties:
+          value:
+            type: string
+          attributes:
+            type: object
+            properties:
+              codeListReference:
+                type: string
+      - type: string
+        maxLength: 255
+  qualityAssuranceStandardsName:
+    type: string
+    maxLength: 255

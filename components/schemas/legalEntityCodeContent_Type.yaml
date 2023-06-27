@@ -1,0 +1,40 @@
+type: string
+title: LegalEntityCodeContent_Type
+description: The Legal Entity Code content enumeration
+enum:
+  - Association
+  - Business
+  - CCorporation
+  - ChurchesAndReligiousOrganizations
+  - Club
+  - CommonOwnership
+  - Corporation
+  - Estate
+  - ExecutorOrTrustee
+  - Farm
+  - FederalStateOrLocalGovernment
+  - FinancialInstitution
+  - GeneralPartnership
+  - Hospital
+  - Incorporated
+  - IndianTribeFirstNation
+  - Individual
+  - JointEmployers
+  - JointVenture
+  - LimitedPartnership
+  - LLC
+  - LLP
+  - MultipleStatus
+  - NonProfit
+  - Other
+  - Partnership
+  - PoliticalOrganizations
+  - Private
+  - ProfessionalCompany
+  - Proprietorship
+  - SoleProprietor
+  - SubchapterSCorporation
+  - Trust
+  - TrustOrEstate
+  - UnincorporatedAssociation
+  - Unknown

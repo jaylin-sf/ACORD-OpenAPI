@@ -1,0 +1,5 @@
+type: object
+title: Ultimate Parent Organization References Type
+allOf:
+  - $ref: .\organizationReferences_Type.yaml
+  - properties: {}

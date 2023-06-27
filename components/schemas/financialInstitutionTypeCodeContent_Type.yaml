@@ -1,0 +1,14 @@
+type: string
+title: Financial Institution Type Code Content
+description: TBD
+enum:
+  - BondMarket
+  - BuildingSociety
+  - CommercialBank
+  - CreditUnions
+  - FinanceCompany
+  - InsuranceCompany
+  - InvestmentBank
+  - InvestmentCompanyOrAssetManagement
+  - Other
+  - StockBrokerage

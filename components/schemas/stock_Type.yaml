@@ -1,0 +1,56 @@
+type: object
+title: Stock Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      exchangeTradedCode:
+        $ref: .\exchangeTradedCode_Type.yaml
+      exchangeTickerSymbolCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      stockPeriod:
+        $ref: .\stockPeriod_Type.yaml
+      highestPriceAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      lowestPriceAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      corporateSharesIssued:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\corporateSharesIssued_Type.yaml
+          - $ref: .\corporateSharesIssued_Type.yaml

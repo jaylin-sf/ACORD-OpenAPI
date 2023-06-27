@@ -1,0 +1,91 @@
+type: object
+title: Organization Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      organizationCommunication:
+        $ref: .\organizationCommunication_Type.yaml
+      legalEntityCode:
+        $ref: .\legalEntityCode_Type.yaml
+      legalEntityDescription:
+        type: string
+        maxLength: 255
+      incorporatedDate:
+        type: string
+        format: date
+      incorporatedCountryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      incorporatedCountryName:
+        type: string
+        maxLength: 255
+      taxExemptOrganizationIndicator:
+        type: boolean
+      operations:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operations_Type.yaml
+          - $ref: .\operations_Type.yaml
+      financialStatement:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\financialStatement_Type.yaml
+          - $ref: .\financialStatement_Type.yaml
+      stock:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\stock_Type.yaml
+          - $ref: .\stock_Type.yaml
+      ownership:
+        $ref: .\ownership_Type.yaml
+      parentOrganizationReferences:
+        $ref: .\parentOrganizationReferences_Type.yaml
+      ultimateParentOrganizationReferences:
+        $ref: .\ultimateParentOrganizationReferences_Type.yaml
+      subsidiaryOrganizationReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\subsidiaryOrganizationReferences_Type.yaml
+          - $ref: .\subsidiaryOrganizationReferences_Type.yaml
+      qualityAssuranceStandards:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\qualityAssuranceStandards_Type.yaml
+          - $ref: .\qualityAssuranceStandards_Type.yaml
+      tradingServicesInformation:
+        $ref: .\tradingServicesInformation_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\organizationExternalIdentifier_Type.yaml
+          - $ref: .\organizationExternalIdentifier_Type.yaml
+      organizationName:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\organizationName_Type.yaml
+          - $ref: .\organizationName_Type.yaml

@@ -1,0 +1,20 @@
+type: object
+title: FinancialStatement Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\financialStatementTypeCode_Type.yaml
+      statementDate:
+        type: string
+        format: date
+      statementPeriod:
+        $ref: .\statementPeriod_Type.yaml
+      consolidatedReportIndicator:
+        type: boolean
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\financialStatementFinancialAmountItem_Type.yaml
+          - $ref: .\financialStatementFinancialAmountItem_Type.yaml

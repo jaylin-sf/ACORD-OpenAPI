@@ -1,0 +1,26 @@
+type: object
+title: CorprorateSharesIssued Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\corporateSharesIssuedTypeCode_Type.yaml
+      asOfDate:
+        type: string
+        format: date
+      sharePriceAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      outstandingShareCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

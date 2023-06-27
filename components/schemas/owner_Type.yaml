@@ -1,0 +1,10 @@
+type: object
+title: Owner Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      previousIndicator:
+        type: boolean
+      effectiveDate:
+        type: string
+        format: date

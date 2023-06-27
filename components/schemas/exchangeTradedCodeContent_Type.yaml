@@ -1,0 +1,15 @@
+type: string
+title: ExchangeTradedCodeContent Type
+description: TBD
+enum:
+  - AMEX
+  - Frankfort
+  - HongKong
+  - London
+  - NASDAQ
+  - NYSE
+  - Sydney
+  - TelAviv
+  - Tokyo
+  - Toronto
+  - Zurich
