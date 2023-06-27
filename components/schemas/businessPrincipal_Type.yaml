@@ -1,0 +1,21 @@
+type: object
+title: Business Principal Type
+allOf:
+  - $ref: .\referencedPersonRole_Type.yaml
+  - properties:
+      currentPracticingPeriod:
+        $ref: .\currentPracticingPeriod_Type.yaml
+      previousPracticingPeriod:
+        $ref: .\previousPracticingPeriod_Type.yaml
+      previousBusiness:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\previousBusiness_Type.yaml
+          - $ref: .\previousBusiness_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\businessPrincipalQuestionAnswer_Type.yaml
+          - $ref: .\businessPrincipalQuestionAnswer_Type.yaml

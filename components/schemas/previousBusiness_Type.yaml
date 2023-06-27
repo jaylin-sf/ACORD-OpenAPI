@@ -1,0 +1,11 @@
+type: object
+title: Previous Business Type
+allOf:
+  - $ref: .\referencedOrganizationRole_Type.yaml
+  - properties:
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\previousBusinessQuestionAnswer_Type.yaml
+          - $ref: .\previousBusinessQuestionAnswer_Type.yaml

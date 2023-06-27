@@ -1,0 +1,6 @@
+type: string
+title: Business Principal QuestionCodeContent Type
+description: TBD
+enum:
+  - BusinessPrincipal001
+  - BusinessPrincipal002

@@ -1,0 +1,5 @@
+type: string
+title: Previous Business QuestionCodeContent Type
+description: TBD
+enum:
+  - PreviousBusiness001
