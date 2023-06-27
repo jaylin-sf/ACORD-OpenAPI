@@ -1,0 +1,56 @@
+type: string
+title: DeductibleTypeCodeContent_Type_D00002
+description: TBD
+enum:
+  - Aggregate
+  - AggregateMaximum
+  - AggregateMinimum
+  - AnyOneAccidentOrOccurrence
+  - Basic
+  - Days
+  - EachInterest
+  - Flat
+  - FlatPerThousand
+  - Graduated
+  - Hours
+  - InMotion
+  - Maximum
+  - Minimum
+  - NotInFlight
+  - NotInMotion
+  - NotInMotionWhileHangared
+  - NotScheduled
+  - Other
+  - PerAccident
+  - PerAircraft
+  - PerAssuredVehicle
+  - PerBarge
+  - PercentLoss
+  - PercentTIV
+  - PerEngine
+  - PerItem
+  - PerLimit
+  - PerLoss
+  - PerMessenger
+  - PerPackage
+  - PerPassenger
+  - PerRailCar
+  - PerTerminal
+  - PerTool
+  - PerVehicle
+  - PerVehicleOperatedByCommonCarrier
+  - PerVehicleOperatedByContractCarrier
+  - PerVehicleOperatedByPrivateCarrier
+  - PerVessel
+  - PolicyDiseaseAggregate
+  - RotorsInMotion
+  - RotorsNotInMotion
+  - TimesAverageDailyValue
+  - TotalAircraft
+  - TotalBenefits
+  - TotalCoverage
+  - TotalDays
+  - TotalOccurrence
+  - Waived
+  - Weekly
+  - WholeDollar

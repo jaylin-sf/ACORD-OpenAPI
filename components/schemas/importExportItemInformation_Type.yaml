@@ -1,0 +1,42 @@
+type: object
+title: Import Export Item Information Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      policyArticleReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyArticleReferences_Type.yaml
+          - $ref: .\policyArticleReferences_Type.yaml
+      operationsReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsReferences_Type.yaml
+          - $ref: .\operationsReferences_Type.yaml
+      description:
+        type: string
+      countryName:
+        type: string
+        maxLength: 255
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsFinancialAmountItem_Type.yaml
+          - $ref: .\operationsFinancialAmountItem_Type.yaml
+      importIndicator:
+        type: boolean
+      locationReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\locationReferences_Type.yaml
+          - $ref: .\locationReferences_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\importExportItemInformationQuestionAnswer_Type.yaml
+          - $ref: .\importExportItemInformationQuestionAnswer_Type.yaml

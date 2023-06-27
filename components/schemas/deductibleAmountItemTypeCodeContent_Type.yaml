@@ -1,0 +1,9 @@
+type: string
+title: Deductible AmountItemTypeCodeContent Type
+description: TBD
+enum:
+  - ClaimPercent
+  - FlatAmount
+  - LimitPercent
+  - MaximumAmount
+  - MinimumAmount

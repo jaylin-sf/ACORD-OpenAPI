@@ -1,0 +1,25 @@
+type: object
+title: Organization Communication Type
+allOf:
+  - $ref: .\partyCommunication_Type.yaml
+  - properties:
+      principalAddress:
+        $ref: .\principalAddress_Type.yaml
+      branchOfficeAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\branchOfficeAddress_Type.yaml
+          - $ref: .\branchOfficeAddress_Type.yaml
+      physicalAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\physicalAddress_Type.yaml
+          - $ref: .\physicalAddress_Type.yaml
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\contact_Type.yaml
+          - $ref: .\contact_Type.yaml

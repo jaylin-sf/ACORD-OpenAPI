@@ -1,0 +1,17 @@
+type: string
+title: Occupational Rating Code Content
+description: TBD
+enum:
+  - BlueCollar
+  - General
+  - Hazardous
+  - HeavyBlueCollar
+  - LightBlueCollar
+  - Management
+  - Manual
+  - Other
+  - OwnOccupation
+  - Professional
+  - ReferredDeclined
+  - Standard
+  - WhiteCollar

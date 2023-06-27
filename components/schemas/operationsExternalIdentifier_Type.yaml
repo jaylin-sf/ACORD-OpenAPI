@@ -1,0 +1,32 @@
+type: object
+title: OperationsExternalIdentifier Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+      - id
+    properties:
+      typeCode:
+        $ref: .\operationsExternalIdentifierTypeCode_Type.yaml
+      jurisdictionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      sourceURI:
+        type: string
+        format: uri
+      id:
+        type: string
+      identifierDescription:
+        type: string

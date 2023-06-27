@@ -1,0 +1,34 @@
+type: object
+title: Employee Information Financial Amount Item Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+      - amountItemValue
+    properties:
+      typeCode:
+        $ref: .\employeeInformationFinancialAmountItemTypeCode_Type.yaml
+      amountItemValue:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\amountItemValue_Type.yaml
+          - $ref: .\amountItemValue_Type.yaml
+      compensationBasisCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      effectiveDate:
+        type: string
+        format: date

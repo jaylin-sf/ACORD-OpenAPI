@@ -1,0 +1,9 @@
+type: string
+title: AnswerCodeContent Type
+description: Enumerations for the Answer Code List
+enum:
+  - 'No'
+  - NotAnswered
+  - NotApplicable
+  - Unknown
+  - 'Yes'

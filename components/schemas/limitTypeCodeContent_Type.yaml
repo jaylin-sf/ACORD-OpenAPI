@@ -1,0 +1,39 @@
+type: string
+title: LimitTypeCodeContent_Type_D00002
+description: TBD
+enum:
+  - Aggregate
+  - AnnualLabourCost
+  - CapitalBenefit
+  - GrossProfit
+  - GrossRevenue
+  - HaulageFees
+  - InflationPercentage
+  - NotScheduled
+  - NumClaimsAllowed
+  - PerClaim
+  - PerInsured
+  - PerMessenger
+  - PerPackage
+  - PerPassenger
+  - PerPerson
+  - PerRailCar
+  - PerTerminal
+  - PerVehicle
+  - PerVehicleOperatedByCommonCarrier
+  - PerVehicleOperatedByContractCarrier
+  - PerVehicleOperatedByPrivateCarrier
+  - PerVessel
+  - PolicyDiseaseAggregate
+  - StandaloneAICOW
+  - StandingCharges
+  - TotalAircraft
+  - TotalBenefits
+  - TotalCoverage
+  - TotalDays
+  - TotalOccurrence
+  - Turnover
+  - Weekly
+  - WeeklyAccidentBenefit
+  - WeeklySicknessBenefit
+  - WorkingExpenses

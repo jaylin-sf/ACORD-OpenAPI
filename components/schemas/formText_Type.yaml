@@ -1,0 +1,10 @@
+type: object
+title: Form Text Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      formTextContent:
+        type: string

@@ -1,0 +1,29 @@
+type: string
+title: ValuationTypeCodeContent_Type
+description: TBD
+enum:
+  - ActualCashValue
+  - ActualLossSustained
+  - AgreedAmount
+  - CalculatedSumInsured
+  - FullValueReplacementCost
+  - FunctionalReplacementCost
+  - InvoiceCost
+  - LoadingFactor
+  - MarketValue
+  - MaximumBenefit
+  - MonthlyBenefit
+  - RebuildValue
+  - ReinstatementValue
+  - RepairReplacement
+  - ReplacementArea
+  - ReplacementCost
+  - ReplacementCups
+  - Reproduction
+  - RetailValue
+  - StatedAmount
+  - SumInsured
+  - TotalDeclaredValue
+  - TotalInsuredValue
+  - TradeValue
+  - UnderwritingRestrictedSumInsured

@@ -1,0 +1,20 @@
+type: string
+title: Employee Information Financial Amount Item Type Code Content Type
+description: TBD
+enum:
+  - AnnualEarnings
+  - AnnualSalaryDisability
+  - AnnualSalaryReview
+  - CurrentAssets
+  - CurrentLiabilities
+  - Expense
+  - FortnightlyEarnings
+  - GrossIncome
+  - MonthlyEarnings
+  - NetAssets
+  - NetIncome
+  - QuarterlyEarnings
+  - RentalIncome
+  - TotalAssets
+  - TotalLiabilities
+  - WeeklyEarnings

@@ -1,0 +1,29 @@
+type: object
+title: Location References Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      attributes:
+        type: object
+        properties:
+          locationReference:
+            type: string
+      addressReferences:
+        $ref: .\addressReferences_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\locationExternalIdentifier_Type.yaml
+          - $ref: .\locationExternalIdentifier_Type.yaml
+      locationName:
+        type: string
+        maxLength: 255
+      description:
+        type: string

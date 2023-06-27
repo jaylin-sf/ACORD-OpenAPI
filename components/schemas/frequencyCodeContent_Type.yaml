@@ -1,0 +1,51 @@
+type: string
+title: FrequencyCodeContent_Type
+description: TBD
+enum:
+  - AlwaysAnyChange
+  - Annual
+  - AtExpiration
+  - AtLeastFourTimesYearly
+  - BiAnnual
+  - BiMonthly
+  - BiWeekly
+  - Daily
+  - DuringPowerInterruption
+  - EightPayments
+  - ElevenPayments
+  - EveryOtherDay
+  - FivePayments
+  - Fortnightly
+  - FourTimesWeekly
+  - FullPay
+  - Hourly
+  - LastIssuedDate
+  - MidTerm
+  - Monthly
+  - Never
+  - Nightly
+  - NineEqualPayments
+  - NonReporting
+  - NonStandard
+  - Occasional
+  - OnceOff
+  - Other
+  - PieceWork
+  - PolicyYear
+  - PremiumFinanced
+  - Quarterly
+  - Regularly
+  - RenewalOnly
+  - Required
+  - SemiAnnual
+  - SemiMonthly
+  - TenPayments
+  - ThisTransactionAndRenewal
+  - ThreePayments
+  - ThreeTimesWeekly
+  - ThreeTimesYearly
+  - TwiceDaily
+  - TwiceMonthly
+  - TwiceWeekly
+  - TwoPayments
+  - Weekly

@@ -1,0 +1,8 @@
+type: string
+title: TaxFilingStatusCodeContent_Type
+description: The Tax Filing Status Code content enumeration
+enum:
+  - MarriedJoint
+  - MarriedSeparate
+  - Single
+  - SingleHeadHousehold

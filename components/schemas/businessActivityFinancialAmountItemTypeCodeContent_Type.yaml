@@ -1,0 +1,8 @@
+type: string
+title: Business Activity Financial Amount Item Type Code Content Type
+description: TBD
+enum:
+  - FeeIncome
+  - GrossTurnover
+  - LargestGrossIncome
+  - MajorRevenueSource

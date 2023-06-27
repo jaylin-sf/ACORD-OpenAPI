@@ -1,0 +1,5 @@
+type: object
+title: Legal Address Type
+allOf:
+  - $ref: .\contactAddress_Type.yaml
+  - properties: {}

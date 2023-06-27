@@ -1,0 +1,14 @@
+type: string
+title: Operations Financial Amount Item Type Code Content Type
+description: TBD
+enum:
+  - AnnualTurnover
+  - AverageValueShipped
+  - GrossReceipts
+  - GrossSales
+  - RentalIncome
+  - TotalAssets
+  - TotalPayroll
+  - TotalRevenue
+  - TurnoverPercentage
+  - ValueShippedInternational

@@ -1,0 +1,78 @@
+type: object
+title: Employee Information
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      occupationalRatingCode:
+        $ref: .\occupationalRatingCode_Type.yaml
+      occupationRatingCodeDescription:
+        type: string
+      occupationClassCode:
+        $ref: .\occupationClassCode_Type.yaml
+      occupationDescription:
+        type: string
+        maxLength: 255
+      dependentCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      maximumEntitledTaxExemptionCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      taxFilingStatusCode:
+        $ref: .\taxFilingStatusCode_Type.yaml
+      statusCode:
+        $ref: .\employeeInformationStatusCode_Type.yaml
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\employeeInformationFinancialAmountItem_Type.yaml
+          - $ref: .\employeeInformationFinancialAmountItem_Type.yaml
+      limit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\limit_Type.yaml
+          - $ref: .\limit_Type.yaml
+      paymentTypesAndAmounts:
+        $ref: .\paymentTypesAndAmounts_Type.yaml
+      schedule:
+        $ref: .\schedule_Type.yaml
+      medicalRecordsWrittenAuthorizationOnFileIndicator:
+        type: boolean
+      socialSecurityRecordsWrittenAuthorizationOnFileIndicator:
+        type: boolean
+      physicalRestrictionsIndicator:
+        type: boolean
+      employerPaidSalaryInLieuOfCompensationIndicator:
+        type: boolean
+      employerPaidSalaryPriorToAcquistionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      ageBandAtInceptionCode:
+        $ref: .\ageBandAtInceptionCodeContent_Type.yaml
+      insuredActivityDescription:
+        type: string
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml

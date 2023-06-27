@@ -1,0 +1,8 @@
+type: string
+title: InsuredContactRoleCodeContent_Type
+description: The Contact Role Code content enumeration
+enum:
+  - ClaimContact
+  - Other
+  - PreferredContact
+  - PreferredInsuranceBuyingContact

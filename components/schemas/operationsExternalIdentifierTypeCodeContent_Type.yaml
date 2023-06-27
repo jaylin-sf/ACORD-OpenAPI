@@ -1,0 +1,7 @@
+type: string
+title: OperationsExternalIdentifierTypeCodeContent Type
+description: TBD
+enum:
+  - ANZSIC1993Code
+  - ANZSIC2006Code
+  - LMICode

@@ -1,0 +1,47 @@
+type: object
+title: Occupation Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\occupationExternalIdentifier_Type.yaml
+          - $ref: .\occupationExternalIdentifier_Type.yaml
+      previousIndicator:
+        type: boolean
+      occupationalRatingCode:
+        $ref: .\occupationalRatingCode_Type.yaml
+      occupationRatingCodeDescription:
+        type: string
+      occupationClassCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\occupationClassCode_Type.yaml
+          - $ref: .\occupationClassCode_Type.yaml
+      alternateOccupationClassCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      occupationDescription:
+        type: string
+        maxLength: 255
+      occupationPeriod:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\occupationPeriod_Type.yaml
+          - $ref: .\occupationPeriod_Type.yaml

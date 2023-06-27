@@ -1,0 +1,6 @@
+type: string
+title: Age Band At Inception Code Content Type
+description: TBD
+enum:
+  - AgeAtNextBirthday
+  - AgeAttained

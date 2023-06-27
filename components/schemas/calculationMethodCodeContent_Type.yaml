@@ -1,0 +1,19 @@
+type: string
+title: Calculation Method Code Content
+description: TBD
+enum:
+  - AgeBased
+  - Fixed
+  - InsuredDeclaredEstimate
+  - InsurerCalculation
+  - LumpSumOfSalaryUsingPercentageOfSalary
+  - MultipleOfSalary
+  - OngoingBenefitPeriod
+  - PercentageOfBenefit
+  - PercentOfSalaryOfYearsOfFutureService
+  - PercentSalary
+  - SumInsuredVsPercentOfPreDisabilityIncome
+  - SumInsuredVsPercentOfPreDisabilityIncomeWithCutOffAmount
+  - SurveyorCalculation
+  - Unitized
+  - Unknown

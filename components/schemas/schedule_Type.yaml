@@ -1,0 +1,38 @@
+type: object
+title: Schedule Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      daysPerWeekCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      workWeekTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      workDaysScheduledCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

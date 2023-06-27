@@ -1,0 +1,12 @@
+type: string
+title: Value Frequency Code Content Type
+description: TBD
+enum:
+  - BiAnnually
+  - Daily
+  - Fortnightly
+  - Monthly
+  - Other
+  - Quarterly
+  - Weekly
+  - Yearly

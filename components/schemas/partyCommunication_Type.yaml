@@ -1,0 +1,40 @@
+type: object
+title: Party Communication Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      telephone:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\telephone_Type.yaml
+          - $ref: .\telephone_Type.yaml
+      email:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\email_Type.yaml
+          - $ref: .\email_Type.yaml
+      websiteURI:
+        type: string
+        format: uri
+      mailingAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\mailingAddress_Type.yaml
+          - $ref: .\mailingAddress_Type.yaml
+      billingAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\billingAddress_Type.yaml
+          - $ref: .\billingAddress_Type.yaml
+      shippingAddress:
+        $ref: .\shippingAddress_Type.yaml
+      legalAddress:
+        $ref: .\legalAddress_Type.yaml
+      riskAddress:
+        $ref: .\riskAddress_Type.yaml
+      websiteUserId:
+        type: string

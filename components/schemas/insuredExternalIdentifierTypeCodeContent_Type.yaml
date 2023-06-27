@@ -1,0 +1,12 @@
+type: string
+title: InsuredExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - CAWCId
+  - JurisdictionId
+  - LORSCode
+  - NAICInsurerCode
+  - NAICProducerCode
+  - NCCIId
+  - OSHAId
+  - OtherId

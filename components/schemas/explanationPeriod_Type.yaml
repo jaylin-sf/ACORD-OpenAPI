@@ -1,0 +1,5 @@
+type: object
+title: Explanation Period Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties: {}

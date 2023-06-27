@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/contact_Type'
+                $ref: '#/components/schemas/organizationCommunication_Type'
         '400':
           description: Bad Request.
           content:
@@ -80,202 +80,6 @@ components:
               type: string
         extensions:
           $ref: '#/components/schemas/extensions_Type'
-    personExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: PersonExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - DriversLicenseId
-        - GovernmentId
-        - JurisdictionId
-        - LocalIdentityDocument
-        - NRIC
-        - OtherId
-        - PassportId
-        - PoliceWarrantCard
-        - TFN
-        - ValidTravelDocument
-        - VisaId
-        - WorkPermitId
-    personExternalIdentifier_Type:
-      type: object
-      title: PersonExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    personNameTypeCodeContent_Type:
-      type: string
-      title: Person Name Type Code Content Type
-      description: The type code content of the Person name
-      enum:
-        - Alias
-        - AlsoKnownAs
-        - Maiden
-        - Previous
-        - Primary
-    personTitlePrefixCodeContent_Type:
-      type: string
-      title: Person Title Prefix Code Content Type
-      description: TBD
-      enum:
-        - AdjunctProfessor
-        - Admiral
-        - Advocate
-        - Archbishop
-        - AssociateProfessor
-        - Bishop
-        - Brigadier
-        - Captain
-        - Colonel
-        - Commissioner
-        - Director
-        - Doctor
-        - Economist
-        - EstateLate
-        - Father
-        - General
-        - Honourable
-        - HonourableJudge
-        - Inspector
-        - Judge
-        - Justice
-        - Lady
-        - Lieutenant
-        - LieutenantColonel
-        - LieutenantCommander
-        - Lord
-        - Magistrate
-        - Major
-        - Minister
-        - Miss
-        - Mr
-        - MrJnr
-        - Mrs
-        - MrSnr
-        - Ms
-        - Pastor
-        - Professor
-        - ProfessorEmerita
-        - ProfessorEmeritus
-        - Psychologist
-        - Rabbi
-        - RevOrReverend
-        - Sergeant
-        - Sir
-        - Sister
-        - SnrSup
-        - Sup
-        - TheHonourable
-        - Trust
-        - Trustee
-        - Unknown
-    personName_Type:
-      type: object
-      title: Person Name Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
-            indexName:
-              type: string
-              maxLength: 255
-            fullName:
-              type: string
-              maxLength: 255
-            surname:
-              type: string
-              maxLength: 255
-            givenName:
-              type: string
-              maxLength: 255
-            otherGivenName:
-              type: string
-              maxLength: 255
-            combinedGivenNames:
-              type: string
-              maxLength: 255
-            personTitlePrefix:
-              type: string
-              maxLength: 255
-            personTitlePrefixCode:
-              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
-            nameSuffix:
-              type: string
-              maxLength: 255
-            nickname:
-              type: string
-              maxLength: 255
-            initials:
-              type: string
-              maxLength: 255
-    personReferences_Type:
-      type: object
-      title: PersonReference Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            personReference:
-              type: string
-        externalIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personExternalIdentifier_Type'
-            - $ref: '#/components/schemas/personExternalIdentifier_Type'
-        personName:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personName_Type'
-            - $ref: '#/components/schemas/personName_Type'
-    contactRoleCodeContent_Type:
-      type: string
-      title: ContactRoleCodeContent Type
-      description: The Contact Role Code content enumeration
-      enum:
-        - Authorization
-        - Broker
-        - ClaimContact
-        - ClaimHandler
-        - Insured
-        - Insurer
-        - LegalOfficer
-        - Other
-        - PreferredContact
-        - PreferredInsuranceBuyingContact
-        - Processor
-        - Underwriter
     contactPeriod_Type:
       type: object
       title: Contact Period Type
@@ -555,6 +359,285 @@ components:
               type: string
             postalNationalSortPlan:
               type: string
+    billingAddress_Type:
+      type: object
+      title: Billing Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    shippingAddress_Type:
+      type: object
+      title: Shipping Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    legalAddress_Type:
+      type: object
+      title: Legal Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    riskAddress_Type:
+      type: object
+      title: Risk Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    partyCommunication_Type:
+      type: object
+      title: Party Communication Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            telephone:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/telephone_Type'
+                - $ref: '#/components/schemas/telephone_Type'
+            email:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/email_Type'
+                - $ref: '#/components/schemas/email_Type'
+            websiteURI:
+              type: string
+              format: uri
+            mailingAddress:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/mailingAddress_Type'
+                - $ref: '#/components/schemas/mailingAddress_Type'
+            billingAddress:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/billingAddress_Type'
+                - $ref: '#/components/schemas/billingAddress_Type'
+            shippingAddress:
+              $ref: '#/components/schemas/shippingAddress_Type'
+            legalAddress:
+              $ref: '#/components/schemas/legalAddress_Type'
+            riskAddress:
+              $ref: '#/components/schemas/riskAddress_Type'
+            websiteUserId:
+              type: string
+    principalAddress_Type:
+      type: object
+      title: Principal Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    branchOfficeAddress_Type:
+      type: object
+      title: Branch Office Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    physicalAddress_Type:
+      type: object
+      title: Physical Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    personExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: PersonExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - DriversLicenseId
+        - GovernmentId
+        - JurisdictionId
+        - LocalIdentityDocument
+        - NRIC
+        - OtherId
+        - PassportId
+        - PoliceWarrantCard
+        - TFN
+        - ValidTravelDocument
+        - VisaId
+        - WorkPermitId
+    personExternalIdentifier_Type:
+      type: object
+      title: PersonExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    personNameTypeCodeContent_Type:
+      type: string
+      title: Person Name Type Code Content Type
+      description: The type code content of the Person name
+      enum:
+        - Alias
+        - AlsoKnownAs
+        - Maiden
+        - Previous
+        - Primary
+    personTitlePrefixCodeContent_Type:
+      type: string
+      title: Person Title Prefix Code Content Type
+      description: TBD
+      enum:
+        - AdjunctProfessor
+        - Admiral
+        - Advocate
+        - Archbishop
+        - AssociateProfessor
+        - Bishop
+        - Brigadier
+        - Captain
+        - Colonel
+        - Commissioner
+        - Director
+        - Doctor
+        - Economist
+        - EstateLate
+        - Father
+        - General
+        - Honourable
+        - HonourableJudge
+        - Inspector
+        - Judge
+        - Justice
+        - Lady
+        - Lieutenant
+        - LieutenantColonel
+        - LieutenantCommander
+        - Lord
+        - Magistrate
+        - Major
+        - Minister
+        - Miss
+        - Mr
+        - MrJnr
+        - Mrs
+        - MrSnr
+        - Ms
+        - Pastor
+        - Professor
+        - ProfessorEmerita
+        - ProfessorEmeritus
+        - Psychologist
+        - Rabbi
+        - RevOrReverend
+        - Sergeant
+        - Sir
+        - Sister
+        - SnrSup
+        - Sup
+        - TheHonourable
+        - Trust
+        - Trustee
+        - Unknown
+    personName_Type:
+      type: object
+      title: Person Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+            surname:
+              type: string
+              maxLength: 255
+            givenName:
+              type: string
+              maxLength: 255
+            otherGivenName:
+              type: string
+              maxLength: 255
+            combinedGivenNames:
+              type: string
+              maxLength: 255
+            personTitlePrefix:
+              type: string
+              maxLength: 255
+            personTitlePrefixCode:
+              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
+            nameSuffix:
+              type: string
+              maxLength: 255
+            nickname:
+              type: string
+              maxLength: 255
+            initials:
+              type: string
+              maxLength: 255
+    personReferences_Type:
+      type: object
+      title: PersonReference Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            personReference:
+              type: string
+        externalIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personExternalIdentifier_Type'
+            - $ref: '#/components/schemas/personExternalIdentifier_Type'
+        personName:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personName_Type'
+            - $ref: '#/components/schemas/personName_Type'
+    contactRoleCodeContent_Type:
+      type: string
+      title: ContactRoleCodeContent Type
+      description: The Contact Role Code content enumeration
+      enum:
+        - Authorization
+        - Broker
+        - ClaimContact
+        - ClaimHandler
+        - Insured
+        - Insurer
+        - LegalOfficer
+        - Other
+        - PreferredContact
+        - PreferredInsuranceBuyingContact
+        - Processor
+        - Underwriter
     contact_Type:
       type: object
       title: Contact Type
@@ -579,6 +662,32 @@ components:
                 - $ref: '#/components/schemas/email_Type'
             mailingAddress:
               $ref: '#/components/schemas/mailingAddress_Type'
+    organizationCommunication_Type:
+      type: object
+      title: Organization Communication Type
+      allOf:
+        - $ref: '#/components/schemas/partyCommunication_Type'
+        - properties:
+            principalAddress:
+              $ref: '#/components/schemas/principalAddress_Type'
+            branchOfficeAddress:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/branchOfficeAddress_Type'
+                - $ref: '#/components/schemas/branchOfficeAddress_Type'
+            physicalAddress:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/physicalAddress_Type'
+                - $ref: '#/components/schemas/physicalAddress_Type'
+            contact:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/contact_Type'
+                - $ref: '#/components/schemas/contact_Type'
     apiError_Type:
       type: object
       title: API Error Details

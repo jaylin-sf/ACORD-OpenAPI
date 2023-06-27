@@ -1,0 +1,32 @@
+type: object
+title: Insured Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      insuredTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuredContact_Type.yaml
+          - $ref: .\insuredContact_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuredExternalIdentifier_Type.yaml
+          - $ref: .\insuredExternalIdentifier_Type.yaml

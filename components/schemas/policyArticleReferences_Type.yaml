@@ -1,0 +1,25 @@
+type: object
+title: Policy Article References Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyArticleReference:
+        type: string
+  articleClassCode:
+    $ref: .\articleClassCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  articleClassName:
+    type: string
+    maxLength: 255
+  locationReferences:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\locationReferences_Type.yaml
+      - $ref: .\locationReferences_Type.yaml

@@ -1,0 +1,9 @@
+type: string
+title: Import Export Item Information Question Code Content Type
+description: TBD
+enum:
+  - ExportInformation001
+  - ExportInformation002
+  - ExportInformation003
+  - ExportInformation004
+  - ExportInformation005

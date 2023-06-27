@@ -1,0 +1,87 @@
+type: object
+title: Limit Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\limitTypeCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      limitAppliesCode:
+        $ref: .\limitAppliesCode_Type.yaml
+      valuationTypeCode:
+        $ref: .\valuationTypeCode_Type.yaml
+      valuationTypeCodeDescription:
+        type: string
+      description:
+        type: string
+      limitAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      requestedLimitAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      limitFactor:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      limitPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      limitMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      limitDuration:
+        type: string
+        format: duration
+      calculationMethodCode:
+        $ref: .\calculationMethodCode_Type.yaml
+      calculationMethodDuration:
+        type: string
+        format: duration
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      limitReferralIndicator:
+        type: boolean
+      subLimitCode:
+        $ref: .\subLimitCode_Type.yaml
+      subLimitCodeDescription:
+        type: string
+      effectiveDate:
+        type: string
+        format: date

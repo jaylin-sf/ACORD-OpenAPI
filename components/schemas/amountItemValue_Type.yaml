@@ -1,0 +1,42 @@
+type: object
+title: Amount Item Value Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      financialPeriodCode:
+        $ref: .\financialPeriodCode_Type.yaml
+      domesticForeignCode:
+        $ref: .\domesticForeignCode_Type.yaml
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      description:
+        type: string
+      itemAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      itemPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

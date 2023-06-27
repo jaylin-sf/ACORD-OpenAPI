@@ -1,0 +1,10 @@
+type: string
+title: OccupationExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - ANZSCO2006
+  - ANZSCO2009
+  - ANZSCO2013
+  - ANZSIC1993Code
+  - ANZSIC2006Code
+  - ONET

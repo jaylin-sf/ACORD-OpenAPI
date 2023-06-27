@@ -1,0 +1,24 @@
+type: object
+title: Business Activity Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\businessActivityTypeCode_Type.yaml
+      description:
+        type: string
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\businessActivityFinancialAmountItem_Type.yaml
+          - $ref: .\businessActivityFinancialAmountItem_Type.yaml
+      fiscalYearPeriod:
+        $ref: .\fiscalYearPeriod_Type.yaml
+      largestClientIndicator:
+        type: boolean
+      businessActivityPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

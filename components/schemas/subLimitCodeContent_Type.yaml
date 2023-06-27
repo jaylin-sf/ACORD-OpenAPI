@@ -1,0 +1,31 @@
+type: string
+title: Sub Limit Code Content
+description: TBD
+enum:
+  - AccessPrevention
+  - AccidentalDamage
+  - AccountsReceivable
+  - BurglaryTheft
+  - ClaimsPreparationCosts
+  - CostClearingDrains
+  - CustomersSuppliers
+  - DebrisRemoval
+  - DutyLiability
+  - ExpeditingExpenses
+  - ExtraCostReinstatement
+  - Glass
+  - HumanInfectiousDisease
+  - IncreasedCostOfWorking
+  - Landscaping
+  - LostLandValue
+  - LostRentReceivable
+  - MakeEnquiries
+  - Money
+  - Other
+  - PersonalPropertyEmployeeDirector
+  - ProfessionalFees
+  - PropertyOpenAir
+  - PublicUtilities
+  - RecordRewriting
+  - TheftOpenAir
+  - UnpackingExpenses

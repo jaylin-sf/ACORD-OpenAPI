@@ -1,0 +1,7 @@
+type: string
+title: Domestic Foreign Code Content Type
+description: TBD
+enum:
+  - Domestic
+  - DomesticAndForeign
+  - Foreign

@@ -1,0 +1,9 @@
+type: object
+title: ReferencedPartyRole_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      organizationReferences:
+        $ref: .\organizationReferences_Type.yaml
