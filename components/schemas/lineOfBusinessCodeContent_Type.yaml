@@ -1,0 +1,48 @@
+type: string
+title: Line Of Business Code Content Type
+description: The unrestricted LineOfBusinessCode List
+enum:
+  - Accident
+  - AccidentHealth
+  - Agriculture
+  - Annuity
+  - BankersBlanketBond
+  - BusinessOwners
+  - Cargo
+  - Combined
+  - CommercialPackage
+  - CommercialProperty
+  - CommercialVehicle
+  - ConsumerFinanceProtection
+  - Contingency
+  - CyberLiability
+  - DirectorsAndOfficers
+  - EmployersLiability
+  - Engineering
+  - ExtendedWarranty
+  - FarmPackage
+  - GeneralLiability
+  - Health
+  - InlandMarine
+  - InvestmentLinkedPlan
+  - ISR
+  - KidnapAndRansom
+  - Liability
+  - Life
+  - MedicalMalpractice
+  - OceanMarine
+  - Package
+  - PersonalPackage
+  - PersonalProperty
+  - PersonalVehicle
+  - Pet
+  - ProductRecall
+  - ProfessionalIndemnity
+  - SpecifiedBusinessArticles
+  - SpecifiedPersonalArticles
+  - Surety
+  - TermLife
+  - Travel
+  - Watercraft
+  - WorkersCompensation
+  - Yacht
