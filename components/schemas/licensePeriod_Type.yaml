@@ -1,0 +1,12 @@
+type: object
+title: LicensePeriod_Type
+properties:
+  startDate:
+    type: string
+    format: date
+  endDate:
+    type: string
+    format: date
+  periodDuration:
+    type: string
+    format: duration

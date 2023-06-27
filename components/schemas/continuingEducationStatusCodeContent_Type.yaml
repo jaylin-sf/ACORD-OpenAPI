@@ -1,0 +1,8 @@
+type: string
+title: ContinuingEducationStatusCodeContent_Type
+description: TBD
+enum:
+  - Expired
+  - InCompliance
+  - NotInCompliance
+  - Pending

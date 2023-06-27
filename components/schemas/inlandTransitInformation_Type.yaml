@@ -1,0 +1,5 @@
+type: object
+title: InlandTransitInformation_Type
+allOf:
+  - $ref: .\importExportInformation_Type.yaml
+  - properties: {}

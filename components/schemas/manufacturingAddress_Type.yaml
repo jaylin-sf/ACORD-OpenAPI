@@ -1,0 +1,5 @@
+type: object
+title: Manufacturing Address Type
+allOf:
+  - $ref: .\contactAddress_Type.yaml
+  - properties: {}

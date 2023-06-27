@@ -1,0 +1,22 @@
+type: string
+title: Job Category Code Content Type
+description: TBD
+enum:
+  - CashNegotiableInstruments
+  - Clerical
+  - Contract
+  - Director
+  - Executive
+  - HIredLabour
+  - Manager
+  - Other
+  - OtherQualified
+  - Principal
+  - PrincipalsPartnersDirectors
+  - Regular
+  - Representative
+  - SalesOrService
+  - ShiftWorker
+  - Storemen
+  - Subcontractor
+  - Trainee

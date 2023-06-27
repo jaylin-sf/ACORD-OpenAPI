@@ -1,0 +1,12 @@
+type: string
+title: LicenseStatusCodeContent_Type
+description: TBD
+enum:
+  - Active
+  - Expired
+  - Inactive
+  - LapsedIntentionally
+  - Pending
+  - Revoked
+  - Suspended
+  - Temporary

@@ -1,0 +1,5 @@
+type: object
+title: Professional License
+allOf:
+  - $ref: .\license_Type.yaml
+  - properties: {}

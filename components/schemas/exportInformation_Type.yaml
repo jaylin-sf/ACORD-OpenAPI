@@ -1,0 +1,5 @@
+type: object
+title: ExportInformation_Type
+allOf:
+  - $ref: .\importExportItemInformation_Type.yaml
+  - properties: {}

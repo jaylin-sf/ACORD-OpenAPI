@@ -1,0 +1,111 @@
+type: object
+title: License Information
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      licenseNumberId:
+        type: string
+        maxLength: 255
+      licensePeriod:
+        $ref: .\licensePeriod_Type.yaml
+      description:
+        type: string
+      statusCode:
+        $ref: .\licenseStatusCode_Type.yaml
+      statusDescription:
+        type: string
+        maxLength: 255
+      statusReasonCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      statusReasonDescription:
+        type: string
+      issueDate:
+        type: string
+        format: date
+      renewalDate:
+        type: string
+        format: date
+      licenseClassCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      licenseClassDescription:
+        type: string
+      licenseAgencyName:
+        type: string
+        maxLength: 255
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      stateOrProvinceName:
+        type: string
+        maxLength: 255
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryName:
+        type: string
+        maxLength: 255
+      suspensionReinstatement:
+        $ref: .\suspensionReinstatement_Type.yaml
+      continuingEducation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\continuingEducation_Type.yaml
+          - $ref: .\continuingEducation_Type.yaml
+      asOfDate:
+        type: string
+        format: date
+      driversLicenseVehicleRestrictionsCode:
+        $ref: .\driversLicenseVehicleRestrictionsCode_Type.yaml
+      driversLicenseDriverRestrictionsCode:
+        $ref: .\driversLicenseDriverRestrictionsCode_Type.yaml

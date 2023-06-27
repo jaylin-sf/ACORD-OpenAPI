@@ -1,0 +1,8 @@
+type: string
+title: Drivers License Vehicle Restrictions Code Content Type
+description: These are additional details that we require about the drivers license
+enum:
+  - AutomaticTransmissionOnly
+  - ElectricallyPoweredOnly
+  - None
+  - PhysicallyDisabled

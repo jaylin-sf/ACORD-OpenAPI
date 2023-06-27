@@ -1,0 +1,15 @@
+type: object
+title: Suspension Reinstatement
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      suspensionRevocationDate:
+        type: string
+        format: date
+      suspensionRevocationReasonCode:
+        $ref: .\suspensionRevocationReasonCode_Type.yaml
+      suspensionPeriod:
+        $ref: .\suspensionPeriod_Type.yaml
+      reinstatementDate:
+        type: string
+        format: date

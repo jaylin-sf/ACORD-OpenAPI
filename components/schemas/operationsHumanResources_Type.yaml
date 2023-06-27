@@ -1,0 +1,17 @@
+type: object
+title: Operations Human Resources Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\operationsHumanResourcesTypeCode_Type.yaml
+      jobCategoryCode:
+        $ref: .\jobCategoryCode_Type.yaml
+      jobCategoryDescription:
+        type: string
+        maxLength: 255
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

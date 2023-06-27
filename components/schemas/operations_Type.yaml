@@ -1,0 +1,162 @@
+type: object
+title: Operations Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      manufacturingAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\manufacturingAddress_Type.yaml
+          - $ref: .\manufacturingAddress_Type.yaml
+      operationsAddress:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsAddress_Type.yaml
+          - $ref: .\operationsAddress_Type.yaml
+      operationsStartDate:
+        type: string
+        format: date
+      operationsPeriod:
+        $ref: .\operationsPeriod_Type.yaml
+      activeIndicator:
+        type: boolean
+      operationsScopeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      description:
+        type: string
+      professionalLicense:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\professionalLicense_Type.yaml
+          - $ref: .\professionalLicense_Type.yaml
+      humanResources:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsHumanResources_Type.yaml
+          - $ref: .\operationsHumanResources_Type.yaml
+      shiftDuration:
+        type: string
+        format: duration
+      operatingDaysPerWeekCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      domesticLocationCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      foreignLocationCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsFinancialAmountItem_Type.yaml
+          - $ref: .\operationsFinancialAmountItem_Type.yaml
+      businessActivity:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\businessActivity_Type.yaml
+          - $ref: .\businessActivity_Type.yaml
+      businessPrincipal:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\businessPrincipal_Type.yaml
+          - $ref: .\businessPrincipal_Type.yaml
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\contact_Type.yaml
+          - $ref: .\contact_Type.yaml
+      primaryInsuredPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      exportInformation:
+        $ref: .\exportInformation_Type.yaml
+      importInformation:
+        $ref: .\importInformation_Type.yaml
+      inlandTransitInformation:
+        $ref: .\inlandTransitInformation_Type.yaml
+      alternateOperationsTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      alternateOperationsSubTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      insuredSegmentName:
+        type: string
+        maxLength: 255
+      insuredSegmentDescription:
+        type: string
+      regionLimit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\regionLimit_Type.yaml
+          - $ref: .\regionLimit_Type.yaml
+      operationsPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsQuestionAnswer_Type.yaml
+          - $ref: .\operationsQuestionAnswer_Type.yaml
+      typeCode:
+        $ref: .\operationsTypeCode_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\operationsExternalIdentifier_Type.yaml
+          - $ref: .\operationsExternalIdentifier_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml

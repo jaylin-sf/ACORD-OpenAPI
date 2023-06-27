@@ -1,0 +1,14 @@
+type: string
+title: Operations Human Resources Type Code Content Type
+description: TBD
+enum:
+  - Contract
+  - FullTime
+  - FullTimeAndPartTime
+  - PartTime
+  - Peak
+  - Resigned
+  - Seasonal
+  - Temporary
+  - Terminated
+  - Total
