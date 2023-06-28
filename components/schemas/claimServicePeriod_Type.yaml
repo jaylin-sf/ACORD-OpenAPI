@@ -1,0 +1,11 @@
+type: object
+title: Claim Service Period Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      startDate:
+        type: string
+        format: date
+      endDate:
+        type: string
+        format: date

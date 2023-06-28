@@ -1,0 +1,19 @@
+type: string
+title: ClaimTransaction Amount Item Type Code Content Type
+description: TBD
+enum:
+  - AmountClaimed
+  - AmountPaid
+  - AmountPreviouslyPaid
+  - AmountToBePaid
+  - Benefit
+  - CancelledPayment
+  - Expense
+  - Gross
+  - Incurred
+  - OriginalEstimate
+  - OutstandingReserve
+  - Payment
+  - Recovery
+  - RecurringBenefit
+  - Reinsurance

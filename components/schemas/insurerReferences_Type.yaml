@@ -1,0 +1,16 @@
+type: object
+title: Insurer Reference Type
+properties:
+  attributes:
+    type: object
+    properties:
+      insurerReference:
+        type: string
+  organizationReferences:
+    $ref: .\organizationReferences_Type.yaml
+  externalIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\insurerExternalIdentifier_Type.yaml
+      - $ref: .\insurerExternalIdentifier_Type.yaml

@@ -1,0 +1,36 @@
+type: object
+title: Claim Amount Item Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\claimAmountItemTypeCode_Type.yaml
+      itemAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      VATInclusiveIndicator:
+        type: boolean
+      insuredReferences:
+        $ref: .\insuredReferences_Type.yaml
+      claimPartyReferences:
+        $ref: .\claimPartyReferences_Type.yaml
+      toAccount:
+        $ref: .\toAccount_Type.yaml
+      conversionRateDetail:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\conversionRateDetail_Type.yaml
+          - $ref: .\conversionRateDetail_Type.yaml

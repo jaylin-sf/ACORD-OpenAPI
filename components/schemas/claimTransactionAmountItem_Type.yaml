@@ -1,0 +1,31 @@
+type: object
+title: ClaimTransaction Amount Item Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\claimTransactionAmountItemTypeCode_Type.yaml
+      claimAmountDate:
+        type: string
+        format: date
+      claimAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimAmountItem_Type.yaml
+          - $ref: .\claimAmountItem_Type.yaml
+      payment:
+        $ref: .\payment_Type.yaml
+      paymentScheduledDate:
+        type: string
+        format: date
+      claimServicePeriod:
+        $ref: .\claimServicePeriod_Type.yaml
+      bankAccount:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\bankAccount_Type.yaml
+          - $ref: .\bankAccount_Type.yaml

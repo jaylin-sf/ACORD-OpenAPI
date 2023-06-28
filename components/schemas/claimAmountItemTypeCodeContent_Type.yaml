@@ -1,0 +1,53 @@
+type: string
+title: Claim Amount Item Type Code Content Type
+description: TBD
+enum:
+  - AdjusterFee
+  - Adjustment
+  - AdjustmentExpense
+  - AmountReceived
+  - AmountToBePaid
+  - AmountToBeReceived
+  - AttorneyFee
+  - Ceded
+  - Countermand
+  - DefenceFee
+  - Excess
+  - Expense
+  - Fee
+  - FeeBEVATExempt
+  - FeeChange
+  - FeeEUApplied
+  - FeeEUVAT
+  - FeeNoEUVATApplied
+  - FeeTotal
+  - FinalPayment
+  - FutureCaringServices
+  - FutureEconomicLoss
+  - FutureMedicalHospital
+  - GeneralDamages
+  - Gross
+  - Indemnity
+  - IndemnityChange
+  - IndemnityTotal
+  - Interest
+  - Investigation
+  - LossReserve
+  - ManagementEntityFee
+  - Net
+  - Offset
+  - Other
+  - OwnDamage
+  - PastEconomicLoss
+  - PastMedicalHospital
+  - Payment
+  - Recover
+  - Salvage
+  - SalvageSubrogationRecovery
+  - StopPayment
+  - Tax
+  - ThirdParty
+  - ThirdPartyAdministratorFee
+  - Total
+  - Transferred
+  - VoidedCheckDraft

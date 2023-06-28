@@ -1,0 +1,8 @@
+type: string
+title: Bank Account Type Code Content
+description: TBD
+enum:
+  - Checking
+  - Credit
+  - Debit
+  - Savings

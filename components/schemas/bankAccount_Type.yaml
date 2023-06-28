@@ -1,0 +1,66 @@
+type: object
+title: BankAccount_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\bankAccountTypeCode_Type.yaml
+      accountName:
+        type: string
+        maxLength: 255
+      primaryIndicator:
+        type: boolean
+      accountNumberId:
+        type: string
+        maxLength: 255
+      routingNumberId:
+        type: string
+        maxLength: 255
+      bankBSBNumber:
+        type: string
+        maxLength: 255
+      BPAYBillerId:
+        type: string
+        maxLength: 255
+      cardExpirationYearMonth:
+        type: string
+        pattern: YYYYMM
+      cardSecurityId:
+        type: string
+        maxLength: 255
+      creditAccountName:
+        type: string
+        maxLength: 255
+      continuousAuthorityIndicator:
+        type: boolean
+      continuousAuthorityDate:
+        type: string
+        format: date
+      accountHolder:
+        $ref: .\accountHolder_Type.yaml
+      electronicServiceURI:
+        type: string
+        format: uri
+      bankName:
+        type: string
+        maxLength: 255
+      branchName:
+        type: string
+        maxLength: 255
+      currencyCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

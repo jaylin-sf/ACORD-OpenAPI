@@ -1,0 +1,15 @@
+type: object
+title: InsuredRole_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      roleCode:
+        $ref: .\insuredBusinessRelationshipRoleCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      insuredReferences:
+        $ref: .\insuredReferences_Type.yaml

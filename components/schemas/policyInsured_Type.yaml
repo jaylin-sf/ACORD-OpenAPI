@@ -1,0 +1,17 @@
+type: object
+title: Policy Insured Information
+allOf:
+  - $ref: .\insuredRole_Type.yaml
+  - properties:
+      creditScorePermissionIndicator:
+        type: boolean
+      creditScoreObtainedIndicator:
+        type: boolean
+      accidentHealth:
+        $ref: .\accidentHealth_Type.yaml
+      insured:
+        $ref: .\insured_Type.yaml
+      insuredPeriod:
+        $ref: .\insuredPeriod_Type.yaml
+      sanctionCheckIndicator:
+        type: boolean

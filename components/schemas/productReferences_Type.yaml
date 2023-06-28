@@ -1,0 +1,20 @@
+type: object
+title: Product References Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      productName:
+        type: string
+        maxLength: 255
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\productExternalIdentifier_Type.yaml
+          - $ref: .\productExternalIdentifier_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml

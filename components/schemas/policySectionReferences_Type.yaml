@@ -1,0 +1,21 @@
+type: object
+title: PolicySectionReferences_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      attributes:
+        type: object
+        properties:
+          policySectionReference:
+            type: string
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml

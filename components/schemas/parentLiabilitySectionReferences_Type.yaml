@@ -1,0 +1,26 @@
+type: object
+title: Parent Liability Section References
+properties:
+  attributes:
+    type: object
+    properties:
+      liabilitySectionReference:
+        type: string
+  typeCode:
+    $ref: .\liabilitySectionTypeCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  insurancePeriod:
+    $ref: .\insurancePeriod_Type.yaml
+  effectiveDate:
+    type: string
+    format: date
+  cancellationDate:
+    type: string
+    format: date
+  parentPolicySectionReferences:
+    $ref: .\parentPolicySectionReferences_Type.yaml

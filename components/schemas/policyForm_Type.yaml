@@ -1,0 +1,38 @@
+type: object
+title: Policy Form
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      formName:
+        type: string
+        maxLength: 255
+      formDescription:
+        type: string
+        maxLength: 255
+      formText:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\formText_Type.yaml
+          - $ref: .\formText_Type.yaml
+      insuranceAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuranceAmountItem_Type.yaml
+          - $ref: .\insuranceAmountItem_Type.yaml
+      completionDate:
+        type: string
+        format: date
+      editionDate:
+        type: string
+        format: date
+      editionYearMonth:
+        type: string
+        pattern: YYYYMM

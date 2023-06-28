@@ -1,0 +1,30 @@
+type: object
+title: Conversion Rate Detail
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      targetCurrencyCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      exchangeRate:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      insuranceAmountItem:
+        $ref: .\insuranceAmountItem_Type.yaml
+      claimTransactionAmountItem:
+        $ref: .\claimTransactionAmountItem_Type.yaml
+      effectiveDate:
+        type: string
+        format: date

@@ -1,0 +1,12 @@
+type: object
+title: Interested Party Reference Type
+properties:
+  attributes:
+    type: object
+    properties:
+      interestedPartyReference:
+        type: string
+  personReferences:
+    $ref: .\personReferences_Type.yaml
+  organizationReferences:
+    $ref: .\organizationReferences_Type.yaml

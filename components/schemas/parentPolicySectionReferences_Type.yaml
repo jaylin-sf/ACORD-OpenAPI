@@ -1,0 +1,5 @@
+type: object
+title: Parent Policy Section References Type
+allOf:
+  - $ref: .\policySectionReferences_Type.yaml
+  - properties: {}

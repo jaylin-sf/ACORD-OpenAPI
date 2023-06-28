@@ -1,0 +1,9 @@
+type: object
+title: Scheme References Type
+properties:
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml

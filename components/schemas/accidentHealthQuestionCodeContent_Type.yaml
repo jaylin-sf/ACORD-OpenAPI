@@ -1,0 +1,15 @@
+type: string
+title: Accident Health Question Code Content Type
+description: TBD
+enum:
+  - AccidentHealth001
+  - AccidentHealth002
+  - AccidentHealth003
+  - AccidentHealth004
+  - AccidentHealth005
+  - AccidentHealth006
+  - AccidentHealth007
+  - AccidentHealth008
+  - AccidentHealth009
+  - AccidentHealth010
+  - AccidentHealth011

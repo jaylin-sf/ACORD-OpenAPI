@@ -1,0 +1,16 @@
+type: object
+title: ClaimPartyReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      claimPartyReference:
+        type: string
+  roleCode:
+    $ref: .\interestedPartyRoleCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml

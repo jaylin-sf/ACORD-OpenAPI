@@ -1,0 +1,20 @@
+type: string
+title: InsuredBusinessRelationshipRoleCodeContent_Type
+description: TBD
+enum:
+  - AdditionalNamedInsured
+  - Applicant
+  - Beneficiary
+  - Child
+  - CoApplicant
+  - Coinsured
+  - DomesticEmployee
+  - Family
+  - FirstNamedInsured
+  - Insured
+  - Owner
+  - Parent
+  - PolicyHolder
+  - Reinsured
+  - Sibling
+  - Spouse

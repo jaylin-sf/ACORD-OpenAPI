@@ -1,0 +1,5 @@
+type: string
+title: ProductExternalIdentifierTypeCodeContent Type
+description: TBD
+enum:
+  - ToBeConfirmed

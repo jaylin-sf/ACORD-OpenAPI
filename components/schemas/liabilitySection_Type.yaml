@@ -1,0 +1,84 @@
+type: object
+title: Liability SectionType
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      originalInceptionDate:
+        type: string
+        format: date
+      statusCode:
+        $ref: .\policyStatusCode_Type.yaml
+      policyInsurerReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyInsurerReferences_Type.yaml
+          - $ref: .\policyInsurerReferences_Type.yaml
+      policyProducerReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyProducerReferences_Type.yaml
+          - $ref: .\policyProducerReferences_Type.yaml
+      description:
+        type: string
+      policyForm:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyForm_Type.yaml
+          - $ref: .\policyForm_Type.yaml
+      insuranceAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuranceAmountItem_Type.yaml
+          - $ref: .\insuranceAmountItem_Type.yaml
+      coverage:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\liabilitySectionCoverage_Type.yaml
+          - $ref: .\liabilitySectionCoverage_Type.yaml
+      limit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\limit_Type.yaml
+          - $ref: .\limit_Type.yaml
+      deductible:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\deductible_Type.yaml
+          - $ref: .\deductible_Type.yaml
+      lossHistory:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\lossHistory_Type.yaml
+          - $ref: .\lossHistory_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\liabilitySectionQuestionAnswer_Type.yaml
+          - $ref: .\liabilitySectionQuestionAnswer_Type.yaml
+      typeCode:
+        $ref: .\liabilitySectionTypeCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      insurancePeriod:
+        $ref: .\insurancePeriod_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      cancellationDate:
+        type: string
+        format: date
+      parentPolicySectionReferences:
+        $ref: .\parentPolicySectionReferences_Type.yaml

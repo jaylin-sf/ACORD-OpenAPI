@@ -1,0 +1,20 @@
+type: object
+title: Policy Interested Party References Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyInterestedPartyReference:
+        type: string
+  roleCode:
+    $ref: .\interestedPartyRoleCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  interestedPartyReferences:
+    $ref: .\interestedPartyReferences_Type.yaml
+  interestedPartyPeriod:
+    $ref: .\interestedPartyPeriod_Type.yaml

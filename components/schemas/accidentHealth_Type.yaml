@@ -1,0 +1,17 @@
+type: object
+title: Accident Health Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      policyInterestedPartyReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyInterestedPartyReferences_Type.yaml
+          - $ref: .\policyInterestedPartyReferences_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\accidentHealthQuestionAnswer_Type.yaml
+          - $ref: .\accidentHealthQuestionAnswer_Type.yaml

@@ -1,0 +1,15 @@
+type: string
+title: LiabilitySectionTypeCodeContent_Type
+description: TBD
+enum:
+  - Articles
+  - CUP
+  - CyberLiability
+  - EmployersLiability
+  - ExtendedPersonalLegalLiability
+  - ImageProtector
+  - LegalPlan
+  - Maid
+  - PersonalLegalLiability
+  - PublicLiability
+  - Theft

@@ -1,0 +1,10 @@
+type: object
+title: Policy Insurer Information
+allOf:
+  - $ref: .\insurerRole_Type.yaml
+  - properties:
+      branchId:
+        type: string
+        maxLength: 255
+      insurer:
+        $ref: .\insurer_Type.yaml

@@ -1,0 +1,18 @@
+type: object
+title: Insured Reference Type
+properties:
+  attributes:
+    type: object
+    properties:
+      insuredReference:
+        type: string
+  externalIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\insuredExternalIdentifier_Type.yaml
+      - $ref: .\insuredExternalIdentifier_Type.yaml
+  personReferences:
+    $ref: .\personReferences_Type.yaml
+  organizationReferences:
+    $ref: .\organizationReferences_Type.yaml
