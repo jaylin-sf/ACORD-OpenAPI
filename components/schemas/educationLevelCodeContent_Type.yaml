@@ -1,0 +1,8 @@
+type: string
+title: Education Level Code Content
+description: TBD
+enum:
+  - BA
+  - BS
+  - HighSchool
+  - Masters

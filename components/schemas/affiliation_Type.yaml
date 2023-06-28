@@ -1,0 +1,7 @@
+type: object
+title: Affiliation Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      affiliatedOrganization:
+        $ref: .\affiliatedOrganization_Type.yaml

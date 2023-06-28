@@ -1,0 +1,5 @@
+type: object
+title: Residential Address Type
+allOf:
+  - $ref: .\contactAddress_Type.yaml
+  - properties: {}

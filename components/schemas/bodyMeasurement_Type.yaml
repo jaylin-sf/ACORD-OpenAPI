@@ -1,0 +1,106 @@
+type: object
+title: Body Measurement
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      medicalExaminationDate:
+        type: string
+        format: date
+      bodyWeight:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      bodyHeight:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      bodyMassIndex:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      bloodPressureSystolic:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      bloodPressureDiastolic:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      restingHeartRate:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      waistCircumference:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$

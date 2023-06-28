@@ -1,0 +1,9 @@
+type: string
+title: GenderCodeContent_Type
+description: The Gender Code content enumeration
+enum:
+  - Female
+  - Male
+  - NotApplicable
+  - Other
+  - Unknown

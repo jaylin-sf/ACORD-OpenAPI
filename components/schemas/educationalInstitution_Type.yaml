@@ -1,0 +1,5 @@
+type: object
+title: EducationalInstitution Type
+allOf:
+  - $ref: .\referencedOrganizationRole_Type.yaml
+  - properties: {}

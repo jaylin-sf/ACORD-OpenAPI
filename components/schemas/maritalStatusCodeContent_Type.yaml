@@ -1,0 +1,15 @@
+type: string
+title: MaritalStatusCodeContent_Type
+description: The Marital Status Code content enumeration
+enum:
+  - CivilUnion
+  - Divorced
+  - DomesticPartner
+  - Married
+  - Other
+  - Separated
+  - Single
+  - UnincorporatedAssociation
+  - Unknown
+  - Unspecified
+  - Widowed

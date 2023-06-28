@@ -1,0 +1,49 @@
+type: object
+title: Employer Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      employerCode:
+        $ref: .\employerCode_Type.yaml
+      employerDescription:
+        type: string
+        maxLength: 255
+      selfInsuredIndicator:
+        type: boolean
+      employerIsLessorIndicator:
+        type: boolean
+      specificProductsDescription:
+        type: string
+        maxLength: 255
+      employerPayrollCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      alternateOperationsTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      alternateOperationsTypeCodeDescription:
+        type: string

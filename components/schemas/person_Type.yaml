@@ -1,0 +1,119 @@
+type: object
+title: Person Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      personCommunication:
+        $ref: .\personCommunication_Type.yaml
+      businessCommunication:
+        $ref: .\businessCommunication_Type.yaml
+      genderCode:
+        $ref: .\genderCode_Type.yaml
+      maritalStatusCode:
+        $ref: .\maritalStatusCode_Type.yaml
+      deceasedIndicator:
+        type: boolean
+      nationalityCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      languageCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      occupation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\occupation_Type.yaml
+          - $ref: .\occupation_Type.yaml
+      employment:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\employment_Type.yaml
+          - $ref: .\employment_Type.yaml
+      affiliation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\affiliation_Type.yaml
+          - $ref: .\affiliation_Type.yaml
+      education:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\education_Type.yaml
+          - $ref: .\education_Type.yaml
+      creditScore:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\creditScore_Type.yaml
+          - $ref: .\creditScore_Type.yaml
+      membership:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\membership_Type.yaml
+          - $ref: .\membership_Type.yaml
+      health:
+        $ref: .\health_Type.yaml
+      childrenCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      dependantsCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      professionalLicense:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\professionalLicense_Type.yaml
+          - $ref: .\professionalLicense_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\personExternalIdentifier_Type.yaml
+          - $ref: .\personExternalIdentifier_Type.yaml
+      personName:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\personName_Type.yaml
+          - $ref: .\personName_Type.yaml
+      birthDate:
+        type: string
+        format: date
+      birthYear:
+        type: string
+        pattern: YYYY
+      deathDate:
+        type: string
+        format: date
+      deathYear:
+        type: string
+        pattern: YYYY

@@ -1,0 +1,47 @@
+type: string
+title: EmployerCodeContent_Type
+description: TBD
+enum:
+  - AccountingFirm
+  - ActuaryFirm
+  - AgronomistOffice
+  - ArchitectFirm
+  - AudioPracticianOffice
+  - BarDiscoBrasserie
+  - CharteredAdministrationFirm
+  - ChemistsOffice
+  - ChiropractorOffice
+  - College
+  - DentistOffice
+  - DenturologistOffice
+  - DieticianOffice
+  - DoctorOffice
+  - EngineeringFirm
+  - FinancialInstitution
+  - GeneralInsuranceBrokerage
+  - HighSchool
+  - Hospital
+  - HotelMotel
+  - InsuranceCompany
+  - LandSurveyorFirm
+  - LawOffice
+  - Municipality
+  - NotaryOffice
+  - OpticianOffice
+  - OptometristOffice
+  - Other
+  - ParishChurch
+  - Pharmacy
+  - PodiatristOffice
+  - PrivateSociety
+  - ProfessionalSchool
+  - PsychologistOffice
+  - Restaurant
+  - SchoolBoard
+  - SelfEmployed
+  - Seminary
+  - StockBondBrokerage
+  - Unemployed
+  - University
+  - UrbanCommunity
+  - VeterinaryOffice

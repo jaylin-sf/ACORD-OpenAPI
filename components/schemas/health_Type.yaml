@@ -1,0 +1,32 @@
+type: object
+title: Health Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      diseaseSicknessInjuryIndicator:
+        type: boolean
+      smokerIndicator:
+        type: boolean
+      healthStatusCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      healthStatusCodeDescription:
+        type: string
+      bodyMeasurement:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\bodyMeasurement_Type.yaml
+          - $ref: .\bodyMeasurement_Type.yaml

@@ -1,0 +1,19 @@
+type: object
+title: Education Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      educationalInstitution:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\educationalInstitution_Type.yaml
+          - $ref: .\educationalInstitution_Type.yaml
+      educationLevelCode:
+        $ref: .\educationLevelCode_Type.yaml
+      educationLevelYear:
+        type: string
+        pattern: YYYY
+      yearsCompletedEducationCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

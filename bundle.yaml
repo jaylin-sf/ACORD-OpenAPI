@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/organizationCommunication_Type'
+                $ref: '#/components/schemas/person_Type'
         '400':
           description: Bad Request.
           content:
@@ -424,24 +424,1637 @@ components:
               $ref: '#/components/schemas/riskAddress_Type'
             websiteUserId:
               type: string
-    principalAddress_Type:
-      type: object
-      title: Principal Address Type
-      allOf:
-        - $ref: '#/components/schemas/contactAddress_Type'
-        - properties: {}
-    branchOfficeAddress_Type:
-      type: object
-      title: Branch Office Address Type
-      allOf:
-        - $ref: '#/components/schemas/contactAddress_Type'
-        - properties: {}
     physicalAddress_Type:
       type: object
       title: Physical Address Type
       allOf:
         - $ref: '#/components/schemas/contactAddress_Type'
         - properties: {}
+    residentialAddress_Type:
+      type: object
+      title: Residential Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    personCommunication_Type:
+      type: object
+      title: Person Communication Type
+      allOf:
+        - $ref: '#/components/schemas/partyCommunication_Type'
+        - properties:
+            physicalAddress:
+              $ref: '#/components/schemas/physicalAddress_Type'
+            residentialAddress:
+              $ref: '#/components/schemas/residentialAddress_Type'
+    businessCommunication_Type:
+      type: object
+      title: Business Communication Type
+      allOf:
+        - $ref: '#/components/schemas/partyCommunication_Type'
+        - properties:
+            physicalAddress:
+              $ref: '#/components/schemas/physicalAddress_Type'
+    genderCodeContent_Type:
+      type: string
+      title: GenderCodeContent_Type
+      description: The Gender Code content enumeration
+      enum:
+        - Female
+        - Male
+        - NotApplicable
+        - Other
+        - Unknown
+    maritalStatusCodeContent_Type:
+      type: string
+      title: MaritalStatusCodeContent_Type
+      description: The Marital Status Code content enumeration
+      enum:
+        - CivilUnion
+        - Divorced
+        - DomesticPartner
+        - Married
+        - Other
+        - Separated
+        - Single
+        - UnincorporatedAssociation
+        - Unknown
+        - Unspecified
+        - Widowed
+    occupationExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: OccupationExternalIdentifierTypeCodeContent_Type
+      description: TBD
+      enum:
+        - ANZSCO2006
+        - ANZSCO2009
+        - ANZSCO2013
+        - ANZSIC1993Code
+        - ANZSIC2006Code
+        - ONET
+    occupationExternalIdentifier_Type:
+      type: object
+      title: OccupationExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/occupationExternalIdentifierTypeCodeContent_Type'
+            sourceURI:
+              type: string
+              format: uri
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    occupationalRatingCodeContent_Type:
+      type: string
+      title: Occupational Rating Code Content
+      description: TBD
+      enum:
+        - BlueCollar
+        - General
+        - Hazardous
+        - HeavyBlueCollar
+        - LightBlueCollar
+        - Management
+        - Manual
+        - Other
+        - OwnOccupation
+        - Professional
+        - ReferredDeclined
+        - Standard
+        - WhiteCollar
+    occupationClassCodeContent_Type:
+      type: string
+      title: OccupationClassCodeContent_Type
+      description: TBD
+      enum:
+        - AbattoirWorker
+        - Accountant
+        - AccountingProfessional
+        - Actor
+        - Actress
+        - Actuary
+        - AdditionalInsuredVolunteers
+        - Adjusters
+        - Administrative
+        - AdministratorDirector
+        - AdvertisingAgent
+        - Advisor
+        - Advocate
+        - AeratedWaterManufacturersAndBottlers
+        - AerialPhotographer
+        - AerialSurveyor
+        - AerobicInstructor
+        - Agent
+        - AgriculturalResearcher
+        - AgriculturalServicesOfficial
+        - Agriculturist
+        - Agronomist
+        - AirConditioningServicesWorker
+        - AircraftManufacturerRepairer
+        - AirforceMember
+        - AirlinePersonnel
+        - AirTrafficController
+        - AlarmInstaller
+        - AllOtherOfficersAndEmployeesNotListedAbove
+        - Ambassador
+        - AmbulanceDriver
+        - AmbulanceMan
+        - AmbulanceOfficialDriverParamedic
+        - AmbulanceWoman
+        - AmmunitionManufacturer
+        - AmmunitionStorer
+        - AmusementParkArtist
+        - AmusementParkSuppliersAndOwners
+        - AmusementParkWorker
+        - Anaethetist
+        - Analyst
+        - AnalystChemist
+        - AnalystDeveloper
+        - Anchorman
+        - AnimalBreeder
+        - AnimalBreederTrainerExcludingHorses
+        - AnimalCollector
+        - AnimalTrainer
+        - Animator
+        - Anthropologist
+        - Appraiser
+        - Arbitrator
+        - Architect
+        - ArmedForceMember
+        - Armourer
+        - ArmyStaffMember
+        - ArtDealer
+        - ArtDealerEmployee
+        - ArtDesigner
+        - ArtesianWellContractor
+        - ArtificialLimbManufacturer
+        - ArtificialPearlManufacturer
+        - Artisan
+        - Artist
+        - ArtistWithoutOtherProfession
+        - AsbestosDealer
+        - AsbestosPlateManufacturer
+        - AsphaltWorker
+        - Assessor
+        - Assistant
+        - AssistantGeneralManager
+        - AssistantManager
+        - Astrologist
+        - Astronomer
+        - Attorney
+        - Auctioneer
+        - AuctioneerLivestock
+        - AuctioneerNoLivestock
+        - Auditor
+        - AutoElectrician
+        - AutomobileMechanic
+        - AutomobileSalesDealer
+        - Babysitter
+        - BaconCurers
+        - Bacteriologist
+        - Bailiff
+        - BakeryEmployee
+        - BakingPowderManufacturer
+        - BalletDancer
+        - BandageManufacturers
+        - Banker
+        - BankFinancialInstitutionAdministration
+        - BankFinancialInstitutionClerical
+        - BankFinancialInstitutionManagement
+        - BarbedWireManufacturer
+        - BarberHairdresser
+        - BarkExtractManufacturer
+        - Barman
+        - BasketManufacturer
+        - BatteryManufacturer
+        - Beautician
+        - BeautyQueen
+        - BeautySalonEmployee
+        - BedManufacturer
+        - BeeFarmer
+        - BeefExtractManufacturers
+        - BeeKeeperWorker
+        - Beldame
+        - Bellhop
+        - Beveller
+        - BicycleAndAccessoriesDealer
+        - BicycleManufacturer
+        - BicyleDealerWorker
+        - BilliardTableFitter
+        - Billstickers
+        - Biochemist
+        - Biologist
+        - BirdBreedersAndPetDealers
+        - BiscuitManufacturer
+        - Blacksmith
+        - BlanketManufacturing
+        - BlastingMaterialDealerStore
+        - BlindsManufacturer
+        - Blockman
+        - BoardMember
+        - BoatBuilder
+        - Boatswain
+        - Bodyguard
+        - BoilerAndPlateMaker
+        - BoilerMaker
+        - BoltAndNutManufacturers
+        - BoltnutAndNailManufacturer
+        - BoneProcessor
+        - BookBinder
+        - Bookkeeper
+        - BookMakersClerk
+        - BoreholeContractor
+        - Boreman
+        - Botanist
+        - BottelStoreEmployee
+        - BottleAndOrGlassManufacturer
+        - Bottler
+        - Bowler
+        - BoxAndCoffinManufacturer
+        - Boxer
+        - BoxingPromotor
+        - BreweryWorker
+        - BrickLayer
+        - BrickMaker
+        - BridgeContractor
+        - BrigadeOfficer
+        - BriquetteFuelManufacturer
+        - Broker
+        - BrushMaker
+        - Builder
+        - BuildingContractor
+        - BuildingContractorNoDemolishing
+        - BuildingEngineer
+        - BuildingMaterialsDealer
+        - BuildingOwner
+        - BulldozingContractors
+        - BungyJumper
+        - BusDriverConductor
+        - BusinessAnalyst
+        - BusinessMan
+        - BusinessWoman
+        - BusOwner
+        - Butcher
+        - ButcheryEmployee
+        - Butler
+        - Buyer
+        - CabDriver
+        - CabinBoy
+        - CabinCrew
+        - CabinetMaker
+        - CableCarOperator
+        - CablewayMaster
+        - CablewayOperator
+        - CalciumCarbideManufacturer
+        - Calligrapher
+        - Cameraman
+        - CampCounsellor
+        - CandleMakerManufacturer
+        - CandleWaxAndByProductsManufacturer
+        - CanvasProductManufacturerRepairer
+        - Canvasser
+        - CapManufacturers
+        - CarbonPaperManufacturer
+        - CarDesigner
+        - Caretaker
+        - Carpenter
+        - CarpentryWoodDealers
+        - CarpetAndRugMaker
+        - CarpetBeatersAndCleaners
+        - CarpetManufacturers
+        - CarRaceCompetitor
+        - Carrier
+        - Cartographer
+        - CartonAndBoxManufacturer
+        - Cartoonist
+        - Cartwright
+        - CaseinManufacturer
+        - Cashier
+        - Caster
+        - Caterer
+        - CattleDriver
+        - CattleFeedDealers
+        - CattleFeedManufacturer
+        - CattleTrader
+        - CerealFoodsManufacturer
+        - ChainMaker
+        - Chairperson
+        - Chapman
+        - CharteredAccountant
+        - Cheesemaker
+        - Chef
+        - ChemicalEngineer
+        - Chemist
+        - Chemotherapist
+        - ChickenFeedManufacturer
+        - ChicoryProcessors
+        - ChiefFinancialOfficer
+        - ChiefInformationOfficer
+        - ChiefOfPolice
+        - ChiefSeaman
+        - ChimneySweepers
+        - Chiropodist
+        - Chiropractor
+        - ChocolateManufacturers
+        - ChordRopeAndSailThreadManufacturer
+        - Choreographer
+        - ChristmasCrackerManufacturer
+        - ChurchAdministrator
+        - ChurchReligiousOfficial
+        - ChurchSecretary
+        - CigaretteTabaccoManufacturer
+        - CircusArtist
+        - CivilEngineers
+        - CivilProtectionServices
+        - CivilService
+        - ClaimAdjuster
+        - ClassOneEmployee
+        - ClassTwoEmployee
+        - ClayDigger
+        - Cleaner
+        - CleanerOfEquipmentPlantAndMachinery
+        - Clergy
+        - Clerical
+        - Clerk
+        - Clockmaker
+        - ClothingManufacturerRepairer
+        - ClothingShopEmployee
+        - Coach
+        - Coachman
+        - CoalDealers
+        - CoastGuard
+        - Cobbler
+        - CoffeeWorks
+        - CoinAutomatOwners
+        - CoirWorksAndCarpetManufacturers
+        - CoirWorksAndMattressManufacturer
+        - CokingManufacturer
+        - Collector
+        - CollyManufacturers
+        - Columnist
+        - CombineOwner
+        - Comedian
+        - Commentator
+        - CommercialArtist
+        - CommercialTravellerRepresentative
+        - CommitteeMember
+        - CommunityWorker
+        - CompanySecretary
+        - Compasssmith
+        - ComposedFloorsManufacturerAndLayer
+        - CompressedAirCylinderRefillers
+        - Comptroller
+        - ComputerAnalystConsultantProgramr
+        - ComputerIndustryEmployee
+        - Concierge
+        - ConcreteProduct
+        - ConcreteProductManufacturer
+        - Conductor
+        - Confectioner
+        - Constable
+        - ConstructionWorker
+        - Consul
+        - Consultant
+        - ConsultantEngineers
+        - ConsultantHumanResources
+        - ConsultantOther
+        - ConsultantTraining
+        - ContinuityAnnouncer
+        - Contractor
+        - Controller
+        - Conversion
+        - Cooper
+        - CopperCaster
+        - Coppersmith
+        - Copywriter
+        - Coroner
+        - CorrectionalServicesPersonnel
+        - Correspondent
+        - CorrugatedIronManufacturers
+        - Cosmetologist
+        - Cosmonaut
+        - Costermonger
+        - CostumeDesigner
+        - CottonGrower
+        - CouncilMember
+        - Courier
+        - CourtEmployee
+        - Cowherd
+        - CPA
+        - CraftManufacturers
+        - Craftsman
+        - CreditClerk
+        - Critic
+        - Crofter
+        - CrownCorporationEmployee
+        - CruciblePowderManufacturers
+        - Cryptographer
+        - Cryptozoologist
+        - Crystallographer
+        - Cultivator
+        - Curator
+        - Currier
+        - CurtainAndOrDownBlanketManufacturer
+        - Custodian
+        - CustomsOfficer
+        - CutleryManufacturer
+        - Cutters
+        - DairyEmployee
+        - DamContractor
+        - DanceInstructor
+        - Dancer
+        - DataCapturer
+        - DaycareWorkerProvider
+        - Dealer
+        - DealerInAgriculturalImplements
+        - DebtCollector
+        - DeceasedEstate
+        - Decorator
+        - DefenceOccupations
+        - DehydratedFoodManufacturers
+        - Delivery
+        - DeliveryServiceWorker
+        - DemolisherOfBuildingsConstructions
+        - DemolitionWorkers
+        - Demonstrator
+        - DentalHygenist
+        - DentalTechnicians
+        - Dentist
+        - DepartmentalStoreEmployee
+        - DeputyLawEnforcement
+        - DeputyParliamentary
+        - Designer
+        - Detective
+        - DetonatorManufacturer
+        - Developer
+        - DiamondAndPreciousStoneCutter
+        - DieCutter
+        - DieMakers
+        - DieselMechanic
+        - DieticianNutritionist
+        - DieticiansWhoOrderFood
+        - Digger
+        - DiggerProspector
+        - Diplomat
+        - DipManufacturer
+        - Director
+        - DirectorOrPartner
+        - DisabledUnableToWork
+        - DisasterManagement
+        - Discjockey
+        - DisinfectantManufacturers
+        - Distiller
+        - Distributor
+        - Diver
+        - DiversProfessional
+        - DockWorker
+        - Doctor
+        - DogTrainer
+        - DogWalker
+        - Domainer
+        - DomesticWorker
+        - Doorman
+        - Dramatist
+        - Draper
+        - Draughtsman
+        - Drayman
+        - Dredger
+        - Dressmaker
+        - Driller
+        - DrillingContractor
+        - Driver
+        - DriverLocalDelivery
+        - DriverLongHaulMover
+        - DriverPublicTransportation
+        - DriverTaxiChauffeurInstructor
+        - DryCellBattery
+        - DryCleaningLaundryEmployee
+        - DrySoilSanitaryContractors
+        - Dyers
+        - EarthmovingServicesWorks
+        - EboniteDealer
+        - EboniteManufacturer
+        - Ecologist
+        - Economist
+        - Editor
+        - EducationAndRelatedOccupation
+        - Educationist
+        - ElectricalAccummulatorManufacturer
+        - ElectricalCableManufacturer
+        - ElectricalClockMaker
+        - ElectricalEngineer
+        - ElectricalLampManufacturer
+        - ElectricalLampshadeManufacturer
+        - ElectricalWareDealerEmployee
+        - Electrician
+        - ElectroMedicalPractitioner
+        - ElectronicEngineer
+        - ElectroPlater
+        - ElevatorAndEscalatorService
+        - ElevatorOperator
+        - Embalmer
+        - EmergencyServices
+        - Employee
+        - EmployeesAtHarvester
+        - EmployeesOnShootingRange
+        - EmployeeWorkingWithExplosives
+        - Enameller
+        - EngineDriver
+        - Engineer
+        - EngineerConstruction
+        - EngineerConsulting
+        - EngineeringWorksWorker
+        - EngineerMarineMiningAndAircraft
+        - Engraver
+        - EntertainmentField
+        - Entomologist
+        - Entrepreneur
+        - Environmentalist
+        - Ergonomist
+        - EstateAgent
+        - EstateManager
+        - Estimator
+        - Ethnologist
+        - Ethologist
+        - Excavators
+        - Exchequer
+        - ExciseOfficer
+        - Executive
+        - Exhibitors
+        - ExibitionAssociationWorker
+        - ExplosivesDealerStorer
+        - ExplosivesManufacturerContractor
+        - Expressman
+        - Exterminator
+        - Extra
+        - EyeSpecialist
+        - FabricDesigner
+        - FactoryFoodWorker
+        - FactoryWorker
+        - Factotum
+        - Falconer
+        - FanbeltManufacturer
+        - Farmer
+        - FarmForeman
+        - FarmManager
+        - FarmWorker
+        - Farrier
+        - FashionDesigner
+        - FeatherCleaners
+        - FeatherDealers
+        - FeatherFinishers
+        - FeatherSorters
+        - FeedAndProductDealers
+        - Feeder
+        - FellMonger
+        - FellMongersAndTanners
+        - FenceErector
+        - FenceWireErector
+        - FerryOwners
+        - FertilizerManufacturer
+        - FezPetMaker
+        - FibreboardManufacturers
+        - FibrePlasterboardManufacturers
+        - FieldSupervisor
+        - FilmCutter
+        - FilmIndustry
+        - FilmProducer
+        - FilmTVProgrammeManufacturer
+        - FinancialAdvisorBrokeEconomist
+        - Financier
+        - FirearmDealerEmployee
+        - FirearmManufacturer
+        - FireBrigadePersonnel
+        - FireChief
+        - Firefighter
+        - FireFightingEquipmentManufacturerInstaller
+        - FirewoodAndSplitPoleManufacturers
+        - FireworksManufacturerDisplayer
+        - FireworksStorer
+        - FirstMate
+        - FishAndGameDealers
+        - Fisherman
+        - FishmealAndCattleFeedManufacturers
+        - FishmealManufacturer
+        - FishnetAndTackleManufacturers
+        - FishProcessors
+        - FishShopEmployee
+        - FitnessHealthEmployee
+        - Fitter
+        - FitterAndTurner
+        - FlaggedOccupation
+        - FlannelManufacturer
+        - Flavorist
+        - FlightAttendant
+        - FlightController
+        - FlightCrew
+        - FlockwoolManufacturers
+        - FloorManufacturersAndLayersParquet
+        - FloorSanders
+        - Florist
+        - FloristsShopEmployee
+        - FlyingOtherThanAsAPassenger
+        - FoodIndustryOther
+        - FoodInspector
+        - FoodTechnologist
+        - Footballer
+        - ForageFeedDealerWorker
+        - ForageFeedManufacturer
+        - Foreman
+        - ForemanBossMan
+        - ForensicAnalyst
+        - ForestEmployee
+        - FortuneTeller
+        - Founders
+        - Freelancer
+        - FrenchPolishers
+        - FruitDealers
+        - Fruiterer
+        - FruitLoadingInspectorsOnShip
+        - FruitPackers
+        - FruitSaltsManufacturers
+        - FruitSyrupManufacturers
+        - Fumigator
+        - FumigatorWorker
+        - FurDealers
+        - FurnitureDealerEmployee
+        - FurnitureDealers
+        - FurnitureManufacturers
+        - FurnitureMover
+        - FurniturePolishManufacturers
+        - GameAndFishDealer
+        - GameDesigner
+        - GameWardenRanger
+        - Gardener
+        - GasDealer
+        - GasFitter
+        - GasInstaller
+        - GasManufacturer
+        - Gemcutter
+        - Genealogist
+        - GeneralContractor
+        - GeneralDealer
+        - GeneralDealerEmployee
+        - GeneralPractitioner
+        - GeographicalDesigner
+        - GeologicalSurveyor
+        - Geologist
+        - Geometer
+        - Geophysicist
+        - GlassAndBottleManufacturer
+        - GlassDealer
+        - GlassDealerWorker
+        - GlassMaker
+        - Glazier
+        - GNUnknown
+        - GolfCourseBuilder
+        - Golfer
+        - Governess
+        - GovernmentAgent
+        - GrainElevatorContractor
+        - GrainGrader
+        - Grammarian
+        - GrammophoneRecordManufacturer
+        - GraniteWorksWorker
+        - GranoliteContractor
+        - GraphicArtist
+        - GraphicDesignerPrinter
+        - GraphiteDealer
+        - Gravedigger
+        - Greengrocer
+        - GreenKeeper
+        - GrindingWheelAndFlintManufacturers
+        - Grocer
+        - GroundHostess
+        - GroundPersonnel
+        - GuanoContractor
+        - Guard
+        - GuardianAdLitem
+        - GuestHouseEmployee
+        - GuestHouseOwner
+        - GuidanceCounsellor
+        - Guide
+        - GumElasticDealer
+        - GumElasticManufacturer
+        - Gunsmith
+        - GuttaPerchaDealer
+        - GuttaPerchaManufacturer
+        - GymnasiumInstructor
+        - Gynaecologist
+        - Haberdasher
+        - HairDresser
+        - HairdressingSalonEmployee
+        - HandlersOfExplosives
+        - HandWorker
+        - Handyman
+        - HangGlidingCompetitor
+        - HarborMaster
+        - HardwareDealerEmployee
+        - Harper
+        - HatAndCapManufacturer
+        - Hawker
+        - HazardousDangerousHobbies
+        - HazardousDangerousOccupation
+        - Headmaster
+        - HeadmasterOrHeadmistress
+        - HealingBandageManufacturer
+        - HealthCentreEmployee
+        - HealthInspector
+        - HeatingAndVentilationEngineers
+        - HeatingSpecialist
+        - Herbalist
+        - Herder
+        - HideWoolAndSkinDealer
+        - Historian
+        - Historiographer
+        - Homemaker
+        - Homeopath
+        - HomewareDistributor
+        - HorseBreeder
+        - HorseBreederTrainer
+        - HorseDealers
+        - HorseRacingTrainer
+        - HorseStableWorker
+        - HorseTrainers
+        - Horticulture
+        - Hosier
+        - HospitalMinistration
+        - HospitalSuperintendent
+        - HospitalWorker
+        - HotelMotelWorker
+        - Housefather
+        - Housekeeper
+        - Housemother
+        - Hunter
+        - HydroplaneManufacturer
+        - IceAndRollerSkatingRinkWorker
+        - IceCreamManufacturers
+        - IceHockeyPlayer
+        - Illuminator
+        - Illusionist
+        - Iman
+        - Importer
+        - IndustrialArtist
+        - IndustrialConsultant
+        - IndustrialPsychologist
+        - IndustrialSpecialist
+        - InkManufacturer
+        - Innkeeper
+        - Inspector
+        - Instructor
+        - InstrumentMaker
+        - InstrumentTechnician
+        - InsuranceAdjuster
+        - InsuranceAgentBroker
+        - InsuranceUnderwriter
+        - InteriorDecorator
+        - InteriorDesigner
+        - Intern
+        - Interpreter
+        - Inventor
+        - Investigator
+        - InvestmentAdviser
+        - InvestmentBanker
+        - IronForger
+        - IronManufacturers
+        - Ironmonger
+        - IrrigationWorksWorker
+        - ITSpecialist
+        - Jailer
+        - Janitors
+        - JellyPowderManufacturer
+        - Jeweler
+        - JeweleryDesigner
+        - Jockey
+        - Journalist
+        - Judge
+        - Jurist
+        - KarateMaster
+        - KennelEmployee
+        - KnifeMakers
+        - Knitting
+        - LaboratoryEmployee
+        - LaboratoryTechnician
+        - LabourerUnskilled
+        - Landdrost
+        - Landlord
+        - LandscapeDeveloper
+        - Landscaper
+        - LardMaker
+        - LardManufacturers
+        - Laundress
+        - LawEnforcementAndRelated
+        - LawnMowerRepairer
+        - Lawyer
+        - LeadpipeManufacturer
+        - LeanToErector
+        - LeatherDealerAndImporter
+        - LeatherGoodsManufacturer
+        - Lecturer
+        - LegalAdviser
+        - LegalOfficer
+        - LegalProfessional
+        - LeisureBoatOwners
+        - LensMaker
+        - LiasonOfficer
+        - Librarian
+        - Lifeguard
+        - LifestyleShopEmployee
+        - LiftOperator
+        - LiftTechnician
+        - LighthouseKeeper
+        - LightingTechnician
+        - LimeAndCementDealer
+        - LimeAndCementManufacturer
+        - Lineman
+        - LinenCurtainDealerEmployee
+        - LinenMaterialManufacturer
+        - Linguist
+        - Liquidator
+        - LiquorDealer
+        - Lithographer
+        - LoanOfficer
+        - Lobbyist
+        - LockerRoomAttendants
+        - LockManufacturers
+        - Locksmith
+        - LocustFighters
+        - LossAdjuster
+        - Lumberjack
+        - MachineAndScrapMetalDealer
+        - MachineDealer
+        - MachineFanbeltManufacturer
+        - Machinist
+        - Magistrate
+        - Magnate
+        - Mailman
+        - MaintenanceController
+        - MaintenanceJanitorCleaner
+        - MaitreDsAndAssistants
+        - MakeupArtist
+        - Management
+        - Manager
+        - Manicurist
+        - ManualWorker
+        - Manufacturer
+        - ManufacturingAgents
+        - ManureProcessors
+        - MargerineManufacturer
+        - MarineBiologist
+        - MarineEngineerAndRepairer
+        - Mariner
+        - Mariners
+        - MarineStockDealer
+        - MarketAgent
+        - MarketingEmployee
+        - MarketResearcher
+        - MarriageCounsellor
+        - MartialArtist
+        - Mason
+        - Masseur
+        - MasterOfCeremony
+        - MasterOfTheSupremeCourt
+        - MatAndCarpetDealerEmployee
+        - MatAndCarpetManufacturer
+        - MatchManufacturers
+        - MatCleaner
+        - Matron
+        - MattressManufacturer
+        - Mayor
+        - Mechanic
+        - MechanicalEngineer
+        - Mechanician
+        - MediaPersonnel
+        - MediaSpecialist
+        - Mediator
+        - MedicalDirector
+        - MedicallyDisabled
+        - MedicalPractioner
+        - MedicalProfessional
+        - MedicalSpecialist
+        - MemberOfParliament
+        - MemberOfTheProvincialCouncil
+        - Messenger
+        - MessengerOfTheCourt
+        - MessengerPerMotorCycle
+        - MetalPlateWorker
+        - MetalPolishManufacturers
+        - MetalProductManufacturer
+        - MetalTester
+        - MetalWareDealer
+        - MetalWorker
+        - MicaGoodsManufacturers
+        - Microbiologist
+        - Military
+        - MilkProcessor
+        - Miller
+        - Milliner
+        - MineCaptain
+        - MineDumpContractors
+        - Miner
+        - MineralWaterProducersAndBottlers
+        - MineWorkerSurfaceMine
+        - MineWorkerUndergroundMine
+        - MiningMaterialDealers
+        - Minister
+        - MinistersWife
+        - Missionary
+        - Model
+        - Modelling
+        - Moderator
+        - Moneychanger
+        - MoneyHandler
+        - Moneylender
+        - Monk
+        - MonumentPlasterers
+        - MortgageBroker
+        - MotorClubScout
+        - MotorCyclePartsDealers
+        - MotorCycleRaceCompetitor
+        - MotorDealer
+        - MotorDealerEmployee
+        - MotorFittersAndPainters
+        - MotorMechanicAssembler
+        - MotorPartsDealer
+        - MotorTyreManufacturers
+        - MountainerUseRopes
+        - MouthHygienist
+        - MunicipalCouncilMember
+        - MunicipalHandWorker
+        - MunicipalOfficial
+        - Muralist
+        - MuseumGuideSecurityEmployee
+        - MusicalInstrumentsDealer
+        - Musician
+        - NailManufacturers
+        - NatureConservationist
+        - NavalStaffMember
+        - Navigator
+        - NeedleManufacturers
+        - Negotiator
+        - NeighbourhoodGuard
+        - Netmaker
+        - NetworkPersonnelSpecialist
+        - Neurologist
+        - Newsreader
+        - Nightwatchman
+        - Notary
+        - Novelist
+        - Numerologist
+        - Numismatist
+        - Nun
+        - Nurse
+        - NurseryGardenServicesWorker
+        - Nurseryman
+        - OccupationalTherapist
+        - OfficeCleaner
+        - OfficeFitmentDealer
+        - OfficeSales
+        - Official
+        - OilCoatGoodsAndMaterial
+        - OilDrillOnLandWorker
+        - OilImporters
+        - OilRefineryWorker
+        - OilRigOffshoreCrewMember
+        - Ontologist
+        - OpencastMiner
+        - Operator
+        - Optician
+        - OptometristOpthamologist
+        - OrchestraMember
+        - Organist
+        - Organizer
+        - OrganTuner
+        - OrnamentalWriter
+        - Ornithologist
+        - Orthodontist
+        - Ortopedist
+        - Ostler
+        - Other
+        - Otorhinolaryngologist
+        - Outfitter
+        - Owner
+        - OxygenManufacturers
+        - Packer
+        - PackingCaseManufacturers
+        - PaintContractor
+        - PaintContractorBridgeOrShip
+        - PaintDealerEmployee
+        - PainterPlasterer
+        - PaintManufacturers
+        - Paleontologist
+        - Panelbeater
+        - PaperDealers
+        - PaperManufacturer
+        - PaperStickers
+        - Parachutist
+        - Paralegal
+        - Paramedic
+        - ParkingGarageAreaEmployee
+        - ParkRanger
+        - ParoleOfficer
+        - Pastor
+        - PatentAttorney
+        - PatentExaminer
+        - PatentMedicineManufacturers
+        - Pathologist
+        - PatternMaker
+        - PatternManufacturers
+        - Paver
+        - PawnshopDealer
+        - PayrollDistributor
+        - PedalCyclePartsDealers
+        - Peddler
+        - Pedologist
+        - Pensioner
+        - PerformingArtists
+        - PerfumeManufacturers
+        - PersonalComputerSoftware
+        - PersonnelOfficer
+        - PestController
+        - PetrolAttendant
+        - PetroleumDepotWorker
+        - PetroleumProductsManufacturer
+        - PharmaceuticalProductsManufacturerDistributor
+        - Pharmacist
+        - Pharmacologist
+        - Philanthropist
+        - Philatelist
+        - Philologist
+        - Philosopher
+        - PhotographerPhotographyStudio
+        - PhotographerPress
+        - PhotographicEquipmentDealer
+        - PhotoOrHelioPaperManufacturer
+        - Physician
+        - Physicist
+        - Physiologist
+        - Physiotherapist
+        - PianoTuner
+        - PictureAndPortraitDealer
+        - Pilot
+        - PilotShipping
+        - PipeMakers
+        - PitContractor
+        - Planner
+        - PlantExterminators
+        - Plasterer
+        - Platelayer
+        - Plumber
+        - PlywoodManufacturer
+        - Poet
+        - PoliceChief
+        - PoliceOfficer
+        - Polishers
+        - PolishManufacturers
+        - Politician
+        - PoloPlayer
+        - PortlandCementManufacturers
+        - PostalWorker
+        - Postman
+        - PotatoChipManufacturer
+        - Potter
+        - Potteries
+        - PoultryDealers
+        - PowerBoatRaceCompetitor
+        - Presenter
+        - PreservingWorks
+        - PressOfficer
+        - Priest
+        - PrincipalHeadmaster
+        - Printer
+        - PrintingWorker
+        - Private
+        - PrivateDetective
+        - PrivateIndividual
+        - ProbationOfficer
+        - ProcessController
+        - Producer
+        - ProductDeveloper
+        - ProductionController
+        - ProfessionalAdvancedDegree
+        - ProfessionalAthlete
+        - ProfessionalBoxer
+        - ProfessionalCollegeDegree
+        - ProfessionalCricketer
+        - ProfessionalEntertainer
+        - ProfessionalFootballPlayer
+        - ProfessionalGolfPlayer
+        - ProfessionalHockeyPlayer
+        - ProfessionalHunterAndGuide
+        - ProfessionalIceHockeyPlayer
+        - ProfessionalManager
+        - ProfessionalOrQualified
+        - ProfessionalRugbyPlayer
+        - ProfessionalSoccerPlayer
+        - ProfessionalSportsperson
+        - ProfessionalTennisPlayer
+        - ProfessionalWrestler
+        - Professor
+        - Proofreader
+        - PropertyDeveloper
+        - PropertyValuer
+        - Prospector
+        - ProtectiveSeviceOccupations
+        - Psychodramatist
+        - Psychologist
+        - Psychometrician
+        - PublicityAgent
+        - PublicLiaisonOfficer
+        - PublicRelationsOfficer
+        - PublicSpeaker
+        - PublicTransportationWorkerOtherThanAirline
+        - Publisher
+        - PurchasingAgent
+        - Purifier
+        - PylonWorker
+        - QuantitySurveyor
+        - Quarryman
+        - QuarryWorksWorker
+        - Quilter
+        - RacingDriver
+        - RacingOfficial
+        - RacingTrackOfficial
+        - RadioApparatusDealer
+        - Radiographer
+        - Radioloists
+        - RadioPresenter
+        - RadioTechnician
+        - RailwayConductors
+        - RailwayContractor
+        - RailwayTunnelConductors
+        - RealEstateAgent
+        - ReceivingClerk
+        - Receptionist
+        - RecordProducer
+        - RecruitmentOfficial
+        - Rector
+        - RedCrossAid
+        - Referee
+        - RefineryGaugerOfOilCompany
+        - RefuseCollector
+        - RegionalAdministrator
+        - RegionalManager
+        - RegionalTrainer
+        - Registrar
+        - ReinforcementSteelEngineer
+        - RentCollector
+        - Reporter
+        - Representative
+        - Researcher
+        - RestaurantBarChefCookCaterer
+        - RestaurantBarOwnerEmployee
+        - RestaurantCafeEmployee
+        - RetailSalesPerson
+        - Retired
+        - RetiredNotGainfullyEmployed
+        - Reverend
+        - Riggers
+        - RoadContractor
+        - RodentExterminator
+        - RoofingContractors
+        - RubberDealer
+        - RubberProductManufacturer
+        - RugbyPlayer
+        - RunwayPushCraftOperators
+        - SafetyPersonnel
+        - Sailmaker
+        - Sailor
+        - Salaried
+        - SalesmanPerVehicle
+        - SalesMarketingEmployee
+        - SalespersonCommercial
+        - SalesRepresentativesNonTechnical
+        - SalesRepresentativesTechnical
+        - SalvageWorker
+        - Salvor
+        - SandBlasters
+        - SandwichMakers
+        - Sangoma
+        - SanitaryServicesContractor
+        - SanitarywareDealerEmployee
+        - SauceAndAcidDropManufacturers
+        - SausageAndCannedMeatManufacturers
+        - SausageCasingManufacturers
+        - SausageMaker
+        - SawmillWorker
+        - ScaffoldingWorker
+        - ScaleAndMeasuringMachineManufacturers
+        - Scholar
+        - ScholarLearnerPreSchool
+        - ScholarLearnerPrimarySchool
+        - ScholarPatrolMember
+        - ScholarPatrolSupervisor
+        - SchoolPsychologist
+        - SchoolSuperintendent
+        - SchoolTeacher
+        - ScientificInstrumentMaker
+        - Scientist
+        - Scout
+        - ScrapyardWorker
+        - Screenwriter
+        - Scribe
+        - Sculptor
+        - Seaman
+        - Seamstress
+        - SecondMate
+        - Secretary
+        - SecurityGuard
+        - SecurityOfficerWorker
+        - SelfEmployed
+        - SeniorGeneralManager
+        - SeniorPersonelOfficer
+        - SeniorShopSteward
+        - Servant
+        - ServiceStationAttendants
+        - SewerageSanitaryContractor
+        - Sexton
+        - ShaftSinker
+        - SheepShearer
+        - SheetMetalMaker
+        - Sheriff
+        - ShiftBoss
+        - ShiftManager
+        - ShipBreaker
+        - ShipChandler
+        - ShipGuards
+        - ShipOwners
+        - ShipPainters
+        - ShippingAgents
+        - ShippingClerk
+        - ShipRepairers
+        - ShipSalvor
+        - ShipsBuilder
+        - ShipScourers
+        - ShipScraper
+        - ShipsOrOffShoreRigCrew
+        - ShoeMakerRepairermanufacturer
+        - ShoePolishManufacturers
+        - ShootingRangeEmployee
+        - ShopAssistant
+        - ShopFitters
+        - ShopOwner
+        - ShopSteward
+        - ShotDrillManufacturer
+        - Shunter
+        - SignErector
+        - SignWriter
+        - Sigomitris
+        - SilverPlater
+        - Silviculturist
+        - Singer
+        - Sister
+        - SkilledSemiSkilled
+        - SlateAndTileLayer
+        - SoapManufacturers
+        - Socialite
+        - SocialWorker
+        - SockManufacturer
+        - SoilSpecialist
+        - Soldier
+        - Solicitor
+        - Sommelier
+        - SoundEngineer
+        - Sower
+        - SowingMachineRepairers
+        - Specialist
+        - SpectacleMaker
+        - SpeechTherapist
+        - SpiceManufacturers
+        - SportEquipmentManufacturer
+        - SportOfficialCoach
+        - SportReferee
+        - Sportsman
+        - SportsmanProfessional
+        - SportsShopEmployee
+        - SpouseAtHome
+        - SprayPainter
+        - StableBoysAndGrooms
+        - StarchManufacturers
+        - StationeryClerk
+        - Statistician
+        - SteelAndIronManufacturers
+        - SteelCeilingManufacturers
+        - SteelDoorWindowManufacturer
+        - SteelFurnitureManufacturer
+        - SteelIronConstructionErector
+        - SteelIronFoundryWorker
+        - SteelManufacturers
+        - SteelProductManufacturer
+        - SteelRopeManufacturers
+        - SteeplechaseCompetitor
+        - Stevedore
+        - Steward
+        - Stockbroker
+        - StockClerk
+        - Stoker
+        - StoneBreaker
+        - StoneDrillMachineDealer
+        - StoneMason
+        - Storekeeper
+        - StoreroomPersonnel
+        - StreetArtist
+        - StreetSweeper
+        - StreetVendor
+        - Student
+        - Stuntman
+        - SugarMixersAndOrDealers
+        - SugarRefineryWorker
+        - Superintendent
+        - SupermarkEmployee
+        - SupervisorForeman
+        - SupervisorsOfHandWorkers
+        - Surgeon
+        - SurgicalDressingManufacturers
+        - Surveyor
+        - SweetsManufacturer
+        - Swimmer
+        - SwimmingPoolContractor
+        - SwitchboardOperator
+        - SyntheticRubberManufacturers
+        - SystemImplementer
+        - Tailor
+        - TankManufacturers
+        - Tanner
+        - TanningExtractManufacturer
+        - TaxClerk
+        - TaxicabDriver
+        - Taxidermist
+        - TaxiOwner
+        - TaxLawyer
+        - Taxonomist
+        - TeaBlenders
+        - Teacher
+        - TeachersHavingCustodyOfMoneyOrSecurities
+        - TeaDealers
+        - TeaGrowersAndOrProcessors
+        - TeaLady
+        - TeaPackers
+        - TechnicalAdvisor
+        - TechnicalOfficer
+        - TechnicalSupervisory
+        - TechnicalWriter
+        - Technician
+        - TechniciansResearchMedical
+        - Technologist
+        - Telegraphist
+        - TelephoneContractor
+        - TelephoneInstaller
+        - Telephonist
+        - TelevisionPresenterNewsreaderCommentator
+        - TelevisionTechnician
+        - Teller
+        - TemporaryEmployee
+        - TennisCourtBuilders
+        - TennisPlayer
+        - Testdriver
+        - TestPilot
+        - TextileManufacturer
+        - Thatcher
+        - TheatreActorDancer
+        - Therapist
+        - TileAndSlateLayers
+        - TileAndStoneMakers
+        - Tilers
+        - Timekeeper
+        - TinSmelter
+        - TinSmith
+        - TobaccoPipeDealersAndRepairers
+        - TobaccoProcessors
+        - ToolMaker
+        - TourGuide
+        - TouristIndustry
+        - TownClerk
+        - TownCouncillor
+        - TownPlanner
+        - ToyManufacturer
+        - TrademarkAttorney
+        - Trader
+        - Tradesman
+        - TrafficChief
+        - TrafficOfficial
+        - TrainDriver
+        - Trainer
+        - TrainingOfficial
+        - TransitPlanner
+        - Translator
+        - TransportContractors
+        - TransportIndustryWorker
+        - TravelAgent
+        - Traveller
+        - TravellingSalesperson
+        - Treasurer
+        - TreeCutter
+        - TreeFeller
+        - TruckDriver
+        - Trustee
+        - TshisaStickManufacturers
+        - TunnelContractor
+        - Turner
+        - TurnerWood
+        - Tutor
+        - TypewriterAgencies
+        - Typist
+        - TyreAndExhaustSystemDealer
+        - UmbrellaManufacturersAndRepairers
+        - UndertakerWorker
+        - Underwriter
+        - Unemployed
+        - Unknown
+        - UnloadingAndShippingAgents
+        - Unskilled
+        - Upholsterer
+        - Urologist
+        - Usher
+        - Utilities
+        - Valet
+        - Valuer
+        - Varnisher
+        - VegetableDealer
+        - VegetableFarmer
+        - VegetableFruitDealerWorker
+        - VehicleVehicleSparePartsManufacturer
+        - VentilationEngineers
+        - Verger
+        - Veterinarian
+        - VeterinaryHospitalEmployee
+        - VeterinarySurgeon
+        - Vicar
+        - VideoEditor
+        - Viticulturist
+        - VoiceActor
+        - VoluntarySafeguardOfficial
+        - Vulcaniser
+        - VulcaniteDealer
+        - VulcaniteManufacturer
+        - WagonMakers
+        - Waiter
+        - Warden
+        - Warder
+        - WarehousePersonnel
+        - Washer
+        - WashingBlueManufacturer
+        - WasteRemover
+        - WasteWorkers
+        - Watchmaker
+        - WaterproofMaterialManufacturers
+        - WaterSupplyemployee
+        - WattleGrowerAndFeller
+        - WeaponsAndAmmunitionDealers
+        - Weaponsmith
+        - WeatherForecaster
+        - Weaver
+        - WeddingPlanner
+        - Welder
+        - WelfareWorker
+        - WellSinker
+        - WheelMakers
+        - WhitingManufacturers
+        - Wholesaler
+        - WindowCleaner
+        - WineCellarPersonnel
+        - WineMaker
+        - WineMerchants
+        - WineStewardStewardess
+        - WireGoodsManufacturer
+        - WireGoodWeaver
+        - WireManufacturersGoldAndSilver
+        - WireNettingManufactuer
+        - WoodCutter
+        - WoodFibreAndPaperManufacturer
+        - WoodWorker
+        - WoodworkMachinist
+        - WoolDealerEmployee
+        - WorkAtDangerousHeights
+        - WorkerInRadioactiveEnvironment
+        - WorkflowManager
+        - WorksEngineer
+        - WorkWithRadioactiveMaterial
+        - Wrangler
+        - Wrestler
+        - WrestlingPromotor
+        - WriterPublisher
+        - YeastManufacturers
+        - YellowCopperAndCopper
+        - YellowCopperCaster
+        - Zoologist
+        - ZooWorker
+    occupationPeriod_Type:
+      type: object
+      title: OccupationPeriod_Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    occupation_Type:
+      type: object
+      title: Occupation Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/occupationExternalIdentifier_Type'
+                - $ref: '#/components/schemas/occupationExternalIdentifier_Type'
+            previousIndicator:
+              type: boolean
+            occupationalRatingCode:
+              $ref: '#/components/schemas/occupationalRatingCodeContent_Type'
+            occupationRatingCodeDescription:
+              type: string
+            occupationClassCode:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/occupationClassCodeContent_Type'
+                - $ref: '#/components/schemas/occupationClassCodeContent_Type'
+            alternateOccupationClassCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            occupationDescription:
+              type: string
+              maxLength: 255
+            occupationPeriod:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/occupationPeriod_Type'
+                - $ref: '#/components/schemas/occupationPeriod_Type'
+    employmentStatusCodeContent_Type:
+      type: string
+      title: EmploymentStatusCodeContent_Type
+      description: TBD
+      enum:
+        - ApprenticeFullTime
+        - ApprenticePartTime
+        - Casual
+        - Disabled
+        - FullTime
+        - HomeDuties
+        - OnClaim
+        - OnStrike
+        - Other
+        - PartTime
+        - PieceWork
+        - Retired
+        - Seasonal
+        - SelfEmployed
+        - Unemployed
+        - Volunteer
     personExternalIdentifierTypeCodeContent_Type:
       type: string
       title: PersonExternalIdentifierTypeCodeContent Type
@@ -621,73 +2234,1075 @@ components:
               items:
                 $ref: '#/components/schemas/personName_Type'
             - $ref: '#/components/schemas/personName_Type'
-    contactRoleCodeContent_Type:
+    organizationExternalIdentifierTypeCodeContent_Type:
       type: string
-      title: ContactRoleCodeContent Type
-      description: The Contact Role Code content enumeration
+      title: OrganizationExternalIdentifierTypeCodeContent Type
+      description: TBD
       enum:
-        - Authorization
-        - Broker
-        - ClaimContact
-        - ClaimHandler
-        - Insured
-        - Insurer
-        - LegalOfficer
-        - Other
-        - PreferredContact
-        - PreferredInsuranceBuyingContact
-        - Processor
-        - Underwriter
-    contact_Type:
+        - ABN
+        - ABR
+        - ACN
+        - AFS
+        - ASIC
+        - BusinessRegistrationCertificate
+        - DUNSNumberCode
+        - GroupAccountId
+        - IncorporationCertificate
+        - JurisdictionId
+        - OtherId
+        - UnincorporatedClub
+    organizationExternalIdentifier_Type:
       type: object
-      title: Contact Type
+      title: OrganizationExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    organizationNameTypeCodeContent_Type:
+      type: string
+      title: OrganizationNameTypeCodeContent Type
+      description: The type code content of the Organization name
+      enum:
+        - Alias
+        - Branch
+        - Division
+        - DoingBusinessAs
+        - Previous
+        - Primary
+        - Registered
+        - Retailer
+        - TradingBusinessAs
+    organizationName_Type:
+      type: object
+      title: Organization Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+    organizationReferences_Type:
+      type: object
+      title: Organization References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                organizationReference:
+                  type: string
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+                - $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+            organizationName:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationName_Type'
+                - $ref: '#/components/schemas/organizationName_Type'
+    referencedPartyRole_Type:
+      type: object
+      title: ReferencedPartyRole_Type
       allOf:
         - $ref: '#/components/schemas/ACORDAggregate_Type'
         - properties:
             personReferences:
               $ref: '#/components/schemas/personReferences_Type'
-            roleCode:
-              $ref: '#/components/schemas/contactRoleCodeContent_Type'
-            telephone:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/telephone_Type'
-                - $ref: '#/components/schemas/telephone_Type'
-            email:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/email_Type'
-                - $ref: '#/components/schemas/email_Type'
-            mailingAddress:
-              $ref: '#/components/schemas/mailingAddress_Type'
-    organizationCommunication_Type:
+            organizationReferences:
+              $ref: '#/components/schemas/organizationReferences_Type'
+    employerCodeContent_Type:
+      type: string
+      title: EmployerCodeContent_Type
+      description: TBD
+      enum:
+        - AccountingFirm
+        - ActuaryFirm
+        - AgronomistOffice
+        - ArchitectFirm
+        - AudioPracticianOffice
+        - BarDiscoBrasserie
+        - CharteredAdministrationFirm
+        - ChemistsOffice
+        - ChiropractorOffice
+        - College
+        - DentistOffice
+        - DenturologistOffice
+        - DieticianOffice
+        - DoctorOffice
+        - EngineeringFirm
+        - FinancialInstitution
+        - GeneralInsuranceBrokerage
+        - HighSchool
+        - Hospital
+        - HotelMotel
+        - InsuranceCompany
+        - LandSurveyorFirm
+        - LawOffice
+        - Municipality
+        - NotaryOffice
+        - OpticianOffice
+        - OptometristOffice
+        - Other
+        - ParishChurch
+        - Pharmacy
+        - PodiatristOffice
+        - PrivateSociety
+        - ProfessionalSchool
+        - PsychologistOffice
+        - Restaurant
+        - SchoolBoard
+        - SelfEmployed
+        - Seminary
+        - StockBondBrokerage
+        - Unemployed
+        - University
+        - UrbanCommunity
+        - VeterinaryOffice
+    employer_Type:
       type: object
-      title: Organization Communication Type
+      title: Employer Type
       allOf:
-        - $ref: '#/components/schemas/partyCommunication_Type'
+        - $ref: '#/components/schemas/referencedPartyRole_Type'
         - properties:
-            principalAddress:
-              $ref: '#/components/schemas/principalAddress_Type'
-            branchOfficeAddress:
+            employerCode:
+              $ref: '#/components/schemas/employerCodeContent_Type'
+            employerDescription:
+              type: string
+              maxLength: 255
+            selfInsuredIndicator:
+              type: boolean
+            employerIsLessorIndicator:
+              type: boolean
+            specificProductsDescription:
+              type: string
+              maxLength: 255
+            employerPayrollCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            alternateOperationsTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            alternateOperationsTypeCodeDescription:
+              type: string
+    titleRelationshipCodeContent_Type:
+      type: string
+      title: TitleRelationshipCodeContent_Type
+      description: TBD
+      enum:
+        - BoardTrusteeMember
+        - CEO
+        - CFO
+        - ChairmanBoard
+        - ChiefPilot
+        - Child
+        - Clergy
+        - Commander
+        - Controller
+        - COO
+        - CoPolicyholder
+        - CorporateDirector
+        - CorporateOfficer
+        - CorporateOfficerPartnerSoleProprietor
+        - Director
+        - DirectorOfOperations
+        - ElectedOfficer
+        - ElectedOfficial
+        - EmployeeDomestic
+        - EmployeeNotSpousePartnerCorporateOfficer
+        - EmployeeOnCorporateCharter
+        - ExecutiveDirector
+        - FamilyMember
+        - FireChief
+        - GeneralManager
+        - GeneralPartner
+        - Insured
+        - LimitedPartner
+        - LLCMember
+        - Mayor
+        - Member
+        - OfficerBoardDirectors
+        - Other
+        - Owner
+        - ParentGrandparent
+        - Partner
+        - PoliceChief
+        - PreferredWorker
+        - President
+        - Principal
+        - PropertyOwner
+        - Secretary
+        - SoleProprietor
+        - Spouse
+        - Superintendent
+        - Treasurer
+        - Trustee
+        - ViceCommander
+        - VIP
+        - VP
+    employmentPeriod_Type:
+      type: object
+      title: EmploymentPeriod_Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    employment_Type:
+      type: object
+      title: Employment Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            statusCode:
+              $ref: '#/components/schemas/employmentStatusCodeContent_Type'
+            alternateEmploymentStatusCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            alternateEmploymentStatusDescription:
+              type: string
+            previousIndicator:
+              type: boolean
+            concurrentIndicator:
+              type: boolean
+            employer:
+              $ref: '#/components/schemas/employer_Type'
+            titleRelationshipCode:
+              $ref: '#/components/schemas/titleRelationshipCodeContent_Type'
+            employmentPeriod:
               oneOf:
                 - type: array
                   items:
-                    $ref: '#/components/schemas/branchOfficeAddress_Type'
-                - $ref: '#/components/schemas/branchOfficeAddress_Type'
-            physicalAddress:
+                    $ref: '#/components/schemas/employmentPeriod_Type'
+                - $ref: '#/components/schemas/employmentPeriod_Type'
+            manualClassificationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            hiredDate:
+              type: string
+              format: date
+            terminationDate:
+              type: string
+              format: date
+            employmentTitle:
+              type: string
+              maxLength: 255
+            dutiesDescription:
+              type: string
+              maxLength: 255
+    referencedOrganizationRole_Type:
+      type: object
+      title: ReferencedOrganizationRole_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            organizationReferences:
+              $ref: '#/components/schemas/organizationReferences_Type'
+    affiliatedOrganization_Type:
+      type: object
+      title: AffiliatedOrganization Type
+      allOf:
+        - $ref: '#/components/schemas/referencedOrganizationRole_Type'
+        - properties: {}
+    affiliation_Type:
+      type: object
+      title: Affiliation Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            affiliatedOrganization:
+              $ref: '#/components/schemas/affiliatedOrganization_Type'
+    educationalInstitution_Type:
+      type: object
+      title: EducationalInstitution Type
+      allOf:
+        - $ref: '#/components/schemas/referencedOrganizationRole_Type'
+        - properties: {}
+    educationLevelCodeContent_Type:
+      type: string
+      title: Education Level Code Content
+      description: TBD
+      enum:
+        - BA
+        - BS
+        - HighSchool
+        - Masters
+    education_Type:
+      type: object
+      title: Education Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            educationalInstitution:
               oneOf:
                 - type: array
                   items:
-                    $ref: '#/components/schemas/physicalAddress_Type'
-                - $ref: '#/components/schemas/physicalAddress_Type'
-            contact:
+                    $ref: '#/components/schemas/educationalInstitution_Type'
+                - $ref: '#/components/schemas/educationalInstitution_Type'
+            educationLevelCode:
+              $ref: '#/components/schemas/educationLevelCodeContent_Type'
+            educationLevelYear:
+              type: string
+              pattern: YYYY
+            yearsCompletedEducationCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    creditScore_Type:
+      type: object
+      title: CreditScore Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            assignedIdentifier:
               oneOf:
                 - type: array
                   items:
-                    $ref: '#/components/schemas/contact_Type'
-                - $ref: '#/components/schemas/contact_Type'
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            creditScoreDate:
+              type: string
+              format: date
+            creditScoreValue:
+              type: string
+              maxLength: 255
+    membership_Type:
+      type: object
+      title: Membership Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties: {}
+    bodyMeasurement_Type:
+      type: object
+      title: Body Measurement
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            medicalExaminationDate:
+              type: string
+              format: date
+            bodyWeight:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            bodyHeight:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            bodyMassIndex:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            bloodPressureSystolic:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            bloodPressureDiastolic:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            restingHeartRate:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            waistCircumference:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+    health_Type:
+      type: object
+      title: Health Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            diseaseSicknessInjuryIndicator:
+              type: boolean
+            smokerIndicator:
+              type: boolean
+            healthStatusCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            healthStatusCodeDescription:
+              type: string
+            bodyMeasurement:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/bodyMeasurement_Type'
+                - $ref: '#/components/schemas/bodyMeasurement_Type'
+    licensePeriod_Type:
+      type: object
+      title: LicensePeriod_Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        periodDuration:
+          type: string
+          format: duration
+    licenseStatusCodeContent_Type:
+      type: string
+      title: LicenseStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Active
+        - Expired
+        - Inactive
+        - LapsedIntentionally
+        - Pending
+        - Revoked
+        - Suspended
+        - Temporary
+    drivingRecordCodeContent_Type:
+      type: string
+      title: SuspensionRevocationReasonCodeContent_Type
+      description: TBD
+      enum:
+        - Accident
+        - AllOtherMovingViolations
+        - AllOtherNonMovingViolations
+        - AtFaultAccident
+        - BreathTestFailure
+        - CarelessDriving
+        - CitationIssued
+        - DrivingInViolationOfProvisionsOfRestrictedLicense
+        - DrivingOnWrongSideOfRoad
+        - DrivingRecordCode001
+        - DrivingRecordCode002
+        - DrivingRecordCode003
+        - DrivingTooFastForConditions
+        - DrivingWhileIntoxicatedOrUnderInfluenceOfDrugs
+        - DrivingWhileUnderInfluenceOfDrugs
+        - DrivingWithoutInsurance
+        - DrivingWithSuspendedRevokedOrWithoutValidLicense
+        - DrugsOpenContainer
+        - EludingPoliceOfficer
+        - EnergySpeedZone
+        - ExpiredLicense
+        - ExpiredLicensePlate
+        - FailureToControlVehicle
+        - FailureToObeyPoliceOfficer
+        - FailureToStopAndReportWhenInvolvedInAccident
+        - FailureToStopAtRedLight
+        - FailureToStopAtStopSign
+        - FailureToStopForSchoolBus
+        - FailureToUseChildRestraint
+        - FailureToYieldRightOfWay
+        - FailuretoYieldToPedestrian
+        - FelonyInvolvingUseOfVehicle
+        - FilingFalseClaim
+        - FilingFalseDocument
+        - FilingFalseReport
+        - FollowingTooClose
+        - ImpairedDriving
+        - ImproperBacking
+        - ImproperLaneViolation
+        - LeavingSceneOfAccidentResultingInBodilyInjury
+        - LeavingSceneOfAccidentResultingInPropertyDamage
+        - LicenseSuspendedRevocationForAnyViolation
+        - LimitedDrivingExperience
+        - Manslaughter
+        - MotorVehicleEquipmentViolation
+        - NegligentDriving
+        - NegligentHomicide
+        - NoOperatorLicenseExists
+        - NotAtFaultAccident
+        - NoViolation
+        - ObstructingTraffic
+        - ObtainingLicenseByMisrepresentation
+        - OperatingToEndanger
+        - OperatingWithAlteredDriversLicense
+        - OperatingWithBorrowedOrStolenLicense
+        - OperatingWithoutInsurance
+        - Other
+        - ParkingViolation
+        - PassingViolation
+        - PermittingUnlicensedDriverToDrive
+        - Points
+        - PossessionOfDrugsOrAlcohol
+        - RecklessDrivingOrNegligentDriving
+        - RefusalToTakeSobrietyTest
+        - RemoveOrFalsifyVIN
+        - RequiredToFileFinancialResponsibilityFiling
+        - RestrictedLicense
+        - SeatBeltViolation
+        - SpeedContestOnPublicRoad
+        - Speeding
+        - Speeding10To19MPHOverLimit
+        - Speeding1To9MPHOverLimit
+        - Speeding20To29MPHOverLimit
+        - Speeding30PlusMPHOverLimit
+        - StoppingOnHighway
+        - TowingImproperLoadSize
+        - TransportingIllegalDrugs
+        - TurningViolation
+        - VehicleTheft
+        - Violation
+        - ViolationCommittedNoCitation
+    suspensionPeriod_Type:
+      type: object
+      title: SuspensionPeriod_Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    suspensionReinstatement_Type:
+      type: object
+      title: Suspension Reinstatement
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            suspensionRevocationDate:
+              type: string
+              format: date
+            suspensionRevocationReasonCode:
+              $ref: '#/components/schemas/drivingRecordCodeContent_Type'
+            suspensionPeriod:
+              $ref: '#/components/schemas/suspensionPeriod_Type'
+            reinstatementDate:
+              type: string
+              format: date
+    continuingEducationStatusCodeContent_Type:
+      type: string
+      title: ContinuingEducationStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Expired
+        - InCompliance
+        - NotInCompliance
+        - Pending
+    continuingEducationPeriod_Type:
+      type: object
+      title: ContinuingEducation Period
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            periodDuration:
+              type: string
+              format: duration
+    continuingEducation_Type:
+      type: object
+      title: Continuing Education ype
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            statusCode:
+              $ref: '#/components/schemas/continuingEducationStatusCodeContent_Type'
+            statusDescription:
+              type: string
+              maxLength: 255
+            continuingEducationPeriod:
+              $ref: '#/components/schemas/continuingEducationPeriod_Type'
+            continuingEducationUnitsRequiredMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            continuingEducationUnitsRemainingMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            asOfDate:
+              type: string
+              format: date
+    driversLicenseVehicleRestrictionsCodeContent_Type:
+      type: string
+      title: Drivers License Vehicle Restrictions Code Content Type
+      description: These are additional details that we require about the drivers license
+      enum:
+        - AutomaticTransmissionOnly
+        - ElectricallyPoweredOnly
+        - None
+        - PhysicallyDisabled
+    driversLicenseDriverRestrictionsCodeContent_Type:
+      type: string
+      title: Drivers License Driver Restrictions Code Content Type
+      description: These are additional details that we require about the drivers license
+      enum:
+        - ArtificialLimbs
+        - GlassesContactLenses
+        - None
+    license_Type:
+      type: object
+      title: License Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            licenseNumberId:
+              type: string
+              maxLength: 255
+            licensePeriod:
+              $ref: '#/components/schemas/licensePeriod_Type'
+            description:
+              type: string
+            statusCode:
+              $ref: '#/components/schemas/licenseStatusCodeContent_Type'
+            statusDescription:
+              type: string
+              maxLength: 255
+            statusReasonCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            statusReasonDescription:
+              type: string
+            issueDate:
+              type: string
+              format: date
+            renewalDate:
+              type: string
+              format: date
+            licenseClassCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            licenseClassDescription:
+              type: string
+            licenseAgencyName:
+              type: string
+              maxLength: 255
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            stateOrProvinceName:
+              type: string
+              maxLength: 255
+            countryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryName:
+              type: string
+              maxLength: 255
+            suspensionReinstatement:
+              $ref: '#/components/schemas/suspensionReinstatement_Type'
+            continuingEducation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/continuingEducation_Type'
+                - $ref: '#/components/schemas/continuingEducation_Type'
+            asOfDate:
+              type: string
+              format: date
+            driversLicenseVehicleRestrictionsCode:
+              $ref: '#/components/schemas/driversLicenseVehicleRestrictionsCodeContent_Type'
+            driversLicenseDriverRestrictionsCode:
+              $ref: '#/components/schemas/driversLicenseDriverRestrictionsCodeContent_Type'
+    professionalLicense_Type:
+      type: object
+      title: Professional License
+      allOf:
+        - $ref: '#/components/schemas/license_Type'
+        - properties: {}
+    person_Type:
+      type: object
+      title: Person Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            personCommunication:
+              $ref: '#/components/schemas/personCommunication_Type'
+            businessCommunication:
+              $ref: '#/components/schemas/businessCommunication_Type'
+            genderCode:
+              $ref: '#/components/schemas/genderCodeContent_Type'
+            maritalStatusCode:
+              $ref: '#/components/schemas/maritalStatusCodeContent_Type'
+            deceasedIndicator:
+              type: boolean
+            nationalityCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            languageCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            occupation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/occupation_Type'
+                - $ref: '#/components/schemas/occupation_Type'
+            employment:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/employment_Type'
+                - $ref: '#/components/schemas/employment_Type'
+            affiliation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/affiliation_Type'
+                - $ref: '#/components/schemas/affiliation_Type'
+            education:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/education_Type'
+                - $ref: '#/components/schemas/education_Type'
+            creditScore:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/creditScore_Type'
+                - $ref: '#/components/schemas/creditScore_Type'
+            membership:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/membership_Type'
+                - $ref: '#/components/schemas/membership_Type'
+            health:
+              $ref: '#/components/schemas/health_Type'
+            childrenCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            dependantsCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            professionalLicense:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/professionalLicense_Type'
+                - $ref: '#/components/schemas/professionalLicense_Type'
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/personExternalIdentifier_Type'
+                - $ref: '#/components/schemas/personExternalIdentifier_Type'
+            personName:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/personName_Type'
+                - $ref: '#/components/schemas/personName_Type'
+            birthDate:
+              type: string
+              format: date
+            birthYear:
+              type: string
+              pattern: YYYY
+            deathDate:
+              type: string
+              format: date
+            deathYear:
+              type: string
+              pattern: YYYY
     apiError_Type:
       type: object
       title: API Error Details

@@ -1,0 +1,65 @@
+type: object
+title: Employment Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      statusCode:
+        $ref: .\employmentStatusCode_Type.yaml
+      alternateEmploymentStatusCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      alternateEmploymentStatusDescription:
+        type: string
+      previousIndicator:
+        type: boolean
+      concurrentIndicator:
+        type: boolean
+      employer:
+        $ref: .\employer_Type.yaml
+      titleRelationshipCode:
+        $ref: .\titleRelationshipCode_Type.yaml
+      employmentPeriod:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\employmentPeriod_Type.yaml
+          - $ref: .\employmentPeriod_Type.yaml
+      manualClassificationCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      hiredDate:
+        type: string
+        format: date
+      terminationDate:
+        type: string
+        format: date
+      employmentTitle:
+        type: string
+        maxLength: 255
+      dutiesDescription:
+        type: string
+        maxLength: 255

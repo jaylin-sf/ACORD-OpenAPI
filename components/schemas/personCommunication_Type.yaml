@@ -1,0 +1,9 @@
+type: object
+title: Person Communication Type
+allOf:
+  - $ref: .\partyCommunication_Type.yaml
+  - properties:
+      physicalAddress:
+        $ref: .\physicalAddress_Type.yaml
+      residentialAddress:
+        $ref: .\residentialAddress_Type.yaml

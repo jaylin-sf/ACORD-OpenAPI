@@ -1,0 +1,54 @@
+type: string
+title: TitleRelationshipCodeContent_Type
+description: TBD
+enum:
+  - BoardTrusteeMember
+  - CEO
+  - CFO
+  - ChairmanBoard
+  - ChiefPilot
+  - Child
+  - Clergy
+  - Commander
+  - Controller
+  - COO
+  - CoPolicyholder
+  - CorporateDirector
+  - CorporateOfficer
+  - CorporateOfficerPartnerSoleProprietor
+  - Director
+  - DirectorOfOperations
+  - ElectedOfficer
+  - ElectedOfficial
+  - EmployeeDomestic
+  - EmployeeNotSpousePartnerCorporateOfficer
+  - EmployeeOnCorporateCharter
+  - ExecutiveDirector
+  - FamilyMember
+  - FireChief
+  - GeneralManager
+  - GeneralPartner
+  - Insured
+  - LimitedPartner
+  - LLCMember
+  - Mayor
+  - Member
+  - OfficerBoardDirectors
+  - Other
+  - Owner
+  - ParentGrandparent
+  - Partner
+  - PoliceChief
+  - PreferredWorker
+  - President
+  - Principal
+  - PropertyOwner
+  - Secretary
+  - SoleProprietor
+  - Spouse
+  - Superintendent
+  - Treasurer
+  - Trustee
+  - ViceCommander
+  - VIP
+  - VP
