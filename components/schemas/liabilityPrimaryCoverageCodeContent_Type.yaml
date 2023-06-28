@@ -1,0 +1,7 @@
+type: string
+title: LiabilityPrimaryCoverageCodeContent_Type
+description: TBD
+enum:
+  - ComprehensiveAllRisks
+  - GeneralLiability
+  - PersonalLiability

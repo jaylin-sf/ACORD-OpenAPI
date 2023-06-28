@@ -1,0 +1,8 @@
+type: string
+title: Rate Type Code Content
+description: TBD
+enum:
+  - ActualRate
+  - Composite
+  - Rate
+  - TechnicalRate

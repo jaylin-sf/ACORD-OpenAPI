@@ -1,0 +1,28 @@
+type: object
+title: Policy Property References Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyPropertyReference:
+        type: string
+  typeCode:
+    $ref: .\policyPropertyTypeCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  locationReferences:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\locationReferences_Type.yaml
+      - $ref: .\locationReferences_Type.yaml
+  operationsReferences:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\operationsReferences_Type.yaml
+      - $ref: .\operationsReferences_Type.yaml

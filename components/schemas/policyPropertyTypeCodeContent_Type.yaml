@@ -1,0 +1,12 @@
+type: string
+title: Policy Property Type Code Content
+description: TBD
+enum:
+  - CommercialProperty
+  - EnclosedProperty
+  - FarmProperty
+  - OtherProperty
+  - ResidentialProperty
+  - RetirementComplex
+  - SecureVillage
+  - ToBeConfirmed

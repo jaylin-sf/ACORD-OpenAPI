@@ -1,0 +1,15 @@
+type: object
+title: Rate Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\rateTypeCode_Type.yaml
+      premiumRate:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      effectiveDate:
+        type: string
+        format: date

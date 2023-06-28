@@ -1,0 +1,91 @@
+type: object
+title: Liability Section Coverage Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      typeCode:
+        $ref: .\liabilitySectionCoverageTypeCode_Type.yaml
+      description:
+        type: string
+      coverageStatusCode:
+        $ref: .\coverageStatusCode_Type.yaml
+      insurancePeriod:
+        $ref: .\insurancePeriod_Type.yaml
+      premiumPeriod:
+        $ref: .\premiumPeriod_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      option:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\liabilityCoverageOption_Type.yaml
+          - $ref: .\liabilityCoverageOption_Type.yaml
+      limit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\limit_Type.yaml
+          - $ref: .\limit_Type.yaml
+      deductible:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\deductible_Type.yaml
+          - $ref: .\deductible_Type.yaml
+      excess:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\excess_Type.yaml
+          - $ref: .\excess_Type.yaml
+      policyForm:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyForm_Type.yaml
+          - $ref: .\policyForm_Type.yaml
+      insurerReferences:
+        $ref: .\insurerReferences_Type.yaml
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml
+      insuranceAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuranceAmountItem_Type.yaml
+          - $ref: .\insuranceAmountItem_Type.yaml
+      rate:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\rate_Type.yaml
+          - $ref: .\rate_Type.yaml
+      underwritingDecisionReasonDetail:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\underwritingDecisionReasonDetail_Type.yaml
+          - $ref: .\underwritingDecisionReasonDetail_Type.yaml
+      territorialLimit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\territorialLimit_Type.yaml
+          - $ref: .\territorialLimit_Type.yaml
+      coverageWording:
+        type: string
+      retroactiveCoverageIndicator:
+        type: boolean
+      retroactiveDate:
+        type: string
+        format: date

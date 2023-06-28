@@ -1,0 +1,32 @@
+type: string
+title: ExcessAppliesCodeContent_Type
+description: TBD
+enum:
+  - AccountsReceivable
+  - AdditionalCompulsory
+  - Basic
+  - BasicEachAndEvery
+  - BasicOrBasicPercentage
+  - ClaimsCost
+  - ClassicCar
+  - CompulsoryLightning
+  - ComputerEquipment
+  - DriverDriversLT2YearsLicenced
+  - DriverDriversUnder25
+  - DriverDriversUnder26
+  - DriverDriversUnder27
+  - DriverDriversUnder28
+  - DriverDriversUnder29
+  - FamilyMatters
+  - Imposed
+  - IncreasedCostOfWorking
+  - KeysAndLocks
+  - KeysAndLocksOrKeysAndLocksPercentage
+  - LossOrDamageOfPersonalEffectsOfPayingGuest
+  - MobileDevicesCellPhones
+  - Other
+  - Repatriation
+  - TheftAndOrHijacking
+  - ToolsSparePartsAndTravelAccessories
+  - Voluntary
+  - Windscreen

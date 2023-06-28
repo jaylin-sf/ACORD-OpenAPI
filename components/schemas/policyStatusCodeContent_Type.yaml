@@ -1,0 +1,27 @@
+type: string
+title: PolicyStatusCodeContent_Type
+description: TBD
+enum:
+  - Active
+  - CancelFromInception
+  - Cancelled
+  - ClaimAgainstPolicy
+  - Declined
+  - Deferred
+  - Endorsement
+  - FreeLook
+  - Grace
+  - InForce
+  - Lapsed
+  - Nonrenewal
+  - NTU
+  - OutOfForce
+  - PaidUpContract
+  - Pending
+  - PendingReinstatement
+  - PendingTermination
+  - Potential
+  - Run-off
+  - Sold
+  - Surrender
+  - Withdrawn

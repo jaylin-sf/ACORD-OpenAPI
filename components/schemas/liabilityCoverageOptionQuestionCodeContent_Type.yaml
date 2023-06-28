@@ -1,0 +1,5 @@
+type: string
+title: LiabilityCoverageOptionQuestionCodeContent_Type
+description: TBD
+enum:
+  - Underwriting001

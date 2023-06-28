@@ -1,0 +1,13 @@
+type: object
+title: ClaimOccurrenceReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      ClaimOccurrenceReference:
+        type: string
+  claimDateTime:
+    type: string
+    format: date-time
+  claimReferences:
+    $ref: .\claimReferences_Type.yaml

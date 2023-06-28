@@ -1,0 +1,32 @@
+type: string
+title: Claim Status Code Content Type
+description: TBD
+enum:
+  - Accident
+  - Admitted
+  - Closed
+  - ClosedThisMonth
+  - Declined
+  - Final
+  - FinalRecoveryAndSalvageOutstanding
+  - FinalRecoveryOutstanding
+  - FinalSalvageOutstanding
+  - Incomplete
+  - New
+  - NotTakenUp
+  - Open
+  - OpenAmountAgreed
+  - OpenClaimAndFeesPaid
+  - OpenClaimPaidFeesOutstanding
+  - OpenCoverageAgreed
+  - OpenFeesPaidClaimOutstanding
+  - Outstanding
+  - Pending
+  - Reopened
+  - ReopenedReClosed
+  - Settled
+  - StructuredSettlement
+  - Summarised
+  - Suspended
+  - ThirdParty
+  - Withdrawn

@@ -1,0 +1,43 @@
+type: object
+title: Underwriting Decision Reason Detail Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      decisionCategoryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      decisionSubCategoryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      description:
+        type: string
+      asOfDate:
+        type: string
+        format: date

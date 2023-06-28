@@ -1,0 +1,7 @@
+type: string
+title: Exclusion Category Code Content Type
+description: TBD
+enum:
+  - Medical
+  - Other
+  - Pastime

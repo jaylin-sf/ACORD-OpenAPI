@@ -1,0 +1,16 @@
+type: object
+title: PolicyInsurerReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyInsurerReference:
+        type: string
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  insurerReferences:
+    $ref: .\insurerReferences_Type.yaml

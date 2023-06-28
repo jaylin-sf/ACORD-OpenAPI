@@ -1,0 +1,35 @@
+type: object
+title: Excess_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\excessTypeCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      excessAppliesCode:
+        $ref: .\excessAppliesCode_Type.yaml
+      description:
+        type: string
+      excessAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      excessPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      removedIndicator:
+        type: boolean

@@ -1,0 +1,16 @@
+type: object
+title: Claim References Type
+properties:
+  attributes:
+    type: object
+    properties:
+      claimReference:
+        type: string
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  policyReferences:
+    $ref: .\policyReferences_Type.yaml

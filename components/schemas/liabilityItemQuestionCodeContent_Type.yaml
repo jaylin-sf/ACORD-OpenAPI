@@ -1,0 +1,23 @@
+type: string
+title: Liability Item Question Code Content Type
+description: TBD
+enum:
+  - ProductRecall001
+  - ProductRecall002
+  - ProductRecall003
+  - ProductRecall004
+  - ProductRecall005
+  - ProductRecall006
+  - ProductRecall007
+  - ProductRecall008
+  - ProductRecall009
+  - ProductRecall010
+  - LiabilityItem001
+  - LiabilityItem002
+  - LiabilityItem003
+  - LiabilityItem004
+  - LiabilityItem005
+  - LiabilityItem006
+  - LiabilityItem007
+  - LiabilityItem008
+  - LiabilityItem009

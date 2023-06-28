@@ -1,0 +1,22 @@
+type: string
+title: ExcessTypeCodeContent_Type
+description: TBD
+enum:
+  - Aggregate
+  - AnyOneAccidentOrOccurrence
+  - AnyOneClaim
+  - AnyOneEvent
+  - AnyOneInterest
+  - AnyOneLoss
+  - AnyOneLossCombinedSingleLimit
+  - AnyOnePerson
+  - Basic
+  - CombinedSingleLimit
+  - EachInterest
+  - Imposed
+  - Maximum
+  - Minimum
+  - Over25And2YearsExperience
+  - PercentageOfClaim
+  - PercentageOfLimit
+  - Under21

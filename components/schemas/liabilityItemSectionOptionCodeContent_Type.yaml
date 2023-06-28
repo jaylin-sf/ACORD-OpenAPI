@@ -1,0 +1,17 @@
+type: string
+title: LiabilityItemSectionOptionCodeContent_Type
+description: TBD
+enum:
+  - DefenseAndLiability
+  - FullFirstAndThirdParty
+  - FullFirstParty
+  - FullThirdParty
+  - LimitedFirstAndThirdParty
+  - LimitedFirstParty
+  - LimitedThirdParty
+  - ResponseExpense
+  - SideA
+  - SideB
+  - SideC
+  - ImposedClause
+  - TBD

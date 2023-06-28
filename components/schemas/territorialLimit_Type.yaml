@@ -1,0 +1,5 @@
+type: object
+title: Territorial Limit Type
+allOf:
+  - $ref: .\regionLimit_Type.yaml
+  - properties: {}

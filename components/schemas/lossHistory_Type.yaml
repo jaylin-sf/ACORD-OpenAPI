@@ -1,0 +1,45 @@
+type: object
+title: Loss History Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      lossCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      lossPeriod:
+        $ref: .\lossPeriod_Type.yaml
+      lossYear:
+        type: string
+        pattern: YYYY
+      lossAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      incurredAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      loss:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\loss_Type.yaml
+          - $ref: .\loss_Type.yaml

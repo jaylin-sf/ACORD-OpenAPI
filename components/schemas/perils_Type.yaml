@@ -1,0 +1,23 @@
+type: object
+title: Perils Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      perilIncludedCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\perilIncludedCode_Type.yaml
+          - $ref: .\perilIncludedCode_Type.yaml
+      perilExcludedCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\perilExcludedCode_Type.yaml
+          - $ref: .\perilExcludedCode_Type.yaml
+      exclusion:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\exclusion_Type.yaml
+          - $ref: .\exclusion_Type.yaml

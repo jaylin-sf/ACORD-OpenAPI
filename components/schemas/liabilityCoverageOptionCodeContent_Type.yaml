@@ -1,0 +1,28 @@
+type: string
+title: LiabilityCoverageOptionCodeContent_Type
+description: TBD
+enum:
+  - CyberExclusion
+  - DefenseAndLiability
+  - FullFirstAndThirdParty
+  - FullFirstParty
+  - FullThirdParty
+  - LimitedFirstAndThirdParty
+  - LimitedFirstParty
+  - LimitedThirdParty
+  - NationalMourningExclusion
+  - NuclearBiologicalChemicalExclusion
+  - PoliticalViolenceExclusion
+  - RadioactiveContaminationExclusion
+  - ResponseExpense
+  - SideA
+  - SideB
+  - SideC
+  - SystemicViruses
+  - TerrorismExclusion
+  - WarExclusion
+  - ImposedClause
+  - NumberOfAssistants
+  - NumberOfMedicalOfficials
+  - NumberOfPharmacists
+  - NumberOfTrustees

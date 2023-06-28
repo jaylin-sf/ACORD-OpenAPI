@@ -1,0 +1,14 @@
+type: object
+title: Exclusion Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      exclusionCategoryCode:
+        $ref: .\exclusionCategoryCode_Type.yaml
+      exclusionNameCode:
+        type: string
+        maxLength: 255
+      exclusionTerm:
+        type: string
+      description:
+        type: string

@@ -1,0 +1,14 @@
+type: string
+title: Loss Type Code Content
+description: TBD
+enum:
+  - AtFaultWithExcess
+  - AtFaultWithoutExcess
+  - ClaimWithExcess
+  - ClaimWithoutExcess
+  - LicenseSuspension
+  - NaturalHazard
+  - NotAtFaultWithExcess
+  - NotAtFaultWithoutExcess
+  - Theft
+  - Windscreen

@@ -1,0 +1,8 @@
+type: string
+title: Liability Item Section Type Code Content Type
+description: TBD
+enum:
+  - ClaimsMadeBasis
+  - CyberLiability
+  - MedicalMalpractice
+  - OccurrenceBasis

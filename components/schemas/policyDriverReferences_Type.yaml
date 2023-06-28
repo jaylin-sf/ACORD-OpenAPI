@@ -1,0 +1,16 @@
+type: object
+title: PolicyDriverReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyDriverReference:
+        type: string
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  driverReferences:
+    $ref: .\driverReferences_Type.yaml

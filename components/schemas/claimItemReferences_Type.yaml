@@ -1,0 +1,10 @@
+type: object
+title: ClaimItemReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      claimItemReference:
+        type: string
+  claimOccurrenceReferences:
+    $ref: .\claimOccurrenceReferences_Type.yaml
