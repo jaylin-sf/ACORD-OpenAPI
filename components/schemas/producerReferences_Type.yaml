@@ -1,0 +1,20 @@
+type: object
+title: Producer Reference Type
+properties:
+  attributes:
+    type: object
+    properties:
+      producerReference:
+        type: string
+      key:
+        type: string
+  externalIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\producerExternalIdentifier_Type.yaml
+      - $ref: .\producerExternalIdentifier_Type.yaml
+  personReferences:
+    $ref: .\personReferences_Type.yaml
+  organizationReferences:
+    $ref: .\organizationReferences_Type.yaml

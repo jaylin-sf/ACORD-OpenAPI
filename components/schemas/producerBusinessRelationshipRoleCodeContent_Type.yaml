@@ -1,0 +1,18 @@
+type: string
+title: ProducerBusinessRelationshipRoleCodeContent_Type
+description: TBD
+enum:
+  - Advisor
+  - Agency
+  - Agent
+  - Broker
+  - Coverholder
+  - Intermediary
+  - LocalBroker
+  - LondonBroker
+  - MarketCorrespondent
+  - ProducingBroker
+  - ReportingEntity
+  - SurplusLinesBroker
+  - ThirdPartyAdministrator
+  - Underwriter

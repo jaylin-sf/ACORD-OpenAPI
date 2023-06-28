@@ -1,0 +1,34 @@
+type: string
+title: PaymentTypeCodeContent_Type
+description: TBD
+enum:
+  - ACB
+  - AutoPay
+  - BPay
+  - Cash
+  - CashOrCheck
+  - Check
+  - CPFOrdinaryAccount
+  - CPFSpecialAccount
+  - CreditCard
+  - Cybercash
+  - DebitCard
+  - DebitOrder
+  - Draft
+  - EFT
+  - EFTChecking
+  - EFTSavings
+  - GroupBilling
+  - Medisave
+  - MoneyOrder
+  - Other
+  - PaymentThroughPoints
+  - PaymentWaiver
+  - PayrollDeduction
+  - PreAuthorizedDraftCheck
+  - PremiumFinance
+  - SRS
+  - SSV
+  - ThirdPartyPayment
+  - VerbalCheck
+  - WireTransfer

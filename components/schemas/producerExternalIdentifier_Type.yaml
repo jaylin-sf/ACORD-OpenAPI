@@ -1,0 +1,33 @@
+type: object
+title: ProducerExternalIdentifier Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+      - id
+    properties:
+      typeCode:
+        $ref: .\producerExternalIdentifierTypeCode_Type.yaml
+      jurisdictionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      sourceURI:
+        type: string
+        format: uri
+      id:
+        type: string
+        maxLength: 255
+      identifierDescription:
+        type: string

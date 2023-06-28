@@ -1,0 +1,28 @@
+type: object
+title: RemarkInformation_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      elementPath:
+        type: string
+        maxLength: 255
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      remarkDateTime:
+        type: string
+        format: date-time
+      roleCode:
+        $ref: .\coreRoleCode_Type.yaml
+      fullName:
+        type: string
+        maxLength: 255
+      printIndicator:
+        type: boolean
+      remarkTypeCode:
+        $ref: .\remarkTypeCode_Type.yaml
+      remark:
+        type: string
+      shortRemark:
+        type: string
+        maxLength: 255

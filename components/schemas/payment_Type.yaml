@@ -1,0 +1,54 @@
+type: object
+title: Payment_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\paymentTypeCode_Type.yaml
+      statusCode:
+        $ref: .\paymentStatusCode_Type.yaml
+      statusDate:
+        type: string
+        format: date
+      statusReasonDescription:
+        type: string
+      paymentAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      fromAccount:
+        $ref: .\fromAccount_Type.yaml
+      toAccount:
+        $ref: .\toAccount_Type.yaml
+      paymentPeriod:
+        $ref: .\paymentPeriod_Type.yaml
+      calculationDescription:
+        type: string
+        maxLength: 255
+      paymentDescription:
+        type: string
+        maxLength: 255
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      paymentDate:
+        type: string
+        format: date
+      financialTransactionCode:
+        $ref: .\financialTransactionCode_Type.yaml
+      invoiceReferences:
+        $ref: .\invoiceReferences_Type.yaml

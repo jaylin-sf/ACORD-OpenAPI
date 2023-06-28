@@ -1,0 +1,15 @@
+type: string
+title: Geocode Match Level Code Content
+description: TBD
+enum:
+  - AdministrativeRegionFirstOrder
+  - AdministrativeRegionSecondOrder
+  - AdministrativeRegionThirdOrder
+  - BuildingOrLandmark
+  - CoordinatesOfUnknownOrigin
+  - HighResolutionParcel
+  - MediumResolutionBlock
+  - Point
+  - PostalCentroidMicroZone
+  - StreetCentroid
+  - StreetSegmentImputed

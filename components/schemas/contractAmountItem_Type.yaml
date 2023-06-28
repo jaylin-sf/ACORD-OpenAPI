@@ -1,0 +1,47 @@
+type: object
+title: Contract Amount Item Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\contractAmountItemTypeCode_Type.yaml
+      description:
+        type: string
+      itemAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      itemPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      itemFactor:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      itemRate:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      commission:
+        $ref: .\commission_Type.yaml
+      payment:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\payment_Type.yaml
+          - $ref: .\payment_Type.yaml
+      tax:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\tax_Type.yaml
+          - $ref: .\tax_Type.yaml
+      contractAmountPeriod:
+        $ref: .\contractAmountPeriod_Type.yaml

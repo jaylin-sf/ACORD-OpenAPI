@@ -1,0 +1,28 @@
+type: object
+title: Insurance Amount Item Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\insuranceAmountItemTypeCode_Type.yaml
+      description:
+        type: string
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      contractAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\contractAmountItem_Type.yaml
+          - $ref: .\contractAmountItem_Type.yaml
+      frequencyCode:
+        $ref: .\frequencyCode_Type.yaml

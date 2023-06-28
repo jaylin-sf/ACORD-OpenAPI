@@ -1,0 +1,8 @@
+type: object
+title: Bank Account References
+properties:
+  attributes:
+    type: object
+    properties:
+      bankAccountReference:
+        type: string

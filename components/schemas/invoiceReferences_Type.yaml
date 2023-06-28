@@ -1,0 +1,14 @@
+type: object
+title: Invoice References
+properties:
+  attributes:
+    type: object
+    properties:
+      invoiceReference:
+        type: string
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml

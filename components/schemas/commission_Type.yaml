@@ -1,0 +1,50 @@
+type: object
+title: Commission Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      commissionRatePercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      commissionAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      policyProducerReferences:
+        $ref: .\policyProducerReferences_Type.yaml
+      tax:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\tax_Type.yaml
+          - $ref: .\tax_Type.yaml
+      commissionBasisCode:
+        $ref: .\commissionBasisCode_Type.yaml
+      paymentDate:
+        type: string
+        format: date
+      paymentDueDate:
+        type: string
+        format: date
+      discountAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

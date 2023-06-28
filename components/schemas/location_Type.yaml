@@ -1,0 +1,113 @@
+type: object
+title: Location Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      locationCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      addressReferences:
+        $ref: .\addressReferences_Type.yaml
+      latitudeMeasure:
+        type: string
+        pattern: ^-?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$
+      longitudeMeasure:
+        type: string
+        pattern: >-
+          ^-?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[1-7][0-9])(?:(?:\.[0-9]{1,6})?))$
+      geocodeMatchLevelCode:
+        $ref: .\geocodeMatchLevelCode_Type.yaml
+      fireDistrictName:
+        type: string
+        maxLength: 255
+      fireDistrictCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      itemCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      countyTownCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      hazardZoneSchemeCode:
+        $ref: .\hazardZoneSchemeCode_Type.yaml
+      hazardZoneCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      catastropheZone:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\catastropheZone_Type.yaml
+          - $ref: .\catastropheZone_Type.yaml
+      controlCountInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\controlCountInformation_Type.yaml
+          - $ref: .\controlCountInformation_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\locationExternalIdentifier_Type.yaml
+          - $ref: .\locationExternalIdentifier_Type.yaml
+      locationName:
+        type: string
+        maxLength: 255
+      description:
+        type: string

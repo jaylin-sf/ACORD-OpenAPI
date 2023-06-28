@@ -1,0 +1,19 @@
+type: string
+title: InsurerExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - AMBestInsurerCode
+  - CAWCId
+  - CAWCInsurerCode
+  - FSPReferenceNumber
+  - IAIABCInsurerCode
+  - IBCInsurerCode
+  - ISPCode
+  - JurisdictionId
+  - NAICInsurerCode
+  - NAICProducerCode
+  - NCCIId
+  - NCCIInsurerCode
+  - OSHAId
+  - OtherId
+  - PADEInsurerCode

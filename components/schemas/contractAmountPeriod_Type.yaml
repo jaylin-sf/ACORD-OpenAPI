@@ -1,0 +1,27 @@
+type: object
+title: Contract Amount Period
+properties:
+  startDate:
+    type: string
+    format: date
+  endDate:
+    type: string
+    format: date
+  startTime:
+    type: string
+    format: time
+  endTime:
+    type: string
+    format: time
+  localStandardTimeAppliesToInceptionDateIndicator:
+    type: boolean
+  periodDuration:
+    type: string
+    format: duration
+  continuousDurationIndicator:
+    type: boolean
+  timePeriodDescription:
+    type: string
+    maxLength: 255
+  bothDaysInclusiveIndicator:
+    type: boolean

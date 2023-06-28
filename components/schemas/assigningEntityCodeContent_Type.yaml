@@ -1,0 +1,6 @@
+type: string
+title: Assigning Entity Code Content
+description: TBD
+enum:
+  - CRESTA
+  - Other

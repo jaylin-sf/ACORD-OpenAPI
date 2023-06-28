@@ -1,0 +1,17 @@
+type: string
+title: CoverageStatusCodeContent_Type
+description: TBD
+enum:
+  - Accepted
+  - AcceptedNonStandard
+  - Cancelled
+  - Excluded
+  - Included
+  - InForce
+  - Lapsed
+  - OutOfForce
+  - Proposed
+  - Referred
+  - Reinstated
+  - Rejected
+  - Suspended

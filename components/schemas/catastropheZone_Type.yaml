@@ -1,0 +1,23 @@
+type: object
+title: Catastrophe Zone Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assigningEntityCode:
+        $ref: .\assigningEntityCode_Type.yaml
+      perilCode:
+        $ref: .\perilCode_Type.yaml
+      zoneId:
+        type: string
+      zoneName:
+        type: string
+        maxLength: 255
+      zoneNumberId:
+        type: string
+        maxLength: 255
+      subzoneName:
+        type: string
+        maxLength: 255
+      subzoneNumberId:
+        type: string
+        maxLength: 255

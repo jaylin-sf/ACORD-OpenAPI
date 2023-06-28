@@ -1,0 +1,11 @@
+type: string
+title: TaxType Code Content Type
+description: TBD
+enum:
+  - Tax
+  - TaxablePremium
+  - VAT
+  - VATOnCommissionNotRegistered
+  - VATOnCommissionRegistered
+  - VATOnPremium
+  - VATOnTotalCommission

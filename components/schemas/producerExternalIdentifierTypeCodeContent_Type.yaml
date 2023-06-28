@@ -1,0 +1,5 @@
+type: string
+title: ProducerExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - OtherId

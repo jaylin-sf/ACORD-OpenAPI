@@ -1,0 +1,13 @@
+type: object
+title: ToAccount_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      bankAccountReferences:
+        $ref: .\bankAccountReferences_Type.yaml
+      accountNumberId:
+        type: string
+        maxLength: 255
+      cardExpirationYearMonth:
+        type: string
+        pattern: YYYYMM

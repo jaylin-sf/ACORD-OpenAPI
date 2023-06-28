@@ -1,0 +1,22 @@
+type: string
+title: Contract Amount Item Type Code Content Type
+description: TBD
+enum:
+  - Benefit
+  - Commission
+  - CurrentTermAmount
+  - FullTermAmount
+  - FullTermAmountPostAdjustment
+  - FullTermAmountPreAdjustment
+  - InsuredStatePremium
+  - IntroducerFee
+  - InwardWithholdingTax
+  - IPATax1
+  - IPATax2
+  - LocalTax
+  - LondonTax
+  - ManagementEntityFee
+  - NetChangeAmount
+  - NonResidenceTax
+  - PremiumDeposit
+  - TaxablePremium

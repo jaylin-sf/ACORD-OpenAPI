@@ -1,0 +1,8 @@
+type: string
+title: Purview Code Content
+description: TBD
+enum:
+  - Domestic
+  - Foreign
+  - InState
+  - OutOfState

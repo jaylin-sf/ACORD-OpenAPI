@@ -1,0 +1,26 @@
+type: object
+title: Europe Totals Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - countryCode
+      - unitCount
+    properties:
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

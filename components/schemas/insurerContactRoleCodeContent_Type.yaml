@@ -1,0 +1,6 @@
+type: string
+title: InsurerContactRoleCodeContent_Type
+description: The Contact Role Code content enumeration
+enum:
+  - Other
+  - Underwriter

@@ -1,0 +1,29 @@
+type: object
+title: Control Count Information Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - controlCountTypeCode
+    properties:
+      controlCountTypeCode:
+        $ref: .\controlCountTypeCode_Type.yaml
+      elementPath:
+        type: string
+        maxLength: 255
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      unitedStatesTotals:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\unitedStatesTotals_Type.yaml
+          - $ref: .\unitedStatesTotals_Type.yaml
+      europeTotals:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\europeTotals_Type.yaml
+          - $ref: .\europeTotals_Type.yaml
+      description:
+        type: string

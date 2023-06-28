@@ -1,0 +1,10 @@
+type: string
+title: Hazard Zone Scheme Code Content
+description: TBD
+enum:
+  - CALISTATE
+  - FEMA
+  - FRAT
+  - HORA
+  - POOLRE
+  - ZUERS

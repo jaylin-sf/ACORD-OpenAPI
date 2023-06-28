@@ -1,0 +1,16 @@
+type: string
+title: Remark Type Code Content
+description: TBD
+enum:
+  - CostsChargesBI
+  - Declaration
+  - DiverseRisk
+  - DutyOfDisclosure
+  - MeansOfConveyanceGIT
+  - MiscellaneousFire
+  - Note
+  - NoteHistory
+  - PropertyGIT
+  - RiskManagement
+  - Subject
+  - WorkingExperienceMBBI

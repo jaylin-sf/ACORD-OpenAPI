@@ -1,0 +1,8 @@
+type: string
+title: FinancialTransactionCodeContent_Type
+description: TBD
+enum:
+  - Receipt
+  - Refund
+  - ReturnToDrawer
+  - SettlementPayment

@@ -1,0 +1,40 @@
+type: string
+title: Control Count TypeCodeContent Type
+description: TBD
+enum:
+  - AccidentInjuryNarrative
+  - BenefitACR
+  - Benefits
+  - BodyPartInjured
+  - ChangeElement
+  - ClaimCancellation
+  - ClaimNarrative
+  - ConcurrentEmployer
+  - DeathDepPayeeRel
+  - DenialReasonCode
+  - DenialReasonNarrative
+  - DependentPayeeRelationship
+  - Discounts
+  - MCO
+  - OBT
+  - OtherStructures
+  - PartyRelationshipCode
+  - Payments
+  - PermImp
+  - PolicyAnimal
+  - PolicyArticle
+  - PolicyInsured
+  - PolicyInsurer
+  - PolicyInterestedParty
+  - PolicyProducer
+  - PolicyProperty
+  - PolicyVehicle
+  - PolicyWatercraft
+  - Recoveries
+  - ReducedEarnings
+  - Riders
+  - SuspensionNarrative
+  - TotalErrors
+  - TotalLives
+  - TotalRecords
+  - Witness

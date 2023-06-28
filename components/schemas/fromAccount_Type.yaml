@@ -1,0 +1,24 @@
+type: object
+title: FromAccount_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      bankAccountReferences:
+        $ref: .\bankAccountReferences_Type.yaml
+      accountNumberId:
+        type: string
+        maxLength: 255
+      routingNumberId:
+        type: string
+        maxLength: 255
+      chequeNumberId:
+        type: string
+        maxLength: 255
+      chequeDate:
+        type: string
+        format: date
+      cardExpirationYearMonth:
+        type: string
+        pattern: YYYYMM
+      description:
+        type: string

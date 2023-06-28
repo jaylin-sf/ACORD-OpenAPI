@@ -1,0 +1,7 @@
+type: string
+title: Commission Basis Code Content Type
+description: TBD
+enum:
+  - Annual
+  - GrossWritten
+  - Single
