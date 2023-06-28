@@ -1,0 +1,17 @@
+type: string
+title: Medical Facility Count Information Code Content Type
+description: TBD
+enum:
+  - AlliedHealthComplimentaryActivities
+  - AlliedHealthProfessions
+  - BedOccupancyPercentage
+  - NumberOfBeds
+  - NumberOfOutPatientsLastYear
+  - NumberOfOutPatientsNextYear
+  - NumberOfOutPatientsThisYear
+  - NumberOfPatients
+  - NumberOfPatientsLastYear
+  - NumberOfPatientsNextYear
+  - NumberOfPatientsThisYear
+  - NumberOfVisitsByInsured
+  - ProcedureTypePatientInformation

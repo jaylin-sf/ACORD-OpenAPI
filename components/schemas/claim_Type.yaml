@@ -1,0 +1,81 @@
+type: object
+title: Claim Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      claimReferences:
+        $ref: .\claimReferences_Type.yaml
+      claimOccurrence:
+        $ref: .\claimOccurrence_Type.yaml
+      # claimItem:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\claimItem_Type.yaml
+      #     - $ref: .\claimItem_Type.yaml
+      claimActivity:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimActivity_Type.yaml
+          - $ref: .\claimActivity_Type.yaml
+      claimReasonCode:
+        $ref: .\claimReasonCode_Type.yaml
+      claimCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      justificationDescription:
+        type: string
+      financialReview:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\financialReview_Type.yaml
+          - $ref: .\financialReview_Type.yaml
+      interview:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\interview_Type.yaml
+          - $ref: .\interview_Type.yaml
+      jurisdictionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      medicalTreatment:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\medicalTreatment_Type.yaml
+          - $ref: .\medicalTreatment_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml

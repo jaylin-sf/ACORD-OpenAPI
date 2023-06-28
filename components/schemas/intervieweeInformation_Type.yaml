@@ -1,0 +1,13 @@
+type: object
+title: Interviewee Information Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      roleCode:
+        $ref: .\intervieweeBusinessRelationshipRoleCode_Type.yaml
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      interviewRequestIndicator:
+        type: boolean
+      interviewedIndicator:
+        type: boolean

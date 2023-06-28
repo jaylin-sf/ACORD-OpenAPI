@@ -1,0 +1,9 @@
+type: string
+title: TreatmentFacilityTypeCodeContent_Type
+description: TheTreatment Facility Type content enumeration
+enum:
+  - CommunityHospital
+  - Government
+  - Private
+  - Public
+  - RestructuredHospital

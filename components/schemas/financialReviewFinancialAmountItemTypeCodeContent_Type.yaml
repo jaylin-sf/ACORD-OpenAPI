@@ -1,0 +1,6 @@
+type: string
+title: Financial Review Financial Amount Item Type Code Content Type
+description: TBD
+enum:
+  - AnnualSalaryDisability
+  - AnnualSalaryReview

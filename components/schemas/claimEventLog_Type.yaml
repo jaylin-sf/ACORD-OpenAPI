@@ -1,0 +1,16 @@
+type: object
+title: ClaimEventLog Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      statusDate:
+        type: string
+        format: date
+      statusCode:
+        $ref: .\claimEventLogStatusCode_Type.yaml
+      eventLogInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\eventLogInformation_Type.yaml
+          - $ref: .\eventLogInformation_Type.yaml

@@ -1,0 +1,15 @@
+type: string
+title: TreatmentRoomTypeCodeContent_Type
+description: TheTreatment Room Type content enumeration
+enum:
+  - CurativeAcuteCareBeds
+  - DayOrOutpatientSurgeryRoom
+  - DoubleRoom
+  - FourBedded
+  - IntensiveOrCriticalCareUnit
+  - LongTermCareBeds
+  - OtherHospitalBeds
+  - RehabilitiveCareBeds
+  - RoomAndBoard
+  - ShortStayWard
+  - SingleRoom

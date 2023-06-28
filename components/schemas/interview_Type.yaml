@@ -1,0 +1,22 @@
+type: object
+title: Interview Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      interviewTypeCode:
+        $ref: .\interviewTypeCode_Type.yaml
+      interviewTerminationReasonCode:
+        $ref: .\interviewTerminationReasonCode_Type.yaml
+      interviewNotes:
+        type: string
+      interviewDate:
+        type: string
+        format: date
+      intervieweeInformation:
+        $ref: .\intervieweeInformation_Type.yaml

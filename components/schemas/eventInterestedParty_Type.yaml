@@ -1,0 +1,9 @@
+type: object
+title: Event Interested Party Information
+allOf:
+  - $ref: .\interestedPartyRole_Type.yaml
+  - properties:
+      description:
+        type: string
+      interestedParty:
+        $ref: .\interestedParty_Type.yaml

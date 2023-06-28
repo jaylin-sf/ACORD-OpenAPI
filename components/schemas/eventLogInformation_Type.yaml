@@ -1,0 +1,29 @@
+type: object
+title: EventLogInformation Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      eventCode:
+        $ref: .\eventCode_Type.yaml
+      eventCreationDate:
+        type: string
+        format: date
+      eventRequestedDate:
+        type: string
+        format: date
+      eventRecommendedDate:
+        type: string
+        format: date
+      eventAuthorizedDate:
+        type: string
+        format: date
+      eventInterestedParty:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\eventInterestedParty_Type.yaml
+          - $ref: .\eventInterestedParty_Type.yaml
+      eventDescription:
+        type: string
+      textResponse:
+        type: string

@@ -1,0 +1,22 @@
+type: string
+title: Claim Event Log Status Code Content Type
+description: TBD
+enum:
+  - Acknowledged
+  - Actioned
+  - Closed
+  - Completed
+  - Final
+  - FinalRecoveryAndSalvageOutstanding
+  - FinalRecoveryOutstanding
+  - FinalSalvageOutstanding
+  - FollowUp
+  - Notification
+  - NotTakenUp
+  - Open
+  - Outstanding
+  - Received
+  - ReOpen
+  - Requested
+  - Summarised
+  - ThirdParty

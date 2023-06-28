@@ -1,0 +1,33 @@
+type: object
+title: Period Type
+properties:
+  startDate:
+    type: string
+    format: date
+  endDate:
+    type: string
+    format: date
+  startTime:
+    type: string
+    format: time
+  endTime:
+    type: string
+    format: time
+  localStandardTimeAppliesToInceptionDateIndicator:
+    type: boolean
+  startAge:
+    type: string
+    pattern: ^[0-9]{1,15}$
+  endAge:
+    type: string
+    pattern: ^[0-9]{1,15}$
+  periodDuration:
+    type: string
+    format: duration
+  continuousDurationIndicator:
+    type: boolean
+  timePeriodDescription:
+    type: string
+    maxLength: 255
+  bothDaysInclusiveIndicator:
+    type: boolean

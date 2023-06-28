@@ -1,0 +1,24 @@
+type: object
+title: ClaimActivity_Type
+properties:
+  description:
+    type: string
+  statusCode:
+    $ref: .\claimStatusCode_Type.yaml
+  claimEventLog:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\claimEventLog_Type.yaml
+      - $ref: .\claimEventLog_Type.yaml
+  assignedIdentifier:
+    $ref: .\assignedIdentifier_Type.yaml
+  claimItemReferences:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\claimItemReferences_Type.yaml
+      - $ref: .\claimItemReferences_Type.yaml
+  activityDateTime:
+    type: string
+    format: date-time

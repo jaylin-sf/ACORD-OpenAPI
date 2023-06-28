@@ -1,0 +1,15 @@
+type: object
+title: Medical Facility CountInformation Type
+required:
+  - typeCode
+properties:
+  typeCode:
+    $ref: .\medicalFacilityCountInformationCodeContent_Type.yaml
+  itemCount:
+    type: string
+    pattern: ^[0-9]{1,15}$
+  itemPercent:
+    type: string
+    pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+  description:
+    type: string

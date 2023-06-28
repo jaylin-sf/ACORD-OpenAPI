@@ -1,0 +1,17 @@
+type: object
+title: Interested Party Role_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      roleCode:
+        $ref: .\interestedPartyRoleCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      interestedPartyReferences:
+        $ref: .\interestedPartyReferences_Type.yaml
+      interestedPartyPeriod:
+        $ref: .\interestedPartyPeriod_Type.yaml
