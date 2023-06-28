@@ -1,0 +1,11 @@
+type: object
+title: Claim Interested Party Information
+allOf:
+  - $ref: .\claimPartyRole_Type.yaml
+  - properties:
+      primaryIndicator:
+        type: boolean
+      interestedParty:
+        $ref: .\interestedParty_Type.yaml
+      thirdPartyVehicleReferences:
+        $ref: .\thirdPartyVehicleReferences_Type.yaml

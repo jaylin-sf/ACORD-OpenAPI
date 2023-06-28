@@ -1,0 +1,7 @@
+type: object
+title: LocationAddress Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      addressReferences:
+        $ref: .\addressReferences_Type.yaml

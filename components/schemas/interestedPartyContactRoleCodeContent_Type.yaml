@@ -1,0 +1,7 @@
+type: string
+title: Interested Party ContactRoleCodeContent_Type
+description: The Contact Role Code content enumeration
+enum:
+  - ClaimHandler
+  - LegalOfficer
+  - Other

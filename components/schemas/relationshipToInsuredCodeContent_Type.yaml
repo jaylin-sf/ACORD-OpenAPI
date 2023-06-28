@@ -1,0 +1,52 @@
+type: string
+title: Relationship To Insured Code Content Type
+description: TBD
+enum:
+  - Aunt
+  - Brother
+  - Child
+  - Consultant
+  - Cousin
+  - Creditor
+  - Daughter
+  - DisabledChild
+  - Employee
+  - Employer
+  - Estate
+  - Family
+  - Father
+  - Fiancee
+  - Friend
+  - Grandchild
+  - Grandchildren
+  - Granddaughter
+  - Grandfather
+  - Grandmother
+  - Grandparent
+  - Grandson
+  - Husband
+  - Institution
+  - JurisdictionFundEstate
+  - LegalGuardian
+  - LegallyAdoptedChild
+  - LegallyAdoptedDaughter
+  - LegallyAdoptedSon
+  - Mother
+  - Nephew
+  - Niece
+  - NonProfitOrganization
+  - Other
+  - Parent
+  - ParentsSibling
+  - Self
+  - Sibling
+  - Sister
+  - Son
+  - Spouse
+  - StepChild
+  - StepFather
+  - StepMother
+  - Uncle
+  - Widow
+  - Widower
+  - Wife

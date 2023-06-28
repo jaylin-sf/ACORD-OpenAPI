@@ -1,0 +1,30 @@
+type: string
+title: Vehicle Class Code Content
+description: TBD
+enum:
+  - Breakdown
+  - Bus
+  - Caravan
+  - Commercial
+  - CommercialAndPrivate
+  - Dolly
+  - EarthMoving
+  - Farm
+  - Harvesting
+  - HeavyCommercial
+  - LightCommercial
+  - MediumCommercial
+  - Mobile
+  - Motorcycle
+  - MotorHome
+  - Other
+  - Passenger
+  - PrimeMover
+  - Private
+  - PrivateBus
+  - Safari
+  - ScheduledBus
+  - Tractor
+  - Trailer
+  - Truck
+  - UnscheduledBus

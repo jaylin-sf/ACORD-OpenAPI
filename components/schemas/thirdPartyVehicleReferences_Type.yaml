@@ -1,0 +1,22 @@
+type: object
+title: Third Party Vehicle References Type
+properties:
+  attributes:
+    type: object
+    properties:
+      thirdPartyVehicleReference:
+        type: string
+  vehicleClassCode:
+    $ref: .\vehicleClassCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  locationReferences:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\locationReferences_Type.yaml
+      - $ref: .\locationReferences_Type.yaml

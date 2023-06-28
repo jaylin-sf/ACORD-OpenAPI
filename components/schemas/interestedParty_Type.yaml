@@ -1,0 +1,18 @@
+type: object
+title: Interested Party Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\interestedPartyContact_Type.yaml
+          - $ref: .\interestedPartyContact_Type.yaml
+      relationshipToInsuredCode:
+        $ref: .\relationshipToInsuredCode_Type.yaml
+      relationshipToOwnerCode:
+        $ref: .\relationshipToOwnerCode_Type.yaml
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$

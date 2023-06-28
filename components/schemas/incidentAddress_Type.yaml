@@ -1,0 +1,11 @@
+type: object
+title: Incident Address Type
+allOf:
+  - $ref: .\locationAddress_Type.yaml
+  - properties:
+      locationReferences:
+        $ref: .\locationReferences_Type.yaml
+      description:
+        type: string
+      organizationName:
+        $ref: .\organizationName_Type.yaml

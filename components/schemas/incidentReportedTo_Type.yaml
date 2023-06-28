@@ -1,0 +1,13 @@
+type: object
+title: IncidentReportedTo Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - roleCode
+    properties:
+      roleCode:
+        $ref: .\coreRoleCode_Type.yaml
+      personReferences:
+        $ref: .\personReferences_Type.yaml
+      organizationReferences:
+        $ref: .\organizationReferences_Type.yaml

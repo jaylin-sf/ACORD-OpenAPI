@@ -1,0 +1,83 @@
+type: object
+title: ClaimOccurrence Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      claimParty:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimParty_Type.yaml
+          - $ref: .\claimParty_Type.yaml
+      causeCode:
+        $ref: .\causeCode_Type.yaml
+      description:
+        type: string
+      correctivePreventativeActionDescription:
+        type: string
+      discoveryDateTime:
+        type: string
+        format: date-time
+      lossPeriod:
+        $ref: .\lossPeriod_Type.yaml
+      statusDate:
+        type: string
+        format: date
+      statusCode:
+        $ref: .\claimStatusCode_Type.yaml
+      inDisputeIndicator:
+        type: boolean
+      incidentDate:
+        type: string
+        format: date
+      incidentAddress:
+        $ref: .\incidentAddress_Type.yaml
+      incidentReportedIndicator:
+        type: boolean
+      incidentReported:
+        $ref: .\incidentReported_Type.yaml
+      injuredPersonsIndicator:
+        type: boolean
+      insuredAtEventIndicator:
+        type: boolean
+      insurerAtEventDate:
+        $ref: .\insurerAtEventDate_Type.yaml
+      insurerAcceptedLastCover:
+        $ref: .\insurerAcceptedLastCover_Type.yaml
+      additionalCoverAppliedIndicator:
+        type: boolean
+      claimTransactionAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimTransactionAmountItem_Type.yaml
+          - $ref: .\claimTransactionAmountItem_Type.yaml
+      # tripInformation:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\tripInformation_Type.yaml
+      #     - $ref: .\tripInformation_Type.yaml
+      # flightInformation:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\flightInformation_Type.yaml
+      #     - $ref: .\flightInformation_Type.yaml
+      # questionAnswer:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\claimOccurrenceQuestionAnswer_Type.yaml
+      #     - $ref: .\claimOccurrenceQuestionAnswer_Type.yaml
+      claimDateTime:
+        type: string
+        format: date-time
+      claimReferences:
+        $ref: .\claimReferences_Type.yaml

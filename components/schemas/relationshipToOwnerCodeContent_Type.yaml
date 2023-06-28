@@ -1,0 +1,42 @@
+type: string
+title: Relationship To Owner Code Content Type
+description: TBD
+enum:
+  - Aunt
+  - Brother
+  - Child
+  - Cousin
+  - Daughter
+  - DisabledChild
+  - Family
+  - Father
+  - Friend
+  - Grandchild
+  - Grandchildren
+  - Granddaughter
+  - Grandfather
+  - Grandmother
+  - Grandparent
+  - Grandson
+  - Husband
+  - Institution
+  - JurisdictionFundEstate
+  - LegalGuardian
+  - LegallyAdoptedChild
+  - LegallyAdoptedDaughter
+  - LegallyAdoptedSon
+  - Mother
+  - Nephew
+  - Niece
+  - Other
+  - Parent
+  - ParentsSibling
+  - Self
+  - Sibling
+  - Sister
+  - Son
+  - Spouse
+  - Uncle
+  - Widow
+  - Widower
+  - Wife

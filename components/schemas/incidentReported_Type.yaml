@@ -1,0 +1,14 @@
+type: object
+title: IncidentReported Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        $ref: .\assignedIdentifier_Type.yaml
+      reportedDate:
+        type: string
+        format: date
+      incidentReportedBy:
+        $ref: .\incidentReportedBy_Type.yaml
+      incidentReportedTo:
+        $ref: .\incidentReportedTo_Type.yaml
