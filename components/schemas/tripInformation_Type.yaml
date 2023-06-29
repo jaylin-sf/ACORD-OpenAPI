@@ -1,0 +1,46 @@
+type: object
+title: Trip Information
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      tripDestination:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\tripDestination_Type.yaml
+          - $ref: .\tripDestination_Type.yaml
+      tripBookingDate:
+        type: string
+        format: date
+      tripPeriod:
+        $ref: .\tripPeriod_Type.yaml
+      tripReasonCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      transitMethodCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

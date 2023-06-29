@@ -17299,6 +17299,230 @@ components:
         - properties:
             organizationReferences:
               $ref: '#/components/schemas/organizationReferences_Type'
+    tripDestination_Type:
+      type: object
+      title: Trip Destination Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            description:
+              type: string
+            tripDestinationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    tripPeriod_Type:
+      type: object
+      title: Trip Period Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            localStandardTimeAppliesToInceptionDateIndicator:
+              type: boolean
+            startAge:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            endAge:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            periodDuration:
+              type: string
+              format: duration
+            continuousDurationIndicator:
+              type: boolean
+            timePeriodDescription:
+              type: string
+              maxLength: 255
+            bothDaysInclusiveIndicator:
+              type: boolean
+    tripInformation_Type:
+      type: object
+      title: Trip Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            tripDestination:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/tripDestination_Type'
+                - $ref: '#/components/schemas/tripDestination_Type'
+            tripBookingDate:
+              type: string
+              format: date
+            tripPeriod:
+              $ref: '#/components/schemas/tripPeriod_Type'
+            tripReasonCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            transitMethodCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    flightInformation_Type:
+      type: object
+      title: Flight Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            scheduledFlightNumber:
+              type: string
+              maxLength: 255
+            scheduledDepartureDateTime:
+              type: string
+              format: date-time
+            scheduledArrivalDateTime:
+              type: string
+              format: date-time
+            scheduledDeparturePoint:
+              type: string
+              maxLength: 255
+            scheduledDestination:
+              type: string
+              maxLength: 255
+            actualFlightNumber:
+              type: string
+              maxLength: 255
+            actualDepartureDateTime:
+              type: string
+              format: date-time
+            actualArrivalDateTime:
+              type: string
+              format: date-time
+            actualDestination:
+              type: string
+              maxLength: 255
+    claimOccurrenceQuestionCodeContent_Type:
+      type: string
+      title: Claim Occurrence Question Code Content Type
+      description: TBD
+      enum:
+        - ClaimOccurrence018
+        - ClaimOccurrence019
+        - ClaimOccurrence020
+        - ClaimOccurrence009
+        - ClaimOccurrence010
+        - ClaimOccurrence011
+        - ClaimOccurrence012
+        - ClaimOccurrence013
+        - ClaimOccurrence014
+        - ClaimOccurrence015
+    claimOccurrenceQuestionAnswer_Type:
+      type: object
+      title: Claim Occurrence Question Answer Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - questionCode
+            - answerCode
+          properties:
+            questionCode:
+              $ref: '#/components/schemas/claimOccurrenceQuestionCodeContent_Type'
+            questionCodeDescription:
+              type: string
+            answerCode:
+              $ref: '#/components/schemas/answerCodeContent_Type'
+            explanation:
+              type: string
+            explanationDate:
+              type: string
+              format: date
+            explanationPeriod:
+              $ref: '#/components/schemas/explanationPeriod_Type'
+            explanationCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            explanationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            explanationAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            explanationMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            explanationPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
     claimOccurrence_Type:
       type: object
       title: ClaimOccurrence Type
@@ -17360,6 +17584,24 @@ components:
                   items:
                     $ref: '#/components/schemas/claimTransactionAmountItem_Type'
                 - $ref: '#/components/schemas/claimTransactionAmountItem_Type'
+            tripInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/tripInformation_Type'
+                - $ref: '#/components/schemas/tripInformation_Type'
+            flightInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/flightInformation_Type'
+                - $ref: '#/components/schemas/flightInformation_Type'
+            questionAnswer:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/claimOccurrenceQuestionAnswer_Type'
+                - $ref: '#/components/schemas/claimOccurrenceQuestionAnswer_Type'
             claimDateTime:
               type: string
               format: date-time

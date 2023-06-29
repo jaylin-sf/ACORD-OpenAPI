@@ -1,0 +1,14 @@
+type: string
+title: Claim Occurrence Question Code Content Type
+description: TBD
+enum:
+  - ClaimOccurrence018
+  - ClaimOccurrence019
+  - ClaimOccurrence020
+  - ClaimOccurrence009
+  - ClaimOccurrence010
+  - ClaimOccurrence011
+  - ClaimOccurrence012
+  - ClaimOccurrence013
+  - ClaimOccurrence014
+  - ClaimOccurrence015
