@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyCancellationOrderProcess_Type'
+                $ref: '#/components/schemas/policyCancellationClosingProcess_Type'
         '400':
           description: Bad Request.
           content:
@@ -70,7 +70,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyCancellationOrderProcessResult_Type'
+                $ref: '#/components/schemas/policyCancellationClosingProcessResult_Type'
         '400':
           description: Bad Request.
           content:
@@ -8615,27 +8615,14 @@ components:
               maxLength: 255
             description:
               type: string
-    policyOrderTransactionFunctionCodeContent_Type:
+    policyClosingTransactionFunctionCodeContent_Type:
       type: string
-      title: Policy Order Transaction Function Code Content Type
+      title: Policy Closing Transaction Function Code Content Type
       description: TBD
       enum:
-        - AdjustmentOfDeclaration
-        - AdjustmentOfDeclarationFinalization
-        - ConfirmedCancellation
-        - ConfirmedLapse
-        - ConfirmedReinstatement
-        - CoverAcceptance
-        - DeclinePolicyOrder
-        - IncreaseCover
-        - LapseCover
-        - LifeEvent
-        - PolicyIssuance
-        - RequestForCancellation
-        - RequestForCover
-        - RequestForIssuance
-        - RequestForReinstatement
-        - TransferCover
+        - ConfirmedClosing
+        - DeclineClosing
+        - RequestForClosing
     reason_Type:
       type: object
       title: Reason Type
@@ -8660,6 +8647,25 @@ components:
             reasonDescription:
               type: string
               maxLength: 255
+    policyQuotationReferences_Type:
+      type: object
+      title: PolicyQuotationReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyQuotationReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
     policyOrderReferences_Type:
       type: object
       title: PolicyOrderReferences_Type
@@ -8679,14 +8685,14 @@ components:
               items:
                 $ref: '#/components/schemas/assignedIdentifier_Type'
             - $ref: '#/components/schemas/assignedIdentifier_Type'
-    policyQuotationReferences_Type:
+    policyClosingReferences_Type:
       type: object
-      title: PolicyQuotationReferences_Type
+      title: PolicyClosingReferences_Type
       properties:
         attributes:
           type: object
           properties:
-            policyQuotationReference:
+            policyClosingReference:
               type: string
         documentId:
           type: string
@@ -16199,42 +16205,6 @@ components:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
               $ref: '#/components/schemas/policy_Type'
-    claimExperiencePeriod_Type:
-      type: object
-      title: Claim Experience Period
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            localStandardTimeAppliesToInceptionDateIndicator:
-              type: boolean
-            startAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            endAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            periodDuration:
-              type: string
-              format: duration
-            continuousDurationIndicator:
-              type: boolean
-            timePeriodDescription:
-              type: string
-              maxLength: 255
-            bothDaysInclusiveIndicator:
-              type: boolean
     investmentAccountReferences_Type:
       type: object
       title: Investment Account References
@@ -16275,6 +16245,16 @@ components:
                   items:
                     $ref: '#/components/schemas/investmentAccountReferences_Type'
                 - $ref: '#/components/schemas/investmentAccountReferences_Type'
+    accountReferences_Type:
+      type: object
+      title: Account References
+      properties:
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
     broadLineOfBusinessCodeContent_Type:
       type: string
       title: BroadLineOfBusinessTypeCodeContent_Type
@@ -16291,17 +16271,6 @@ components:
         - Individual
         - Personal
         - Reinsurance
-        - Retail
-    lodgementTypeCodeContent_Type:
-      type: string
-      title: Lodgement Type Code Content
-      description: TBD
-      enum:
-        - Automatic
-        - Batch
-        - DirectAI
-        - DirectMember
-        - Manual
         - Retail
     actionCodeContent_Type:
       type: string
@@ -21827,9 +21796,9 @@ components:
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
-    policyOrder_Type:
+    policyClosing_Type:
       type: object
-      title: PolicyOrder_Type
+      title: PolicyClosing_Type
       allOf:
         - $ref: '#/components/schemas/messageDocument_Type'
         - required:
@@ -21842,7 +21811,7 @@ components:
                     $ref: '#/components/schemas/location_Type'
                 - $ref: '#/components/schemas/location_Type'
             transactionFunctionCode:
-              $ref: '#/components/schemas/policyOrderTransactionFunctionCodeContent_Type'
+              $ref: '#/components/schemas/policyClosingTransactionFunctionCodeContent_Type'
             description:
               type: string
             reason:
@@ -21854,13 +21823,12 @@ components:
             versionDateTime:
               type: string
               format: date-time
-            policyOrderReferences:
-              $ref: '#/components/schemas/policyOrderReferences_Type'
             policyQuotationReferences:
               $ref: '#/components/schemas/policyQuotationReferences_Type'
-            effectiveDate:
-              type: string
-              format: date
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
+            policyClosingReferences:
+              $ref: '#/components/schemas/policyClosingReferences_Type'
             caseId:
               type: string
             threadId:
@@ -21871,28 +21839,22 @@ components:
             preparedDate:
               type: string
               format: date
-            preparedTime:
-              type: string
-              format: time
-            replyDueDate:
-              type: string
-              format: date
             priorPolicy:
               oneOf:
                 - type: array
                   items:
                     $ref: '#/components/schemas/priorPolicy_Type'
                 - $ref: '#/components/schemas/priorPolicy_Type'
-            claimExperiencePeriod:
-              $ref: '#/components/schemas/claimExperiencePeriod_Type'
             agreementPortfolio:
               $ref: '#/components/schemas/agreementPortfolio_Type'
+            accountReferences:
+              $ref: '#/components/schemas/accountReferences_Type'
+            invoiceReferences:
+              $ref: '#/components/schemas/invoiceReferences_Type'
             broadLineOfBusinessCode:
               $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
             broadLineOfBusinessDescription:
               type: string
-            lodgementTypeCode:
-              $ref: '#/components/schemas/lodgementTypeCodeContent_Type'
             documentId:
               type: string
               format: uuid
@@ -21923,16 +21885,16 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claim:
               $ref: '#/components/schemas/claim_Type'
-    policyCancellationOrderProcess_Type:
+    policyCancellationClosingProcess_Type:
       type: object
-      title: PolicyCancellationOrderProcess_Type
+      title: PolicyCancellationClosingProcess_Type
       allOf:
         - $ref: '#/components/schemas/ACORDMessage_Type'
         - required:
-            - policyOrder
+            - policyClosing
           properties:
-            policyOrder:
-              $ref: '#/components/schemas/policyOrder_Type'
+            policyClosing:
+              $ref: '#/components/schemas/policyClosing_Type'
     apiError_Type:
       type: object
       title: API Error Details
@@ -22192,14 +22154,14 @@ components:
           $ref: '#/components/schemas/messageHeader_Type'
         messageResult:
           $ref: '#/components/schemas/messageResult_Type'
-    policyCancellationOrderProcessResult_Type:
+    policyCancellationClosingProcessResult_Type:
       type: object
-      title: PolicyCancellationOrderProcessResult_Type
+      title: PolicyCancellationClosingProcessResult_Type
       allOf:
         - $ref: '#/components/schemas/ACORDMessageResult_Type'
         - properties:
-            policyOrder:
-              $ref: '#/components/schemas/policyOrder_Type'
+            policyClosing:
+              $ref: '#/components/schemas/policyClosing_Type'
 security:
   - sctpUsername: []
     sctpPassword: []

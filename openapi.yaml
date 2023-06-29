@@ -37,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: components\schemas\policyCancellationOrderProcess_Type.yaml
+                $ref: components\schemas\policyCancellationClosingProcess_Type.yaml
         '400':
           description: Bad Request.
           content:
@@ -72,7 +72,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: components\schemas\policyCancellationOrderProcessResult_Type.yaml
+                $ref: components\schemas\policyCancellationClosingProcessResult_Type.yaml
         '400':
           description: Bad Request.
           content:

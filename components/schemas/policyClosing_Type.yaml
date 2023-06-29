@@ -1,0 +1,89 @@
+type: object
+title: PolicyClosing_Type
+allOf:
+  - $ref: .\messageDocument_Type.yaml
+  - required:
+      - transactionFunctionCode
+    properties:
+      location:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\location_Type.yaml
+          - $ref: .\location_Type.yaml
+      transactionFunctionCode:
+        $ref: .\policyClosingTransactionFunctionCode_Type.yaml
+      description:
+        type: string
+      reason:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\reason_Type.yaml
+          - $ref: .\reason_Type.yaml
+      versionDateTime:
+        type: string
+        format: date-time
+      policyQuotationReferences:
+        $ref: .\policyQuotationReferences_Type.yaml
+      policyOrderReferences:
+        $ref: .\policyOrderReferences_Type.yaml
+      policyClosingReferences:
+        $ref: .\policyClosingReferences_Type.yaml
+      caseId:
+        type: string
+      threadId:
+        type: string
+      initialRequestDate:
+        type: string
+        format: date
+      preparedDate:
+        type: string
+        format: date
+      priorPolicy:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\priorPolicy_Type.yaml
+          - $ref: .\priorPolicy_Type.yaml
+      agreementPortfolio:
+        $ref: .\agreementPortfolio_Type.yaml
+      accountReferences:
+        $ref: .\accountReferences_Type.yaml
+      invoiceReferences:
+        $ref: .\invoiceReferences_Type.yaml
+      broadLineOfBusinessCode:
+        $ref: .\broadLineOfBusinessCode_Type.yaml
+      broadLineOfBusinessDescription:
+        type: string
+      documentId:
+        type: string
+        format: uuid
+        pattern: >-
+          [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      dataModification:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\dataModification_Type.yaml
+          - $ref: .\dataModification_Type.yaml
+      cancellation:
+        $ref: .\cancellation_Type.yaml
+      reinstatement:
+        $ref: .\reinstatement_Type.yaml
+      reissuance:
+        $ref: .\reinsurance_Type.yaml
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml
+      policy:
+        $ref: .\policy_Type.yaml
+      claimReferences:
+        $ref: .\claimReferences_Type.yaml
+      claim:
+        $ref: .\claim_Type.yaml
