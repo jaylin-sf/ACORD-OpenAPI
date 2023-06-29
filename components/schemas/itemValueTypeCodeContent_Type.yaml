@@ -1,0 +1,10 @@
+type: string
+title: ItemValueTypeCodeContent_Type
+description: TBD
+enum:
+  - AgreedValue
+  - AnnualSales
+  - DailyProduction
+  - DeclaredValue
+  - EstimatedAnnualSales
+  - MarketValue

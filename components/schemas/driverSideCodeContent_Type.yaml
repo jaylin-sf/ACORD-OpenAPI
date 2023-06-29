@@ -1,0 +1,8 @@
+type: string
+title: Driver Side Code Content
+description: The Driver Side Code content enumeration
+enum:
+  - LeftHandDrive
+  - Other
+  - RightHandDrive
+  - Unknown

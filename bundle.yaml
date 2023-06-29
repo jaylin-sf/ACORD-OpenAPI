@@ -17607,6 +17607,3819 @@ components:
               format: date-time
             claimReferences:
               $ref: '#/components/schemas/claimReferences_Type'
+    coverageTypeCodeContent_Type:
+      type: string
+      title: CoverageTypeCodeContent Type
+      description: TBD
+      enum:
+        - AccountantAuditor
+        - AccumulationOfStocks
+        - AdditionalInflationMarginClause
+        - AdditionalPremises
+        - AfricanTerritories
+        - AfterLossInflation
+        - AlternativeBasisLossSettlement
+        - ArtGalleriesAndAntiqueDealers
+        - ArtShippersAndPackers
+        - BarrennessFailureToConceive
+        - BenefitIndexationTypeCover
+        - BreachOfThirdPartyBusinessInformation
+        - BroodmareBarrenness
+        - BuildingIncreaseLimit
+        - BullionAndPreciousMetals
+        - BuyDown
+        - CoinAndStampCollections
+        - ColicCostsExtension
+        - CollectionsOfFineAndDecorativeArtsPrivateOrCorporate
+        - ComputerAttack
+        - ComputerFraud
+        - CongenitalFirstSeasonInfertility
+        - Couple
+        - CrisisCover
+        - CrisisManagementExpenses
+        - CustodyOfPartners
+        - Customers
+        - CyberDataReCreation
+        - CyberExtortion
+        - CyberExtortionBusinessInterruption
+        - CyberInvestigation
+        - CyberLiability
+        - CyberLostWages
+        - CyberMediaLiability
+        - CyberPCIFinesAndPenalties
+        - CyberTerrorism
+        - CyberTheft
+        - DataBreachExpenses
+        - DataCompromise
+        - DataLiability
+        - DataRestoration
+        - DayOneAverageClause
+        - DecreasingTermCover
+        - DefectiveTitle
+        - DefenseCost
+        - DepartmentBranches
+        - DepositPremium
+        - Dressage
+        - EBusinessInterruptionAndExtraExpense
+        - ElectronicVandalism
+        - Equine
+        - EquineFinancialLoss
+        - EquineRelatedThirdPartyLiability
+        - EThreatExpenses
+        - Eventing
+        - Exhibition
+        - Family
+        - FineArtPrivateCollectionsMuseumsExhibitionsGalleriesAndDealers
+        - FirstLoss
+        - FirstSeasonCongenitalInfertility
+        - FoetusInsurance
+        - ForensicITReview
+        - FrustrationOfImportAndExport
+        - FullMortality
+        - GeneralSpecie
+        - Group
+        - IdentityMonitoringExpenses
+        - IdentityRecovery
+        - Individual
+        - InflationCover
+        - JewellersBlock
+        - LegalReview
+        - LevelCover
+        - Limited
+        - LivestockDisease
+        - LossOfAttraction
+        - LossOfBusinessIncome
+        - MareAvailability
+        - MiningRisksDiamondsPreciousStonesAndRawMineralsPriorToRefining
+        - MoneyCashAndOtherMonetaryRisks
+        - MurderSuicide
+        - Museums
+        - MusicalInstruments
+        - NamedMalware
+        - NegligentWorkOrAdvice
+        - NetworkSecurityAndPrivacyLiability
+        - NewBusinessLosses
+        - OtherDocumentsOfHighValue
+        - PaymentsOnAccount
+        - PersonalJewelryCollections
+        - PowerSurge
+        - PremiumRebate
+        - PrivacyNotificationExpenses
+        - ProgrammerErrorsAndOmissions
+        - ProspectiveFoal
+        - PRServices
+        - PublicRelations
+        - RainWaterHailDamage
+        - RefrigeratedGoodsDeterioration
+        - ReinstatementOfSumInsured
+        - RewardExpenses
+        - RoadsBridgesRailways
+        - Showjumping
+        - StallionPermanentAndTotalInfertilityDueToAccidentSicknessAndDisease
+        - StatutoryDefenceCosts
+        - StayBehindInsurance
+        - StorageEvacuation
+        - StrataTitleMortgageeProtection
+        - SystemOrServiceRestorationCosts
+        - TackAndEquipment
+        - TheftAndOrHijack
+        - TheftWithoutForcefulViolentEntryExit
+        - Transit
+        - UnintendedDenialOfServiceAttack
+        - UnintendedMalwareLiability
+        - VehicleStorageTransit
+        - VeterinaryFeesAndMajorMedicalCoverage
+        - Wine
+        - Abandonment
+        - AbrasiveOrBlastingDisease
+        - ABSAassist
+        - AccessoriesSpecified
+        - AccessoriesUnspecified
+        - Accident
+        - AccidentalContamination
+        - AccidentalDamage
+        - AccidentalDamageGeyser
+        - AccidentalDamageToMachinery
+        - AccidentalDamageWithMechanicalElectricalBreakdown
+        - AccidentalDamageWithMechanicalElectricalElectronicBreakdown
+        - AccidentalDamageWithMechanicalElectronicBreakdown
+        - AccidentalDeath
+        - AccidentalDeathAndDisability
+        - AccidentalDeathAndDismemberment
+        - AccidentalDismemberment
+        - AccidentalExternalInjuryOnly
+        - AccidentalInjury
+        - AccidentalInterruptionOfElectricity
+        - AccidentalLoss
+        - AccidentalPhysicalLossDamageUnloading
+        - AccidentalShootings
+        - AccidentAndSickness
+        - AccidentAndSicknessMedicalExpenseForShortTermOverseasTravel
+        - AccidentInLoadingDischargingOrShiftingCargoOrFuel
+        - AccidentOnlyHospitalCash
+        - AccidentOnlyMedicalExpense
+        - AccidentOnlyWeeklyIndemnity
+        - AccidentSicknessHospitalCashExcludingUS
+        - AccidentSicknessWeeklyIndemnityExcludingUS
+        - AdditionalAccidentAndHealthInsuranceCoveragesAvailable
+        - AdditionalBenefitCoverageEconomicOpportunityActMI
+        - AdditionalClaimsPreparationCosts
+        - AdditionalDeductibleAtDrivingSchool
+        - AdditionalDischargeExpenses
+        - AdditionalIncreaseInCostOfWork
+        - AdditionalLegalDefence
+        - AdditionalPremiumRequiredToBalanceToMinimumPremiumForAdmiraltyAndOrFELAIncreasedLimits
+        - AdditionalPremiumRequiredToBalanceToMinimumPremiumForEmployersLiabilityIncreasedLimits
+        - AdditionalProperty
+        - AdditionalRent
+        - AdditionalVoluntary
+        - AdmiraltyCoverageIOrCoverageIIIncreasedLimits
+        - Advantage
+        - AdversePublicity
+        - AdvertisingErrorsAndOmissions
+        - Agents
+        - AggregateDeductible
+        - AgreedValueExtension
+        - AgriculturalVehicle
+        - Airbag
+        - AirbagSeatbelt
+        - AirConditioningSystem
+        - AirfreightReplacement
+        - AirJack
+        - Alcohol
+        - ALE
+        - AllComponentCover
+        - AllRisks
+        - AllRisksOfMortality
+        - Alternative
+        - AmateurSport
+        - AncillaryAccidentalDeath
+        - AncillaryTravelAccidentCoverage
+        - AnimalKenneling
+        - AnnualCarry
+        - AnthracitePreparationPlantFederalOdClassificationPA
+        - AnthracitePreparationPlantPA
+        - AnthracitePreparationPlantStateOdClassificationPA
+        - AppealExpense
+        - Appraisers
+        - ARBFrontBumperAndBar
+        - ArmourShields
+        - ArticleI
+        - ArticleII
+        - AssaultAndTrauma
+        - AttacksByDogsOrWildAnimals
+        - AudioAndElectricalEquipment
+        - Aviation
+        - AviationPersonalAccident
+        - Awning
+        - BacterialInfection
+        - BailCosts
+        - BakkieCanopy
+        - BakkieCanvasCover
+        - BakkieLinersMat
+        - BakkieRailing
+        - BalanceOfThirdPartyFireTheftRestrictedCover
+        - BalanceOfThirdPartyOnly
+        - BarratryOfMasterOfficersOrCrew
+        - BaseCover
+        - Basic
+        - BasicFirstAmountPayable
+        - BatterySystemAnd400ampSwitch
+        - BeauticiansTreatment
+        - BedAndBreakfast
+        - BereavementAndTraumaCounselling
+        - BereavementExpense
+        - BituminousPreparationPlantFederalOldClassificationPA
+        - BituminousPreparationPlantPA
+        - BituminousPreparationPlantStateOldClassificationPA
+        - BlanketAllSpecified
+        - Boat
+        - BodilyInjury
+        - BombScareSearchOrExplosion
+        - BonnetGuard
+        - Bonus
+        - Boots
+        - BootSpoiler
+        - BrandOrLabels
+        - BrandOrTrademarkSalvageGuarantee
+        - BrandRehabilitationExpenses
+        - BreachOfConfidence
+        - BreachOfProfessionalDuty
+        - Breakdown
+        - BreakdownOfOrAccidentToNuclearInstallationsOrReactors
+        - BrokenBonesDislocations
+        - BrokenBonesSevereBurns
+        - BucketSeats
+        - Building
+        - BuildingCatastrophe
+        - Bullbar
+        - BulletProofGlass
+        - BulletproofVest
+        - Burglary
+        - BurglaryTheft
+        - BurialAndCremation
+        - Burns
+        - BurnsDisfigurement
+        - BurstingOfBoilerBreakageOfShaftsOrAnyLatentDefectsInTheMachineryOrHull
+        - BurstingOverFlowingOfTanksAndWaterApparatus
+        - BusinessExpense
+        - BusinessInterruption
+        - BusinessInterruptionOrALE
+        - BusinessLimitation
+        - BusinessTravel
+        - BusinessTravelPersonalAccident
+        - BuySellProtection
+        - CampingEquipmentDomesticArticles
+        - Cancellation
+        - CancerBenefit
+        - Canopy
+        - CanvasFrame
+        - Capital
+        - CapitalAccidentAndSickness
+        - CaravanTrailerContents
+        - CareAssist
+        - Cargo
+        - CarJackingAndRoadRage
+        - Carpets
+        - CarRental
+        - CarrierGoodwill
+        - CarrierIndemnity
+        - CarrierLiability
+        - CarWashAndValet
+        - CashBack
+        - CashOnboard
+        - CatastropheProvisionsForDomesticTerrorismEarthquakesAndIndustrialAccidents
+        - CatastrophicCashBenefit
+        - CDchanger
+        - CentralLocking
+        - ChildAbduction
+        - ChildCareCenter
+        - ChildcareExpenses
+        - ChildrenInjuryBenefit
+        - ChildSeatCover
+        - CircumstanceInvestigationCosts
+        - CivilDefenceWorkersVolunteersWithWaiverEndorsementMI
+        - CivilLiability
+        - ClaimFreeGroupProtection
+        - ClaimsPreparationCost
+        - ClothingLimit
+        - CODDeliveries
+        - CoGenerationFuelRecoveryAnthraciteFederalOccupationDiseasePA
+        - CoGenerationFuelRecoveryAnthraciteStateOccupationalDiseasePA
+        - CoGenerationFuelRecoveryAnthraciteTraumaticPA
+        - CoGenerationFuelRecoveryBituminousFederalOccupationDiseasePA
+        - CoGenerationFuelRecoveryBituminousStateOccupationalDiseasePA
+        - CoGenerationFuelRecoveryBituminousTraumaticPA
+        - Collision
+        - CollisionAndOverturn
+        - CollisionLiability
+        - CollisionLiabilityOrContactWithFixedOrFloatingObjects
+        - ComaBenefit
+        - CombinedSingleLimit
+        - CommercialUmbrella
+        - CommonAreaContents
+        - CommonCarrier
+        - CommunicableDisease
+        - Commuting
+        - CompactDisc
+        - CompanyEntityLiabilityCover
+        - CompanyPecuniaryPenalties
+        - CompanyReimbursementCover
+        - Compensation
+        - CompensationAwards
+        - CompensationForCourtAttendance
+        - CompensationForCourtAttendanceCover
+        - CompletedWorksProjects
+        - Comprehensive
+        - ComprehensiveClassicCar
+        - ComprehensiveCoverExcludingTheft
+        - CompulsoryJuryService
+        - CompulsoryMilitiaryOrders
+        - ComputerElectronicDeviceBreakdown
+        - ComputerLosses
+        - ConcealedDamage
+        - ConnecticutSpecialCompensationOrExcessSpecialCompensationAdditionalPremium
+        - ConsequentialLoss
+        - ConsolidationRepackingAndOrBreakdown
+        - ConsultancyCosts
+        - Consultants
+        - ConsumerProtectionLegislation
+        - ContactWithAircraftOrSimilarObjectsOrObjectsFallingThereFromLandConveyanceDockOrHarborEquipmentOrInstallation
+        - ContainerDemurrageCharges
+        - Containers
+        - Contents
+        - ContentsExcludingStock
+        - ContentsIncludingPlantMachinery
+        - ContentsIncludingStock
+        - ContinentalUse
+        - ContingentLiability
+        - ContractorsEquipment
+        - ContractorsSubcontractorsOutsourcers
+        - ContractSites
+        - ContractualLiability
+        - ControlOfDamagedGoods
+        - Conversions
+        - CoolerBox
+        - CosmeticSurgery
+        - CostDataRestoration
+        - CostEscalationTempAccomodation
+        - CostOfRecovery
+        - CostsAndExpenses
+        - CounsellingBenefit
+        - CounterfeitCurrency
+        - CourtAttendanceCosts
+        - CourtesyAndHireVehicles
+        - CrashHelmet
+        - CreditCard
+        - CreditCardPersonalAccidentAndTravel
+        - CreditShortfall
+        - CreditShortfallResidual
+        - Crime
+        - CriticalIllness
+        - CriticalIllnessCancer
+        - CrossedCheques
+        - CrossLiabilities
+        - CruiseControl
+        - Curtailment
+        - CustomerGoods
+        - CustomerLossOfProfits
+        - CustomersVehiclesOnPremises
+        - Damage
+        - DamageByWildAnimals
+        - DamageDueToStandardPerils
+        - DamageToBuilding
+        - DamageToDocuments
+        - DamageToOfficesAndContent
+        - DamageToSanitaryWare
+        - DamageToTyres
+        - DangerousGoods
+        - DataProtectionAct
+        - DayCareExpenses
+        - Death
+        - DeathCancer
+        - DeathDisablementDisgrace
+        - Debris
+        - DebrisRemoval
+        - DeckCargo
+        - DeckMat
+        - DeductibleInsurance
+        - DeductibleInsuranceBasicFirstAmountPayable
+        - DeductibleInsuranceTheft
+        - DeductibleInsuranceTheftAndOrHijack
+        - Defamation
+        - DefectiveWorkmanshipLiability
+        - DefenceCost
+        - DefinedEventAccidentalDamage
+        - DefinedEvents
+        - DelayedLuggage
+        - DelayedUnpacking
+        - DeliberateDamage
+        - Demolition
+        - Demonstration
+        - DemonstrationVehicles
+        - Dental
+        - DeteriorationOfFrozenFood
+        - DIA
+        - DifferenceInConditions
+        - Difflock
+        - DirectorsAndOfficersCover
+        - Disability
+        - Disablement
+        - Disappearance
+        - DischargeAtPortInDistress
+        - DiscomfortCover
+        - DiscoveryPeriod
+        - DiseaseExperienceInConnectionWithAnyClassificationOtherThanCoalMiningWhereLiabilityUnderFederalCoalMineHAndSActPA
+        - DiseaseExperienceInConnectionWithPACoalTruckmanAndDiseaseExperienceOfInsuredsExposedToPneumoconioisisVA
+        - DisposalCosts
+        - DisposalOfSalvage
+        - Documents
+        - DomesticAssistance
+        - DomesticLiability
+        - DrivingAbroad
+        - DrivingOfMotorcycles
+        - DrivingOtherCars
+        - DuplicateRecords
+        - DutyAndTaxes
+        - DutyOfCare
+        - DVDPlayer
+        - Earthquake
+        - EarthTremorMining
+        - EECLiability
+        - ElectricalBreakdown
+        - ElectricalOrMechanicalFailure
+        - ElectricalWindows
+        - Electrocution
+        - EmergencyAccommodation
+        - EmergencyMedicalRepatriation
+        - EmergencyRoomEscalator
+        - EmergencySecurityEvacuation
+        - EmergencyTransportation
+        - EmergencyTreatment
+        - EmployeeDirectorPersonalProperty
+        - EmployeeDishonesty
+        - EmployeeExpenses
+        - EmployeeFraud
+        - EmployersLiability
+        - EmployersLiabilityIncreasedLimitsAllOther
+        - EmployersLiabilityIncreasedLimitsWithoutWorkersCompensation
+        - EmployersLiabilityIncreasedLimitsWithWorkersCompensation
+        - Employment
+        - EmploymentDisputes
+        - EmploymentRelocation
+        - EndorsementMaritimeCoverage
+        - EngineProtector
+        - Enhancer
+        - EntryOfSeaLakeOrRiverWater
+        - EnvironmentalExtension
+        - ErrorsAndOmissions
+        - EscalatorClause
+        - EULiability
+        - Excess
+        - ExcessBenefitCoverage
+        - ExcessInsurance
+        - ExcessLimitsDiseaseCoverageBNY
+        - ExcludedProperty
+        - ExcludingDrivingOtherVehicles
+        - ExcludingMedical
+        - ExclusionOfDemonstrationRisk
+        - ExclusiveStateOrFederalCoverage
+        - ExpatriateMedicalExpensesInternationalMedicalPlansExcludingUS
+        - ExpeditingCost
+        - ExpensesPaidForCalculationOfLossInCaseSuchExpensesAreCausedByAnInsuredPeril
+        - ExpensesPaidForMinimizingOfDamagesInCaseSuchExpensesAreCausedByAnInsuredPeril
+        - ExpensesPaidForPreventionOfDamagesInCaseSuchExpensesAreCausedByAnInsuredPeril
+        - ExperienceOfInsuredsExposedToCoalWorkersPneumoconiosisWithSubstancialUndergroundCoalMineExperienceVA
+        - ExpertFees
+        - Explosion
+        - ExportGoods
+        - ExposurePremiumAndLossesRestrictedCoverageNY
+        - ExpressKidnap
+        - ExpressPayout
+        - ExtendedContents
+        - ExtendedReportingPeriod
+        - ExtensionForLossesDiscovered
+        - ExtensionForSystemsAudit
+        - ExtensionOfCoverage
+        - Extortion
+        - ExtortionDemandsRelatedToMaliciousTampering
+        - ExtraCostReinstatement
+        - ExtraDieselTank
+        - ExtraditionProceedings
+        - ExtraEmergencyWheel
+        - ExtraTerritorialWorkComp
+        - FacialScarringAndDisfigurement
+        - FailureOfElectricitySupply
+        - FallenTreeRemovals
+        - FederalCoalMineHealthAndSafetyActAndTheStateAct
+        - FederalCoalMineHealthAndSafetyActOnly
+        - FeesClaimsPreparationCosts
+        - FeloniousAssaultAndViolentCrime
+        - FenderPlate
+        - Fidelity
+        - FilmTint
+        - Fire
+        - FireAndExplosion
+        - FireAndTheft
+        - FireAndTheftClassicCar
+        - FireAndTheftOnly
+        - FireExplosionCollisionDerailmentOverturningLimitation
+        - FireExtinguisher
+        - FireExtinguishingCharges
+        - FireFirstAmountPayable
+        - FireTheft
+        - FireTheftAndStorage
+        - FirstLossAverage
+        - FishingOrSportsEquipment
+        - FixedAndFloatingObjects
+        - FixedFireApplianceDischargeCover
+        - FlatBed
+        - FlatDeductible
+        - Flood
+        - FobPreShipment
+        - FogLights
+        - FoodAndDrink
+        - FoodSpoilage
+        - ForecourtService
+        - ForeignUse
+        - ForgedCheques
+        - ForgedSecurities
+        - ForgeryOrAlteration
+        - ForReportingSupplementalDiseaseExperienceInConnectionWithAsbestosExposureNotCaliforniaNewYorkWisconsin
+        - FoundriesDisease
+        - FoundriesDiseaseIron
+        - FoundriesDiseaseNonFerrousMetal
+        - FourByFour
+        - Fracture
+        - FraudAndDishonesty
+        - FraudInvestigatorExpenses
+        - FreeAccidentalDeath
+        - FuelAndStoresOnboard
+        - FuelInTanks
+        - FullHouse
+        - Funeral
+        - FuneralCostsAddDeathBenefits
+        - FuneralExpenses
+        - FurnitureStorageAndTransit
+        - GasBottles10LAndMountings
+        - GasStove
+        - GeneralAverageAndSalvageCharges
+        - GeneralAverageContribution
+        - GeneralLiability
+        - GeneralProperty
+        - Generators
+        - GeyserMaintenance
+        - Glass
+        - GlassExternal
+        - GlassIlluminatedSigns
+        - GlassInternal
+        - GlassMultiFront
+        - GlassPercentAboveGround
+        - GlassSingleFront
+        - Gloves
+        - GoodSamaritansAct
+        - GoodsInCareCustodyControl
+        - GovernmentRecalls
+        - GovtAuditCosts
+        - GroundCover
+        - GroundingLiability
+        - GuaranteedValue
+        - GuesthouseAccomodationAndLodging
+        - HailDamage
+        - HairSalonLiability
+        - HandsFreeCarKit
+        - HeadLampShields
+        - HeadRest
+        - HealthAndSafetyManslaughter
+        - HealthFundMembershipPremiumReimbursement
+        - HiDoubleDropSide
+        - Hijacking
+        - HijackingDetainment
+        - HireCarExcessReturnHIreCar
+        - HirePurchase
+        - HivOccupationalAccident
+        - HoleInOne
+        - Home
+        - HomeAlterationAndVehicleModification
+        - HomeAssistance
+        - HomeModifications
+        - HomeVehicleModificationBenefit
+        - HospiceCare
+        - Hospital
+        - HospitalAndSurgical
+        - HospitalCash
+        - HostageSituations
+        - Hotel
+        - HouseOrBusinessRenderedUninhabitable
+        - HypothecatedGoods
+        - IdentityFraud
+        - Impact
+        - ImportGoods
+        - ImportTax
+        - InabilityToDriveDueToIllHealth
+        - InabilityToDriveFollowingInjury
+        - IncomeDeclaredGrossEarnings
+        - IncomeDeclaredGrossProfit
+        - IncomeDeclaredGrossProfitPayrollIncluded
+        - IncomeDeclaredGrossRevenue
+        - IncomeLoss
+        - IncomeProtection
+        - Incompatibility
+        - IncreasedCostOfWorking
+        - IncreasedCostOfWorkingAfterARecall
+        - IncreasedLimits
+        - IncreasedLimitsForAdmiraltyOrFELA
+        - IncreasedLimitsForCoverageB
+        - IncreasedStorageCosts
+        - IncreasedThirdParty
+        - IncreasedValueCover
+        - IndemnityForTrustees
+        - IndemnityToEmployee
+        - Inefficacy
+        - InflationGuard
+        - InfringementOfIntellectualPropertyRights
+        - Injury
+        - Insolvencyhearingcosts
+        - InsuredCompanyReimbursement
+        - InsuredOnlyDriving
+        - InvestigationCover
+        - ISMCodeAndISPSForwardingCharges
+        - Jettison
+        - JointLifeSecondToDie
+        - JointVentureLiability
+        - JuvenileCrisisCover
+        - KeyManAndPartnershipProtection
+        - KeymanProtection
+        - Kidnap
+        - KidnapAndExtortion
+        - LaidUp
+        - LandlordsFixturesAndFittings
+        - Landscaping
+        - LandTransit
+        - LargeRiskRatedOption
+        - LDVHire
+        - LeakageFirstLoss
+        - LeakageFullAmount
+        - LeakageOfOil
+        - LeasedEquipmentClauseExcludingFishingDivingAndRecreationalEquipment
+        - LeatherJacket
+        - LeatherPants
+        - LeatherSeats
+        - LegalConsultation
+        - LegalDefenceCostLiability
+        - LegalExpenses
+        - LegalLiability
+        - LegalLiabilityOfPassengersMotorcyclesOnly
+        - LegalLiabilityPassengers
+        - LegalRepresentatives
+        - LegalUseUnlicensedDrivers
+        - Liability
+        - LiabilityOfOtherPersonsDrivingOrUsingYourVehicle
+        - LiabilitySubDivision
+        - LibelOrSlander
+        - LifeSavingSurgicalFeesEndorsement
+        - Lightning
+        - LimitedFireCollisionOvertuningOfVehicle
+        - LimitedSpecifiedPerils
+        - LimitedTheft
+        - LimitedTheftHijack
+        - LoadingAndUnloading
+        - LockReplacement
+        - LocksAndKeys
+        - LongPeriod
+        - LossesCommitted
+        - LossesDueToFloodInundationHurricaneTyphoonStormTempestTornadoAndCyclone
+        - LossInValue
+        - LossOfDeposits
+        - LossOfDocuments
+        - LossOfGrossProfitsRevenue
+        - LossOfHearing
+        - LossOfHire
+        - LossOfInternalOrgan
+        - LossOfKeys
+        - LossOfKeysDeductible
+        - LossOfLandValue
+        - LossOfLimb
+        - LossOfOrDamageToYourVehicle
+        - LossOfRentReceivable
+        - LossOfSight
+        - LossOfSpeech
+        - LossOfUse
+        - LossOfUseIncapacityAndInfertility
+        - LossOfUseOrVehicleHire
+        - LossOfWater
+        - LossOrDamageToPersonalBelongings
+        - LossOrRentTemporaryAccomodation
+        - LossOrRentTemporaryAccomodationExtended
+        - LotOwnerImprovements
+        - LuggagePersonalEffects
+        - Luxury
+        - MachineryBreakdown
+        - MachineryPlantBoilerPressureVessel
+        - MagWheels
+        - MaintenanceAndCleaningEquipment
+        - MalfunctionBreakdownRefrigerationFourHourExcess
+        - MaliciousDamage
+        - ManagementBuyOut
+        - Marine
+        - MassachusettsAdditionalPremiumPartTwoEmployersLiabilityForStandardLimits
+        - MaterialDamage
+        - MaterialLossOrDamage
+        - MechanicalBreakdown
+        - MediAir
+        - Medical
+        - MedicalAssistance24x7Helpline
+        - MedicalEvacuationAdditionalExpenses
+        - MedicalExpenses
+        - MedicalNonMedicalCashBenefit
+        - MedicalPayments
+        - MedicalTreatmentLiability
+        - MemberToMember
+        - MergersAndTakeovers
+        - MetallicPaint
+        - MilkTank
+        - MinesCoalBituminousUnderground
+        - MinimumPremiumChargeOfOneHundredPerPolicyAssignedRiskPoolAmendmentsToCoverageBEndorsementMaritime
+        - MirrorsAndGlass
+        - MissedConnection
+        - Mobility
+        - MolestationDefenceCostsAndInquiryCosts
+        - Money
+        - MoneyBlanket
+        - MoneyInTransit
+        - MoneyOnPremisesInsideHours
+        - MoneyOnPremisesLocked
+        - MoneyOnPremisesOutsideHoursNotLocked
+        - MoneyPersonalCustody
+        - MoneySafeDamage
+        - MortgageProtection
+        - MotorAssist
+        - MotorcycleOnly
+        - MotorCyclingOtherThanBusiness
+        - MotorCyclingRegularCommutingAndDomestic
+        - MotorInjuryProtection
+        - MotorLegal
+        - MotorRadio
+        - MountaineeringWithRopes
+        - MountedCompressor
+        - MountedCrane
+        - MountedInsolation
+        - MountedLiquidContainerAndPump
+        - MultiLifeCatastropheAccumulationRisk
+        - NamedComponentCover
+        - NaturalDisasterEvacuation
+        - NavigationTVOnBoardComputer
+        - NegligenceOfMasterOfficerCrewOrPilots
+        - NegligenceOfRepairersOrCharterersProvidedTheyAreNotAssuredHereunder
+        - NegligentOrWrongfulActByHirersOrCharterers
+        - NewlyCreatedOrAcquiredSubsidiary
+        - NewOrAcquiredEntity
+        - NewSubsidiaryCover
+        - NewVehicleReplacement
+        - NoClaimDiscount
+        - NoExcess
+        - NoLapseGuarantee
+        - NominatedDrivers
+        - NonExecutiveDirectorCover
+        - NonRatablePortionOfRate
+        - NudgeBar
+        - OccupationalExposures
+        - OfficeBearerLiability
+        - OffRoadDriving
+        - OffShore
+        - OHSExpenses
+        - OilAndMineralsOverWater
+        - OneAutomaticReinstatement
+        - OptionalAccidentalDeath
+        - Other
+        - OtherCostsAndExpenses
+        - OtherStructures
+        - OutbackDrawerSystem
+        - OutBoardMotor
+        - OutgoingPrincipals
+        - OutsideEntity
+        - Outsourcing
+        - OutstandingAccountsReceivable
+        - OverCarried
+        - OvernightAccommodation
+        - OverseasMedicalExpenses
+        - OwnDamage
+        - OwnedAircraftPiloting
+        - OwnedAutos
+        - Packers
+        - Panniers
+        - ParalysisLossOfUse
+        - ParkDistanceControl
+        - ParkingFacilitiesThirdPartyLiabilty
+        - PassengerLegalLiability
+        - PassengerLiability
+        - PassengerLiabilityEmployees
+        - PassengerLiabilityUnique
+        - PassiveRestraint
+        - PassiveWar
+        - PastInsuredPerson
+        - Patio25Meter
+        - PayerSecurity
+        - Payroll
+        - PecuniaryPenalties
+        - PensionOrEmployeeBenefitSchemes
+        - PerilsOfTheSeasRiversLakesOrOtherNavigableWaters
+        - PermanentDisability
+        - PermanentPartialDisability
+        - PermanentTotalDisabilityAccidentOnlyOrAccidentSicknessExcludingUS
+        - PersonalAccident
+        - PersonalAccidentBenefitsAccidentalDeath
+        - PersonalAccidentBenefitsDisablement
+        - PersonalAccidentCarveOut
+        - PersonalAndAdvertisingInjuryProtection
+        - PersonalAndBusinessTravelPackages
+        - PersonalAndCrewProperty
+        - PersonalAndGroupAccidentAndSickness
+        - PersonalEffects
+        - PersonalisedNumber
+        - PersonalLiability
+        - PersonalLiabilityAssault
+        - PersonalProperty
+        - PersonalPropertyEmployeeDirector
+        - PersonsUnderTheAgeOfTwentyFive
+        - PetrolAttendants
+        - PharmacyLiability
+        - PhysicalDamageAndBodilyInjury
+        - PhysicalDamageCover
+        - PhysicalLossOrDamageCover
+        - Piracy
+        - PneumaticRearSpringLevellers
+        - PolicySectionSummaryCoverage
+        - PoliticalAndNaturalDisaster
+        - PoliticalEvacuation
+        - Pollution
+        - PollutionExpenses
+        - PoloOnHorseBack
+        - PostalSendings
+        - PostTraumaticStressDisorder
+        - PowerSteering
+        - PremisesRisk
+        - PremiumChargeForForeignTerrorism
+        - PremiumDeposit
+        - PremiumForExtensionOfEmployersLiabilityCoverageToInterestedPartysUnderVFBLPolicyNY
+        - PremiumForLimitsInExcessOfTwentyFiveThousandPerAccidentAsRespectsRetrospectivelyRatedRisksTX
+        - PremiumProducedByFlatChargeForAdditionalMedicalCoverageDOneHundredNinety
+        - PreRecallExpenses
+        - PreventionOfAccess
+        - PreventionOfAccessExtendedCover
+        - PreviousBusiness
+        - PrivacyComplaints
+        - PrivateFlying
+        - ProductGuarantee
+        - ProductLiability
+        - ProductRecallExpenses
+        - ProductRehabilitation
+        - ProductsExtortion
+        - ProfessionalFlying
+        - ProfessionalIndemnity
+        - ProfessionalIndemnitySectionSummaryCoverage
+        - PropertyBusinessCrisisConsultant
+        - PropertyDamage
+        - PropertyDamageAndBusinessInterruption
+        - PropertyInTheOpen
+        - PropertyOpenAir
+        - PropertyPhysicalLegalControl
+        - PropertyProtection
+        - ProtectedNoClaimDiscount
+        - Protection
+        - ProtectiveMouldings
+        - PsychologicalTherapyBenefit
+        - PublicConveyance
+        - PublicLiability
+        - PublicSupplyDamage
+        - PublicTelecommunicationsExtendedCoverage
+        - PublicTelecommunicationsInsuredPerils
+        - PublicUtilitiesExtendedCoverage
+        - PublicUtilitiesInsuredPerils
+        - PumpsAndMachinery
+        - PurifierPumpAndFittings
+        - Racing
+        - Radio
+        - RadioTwoWay
+        - Ransom
+        - RansomInTransit
+        - RearElectricBlind
+        - RecallExpenses
+        - RecallLiabilityDamages
+        - ReceptacleLimit
+        - ReConsignedOrReShipped
+        - RecordRewriting
+        - Recovery
+        - ReductionReinstatementOfSumInsured
+        - Redundancy
+        - RefrigeratedGoodsLossDamange
+        - RefrigeRatingUnit
+        - RefundReplacementAndRepairExpenses
+        - RegisteredPostalService
+        - RegulatoryAuthorityAwards
+        - RegulatoryDefenceCosts
+        - RegulatoryFines
+        - RehabilitationCosts
+        - ReinstallationCosts
+        - Reinstatement
+        - ReinstatementCost
+        - ReinstatementOfData
+        - Rental
+        - RentDefault
+        - RepairCostsToDamagedPartsOfHullMachineryAndOtherEquipment
+        - RepairGuarantee
+        - RepairReplacement
+        - Repatriation
+        - RepatriationCosts
+        - ReplacementCondition
+        - ReplacementCostContents
+        - ReplacementCostDwelling
+        - ReplacementCostsOfDamagedPartsOfHullMachineryAndOtherEquipment
+        - ReplacementExpenses
+        - ReplacementLocks
+        - ReplacementValue
+        - ReputationalCrisisCosts
+        - RestrictedCovertoNamedDriver
+        - RestrictedDriving
+        - RestrictedPerils
+        - RetailerExpenses
+        - RetrainingExpenses
+        - Retrenchment
+        - RetroActiveCover
+        - ReturnToWorkBenefit
+        - RightWayRearBumperAndTailLightSystem
+        - RiotAndStrike
+        - RoadSideAssist
+        - Robbery
+        - RobberyBenefit
+        - RollBar
+        - RollupDoor
+        - RoofCarrier
+        - RoofTentEasiAwn
+        - Rubberrising
+        - RunningBoard
+        - RunningDownClause
+        - RunOffCover
+        - SafariSnorkel
+        - SalaryContinuance
+        - Salvage
+        - Samples
+        - SatelliteNavigation
+        - SchoolActivities
+        - Schools
+        - SealedContainers
+        - Seasonal
+        - SecuritySystem
+        - SellersInterest
+        - ServiceOccupancy
+        - Severability
+        - ShipsCrewPersonalAccident
+        - ShoreCover
+        - ShortageOfContainers
+        - ShortPeriod
+        - ShowerCubicle
+        - ShutOut
+        - Sickness
+        - SideSkirting
+        - SignWriting
+        - Sinking
+        - SkiersLiability
+        - SocialDomesticPleasureEvents
+        - Solar
+        - SortingCharges
+        - SoundEquipment
+        - SpanSetSnatchKit
+        - SpareWheelBracket
+        - SpecialEducation
+        - SpecialPerils
+        - SpecialReplacement
+        - SpecialTypeVehiclesOnly
+        - SpecificTransit
+        - SpecifiedAccessories
+        - SpecifiedCustomer
+        - SpecifiedPerils
+        - SpecifiedSuppliersSubcontractors
+        - SpecifiedVehicle
+        - SpillageOrLeakage
+        - SponsoredActivities
+        - SportsDisabilityAmateurAndProfessional
+        - SportsPackage
+        - Spotlights
+        - SpousalLiability
+        - SpreadOfFire
+        - SprinklerSystemUpdating
+        - StalkingThreat
+        - StandaloneStorage
+        - StandardExtension
+        - StandardPolicy
+        - StateActOrFederalActExcludingUSLAndH
+        - StatutoryLiability
+        - SteelCarrierMountedFrontRunnerTable
+        - SteelShowerGasHeaterPumpAndFitting
+        - Stock
+        - StockDeclarationConditions
+        - StockIncludingCustomerGoods
+        - StockInTrade
+        - StockThroughput
+        - StopLossDeductible
+        - Storage
+        - Stranding
+        - StrikesDiversionExpenses
+        - SubsidenceAndLandslip
+        - SuddenAndAccidentalFatalCollisions
+        - SueAndLabour
+        - SunRoof
+        - SupercededInsurances
+        - SupplementalDiseaseExperienceInConnectionWithExposureNoc
+        - SupplementalDiseaseLoadingForDEAndPAAbrasiveWheelManufacturingClassFiveHundredThirteen
+        - Surgery
+        - SurgicalBenefits
+        - SuspendingCover
+        - SwopBody
+        - Tankbag
+        - TaxProtectionEmployersCompliance
+        - TaxProtectionFullOrAspectEnquiries
+        - TaxProtectionVatDisputes
+        - TelkomAccessLines
+        - TemporaryDisability
+        - TemporaryPartialDisability
+        - TemporaryTotalDisability
+        - TemporaryTotalOrPartialDisability
+        - TenantMaliciousDamage
+        - TenantsLiability
+        - Tent
+        - TerminalIllness
+        - Terrorism
+        - Theft
+        - TheftAndUnlawfulRemoval
+        - TheftByForcefulEntry
+        - TheftExtension
+        - TheftFromCollectors
+        - TheftFromDomesticOutbuildings
+        - TheftOpenAir
+        - TheftPilferageOnDelivery
+        - TheftViolent
+        - TheftWithoutForcedEntry
+        - ThirdPartyFinancialLoss
+        - ThirdPartyFire
+        - ThirdPartyFireAndTheft
+        - ThirdPartyLiability
+        - ThirdPartyPropertyDamage
+        - ThirdPartyRecallExpenses
+        - ThirdPartyTheft
+        - ThreatResponse
+        - TigerKidnap
+        - TobaccoCigarettes
+        - ToolCover
+        - ToolsPartsAccessories
+        - Topbox
+        - TotalAndPermanentDisability
+        - TotalLoss
+        - TourOperatorsCover
+        - TowBar
+        - TowingAndLabour
+        - TPPD
+        - Trailer
+        - TransportationAccident
+        - TransportationCancellationOrDelay
+        - TransportationExpenses
+        - TransportationWagesMaintenanceAndCure
+        - TransportOperatorsLiability
+        - Trauma
+        - TravelAndAccommodationCosts
+        - TravelAndEmergencyRepatriationExpenses
+        - TravelDelay
+        - TravelDisruption
+        - TreatmentOfAnimals
+        - TurboDiesel
+        - TwelveMonthExtensionClause
+        - TwentyFourHourExposures
+        - UnauthorisedPassengerLiability
+        - UnauthorisedPassengerLiabilityUnique
+        - UnauthorisedUseByEmployees
+        - UncrossedCheques
+        - Unemployment
+        - UnemploymentBenefit
+        - UninsuredDriverPromise
+        - UninsuredWorkingExpenses
+        - UnprotectedStrikeDismissal
+        - UnsoundnessOfWind
+        - UnspecifiedCustomer
+        - UnspecifiedDamageRestricted
+        - UnspecifiedSupplier
+        - USACanadaLiability
+        - USAdmittedCarrierPlatform
+        - USLAndHFederalActOrUSLANdHOnNonFederalClasses
+        - UtilitiesExtendedCover
+        - UtilitiesInsuredPerils
+        - ValuablePaperAndRecords
+        - VandalismAndMaliciousMischief
+        - VehicleBreakdown
+        - VehicleHoistsMotorcycleWorkBench
+        - VehicleRadio
+        - VehicleRecoveryInTheEventOfAnAccidentOrFireAndTheft
+        - VehicleRecoveryInTheEventOfIllness
+        - VehicleReplacement
+        - VehiclesInTheOpen
+        - VehicleTelephone
+        - VesselGoneMissing
+        - VibrationRemovalSupportWeakening
+        - VicariousLiabilityForMedicalPractitionersAndLocumTenens
+        - VictimSalaries
+        - ViolentTheftByPersonsFromOutsideTheVessel
+        - VirusTransmission
+        - VolcanicEruption
+        - VoluntaryCompensationCoverage
+        - VoluntaryCompensationReduction
+        - VoluntaryFirstAmountPayable
+        - VoluntaryForeignCompensation
+        - VoluntaryWorkers
+        - WaiverOfPremium
+        - WaiverOfSubrogationRights
+        - War
+        - WarAndSimilarRisks
+        - WarAndTerrorismPersonalAccident
+        - WarehouseCover
+        - WashingOverboard
+        - WaterOrOtherElements
+        - WaterPurifierAndFilterSystem
+        - WaterTank
+        - Weather
+        - WeeklyIncome
+        - Winch
+        - Wind
+        - WindowBubble
+        - WindowsDefencePack
+        - Windscreen
+        - Windstorm
+        - WinterSports
+        - WolfBox
+        - WorkAwayFromPremises
+        - WorkersCompensation
+        - WorkersCompensationRateStateSectionSummaryCoverage
+        - WorkersCompensationSectionSummaryCoverage
+        - WorkingAnimals
+        - WorkStudyCoverageElectionBySchoolDistrictOrPrivateSchoolToNameStudentsAsEmployeesSectionTenTwoZeroSevenSevenWI
+        - WreckageRemoval
+        - WrongfulDetention
+        - WrongfullArrestAndDefamationLiability
+    coverageReferences_Type:
+      type: object
+      title: Coverage References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                coverageReference:
+                  type: string
+            typeCode:
+              $ref: '#/components/schemas/coverageTypeCodeContent_Type'
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/externalIdentifier_Type'
+                - $ref: '#/components/schemas/externalIdentifier_Type'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+    driverRole_Type:
+      type: object
+      title: DriverRole_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            driverReferences:
+              $ref: '#/components/schemas/driverReferences_Type'
+    thirdPartyDriverRoleCodeContent_Type:
+      type: string
+      title: Third Party Driver Role Code Content_Type
+      description: TBD
+      enum:
+        - OtherThanRegular
+        - ThirdParty
+    policyDriverTypeCodeContent_Type:
+      type: string
+      title: PolicyDriver Type Code Content Type
+      description: TBD
+      enum:
+        - Additional
+        - DeferredDriver
+        - Excluded
+        - Occasional
+        - Principal
+        - Unlicensed
+        - Unrated
+    driversLicenseTypeCodeContent_Type:
+      type: string
+      title: Drivers License Type Code Content Type
+      description: TBD
+      enum:
+        - A
+        - A1
+        - B
+        - C
+        - C1
+        - Commonwealth
+        - EB
+        - EC
+        - EC1
+        - InternationalDriversPermit
+        - LearnersLicense
+        - NeighbouringState
+        - PDP
+        - PDPD
+        - PDPG
+        - PDPP
+    commercialDrivingExperiencePeriod_Type:
+      type: object
+      title: CommercialDrivingExperiencePeriod_Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    driversLicense_Type:
+      type: object
+      title: Drivers License
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/driversLicenseTypeCodeContent_Type'
+            license:
+              $ref: '#/components/schemas/license_Type'
+            commercialDrivingExperiencePeriod:
+              $ref: '#/components/schemas/commercialDrivingExperiencePeriod_Type'
+            firstLicensedCurrentStateDate:
+              type: string
+              format: date
+    noClaimBonus_Type:
+      type: object
+      title: No Claim Bonus Type
+      properties:
+        acquiredMethodDescription:
+          type: string
+          maxLength: 255
+        yearsCount:
+          type: string
+          pattern: ^[0-9]{1,15}$
+    convictionTypeCodeContent_Type:
+      type: string
+      title: Conviction Type Code Content
+      description: TBD
+      enum:
+        - Motoring
+        - NonMotoring
+    conviction_Type:
+      type: object
+      title: Conviction Type
+      properties:
+        typeCode:
+          $ref: '#/components/schemas/convictionTypeCodeContent_Type'
+        description:
+          type: string
+        convictionEnforcementCode:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                attributes:
+                  type: object
+                  properties:
+                    codeListReference:
+                      type: string
+            - type: string
+              maxLength: 255
+        convictionDate:
+          type: string
+          format: date
+        convictionObservedIndicator:
+          type: boolean
+    driver_Type:
+      type: object
+      title: Driver Type
+      allOf:
+        - $ref: '#/components/schemas/referencedPersonRole_Type'
+        - properties:
+            driversLicense:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/driversLicense_Type'
+                - $ref: '#/components/schemas/driversLicense_Type'
+            relationshipToInsuredCode:
+              $ref: '#/components/schemas/relationshipToInsuredCodeContent_Type'
+            alternateRelationshipToInsuredCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            noClaimBonus:
+              $ref: '#/components/schemas/noClaimBonus_Type'
+            conviction:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/conviction_Type'
+                - $ref: '#/components/schemas/conviction_Type'
+            lossHistoryIndicator:
+              type: boolean
+            lossHistory:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/lossHistory_Type'
+                - $ref: '#/components/schemas/lossHistory_Type'
+    thirdPartyDriver_Type:
+      type: object
+      title: Third Party Driver
+      allOf:
+        - $ref: '#/components/schemas/driverRole_Type'
+        - properties:
+            thirdPartyDriverRoleCode:
+              $ref: '#/components/schemas/thirdPartyDriverRoleCodeContent_Type'
+            typeCode:
+              $ref: '#/components/schemas/policyDriverTypeCodeContent_Type'
+            hiredDate:
+              type: string
+              format: date
+            driver:
+              $ref: '#/components/schemas/driver_Type'
+            thirdPartyVehicleReferences:
+              $ref: '#/components/schemas/thirdPartyVehicleReferences_Type'
+    claimFreeGroup_Type:
+      type: object
+      title: Claim Free Group Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            valuePercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            valueInteger:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            description:
+              type: string
+            yearCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    vehicleInspectionStatusCodeContent_Type:
+      type: string
+      title: Vehicle Inspection Status Code Content Type
+      description: TBD
+      enum:
+        - BlockTransferPolicyInspectionWaived
+        - Bumpers
+        - ClaimReportedInsuredNotRepairVehicle
+        - Exempt
+        - FrontEndDamage
+        - InspectedDamagePresent
+        - InspectedNoDamage
+        - InspectionCompletedTimelyBasisDamage
+        - InspectionNotCompletedTimelyBasisCoverageGapDamage
+        - InspectionRequiredNotReceived
+        - InspectionWaivedVariousReasons
+        - InteriorUpholsteryDamage
+        - LeftDoorDamage
+        - LeftFenderDamage
+        - LeftFrontDamage
+        - LeftQuarterPanelDamage
+        - LeftSideswipeDamage
+        - MultipleDamage
+        - NewVehicleLacksMandatoryInformation
+        - NoInspection
+        - NoInspectionCoverageSuspended
+        - NoInspectionRequiredNoPhysicalDamage
+        - ProofPurchaseReceived
+        - ProofPurchaseRequired
+        - ProofPurchaseRequiredCoverageRestricted
+        - RearEndDamage
+        - RearWindow
+        - RightDoorDamage
+        - RightFenderDamage
+        - RightFrontDamage
+        - RightQuarterPanelDamage
+        - RightSideswipeDamage
+        - SevenYearsOldInspectionWaived
+        - SideWindowsDamage
+        - TireDamage
+        - VinylTopDamage
+        - Windshield
+        - WithCompanyAtLeast4YearsPhysicalDamageInspectionWaived
+    vehiclePerformanceCodeContent_Type:
+      type: string
+      title: Vehicle Performance Code Content Type
+      description: TBD
+      enum:
+        - Basic
+        - High
+        - Intermediate
+        - SportsCar
+        - SportsPremium
+    operatorExperienceRestrictionCodeContent_Type:
+      type: string
+      title: Operator Experience Restriction Code Content Type
+      description: TBD
+      enum:
+        - NoOperatorLicensedLessThan5Years
+        - NoRestrictions
+        - OperatorLicensedLessThan5YearsNotOwnerOrPrincipalOperator
+        - OwnerOrPrincipalOperatorLicensedLessThan5Years
+    leasedPeriod_Type:
+      type: object
+      title: Leased Period Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    driverUse_Type:
+      type: object
+      title: Driver Use Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            policyDriverReferences:
+              $ref: '#/components/schemas/policyDriverReferences_Type'
+            usePercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            primaryIndicator:
+              type: boolean
+    itemValueTypeCodeContent_Type:
+      type: string
+      title: ItemValueTypeCodeContent_Type
+      description: TBD
+      enum:
+        - AgreedValue
+        - AnnualSales
+        - DailyProduction
+        - DeclaredValue
+        - EstimatedAnnualSales
+        - MarketValue
+    itemValue_Type:
+      type: object
+      title: ItemValue_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/itemValueTypeCodeContent_Type'
+            description:
+              type: string
+            valueAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            unitCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    vehicleUseTypeCodeContent_Type:
+      type: string
+      title: VehicleUseType Code Content Type
+      description: TBD
+      enum:
+        - Business
+        - CarPool
+        - Clergy
+        - Commercial
+        - CommercialDrivingSchool
+        - Commute
+        - Domestic
+        - DrivenToAndFromSchool
+        - DrivenToAndFromWork
+        - DriveWorkSchoolOver15Miles
+        - DriveWorkSchoolUnder15Miles
+        - Farm
+        - ForHire
+        - OffRoadDriving
+        - OnRoadProfessional
+        - Other
+        - Private
+        - PrivateExclusive
+        - PrivateInclusive
+        - PrivateInclusiveLessThan15000
+        - PrivateInclusiveMoreThan15000
+        - Retail
+        - RetiredUse
+        - Service
+        - ShowRestrictedUse
+        - Trade
+        - TrailerOrCaravan
+        - TransportForDayCareCenter
+        - VanPoolsAllOther
+        - VanPoolsEmployerFurnished
+    radiusUseCodeContent_Type:
+      type: string
+      title: Radius Use Code Content Type
+      description: TBD
+      enum:
+        - Intermediate
+        - Local
+        - LongDistance
+    vehicleSpecialUseCodeContent_Type:
+      type: string
+      title: Vehicle Special Use Code Content Type
+      description: TBD
+      enum:
+        - AmusementDevice
+        - BobtailOperations
+        - EmergencyVehicle
+        - Explosives
+        - FarmersLimitedRegistrationPlates
+        - FarmToMarket
+        - FreightForwardingOperations
+        - LiquifiedGas
+        - LiquifiedProducts
+        - MovingVanAssociations
+        - RollingStores
+        - Showroom
+        - ToxicWastes
+        - UsedDumping
+        - UsedDumpingBobtailOperations
+        - UsedLogging
+        - UsedMovingOperations
+    vehicleUse_Type:
+      type: object
+      title: Vehicle Use Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/vehicleUseTypeCodeContent_Type'
+            description:
+              type: string
+            radiusUseCode:
+              $ref: '#/components/schemas/radiusUseCodeContent_Type'
+            radiusMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            vehicleSpecialUseCode:
+              $ref: '#/components/schemas/vehicleSpecialUseCodeContent_Type'
+            alternateVehicleSpecialUseCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            annualDistanceMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            ownerIndicator:
+              type: boolean
+            ownOtherVehicleIndicator:
+              type: boolean
+    vehicleGaragingCodeContent_Type:
+      type: string
+      title: Vehicle Garaging Code Content Type
+      description: TBD
+      enum:
+        - BehindGates
+        - Carport
+        - Driveway
+        - Garaged
+        - NotGaraged
+        - OffStreet
+        - OnStreet
+        - ParkedUndercover
+        - ParkingLot
+    vehicleOvernightLocationCodeContent_Type:
+      type: string
+      title: Vehicle Overnight Locatio nCode Content Type
+      description: TBD
+      enum:
+        - AccessControlledArea
+        - NonEnclosedResidentialArea
+        - RetirementComplex
+        - School
+        - SecuredArea
+        - SecurityVillage
+        - SmallholdingPlotOrFarm
+        - UnsecuredArea
+    vehicleMeasurement_Type:
+      type: object
+      title: Vehicle Measurement
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            lengthMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            widthMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            heightMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            weightMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            massMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            kerbWeightMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+    vehicleArticulatedCodeContent_Type:
+      type: string
+      title: Vehicle Articulated Code Content
+      description: TBD
+      enum:
+        - Articulated
+        - Rigid
+    period_Type:
+      type: object
+      title: Period Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        startAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        endAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    manufacturerWarrantyPeriod_Type:
+      type: object
+      title: Manufacturer Warranty Period Type
+      allOf:
+        - $ref: '#/components/schemas/period_Type'
+        - properties: {}
+    manufacturer_Type:
+      type: object
+      title: Manufacturer Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            manufacturerName:
+              type: string
+              maxLength: 255
+            manufacturerCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            manufactureYear:
+              type: string
+              pattern: YYYY
+            modelYear:
+              type: string
+              pattern: YYYY
+            modelName:
+              type: string
+              maxLength: 255
+            modelNumber:
+              type: string
+              maxLength: 255
+            modelCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            brandName:
+              type: string
+              maxLength: 255
+            modelVariant:
+              type: string
+              maxLength: 255
+            modelSeries:
+              type: string
+              maxLength: 255
+            manufacturerWarrantyIndicator:
+              type: boolean
+            manufacturerWarrantyPeriod:
+              $ref: '#/components/schemas/manufacturerWarrantyPeriod_Type'
+    vehicleBodyTypeCodeContent_Type:
+      type: string
+      title: VehicleBodyType Code Content Type
+      description: TBD
+      enum:
+        - Above100000
+        - Caravan
+        - Convertible
+        - Coupe
+        - FiveDoorSedan
+        - FiveDoorSUV
+        - FourDoorExtendedCabChassis
+        - FourDoorHardtop
+        - FourDoorHatchback
+        - FourDoorLiftback
+        - FourDoorSedan
+        - FourDoorSUV
+        - FourDoorWagon
+        - FourWheelDrive
+        - Hardtop
+        - HatchBack
+        - Other
+        - PickupTruck
+        - Sedan
+        - ThreeDoorExtendedCabChassis
+        - Trailer
+        - TwoDoorHardtop
+        - TwoDoorHatchback
+        - TwoDoorLiftback
+        - TwoDoorSedan
+        - TwoDoorSUV
+        - TwoDoorWagon
+        - UpTo100000
+        - Utility
+        - Van
+        - Wagon
+    vehicleBody_Type:
+      type: object
+      title: Vehicle Body Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/vehicleBodyTypeCodeContent_Type'
+            alternateTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            description:
+              type: string
+            colour:
+              type: string
+              maxLength: 255
+            seatingCapacityCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            colourCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    engineExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: EngineExternalIdentifierTypeCodeContent_Type
+      description: TBD
+      enum:
+        - SerialNumber
+    engineExternalIdentifier_Type:
+      type: object
+      title: EngineExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/engineExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    fuelTypeCodeContent_Type:
+      type: string
+      title: FuelType Code Content Type
+      description: TBD
+      enum:
+        - Diesel
+        - Electric
+        - Ethanol
+        - Gasoline
+        - Hybrid
+        - NaturalGas
+        - Other
+        - TurboDiesel
+        - TurboGasoline
+    engine_Type:
+      type: object
+      title: Engine Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/engineExternalIdentifier_Type'
+                - $ref: '#/components/schemas/engineExternalIdentifier_Type'
+            description:
+              type: string
+            capacityMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            displacementMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            cylinderCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            horsepowerMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            turbochargedIndicator:
+              type: boolean
+            fuelTypeCode:
+              $ref: '#/components/schemas/fuelTypeCodeContent_Type'
+            engineConfigurationName:
+              type: string
+              maxLength: 255
+    chassisExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: ChassisExternalIdentifierTypeCodeContent_Type
+      description: TBD
+      enum:
+        - SerialNumber
+    chassisExternalIdentifier_Type:
+      type: object
+      title: ChassisExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/chassisExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    chassis_Type:
+      type: object
+      title: Chassis Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/chassisExternalIdentifier_Type'
+                - $ref: '#/components/schemas/chassisExternalIdentifier_Type'
+            description:
+              type: string
+            axleCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    transmissionExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: TransmissionExternalIdentifierTypeCodeContent_Type
+      description: TBD
+      enum:
+        - SerialNumber
+    transmissionExternalIdentifier_Type:
+      type: object
+      title: TransmissionExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/transmissionExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    transmissionTypeCodeContent_Type:
+      type: string
+      title: Transmission Type Code Content Type
+      description: TBD
+      enum:
+        - Other
+        - Tiptronic
+        - Unknown
+        - Automatic
+        - Manual
+    transmission_Type:
+      type: object
+      title: Transmission Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/transmissionExternalIdentifier_Type'
+                - $ref: '#/components/schemas/transmissionExternalIdentifier_Type'
+            typeCode:
+              $ref: '#/components/schemas/transmissionTypeCodeContent_Type'
+            alternateTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            description:
+              type: string
+            drivenWheelsCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    modificationCategoryCodeContent_Type:
+      type: string
+      title: Modification Class Code Content
+      description: TBD
+      enum:
+        - Body
+        - Cosmetic
+        - Engine
+        - Paint
+        - Performance
+        - PerformanceAndCosmetic
+        - Suspension
+        - Unknown
+        - Wheels
+    vehicleModificationTypeCodeContent_Type:
+      type: string
+      title: VehicleModificationTypeCodeContent_Type
+      description: TBD
+      enum:
+        - EngineModification1
+    vehicleModification_Type:
+      type: object
+      title: Vehicle Modification Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            modificationCategoryCode:
+              $ref: '#/components/schemas/modificationCategoryCodeContent_Type'
+            typeCode:
+              $ref: '#/components/schemas/vehicleModificationTypeCodeContent_Type'
+            description:
+              type: string
+            modifiedDate:
+              type: string
+              format: date
+            valueAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            valuationTypeCode:
+              $ref: '#/components/schemas/valuationTypeCodeContent_Type'
+    vehicleOptionCodeContent_Type:
+      type: string
+      title: Vehicle Option Code Content
+      description: TBD
+      enum:
+        - AirConditioner
+        - AluAwning
+        - AudioPlayer
+        - AutomaticParking
+        - BikeCarrier
+        - BulBars
+        - Canopy
+        - ClimateConrol
+        - CruiseControl
+        - Drawers
+        - FogLightFront
+        - FogLightsRear
+        - FourXJerryCans
+        - FrontEndSpoiler
+        - GasBottleHolder
+        - HandsFreePhoneKit
+        - HiLiftJack
+        - HiLiftJackBracket
+        - HowlingMoonTent
+        - JerryCanHolders
+        - KeylessEntry
+        - LeatherSeats
+        - LightProtectionCovers
+        - LongRangeFuelTank
+        - LuggageCompartmentCovers
+        - LuggageRails
+        - MagWheels
+        - MantecSnorkel
+        - MemorySeats
+        - MetallicPaint
+        - MiniVideoPlayers
+        - MobilePhonePreparation
+        - MonitorTV
+        - NavigationSystem
+        - NudgeBar
+        - OpenGameViewing
+        - ParkAssist
+        - ProtectionPlates
+        - RearEndSpolier
+        - RearViewCamera
+        - RecoveryWinch
+        - RollBars
+        - RoofRack
+        - Rubberising
+        - SeatHeating
+        - SideRails
+        - SideRailsForBin
+        - SideSteps
+        - Skirtings
+        - SmashAndGrab
+        - SoundEquipment
+        - SpareWheelHolder
+        - Spoiler
+        - SportWheels
+        - SpotLights
+        - SteeringProtectionPlate
+        - SunRoof
+        - TonneauCover
+        - TowBar
+        - TwoWayRadio
+        - VideoScreen
+        - WarnSpotLights
+        - WinchRecovery
+        - XenonLamps
+    vehicleOption_Type:
+      type: object
+      title: Vehicle Option Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            vehicleOptionCode:
+              $ref: '#/components/schemas/vehicleOptionCodeContent_Type'
+            description:
+              type: string
+            valueAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    unrepairedDamageTypeCodeContent_Type:
+      type: string
+      title: UnrepairedDamageTypeCodeContent_Type
+      description: TBD
+      enum:
+        - Collision
+        - Hail
+        - MinorDentsAndScratches
+        - Other
+        - Rust
+    unrepairedDamage_Type:
+      type: object
+      title: Unrepaired Damage Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/unrepairedDamageTypeCodeContent_Type'
+            description:
+              type: string
+    antiTheftDeviceTypeCodeContent_Type:
+      type: string
+      title: AntiTheftDeviceTypeCodeContent_Type
+      description: TBD
+      enum:
+        - ActiveDisabling
+        - AdditionalSecurityDevice
+        - Alarm
+        - AlarmAndImmoiliser
+        - AlarmMotionSensor
+        - Datadot
+        - ElectronicDisabling
+        - EtchedWindow
+        - FleetManagementSystem
+        - FuelCutOff
+        - Gearlock
+        - HoodLock
+        - IgnitionKillSwitch
+        - Immobiliser
+        - LockedGarage
+        - MicroDotting
+        - None
+        - PassiveDisabling
+        - Present
+        - SecurityBattery
+        - ShakerSwitch
+        - SteeringLock
+        - TrackingActive
+        - TrackingEarlyWarningActive
+        - TrackingEarlyWarningPassive
+        - TrackingPassive
+        - TrackingRecoveryDevice
+        - Unknown
+        - WindowId
+    antiTheftDeviceProductCodeContent_Type:
+      type: string
+      title: Anti Theft Device Product Code Content Type
+      description: TBD
+      enum:
+        - ACCORD
+        - ACCORDGT
+        - ACMTrackAlphaTrack
+        - Agrippa
+        - AgrippaLockACar
+        - AlarmFactory
+        - AlarmFitted
+        - AlarmNil
+        - ALFAROMEO
+        - Apple
+        - ASSAABLOYSA
+        - ATLASDISCOVERY
+        - ATRALOCK
+        - AUDIKLINE
+        - Autogarde
+        - AUTOKEYS
+        - Automate
+        - AUTOMOTIVECONTROLSYSTEM
+        - AutoTrackerSentinel
+        - AutoTrakIS1001ACS
+        - Autowatch
+        - Autowatch329TiVICCApproved
+        - Autowatch887
+        - AutowatchClassic875GhostPlus
+        - AutowatchClassic875Lite
+        - AutowatchPFK
+        - BanditVehicleSecuritySystem
+        - BeamE
+        - BEARLOCK
+        - BidtrackActiv
+        - BidtrackExecutive
+        - BidtrackHighAlert
+        - BMW
+        - BMW3INTLOCK
+        - BMWKLINE
+        - Boomerang
+        - Budilock
+        - Budilock001
+        - Budilock002
+        - Budilock003
+        - Budilock004
+        - Budilock005
+        - Budilock006
+        - Budilock007
+        - Budilock008
+        - Budilock009
+        - Budilock010
+        - Budilock011
+        - Budilock012
+        - Budilock013
+        - BudilockMSI
+        - CapitalAir
+        - CARLOX
+        - CAROOCELL
+        - CARTRACK
+        - CELLSECURE
+        - CELLSTOP
+        - CommunicatorFM200
+        - CommunicatorFM300
+        - Computask
+        - Conlog
+        - ControlInstruments
+        - CTrack
+        - CWTechnologies
+        - CybergraphyExact
+        - CybergraphyExclusive
+        - DAEWOO
+        - DatatDot
+        - DEFENDALOCK
+        - DIAMONDLOCK
+        - DIAMONDLOCK10
+        - DIAMONDLOCK101
+        - DIAMONDLOCK102
+        - DIAMONDLOCK103
+        - DIAMONDLOCK104
+        - DIAMONDLOCK14
+        - DIAMONDLOCK15
+        - DIAMONDLOCK16
+        - DIAMONDLOCK17
+        - DIAMONDLOCK18
+        - DigicellDigit3B
+        - DigiCoreFleetManagement
+        - DIGICORETECHNOLOGY
+        - Doc
+        - DuoSolutions
+        - DuoSolutionsProvider
+        - DUPEC
+        - DuroVIP
+        - EC49
+        - ESCO
+        - EUROLOCK
+        - EVERLOCK
+        - EWCOP
+        - EWCOPTracer
+        - ExecUFleet
+        - EZTRADE312
+        - FinTrack
+        - FORDESCORT
+        - FORDFALCON
+        - FORDFIESTA
+        - FOXGUARD
+        - Global
+        - GlobalTelematicsOrchidTCU
+        - GMC
+        - GRIDELECTROHUNTER
+        - GRIDELECTRONICS
+        - GRIDELECTRONICS005
+        - GRIDELECTRONICS006
+        - GRIDELECTRONICS007
+        - GRIDELECTRONICS008
+        - GRIDELECTRONICS009
+        - GRIDELECTRONICS010
+        - GRIDELECTRONICS011
+        - GRIDELECTRONICS014
+        - GRIDELECTRONICS015
+        - GRIDELECTRONICS016
+        - GRIDELECTRONICS017
+        - GRIDELECTRONICS018
+        - GRIPTECHPtyLtd
+        - GT
+        - HUNTER
+        - HUNTERGEARLOCK
+        - HYUNDAI
+        - HYUNDAIBAKKIEH100
+        - HYUNDAIELANTRASW
+        - ImmobiliserFactory
+        - ImmobiliserFitted
+        - ImmobiliserNil
+        - INHIBITOR
+        - INTERTRAC
+        - JAGUARREEKS1997EN
+        - KCSALES
+        - LANDROVERDISCOVERY
+        - LiveTrack
+        - LOCKACAR
+        - LOCKSYS
+        - LOCKTECH
+        - Magnum
+        - Magtec6000VICCApproved
+        - MAPOGO
+        - MATLOCK
+        - Matrix
+        - MatrixECOAH16
+        - MAZDAASTINA
+        - MAZDAETUDE
+        - MLOCK
+        - MOBILETRAKER
+        - MOTOJOY
+        - MOTOJOYMAPOGO
+        - MSI
+        - MULTLOCK
+        - MULTLOCK005
+        - MULTLOCK006
+        - MULTLOCK007
+        - MULTLOCK008
+        - MULTLOCK009
+        - MULTLOCK010
+        - MULTLOCK011
+        - MULTLOCK012
+        - MULTLOCK013
+        - MULTLOCK014
+        - MULTLOCK015
+        - MULTLOCK016
+        - MULTLOCK017
+        - MULTLOCK018
+        - MULTLOCK101
+        - MULTLOCK102
+        - MULTLOCK103
+        - MULTLOCK104
+        - MyTracer
+        - NeoTrackG2
+        - None
+        - OmniBridgeFMProtector43101
+        - OmniBridgeShurDrivesD100
+        - ORCHID
+        - Other
+        - OTOMATE
+        - OTOMATEMSI
+        - Pacific
+        - PAMLOCK
+        - PAOPEI
+        - PAOPEITLOCK
+        - PEDSAFE
+        - PFK
+        - PFKELECTRONICS
+        - PGGCommunications
+        - Phantom450
+        - Phoenix
+        - PI
+        - PinpointPT200
+        - PIVEHICLESECURITY
+        - POWERGRIP
+        - PowerlockCanadaVehicleInformationCentreOfCanadaVICCApproved
+        - POWERTRACK
+        - PROTG
+        - RAMCO
+        - RAMSAY
+        - RANGERVER
+        - Raptor
+        - Raptor001
+        - Raptor002
+        - Raptor003
+        - Raptor004
+        - Raptor005
+        - Raptor006
+        - Raptor007
+        - Raptor008
+        - Raptor009
+        - Raptor010
+        - Raptor011
+        - Raptor012
+        - Raptor013
+        - Raptor014
+        - Raptor015
+        - Raptor016
+        - Raptor017
+        - Raptor018
+        - RaptorEagle
+        - RaptorFalcon
+        - RaptorHawk
+        - RaptorStealth
+        - RHINO
+        - ROSHNIENTERPRISES
+        - SAAB
+        - SAELECTRONICTRACKINGSYSTEMSLTD
+        - SANJI
+        - SANJIINTELLICAKEYPAD
+        - SANJU
+        - SelfTrack
+        - Sherlock
+        - SIRIUS
+        - SKYGISTICS
+        - SKYTRAX
+        - SmarTrack
+        - SmartSurvAdvanced
+        - SmartSurvClassicLifestyle
+        - SmartSurvPlus
+        - SmartSurvPremier
+        - SmartSurvTrackMaster
+        - SmartSurvWireless
+        - SNITCHSECURITYSA
+        - SolidEjectorLock
+        - SolidGearlokSA
+        - SolidGearlokSA001
+        - SolidGearlokSA002
+        - SolidGearlokSA003
+        - SolidGearlokSA004
+        - SolidGearlokSA005
+        - SolidGearlokSA007
+        - SolidGearlokSA008
+        - SolidGearlokSA009
+        - SolidGearlokSA010
+        - SolidGearlokSA011
+        - SolidGearlokSA012
+        - SolidGearlokSA013
+        - SPAV
+        - SPRINGSHADE
+        - StarTrac
+        - STEALTH
+        - SuperDurogarde
+        - TAZLOK
+        - TECHNOFLEET
+        - TheftbusterTB300VVICCApproved
+        - THIBA
+        - TISONICS
+        - TOYOTA
+        - TOYOTACOROLLA16
+        - TOYOTACOROLLA18
+        - TOYOTALAWSFLOORSHIFT
+        - TRABEGASFUELLOCK
+        - TRACKER
+        - TrackingBandit
+        - TrackingBanditInterac
+        - TrackingBanditInteracActive
+        - TrackingBanditInteracHiAlert
+        - TrackingBanditInterlock
+        - TrackingBanditPinlock
+        - TrackingCarTrackCT1
+        - TrackingCarTrackExecutivePlus
+        - TrackingCarTrackQuickCT1
+        - TrackingCarTrackQuickPlus
+        - TrackingCellSecureEagleFindItV5
+        - TrackingCellSecureEagleTraceeV4
+        - TrackingCellStopMk5
+        - TrackingDataTrak
+        - TrackingDataTrakMK2D
+        - TrackingDataTrakMK4
+        - TrackingDataTrakOnlyGauteng
+        - TrackingDigiCoreCTrack
+        - TrackingDigiCoreCTrackSecurePlus
+        - TrackingDigiCoreInsureProtect
+        - TrackingDigiCoreSecurePlusProtect
+        - TrackingDuoSolutionsDatalogger
+        - TrackingMatrix
+        - TrackingMatrixEscosec
+        - TrackingMatrixMX1
+        - TrackingMatrixMX2
+        - TrackingMatrixMX3
+        - TrackingMobileTrackerFrankie
+        - TrackingMobileTrackerFrankiePlus
+        - TrackingMTrack
+        - TrackingNetStar
+        - TrackingNetStarCyberSleuth
+        - TrackingNetStarVBU150220
+        - TrackingNetStarVBU170210
+        - TrackingNetStarVBU450
+        - TrackingNetStarVBU470
+        - TrackingNetStarVBU480
+        - TrackingNetStarVigil
+        - TrackingNetStarVigilSupreme
+        - TrackingOrbtechBuddi3
+        - TrackingOrbtechBuddi5
+        - TrackingOrbtechBuddiTrack
+        - TrackingOrchidDX120
+        - TrackingOrchidDX170
+        - TrackingOrchidDX200
+        - TrackingOrchidDX250
+        - TrackingSkyTrax
+        - TrackingSkyTraxF4
+        - TrackingSmartTrakActivePlus
+        - TrackingSmartTrakClassic
+        - TrackingSmartTrakElite
+        - TrackingSmartTrakLifeStyle
+        - TrackingSmartTrakLifeStyleActive
+        - TrackingTracetec
+        - TrackingTrackerAlert
+        - TrackingTrackerLocateAlert
+        - TrackingTrackerLocateRetrieve
+        - TrackingTrackerMotorolaSTRK9700SA
+        - TrackingTrackerRetrieve
+        - TRANSLOCK
+        - ULOCK
+        - VAC
+        - VACInhibitor
+        - VECTA
+        - VehicleManufacturerOriginalEquipmentManufacturer
+        - Viasat
+        - VICCApproved
+        - VIKACOROLLACAMRY
+        - VIRO
+        - VIROEsco
+        - VIROGearlock
+        - VIROSolidGearlock
+        - VOLVO
+        - VSS150
+        - VWKOMBI
+        - VWVR6
+        - YALEGEARLOCK
+        - YALEGEARLOCK001
+        - YALEGEARLOCK002
+        - YALEGEARLOCK003
+        - YALEGEARLOCK004
+        - YALEGEARLOCK005
+        - YALEGEARLOCK006
+        - YALEGEARLOCK007
+        - YALEGEARLOCK008
+        - YALEGEARLOCK009
+        - YALEGEARLOCK010
+        - YALEGEARLOCK011
+        - YALEGEARLOCK012
+        - YALEGEARLOCK013
+        - YALEGEARLOCK014
+        - YALEGEARLOCK015
+        - YALEGEARLOCK016
+        - YALEGEARLOCK017
+        - YALEGEARLOCK018
+    antiTheftDevice_Type:
+      type: object
+      title: Anti Theft Device Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/antiTheftDeviceTypeCodeContent_Type'
+            description:
+              type: string
+            antiTheftDeviceProductCode:
+              $ref: '#/components/schemas/antiTheftDeviceProductCodeContent_Type'
+    registrationPeriod_Type:
+      type: object
+      title: Registration Period
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        startAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        endAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    registrationExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: RegistrationExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - IMOShipId
+        - JurisdictionId
+        - NationalId
+        - VehicleIdentificationNumber
+        - WatercraftRegistrationNumberId
+    registrationExternalIdentifier_Type:
+      type: object
+      title: RegistrationExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/registrationExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+            registrationAgencyName:
+              type: string
+              maxLength: 255
+    registration_Type:
+      type: object
+      title: Registration Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            policyInterestedPartyReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyInterestedPartyReferences_Type'
+                - $ref: '#/components/schemas/policyInterestedPartyReferences_Type'
+            registrationDate:
+              type: string
+              format: date
+            registrationPeriod:
+              $ref: '#/components/schemas/registrationPeriod_Type'
+            registrationCountryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            registrationPortCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            registrationPortName:
+              type: string
+            registryStatusCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/registrationExternalIdentifier_Type'
+                - $ref: '#/components/schemas/registrationExternalIdentifier_Type'
+    ignitionExternalIdentifier_Type:
+      type: object
+      title: IgnitionExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties: {}
+    ignition_Type:
+      type: object
+      title: Ignition Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/ignitionExternalIdentifier_Type'
+                - $ref: '#/components/schemas/ignitionExternalIdentifier_Type'
+            ignitionTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            description:
+              type: string
+            vehicleKeyCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    extendedWarrantyPeriod_Type:
+      type: object
+      title: Extended Warranty Period Type
+      allOf:
+        - $ref: '#/components/schemas/period_Type'
+        - properties: {}
+    driverSideCodeContent_Type:
+      type: string
+      title: Driver Side Code Content
+      description: The Driver Side Code content enumeration
+      enum:
+        - LeftHandDrive
+        - Other
+        - RightHandDrive
+        - Unknown
+    vehicleTypeCodeContent_Type:
+      type: string
+      title: VehicleType Code Content Type
+      description: TBD
+      enum:
+        - AirportBus
+        - AirportLimousine
+        - AllVehicles
+        - AllVehiclesExcludingMotorcycles
+        - Ambulance
+        - AmbulanceEmergency
+        - AmbulanceNonEmergency
+        - AmphibiousVehicle
+        - AntiqueVehicle
+        - ATV
+        - BeachBuggy
+        - BusesNotOtherwiseClassified
+        - Cabriolet
+        - CamperTrailer
+        - Caravan
+        - CargoVan
+        - CharterBus
+        - ChurchBus
+        - ClassicAuto
+        - CommercialVehicle
+        - CompactCar
+        - DetachableCamperBody
+        - DriverTrainingCommercial
+        - DumpSemiTrailer
+        - DumpTrailer
+        - DumpTruck
+        - DuneBuggy
+        - EightPassengerSportVan
+        - ElectricVehicle
+        - ExtendedCargoVan
+        - ExtendedSportVan
+        - ExtendedWindowVan
+        - ExtraHeavyTrucks
+        - ExtraHeavyTruckTractors
+        - FarmVehicle
+        - FireDepartmentsNonPrivatePassengerType
+        - FireDepartmentsPrivatePassengerType
+        - FoldingPopUpCampers
+        - FourWheelDrive
+        - FullTrailers
+        - FuneralFlowerCar
+        - FuneralHearse
+        - FuneralHearseAmbulanceEmergency
+        - FuneralHearseAmbulanceNonEmergency
+        - FuneralLimousine
+        - GoCart
+        - GolfCart
+        - GrassMower
+        - HeavyTrucks
+        - HeavyTruckTractors
+        - HeavyVehicleHorse
+        - HeavyVehicleHorseAndTrailer
+        - HeavyVehicleHorseTrailer
+        - Imports
+        - InterCityBus
+        - KitCar
+        - LawEnforcementAgencyMotorcycle
+        - LawEnforcementAgencyNonPrivatePassengerTypeNonMotorcycle
+        - LawEnforcementAgencyPrivatePassengerType
+        - LDV
+        - LightTrucks
+        - Limousine
+        - MediumTrucks
+        - Minibike
+        - Minibus
+        - MiniVan
+        - MobileHomeTrailerGreater22Feet
+        - MobileHomeTrailerLess22Feet
+        - MobileHomeTrailerOther
+        - MobileHomeTrailerUnspecified
+        - Moped
+        - Motorbike
+        - MotorcycleCruiser
+        - MotorcycleDelivery
+        - MotorcycleQuad
+        - MotorcycleScrambler
+        - MotorcycleStreetBike
+        - MotorScooter
+        - OtherMotorizedCycles
+        - OtherSchoolBus
+        - OwnerOperated
+        - PanelVan
+        - PickupWithCamper
+        - PickupWithCamperBody
+        - PickupWithCanopy
+        - PrivateVehicle
+        - PublicVehicleNotOtherwiseClassified
+        - RecreationalTrailer
+        - RecreationalVehicle
+        - RefrigeratedTrailers
+        - RefrigeratedTrucks
+        - SchoolBusOwnedByPoliticalSubdivisionSchoolDistrict
+        - SedanDeliveryPanelTruck
+        - SelfPropelledMotorHomeOver22Feet
+        - SelfPropelledMotorHomeUpTo22Feet
+        - SemiTrailer
+        - ServiceTrucks
+        - ServiceUtilityTrailer
+        - ShowroomTrailer
+        - SightseeingBus
+        - Snowmobile
+        - SocialServicesVehicleAllOther
+        - SocialServicesVehicleEmployeeOperated
+        - Special
+        - SpecialMobileEquipmentFarm
+        - SpecialMobileEquipmentNonFarm
+        - SportCoupe
+        - SportSedan
+        - SportUtilityVehicle
+        - SportVan
+        - StationWagon
+        - StepVan
+        - SuburbanCarryAll
+        - TankSemiTrailers
+        - TankTrailers
+        - TankTrucks
+        - Taxi
+        - ThreeWheeler
+        - TrailBike
+        - Trailers
+        - TransportationAthletesEntertainers
+        - TransportationEmployeesAllOther
+        - TransportationEmployeesPrivatePassengerType
+        - Trucks
+        - TurboCharged
+        - Unknown
+        - UrbanBus
+        - UtilityTrailer
+        - UtilityVan
+        - VanCamper
+        - VanPoolsAllOther
+        - VanPoolsEmployerFurnished
+        - WatercraftTrailer
+        - WindowVan
+    vehicleExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: VehicleExternalIdentifierTypeCodeContent_Type
+      description: TBD
+      enum:
+        - GlassCode
+        - VehicleIdentificationNumber
+    vehicleExternalIdentifier_Type:
+      type: object
+      title: VehicleExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/vehicleExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    vehicle_Type:
+      type: object
+      title: Vehicle Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            measurement:
+              $ref: '#/components/schemas/vehicleMeasurement_Type'
+            maximumSpeedMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            vehicleArticulatedCode:
+              $ref: '#/components/schemas/vehicleArticulatedCodeContent_Type'
+            manufacturer:
+              $ref: '#/components/schemas/manufacturer_Type'
+            vehicleBody:
+              $ref: '#/components/schemas/vehicleBody_Type'
+            engine:
+              $ref: '#/components/schemas/engine_Type'
+            chassis:
+              $ref: '#/components/schemas/chassis_Type'
+            transmission:
+              $ref: '#/components/schemas/transmission_Type'
+            vehicleModification:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleModification_Type'
+                - $ref: '#/components/schemas/vehicleModification_Type'
+            vehicleOption:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleOption_Type'
+                - $ref: '#/components/schemas/vehicleOption_Type'
+            unrepairedDamage:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/unrepairedDamage_Type'
+                - $ref: '#/components/schemas/unrepairedDamage_Type'
+            antiTheftDevice:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/antiTheftDevice_Type'
+                - $ref: '#/components/schemas/antiTheftDevice_Type'
+            registration:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/registration_Type'
+                - $ref: '#/components/schemas/registration_Type'
+            ignition:
+              $ref: '#/components/schemas/ignition_Type'
+            purchasedNewIndicator:
+              type: boolean
+            extendedWarrantyPeriod:
+              $ref: '#/components/schemas/extendedWarrantyPeriod_Type'
+            industryGroupRatingCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            vehicleImportedIndicator:
+              type: boolean
+            driverSideCode:
+              $ref: '#/components/schemas/driverSideCodeContent_Type'
+            typeCode:
+              $ref: '#/components/schemas/vehicleTypeCodeContent_Type'
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleExternalIdentifier_Type'
+                - $ref: '#/components/schemas/vehicleExternalIdentifier_Type'
+    thirdPartyVehicle_Type:
+      type: object
+      title: Third Party Vehicle
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            purchaseDate:
+              type: string
+              format: date
+            purchasePriceAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            vehicleSymbolCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            claimFreeGroup:
+              $ref: '#/components/schemas/claimFreeGroup_Type'
+            vehicleAlteredIndicator:
+              type: boolean
+            vehicleOptionsIncludedIndicator:
+              type: boolean
+            vehicleModificationsIncludedIndicator:
+              type: boolean
+            antiTheftDeviceIndicator:
+              type: boolean
+            antiLockBrakesIndicator:
+              type: boolean
+            existingUnrepairedDamageIndicator:
+              type: boolean
+            vehicleInspectionStatusCode:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleInspectionStatusCodeContent_Type'
+                - $ref: '#/components/schemas/vehicleInspectionStatusCodeContent_Type'
+            vehiclePerformanceCode:
+              $ref: '#/components/schemas/vehiclePerformanceCodeContent_Type'
+            fourWheelDriveIndicator:
+              type: boolean
+            tractionControlIndicator:
+              type: boolean
+            odometerReadingAtPurchaseMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            odometerReadingAtApplicationMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            seenVehicleIndicator:
+              type: boolean
+            dualControlsIndicator:
+              type: boolean
+            carpoolIndicator:
+              type: boolean
+            employeeOperatedIndicator:
+              type: boolean
+            operatorExperienceRestrictionCode:
+              $ref: '#/components/schemas/operatorExperienceRestrictionCodeContent_Type'
+            isRegisteredIndicator:
+              type: boolean
+            nonOwnedVehicleIndicator:
+              type: boolean
+            leasedPeriod:
+              $ref: '#/components/schemas/leasedPeriod_Type'
+            financedAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            agreedValueRequiredIndicator:
+              type: boolean
+            driverUse:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/driverUse_Type'
+                - $ref: '#/components/schemas/driverUse_Type'
+            itemValue:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/itemValue_Type'
+                - $ref: '#/components/schemas/itemValue_Type'
+            vehicleUse:
+              $ref: '#/components/schemas/vehicleUse_Type'
+            youngestDriverBirthYear:
+              type: string
+              pattern: YYYY
+            regularDriverBirthYear:
+              type: string
+              pattern: YYYY
+            underTwentyFiveIndicator:
+              type: boolean
+            vehicleGaragingCode:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleGaragingCodeContent_Type'
+                - $ref: '#/components/schemas/vehicleGaragingCodeContent_Type'
+            vehicleOvernightLocationCode:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/vehicleOvernightLocationCodeContent_Type'
+                - $ref: '#/components/schemas/vehicleOvernightLocationCodeContent_Type'
+            vehicle:
+              $ref: '#/components/schemas/vehicle_Type'
+            vehicleClassCode:
+              $ref: '#/components/schemas/vehicleClassCodeContent_Type'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            locationReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/locationReferences_Type'
+                - $ref: '#/components/schemas/locationReferences_Type'
+    catastrophe_Type:
+      type: object
+      title: Catastrophe Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            description:
+              type: string
+            occurrenceDate:
+              type: string
+              format: date
+    damageDescriptionCodeContent_Type:
+      type: string
+      title: Damage Description Code Content Type
+      description: TBD
+      enum:
+        - AccessToChildren
+        - AircraftAerialFallingTreesBuildingImpact
+        - Ashore
+        - AtSea
+        - Attempted
+        - BreakageAerialSystems
+        - BreakageAntiTheftDevice
+        - BreakageGlassSanitaryWare
+        - BreakageGlassTopsMirrors
+        - BurstingOverflowingWater
+        - Collision
+        - ContactLensLossDamage
+        - CreditCardsOrVouchers
+        - Custody
+        - Damage
+        - DamageToProperty
+        - DamageToPublicSupplyConnections
+        - DeathOfPerson
+        - Divorce
+        - DomesticWorker
+        - DuringBusinessHours
+        - Earthquake
+        - ElectricalBreakage
+        - ElectronicBreakage
+        - EquipmentStolenDamage
+        - EquipmentStolenNoDamage
+        - FamilyMaintenance
+        - FloodSeaSurge
+        - Fullhouse
+        - HailSnow
+        - HoleInOne
+        - IllnessOfPerson
+        - InjuryToPerson
+        - InTransit
+        - LegalAid
+        - LiabilityToPublic
+        - LightningThunderbolt
+        - LossKeys
+        - LossOfProperty
+        - MechanicalBreakage
+        - MechanicalElectricalDamage
+        - MotorGlass
+        - MotorGlassRepaired
+        - MotorGlassReplaced
+        - NotRecovered
+        - Oil
+        - OnInlandWaters
+        - OutsideBusinessHours
+        - OverturningNoPassengers
+        - OverturningPassengers
+        - PartsStolen
+        - Passenger
+        - RecoveredAfterSettlement
+        - RecoveredBeforeSettlement
+        - RecoveredBeforeSettlementAtRecoveryBranch
+        - RefrigeratorFreezerContents
+        - RoadSurfacePotholes
+        - SpecifiedEquipment
+        - StormWindWater
+        - Tenant
+        - ThirdParty
+        - ToPublic
+        - VeterinaryExpenses
+        - WhilstDriven
+        - WhilstParked
+        - WhilstTowed
+        - WithForce
+        - WithoutForce
+    damageExtentCodeContent_Type:
+      type: string
+      title: Damage Extent Code Content
+      description: TBD
+      enum:
+        - DamageRepaired
+        - NoDamage
+        - RepairNotEconomical
+        - SlightDamage
+        - Unknown
+    itemCurrentAddress_Type:
+      type: object
+      title: Item Current Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties: {}
+    salvage_Type:
+      type: object
+      title: Salvage
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            claimPartyReferences:
+              $ref: '#/components/schemas/claimPartyReferences_Type'
+            description:
+              type: string
+            itemAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            recoverablePercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    claimItemQuestionCodeContent_Type:
+      type: string
+      title: Claim Item Question Code Content Type
+      description: TBD
+      enum:
+        - ClaimItem001
+        - ClaimItem002
+        - ClaimItem004
+        - ClaimItem005
+        - ClaimItem006
+        - ClaimItem008
+        - ClaimItem009
+        - ClaimItem011
+        - ClaimItem013
+        - ClaimItem014
+        - ClaimItem015
+        - ClaimItem016
+        - ClaimItem017
+        - ClaimItem018
+        - ClaimItem019
+        - ClaimItem020
+        - ClaimItem021
+        - ClaimItem022
+        - ClaimItem023
+        - ClaimItem024
+        - ClaimItem025
+        - ClaimItem026
+        - ClaimItem027
+        - ClaimItem028
+        - ClaimItem029
+        - ClaimItem030
+        - ClaimItem031
+        - ClaimItem032
+        - ClaimItem033
+        - ClaimItem034
+        - ClaimItem035
+        - ClaimItem036
+    claimItemQuestionAnswer_Type:
+      type: object
+      title: Claim Item Question Answer Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - questionCode
+            - answerCode
+          properties:
+            questionCode:
+              $ref: '#/components/schemas/claimItemQuestionCodeContent_Type'
+            questionCodeDescription:
+              type: string
+            answerCode:
+              $ref: '#/components/schemas/answerCodeContent_Type'
+            explanation:
+              type: string
+            explanationDate:
+              type: string
+              format: date
+            explanationPeriod:
+              $ref: '#/components/schemas/explanationPeriod_Type'
+            explanationCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            explanationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            explanationAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            explanationMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            explanationPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    claimItem_Type:
+      type: object
+      title: ClaimItem Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            coverageReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/coverageReferences_Type'
+                - $ref: '#/components/schemas/coverageReferences_Type'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            description:
+              type: string
+            causeCode:
+              $ref: '#/components/schemas/causeCodeContent_Type'
+            statusDate:
+              type: string
+              format: date
+            statusCode:
+              $ref: '#/components/schemas/claimStatusCodeContent_Type'
+            statusCodeDescription:
+              type: string
+            insuredReferences:
+              $ref: '#/components/schemas/insuredReferences_Type'
+            claimPartyReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/claimPartyReferences_Type'
+                - $ref: '#/components/schemas/claimPartyReferences_Type'
+            thirdPartyDriver:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/thirdPartyDriver_Type'
+                - $ref: '#/components/schemas/thirdPartyDriver_Type'
+            inDisputeIndicator:
+              type: boolean
+            thirdPartyVehicle:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/thirdPartyVehicle_Type'
+                - $ref: '#/components/schemas/thirdPartyVehicle_Type'
+            exGratiaIndicator:
+              type: boolean
+            catastropheLossIndicator:
+              type: boolean
+            catastrophe:
+              $ref: '#/components/schemas/catastrophe_Type'
+            claimTransactionAmountItem:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/claimTransactionAmountItem_Type'
+                - $ref: '#/components/schemas/claimTransactionAmountItem_Type'
+            damageDescriptionCode:
+              $ref: '#/components/schemas/damageDescriptionCodeContent_Type'
+            damageExtentCode:
+              $ref: '#/components/schemas/damageExtentCodeContent_Type'
+            recoveryDate:
+              type: string
+              format: date
+            itemCurrentAddress:
+              $ref: '#/components/schemas/itemCurrentAddress_Type'
+            itemSummarizedDate:
+              type: string
+              format: date
+            itemEstimatedDate:
+              type: string
+              format: date
+            salvage:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/salvage_Type'
+                - $ref: '#/components/schemas/salvage_Type'
+            questionAnswer:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/claimItemQuestionAnswer_Type'
+                - $ref: '#/components/schemas/claimItemQuestionAnswer_Type'
+            claimOccurrenceReferences:
+              $ref: '#/components/schemas/claimOccurrenceReferences_Type'
     claimEventLogStatusCodeContent_Type:
       type: string
       title: Claim Event Log Status Code Content Type
@@ -18069,40 +21882,6 @@ components:
               format: date
             intervieweeInformation:
               $ref: '#/components/schemas/intervieweeInformation_Type'
-    period_Type:
-      type: object
-      title: Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        startAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        endAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
     treatmentPeriod_Type:
       type: object
       title: Treatment Period Type
@@ -18146,6 +21925,12 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claimOccurrence:
               $ref: '#/components/schemas/claimOccurrence_Type'
+            claimItem:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/claimItem_Type'
+                - $ref: '#/components/schemas/claimItem_Type'
             claimActivity:
               oneOf:
                 - type: array

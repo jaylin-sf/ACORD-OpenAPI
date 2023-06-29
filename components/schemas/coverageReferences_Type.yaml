@@ -1,0 +1,24 @@
+type: object
+title: Coverage References Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      attributes:
+        type: object
+        properties:
+          coverageReference:
+            type: string
+      typeCode:
+        $ref: .\coverageTypeCode_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\externalIdentifier_Type.yaml
+          - $ref: .\externalIdentifier_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml

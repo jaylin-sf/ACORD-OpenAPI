@@ -1,0 +1,6 @@
+type: string
+title: VehicleExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - GlassCode
+  - VehicleIdentificationNumber

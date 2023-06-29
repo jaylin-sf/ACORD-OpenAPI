@@ -1,0 +1,12 @@
+type: string
+title: Vehicle Overnight Locatio nCode Content Type
+description: TBD
+enum:
+  - AccessControlledArea
+  - NonEnclosedResidentialArea
+  - RetirementComplex
+  - School
+  - SecuredArea
+  - SecurityVillage
+  - SmallholdingPlotOrFarm
+  - UnsecuredArea

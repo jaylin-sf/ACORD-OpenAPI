@@ -1,0 +1,9 @@
+type: string
+title: UnrepairedDamageTypeCodeContent_Type
+description: TBD
+enum:
+  - Collision
+  - Hail
+  - MinorDentsAndScratches
+  - Other
+  - Rust

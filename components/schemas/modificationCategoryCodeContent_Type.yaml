@@ -1,0 +1,13 @@
+type: string
+title: Modification Class Code Content
+description: TBD
+enum:
+  - Body
+  - Cosmetic
+  - Engine
+  - Paint
+  - Performance
+  - PerformanceAndCosmetic
+  - Suspension
+  - Unknown
+  - Wheels

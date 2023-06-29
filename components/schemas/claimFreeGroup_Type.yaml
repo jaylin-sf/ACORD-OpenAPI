@@ -1,0 +1,16 @@
+type: object
+title: Claim Free Group Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      valuePercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      valueInteger:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      description:
+        type: string
+      yearCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

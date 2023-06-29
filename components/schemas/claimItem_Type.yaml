@@ -1,0 +1,91 @@
+type: object
+title: ClaimItem Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      coverageReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\coverageReferences_Type.yaml
+          - $ref: .\coverageReferences_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      description:
+        type: string
+      causeCode:
+        $ref: .\causeCode_Type.yaml
+      statusDate:
+        type: string
+        format: date
+      statusCode:
+        $ref: .\claimStatusCode_Type.yaml
+      statusCodeDescription:
+        type: string
+      insuredReferences:
+        $ref: .\insuredReferences_Type.yaml
+      claimPartyReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimPartyReferences_Type.yaml
+          - $ref: .\claimPartyReferences_Type.yaml
+      thirdPartyDriver:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\thirdPartyDriver_Type.yaml
+          - $ref: .\thirdPartyDriver_Type.yaml
+      inDisputeIndicator:
+        type: boolean
+      thirdPartyVehicle:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\thirdPartyVehicle_Type.yaml
+          - $ref: .\thirdPartyVehicle_Type.yaml
+      exGratiaIndicator:
+        type: boolean
+      catastropheLossIndicator:
+        type: boolean
+      catastrophe:
+        $ref: .\catastrophe_Type.yaml
+      claimTransactionAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimTransactionAmountItem_Type.yaml
+          - $ref: .\claimTransactionAmountItem_Type.yaml
+      damageDescriptionCode:
+        $ref: .\damageDescriptionCode_Type.yaml
+      damageExtentCode:
+        $ref: .\damageExtentCode_Type.yaml
+      recoveryDate:
+        type: string
+        format: date
+      itemCurrentAddress:
+        $ref: .\itemCurrentAddress_Type.yaml
+      itemSummarizedDate:
+        type: string
+        format: date
+      itemEstimatedDate:
+        type: string
+        format: date
+      salvage:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\salvage_Type.yaml
+          - $ref: .\salvage_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimItemQuestionAnswer_Type.yaml
+          - $ref: .\claimItemQuestionAnswer_Type.yaml
+      claimOccurrenceReferences:
+        $ref: .\claimOccurrenceReferences_Type.yaml

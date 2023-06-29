@@ -7,12 +7,12 @@ allOf:
         $ref: .\claimReferences_Type.yaml
       claimOccurrence:
         $ref: .\claimOccurrence_Type.yaml
-      # claimItem:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\claimItem_Type.yaml
-      #     - $ref: .\claimItem_Type.yaml
+      claimItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimItem_Type.yaml
+          - $ref: .\claimItem_Type.yaml
       claimActivity:
         oneOf:
           - type: array

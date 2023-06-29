@@ -1,0 +1,14 @@
+type: object
+title: Drivers License
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\driversLicenseTypeCode_Type.yaml
+      license:
+        $ref: .\license_Type.yaml
+      commercialDrivingExperiencePeriod:
+        $ref: .\commercialDrivingExperiencePeriod_Type.yaml
+      firstLicensedCurrentStateDate:
+        type: string
+        format: date

@@ -1,0 +1,25 @@
+type: object
+title: CommercialDrivingExperiencePeriod_Type
+properties:
+  startDate:
+    type: string
+    format: date
+  endDate:
+    type: string
+    format: date
+  startTime:
+    type: string
+    format: time
+  endTime:
+    type: string
+    format: time
+  periodDuration:
+    type: string
+    format: duration
+  continuousDurationIndicator:
+    type: boolean
+  timePeriodDescription:
+    type: string
+    maxLength: 255
+  bothDaysInclusiveIndicator:
+    type: boolean

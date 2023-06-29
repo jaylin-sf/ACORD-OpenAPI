@@ -1,0 +1,8 @@
+type: string
+title: Operator Experience Restriction Code Content Type
+description: TBD
+enum:
+  - NoOperatorLicensedLessThan5Years
+  - NoRestrictions
+  - OperatorLicensedLessThan5YearsNotOwnerOrPrincipalOperator
+  - OwnerOrPrincipalOperatorLicensedLessThan5Years

@@ -1,0 +1,13 @@
+type: string
+title: FuelType Code Content Type
+description: TBD
+enum:
+  - Diesel
+  - Electric
+  - Ethanol
+  - Gasoline
+  - Hybrid
+  - NaturalGas
+  - Other
+  - TurboDiesel
+  - TurboGasoline

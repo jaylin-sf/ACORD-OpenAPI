@@ -1,0 +1,5 @@
+type: object
+title: Manufacturer Warranty Period Type
+allOf:
+  - $ref: .\period_Type.yaml
+  - properties: {}
