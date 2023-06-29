@@ -1,0 +1,5 @@
+type: string
+title: TransmissionExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - SerialNumber

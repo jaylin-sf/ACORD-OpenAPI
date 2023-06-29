@@ -1,0 +1,9 @@
+type: object
+title: Unrepaired Damage Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\unrepairedDamageTypeCode_Type.yaml
+      description:
+        type: string

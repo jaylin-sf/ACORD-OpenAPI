@@ -1,0 +1,21 @@
+type: string
+title: Vehicle Special Use Code Content Type
+description: TBD
+enum:
+  - AmusementDevice
+  - BobtailOperations
+  - EmergencyVehicle
+  - Explosives
+  - FarmersLimitedRegistrationPlates
+  - FarmToMarket
+  - FreightForwardingOperations
+  - LiquifiedGas
+  - LiquifiedProducts
+  - MovingVanAssociations
+  - RollingStores
+  - Showroom
+  - ToxicWastes
+  - UsedDumping
+  - UsedDumpingBobtailOperations
+  - UsedLogging
+  - UsedMovingOperations

@@ -1,0 +1,5 @@
+type: string
+title: VehicleModificationTypeCodeContent_Type
+description: TBD
+enum:
+  - EngineModification1

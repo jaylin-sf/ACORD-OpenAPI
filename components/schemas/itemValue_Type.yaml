@@ -1,0 +1,25 @@
+type: object
+title: ItemValue_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\itemValueTypeCode_Type.yaml
+      description:
+        type: string
+      valueAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

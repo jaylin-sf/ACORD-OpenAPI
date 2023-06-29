@@ -1,0 +1,9 @@
+type: string
+title: Damage Extent Code Content
+description: TBD
+enum:
+  - DamageRepaired
+  - NoDamage
+  - RepairNotEconomical
+  - SlightDamage
+  - Unknown

@@ -1,0 +1,20 @@
+type: string
+title: Drivers License Type Code Content Type
+description: TBD
+enum:
+  - A
+  - A1
+  - B
+  - C
+  - C1
+  - Commonwealth
+  - EB
+  - EC
+  - EC1
+  - InternationalDriversPermit
+  - LearnersLicense
+  - NeighbouringState
+  - PDP
+  - PDPD
+  - PDPG
+  - PDPP

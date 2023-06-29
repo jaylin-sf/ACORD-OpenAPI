@@ -1,0 +1,33 @@
+type: string
+title: AntiTheftDeviceTypeCodeContent_Type
+description: TBD
+enum:
+  - ActiveDisabling
+  - AdditionalSecurityDevice
+  - Alarm
+  - AlarmAndImmoiliser
+  - AlarmMotionSensor
+  - Datadot
+  - ElectronicDisabling
+  - EtchedWindow
+  - FleetManagementSystem
+  - FuelCutOff
+  - Gearlock
+  - HoodLock
+  - IgnitionKillSwitch
+  - Immobiliser
+  - LockedGarage
+  - MicroDotting
+  - None
+  - PassiveDisabling
+  - Present
+  - SecurityBattery
+  - ShakerSwitch
+  - SteeringLock
+  - TrackingActive
+  - TrackingEarlyWarningActive
+  - TrackingEarlyWarningPassive
+  - TrackingPassive
+  - TrackingRecoveryDevice
+  - Unknown
+  - WindowId

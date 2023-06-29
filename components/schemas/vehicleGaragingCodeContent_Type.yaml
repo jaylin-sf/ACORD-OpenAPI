@@ -1,0 +1,13 @@
+type: string
+title: Vehicle Garaging Code Content Type
+description: TBD
+enum:
+  - BehindGates
+  - Carport
+  - Driveway
+  - Garaged
+  - NotGaraged
+  - OffStreet
+  - OnStreet
+  - ParkedUndercover
+  - ParkingLot

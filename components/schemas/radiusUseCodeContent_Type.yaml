@@ -1,0 +1,7 @@
+type: string
+title: Radius Use Code Content Type
+description: TBD
+enum:
+  - Intermediate
+  - Local
+  - LongDistance

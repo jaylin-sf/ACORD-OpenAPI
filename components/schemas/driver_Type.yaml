@@ -1,0 +1,44 @@
+type: object
+title: Driver Type
+allOf:
+  - $ref: .\referencedPersonRole_Type.yaml
+  - properties:
+      driversLicense:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\driversLicense_Type.yaml
+          - $ref: .\driversLicense_Type.yaml
+      relationshipToInsuredCode:
+        $ref: .\relationshipToInsuredCode_Type.yaml
+      alternateRelationshipToInsuredCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      noClaimBonus:
+        $ref: .\noClaimBonus_Type.yaml
+      conviction:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\conviction_Type.yaml
+          - $ref: .\conviction_Type.yaml
+      lossHistoryIndicator:
+        type: boolean
+      lossHistory:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\lossHistory_Type.yaml
+          - $ref: .\lossHistory_Type.yaml

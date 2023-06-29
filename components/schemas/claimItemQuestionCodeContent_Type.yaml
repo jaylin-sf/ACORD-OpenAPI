@@ -1,0 +1,36 @@
+type: string
+title: Claim Item Question Code Content Type
+description: TBD
+enum:
+  - ClaimItem001
+  - ClaimItem002
+  - ClaimItem004
+  - ClaimItem005
+  - ClaimItem006
+  - ClaimItem008
+  - ClaimItem009
+  - ClaimItem011
+  - ClaimItem013
+  - ClaimItem014
+  - ClaimItem015
+  - ClaimItem016
+  - ClaimItem017
+  - ClaimItem018
+  - ClaimItem019
+  - ClaimItem020
+  - ClaimItem021
+  - ClaimItem022
+  - ClaimItem023
+  - ClaimItem024
+  - ClaimItem025
+  - ClaimItem026
+  - ClaimItem027
+  - ClaimItem028
+  - ClaimItem029
+  - ClaimItem030
+  - ClaimItem031
+  - ClaimItem032
+  - ClaimItem033
+  - ClaimItem034
+  - ClaimItem035
+  - ClaimItem036

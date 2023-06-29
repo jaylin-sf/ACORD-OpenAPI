@@ -1,0 +1,65 @@
+type: object
+title: Engine Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\engineExternalIdentifier_Type.yaml
+          - $ref: .\engineExternalIdentifier_Type.yaml
+      description:
+        type: string
+      capacityMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      displacementMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      cylinderCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      horsepowerMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      turbochargedIndicator:
+        type: boolean
+      fuelTypeCode:
+        $ref: .\fuelTypeCode_Type.yaml
+      engineConfigurationName:
+        type: string
+        maxLength: 255

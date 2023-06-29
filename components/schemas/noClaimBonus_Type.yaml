@@ -1,0 +1,9 @@
+type: object
+title: No Claim Bonus Type
+properties:
+  acquiredMethodDescription:
+    type: string
+    maxLength: 255
+  yearsCount:
+    type: string
+    pattern: ^[0-9]{1,15}$

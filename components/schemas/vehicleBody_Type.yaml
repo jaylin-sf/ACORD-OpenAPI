@@ -1,0 +1,45 @@
+type: object
+title: Vehicle Body Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\vehicleBodyTypeCode_Type.yaml
+      alternateTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      description:
+        type: string
+      colour:
+        type: string
+        maxLength: 255
+      seatingCapacityCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      colourCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

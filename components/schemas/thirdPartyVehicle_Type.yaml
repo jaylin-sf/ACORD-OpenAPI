@@ -1,0 +1,171 @@
+type: object
+title: Third Party Vehicle
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      purchaseDate:
+        type: string
+        format: date
+      purchasePriceAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      vehicleSymbolCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      claimFreeGroup:
+        $ref: .\claimFreeGroup_Type.yaml
+      vehicleAlteredIndicator:
+        type: boolean
+      vehicleOptionsIncludedIndicator:
+        type: boolean
+      vehicleModificationsIncludedIndicator:
+        type: boolean
+      antiTheftDeviceIndicator:
+        type: boolean
+      antiLockBrakesIndicator:
+        type: boolean
+      existingUnrepairedDamageIndicator:
+        type: boolean
+      vehicleInspectionStatusCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\vehicleInspectionStatusCode_Type.yaml
+          - $ref: .\vehicleInspectionStatusCode_Type.yaml
+      vehiclePerformanceCode:
+        $ref: .\vehiclePerformanceCode_Type.yaml
+      fourWheelDriveIndicator:
+        type: boolean
+      tractionControlIndicator:
+        type: boolean
+      odometerReadingAtPurchaseMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      odometerReadingAtApplicationMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      seenVehicleIndicator:
+        type: boolean
+      dualControlsIndicator:
+        type: boolean
+      carpoolIndicator:
+        type: boolean
+      employeeOperatedIndicator:
+        type: boolean
+      operatorExperienceRestrictionCode:
+        $ref: .\operatorExperienceRestrictionCode_Type.yaml
+      isRegisteredIndicator:
+        type: boolean
+      nonOwnedVehicleIndicator:
+        type: boolean
+      leasedPeriod:
+        $ref: .\leasedPeriod_Type.yaml
+      financedAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      agreedValueRequiredIndicator:
+        type: boolean
+      driverUse:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\driverUse_Type.yaml
+          - $ref: .\driverUse_Type.yaml
+      itemValue:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\itemValue_Type.yaml
+          - $ref: .\itemValue_Type.yaml
+      vehicleUse:
+        $ref: .\vehicleUse_Type.yaml
+      youngestDriverBirthYear:
+        type: string
+        pattern: YYYY
+      regularDriverBirthYear:
+        type: string
+        pattern: YYYY
+      underTwentyFiveIndicator:
+        type: boolean
+      vehicleGaragingCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\vehicleGaragingCode_Type.yaml
+          - $ref: .\vehicleGaragingCode_Type.yaml
+      vehicleOvernightLocationCode:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\vehicleOvernightLocationCode_Type.yaml
+          - $ref: .\vehicleOvernightLocationCode_Type.yaml
+      vehicle:
+        $ref: .\vehicle_Type.yaml
+      vehicleClassCode:
+        $ref: .\vehicleClassCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      locationReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\locationReferences_Type.yaml
+          - $ref: .\locationReferences_Type.yaml

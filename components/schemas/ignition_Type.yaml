@@ -1,0 +1,43 @@
+type: object
+title: Ignition Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\ignitionExternalIdentifier_Type.yaml
+          - $ref: .\ignitionExternalIdentifier_Type.yaml
+      ignitionTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      description:
+        type: string
+      vehicleKeyCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

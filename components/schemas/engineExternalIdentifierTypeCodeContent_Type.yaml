@@ -1,0 +1,5 @@
+type: string
+title: EngineExternalIdentifierTypeCodeContent_Type
+description: TBD
+enum:
+  - SerialNumber

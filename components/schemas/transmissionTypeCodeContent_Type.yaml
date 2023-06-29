@@ -1,0 +1,9 @@
+type: string
+title: Transmission Type Code Content Type
+description: TBD
+enum:
+  - Other
+  - Tiptronic
+  - Unknown
+  - Automatic
+  - Manual

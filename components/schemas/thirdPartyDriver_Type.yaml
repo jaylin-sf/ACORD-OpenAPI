@@ -1,0 +1,16 @@
+type: object
+title: Third Party Driver
+allOf:
+  - $ref: .\driverRole_Type.yaml
+  - properties:
+      thirdPartyDriverRoleCode:
+        $ref: .\thirdPartyDriverRoleCode_Type.yaml
+      typeCode:
+        $ref: .\policyDriverTypeCode_Type.yaml
+      hiredDate:
+        type: string
+        format: date
+      driver:
+        $ref: .\driver_Type.yaml
+      thirdPartyVehicleReferences:
+        $ref: .\thirdPartyVehicleReferences_Type.yaml
