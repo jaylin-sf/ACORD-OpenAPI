@@ -1,0 +1,13 @@
+type: string
+title: PolicyTransactionCodeContent_Type
+description: TBD
+enum:
+  - Adjustment
+  - Cancellation
+  - Endorsement
+  - Lapsed
+  - NewBusiness
+  - Reinstatement
+  - Reissuance
+  - Renewal
+  - TakenOn

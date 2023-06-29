@@ -1,0 +1,12 @@
+type: object
+title: FileResource_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      communicationChannelCode:
+        $ref: .\communicationChannelCode_Type.yaml
+      communicationProcessCode:
+        $ref: .\communicationProcessCode_Type.yaml
+      resourceReferenceURI:
+        type: string
+        format: uri

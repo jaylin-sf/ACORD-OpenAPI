@@ -1,0 +1,45 @@
+type: object
+title: Invoice_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      invoiceIssuedDate:
+        type: string
+        format: date
+      invoiceAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      paidAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      paidUpUntilDate:
+        type: string
+        format: date
+      description:
+        type: string

@@ -1,0 +1,14 @@
+type: string
+title: Billing Frequency Code Content Type
+description: TBD
+enum:
+  - Annual
+  - BiAnnual
+  - BiMonthly
+  - Daily
+  - Fortnightly
+  - Monthly
+  - OnceOff
+  - Other
+  - Quarterly
+  - Weekly

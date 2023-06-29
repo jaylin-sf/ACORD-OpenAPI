@@ -1,0 +1,9 @@
+type: string
+title: Policyholder Type Code Content
+description: TBD
+enum:
+  - Commercial
+  - Micro
+  - Reinsurance
+  - Retail
+  - SME

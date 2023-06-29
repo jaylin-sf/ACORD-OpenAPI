@@ -1,0 +1,6 @@
+type: string
+title: SalesModelTypeCodeContent_Type
+description: TBD
+enum:
+  - Direct
+  - Referral

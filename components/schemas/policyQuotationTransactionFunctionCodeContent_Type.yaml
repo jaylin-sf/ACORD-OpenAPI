@@ -1,0 +1,20 @@
+type: string
+title: Policy Quotation Transaction Function Code Content Type
+description: TBD
+enum:
+  - DeclinedQuotation
+  - DeclinedRequestForQuotation
+  - DeclineToRenew
+  - FirmQuotation
+  - GetUnderwritingResultFromUnderwritingEngine
+  - IndicativeQuotation
+  - PassQuoteToUnderwritingEngine
+  - QuotationReferred
+  - ReferralRequired
+  - RenewalInvitation
+  - RequestAdditionalInformation
+  - RequestForAdjustedQuotation
+  - RequestForQuotation
+  - RequestForReferral
+  - SupplyAdditonalInformation
+  - UnsuccessfulQuotation

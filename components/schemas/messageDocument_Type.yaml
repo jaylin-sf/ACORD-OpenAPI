@@ -1,0 +1,41 @@
+type: object
+title: MessageDocument_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      fileAttachment:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\fileAttachment_Type.yaml
+          - $ref: .\fileAttachment_Type.yaml
+      remarkInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\remarkInformation_Type.yaml
+          - $ref: .\remarkInformation_Type.yaml
+      codeList:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\codeList_Type.yaml
+          - $ref: .\codeList_Type.yaml
+      address:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\address_Type.yaml
+          - $ref: .\address_Type.yaml
+      person:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\person_Type.yaml
+          - $ref: .\person_Type.yaml
+      organization:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\organization_Type.yaml
+          - $ref: .\organization_Type.yaml

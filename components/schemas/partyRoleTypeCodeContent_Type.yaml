@@ -1,0 +1,6 @@
+type: string
+title: PartyRoleType Code Content Type
+description: TBD
+enum:
+  - Individual
+  - Organization

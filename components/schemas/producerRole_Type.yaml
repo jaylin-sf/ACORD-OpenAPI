@@ -1,0 +1,33 @@
+type: object
+title: Producer Role
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      roleCode:
+        $ref: .\producerBusinessRelationshipRoleCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      placingOfficeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      placingOfficeName:
+        type: string
+        maxLength: 255
+      producerReferences:
+        $ref: .\producerReferences_Type.yaml

@@ -1,0 +1,7 @@
+type: string
+title: CommunicationProcessCodeContent_Type
+description: TBD
+enum:
+  - Held
+  - Pull
+  - Push

@@ -1,0 +1,37 @@
+type: string
+title: Policy Question Code Content Type
+description: TBD
+enum:
+  - CommercialPolicy101
+  - CommercialPolicy102
+  - CommercialPolicy103
+  - CommercialPolicy104
+  - CommercialPolicy105
+  - CommercialPolicy106
+  - CommercialPolicy107
+  - CommercialPolicy108
+  - CommercialPolicy109
+  - DutyOfDisclosure001
+  - DutyOfDisclosure002
+  - DutyOfDisclosure003
+  - DutyOfDisclosure004
+  - Policy028
+  - Underwriting001
+  - BusinessPackage001
+  - BusinessPackage002
+  - BusinessPackage003
+  - BusinessPackage004
+  - PersonalProperty010
+  - Policy008
+  - Policy009
+  - Policy010
+  - Policy011
+  - Policy012
+  - Policy013
+  - Policy014
+  - Policy015
+  - Policy016
+  - Policy017
+  - Policy018
+  - Policy019
+  - Policy020

@@ -1,0 +1,6 @@
+type: string
+title: PremiumPaymentTypeCodeContent_Type
+description: TBD
+enum:
+  - Annual
+  - Single

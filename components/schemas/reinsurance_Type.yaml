@@ -1,0 +1,38 @@
+type: object
+title: Reinsurance Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\reinsuranceTypeCode_Type.yaml
+      policyInsurerReferences:
+        $ref: .\policyInsurerReferences_Type.yaml
+      cessionPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      attachmentPointAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      limitAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

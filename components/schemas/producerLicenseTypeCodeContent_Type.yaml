@@ -1,0 +1,6 @@
+type: string
+title: Producer LicenseType Code Content Type
+description: TBD
+enum:
+  - NonResident
+  - Resident

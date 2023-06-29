@@ -1,0 +1,14 @@
+type: object
+title: LineOfAuthority Period
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      startDate:
+        type: string
+        format: date
+      endDate:
+        type: string
+        format: date
+      periodDuration:
+        type: string
+        format: duration

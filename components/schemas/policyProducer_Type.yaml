@@ -1,0 +1,17 @@
+type: object
+title: Policy Producer Information
+allOf:
+  - $ref: .\producerRole_Type.yaml
+  - properties:
+      producer:
+        $ref: .\producer_Type.yaml
+      bindingAuthorityPeriod:
+        $ref: .\bindingAuthorityPeriod_Type.yaml
+      contractStatusCode:
+        $ref: .\contractStatusCode_Type.yaml
+      riskParticipationPercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      binderSectionNumber:
+        type: string
+        maxLength: 255

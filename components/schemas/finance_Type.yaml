@@ -1,0 +1,17 @@
+type: object
+title: Finance Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - typeCode
+    properties:
+      typeCode:
+        $ref: .\businessActivityTypeCode_Type.yaml
+      description:
+        type: string
+      financialAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\businessActivityFinancialAmountItem_Type.yaml
+          - $ref: .\businessActivityFinancialAmountItem_Type.yaml

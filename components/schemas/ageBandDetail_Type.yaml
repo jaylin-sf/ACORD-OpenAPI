@@ -1,0 +1,18 @@
+type: object
+title: Age Band Detail Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - assignedIdentifier
+    properties:
+      assignedIdentifier:
+        $ref: .\assignedIdentifier_Type.yaml
+      startAge:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      endAge:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      livesCount:
+        type: string
+        pattern: ^[0-9]{1,15}$

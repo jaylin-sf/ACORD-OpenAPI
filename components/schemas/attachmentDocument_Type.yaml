@@ -1,0 +1,10 @@
+type: object
+title: AttachmentDocument_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      documentURI:
+        type: string
+        format: uri
+      attachmentFile:
+        $ref: .\attachmentFile_Type.yaml

@@ -1,0 +1,12 @@
+type: string
+title: Action Code Content Type
+description: TBD
+enum:
+  - Add
+  - AdvisedValue
+  - Delete
+  - ModifyElement
+  - ModifyIdentifierReference
+  - NoModification
+  - RemoveElement
+  - Truncate

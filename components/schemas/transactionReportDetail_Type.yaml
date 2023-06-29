@@ -1,0 +1,32 @@
+type: object
+title: Transaction Report Detail
+properties:
+  typeCode:
+    $ref: .\transactionReportDetailTypeCode_Type.yaml
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml
+  transactionPeriod:
+    $ref: .\transactionPeriod_Type.yaml
+  processDate:
+    type: string
+    format: date
+  insuranceAmountItem:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\insuranceAmountItem_Type.yaml
+      - $ref: .\insuranceAmountItem_Type.yaml
+  riskClassificationDescription:
+    type: string
+  settlementDetail:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\settlementDetail_Type.yaml
+      - $ref: .\settlementDetail_Type.yaml
+  description:
+    type: string

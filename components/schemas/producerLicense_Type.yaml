@@ -1,0 +1,17 @@
+type: object
+title: Producer License Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\producerLicenseTypeCode_Type.yaml
+      stateApprovedIndicator:
+        type: boolean
+      license:
+        $ref: .\license_Type.yaml
+      lineOfAuthority:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\lineOfAuthority_Type.yaml
+          - $ref: .\lineOfAuthority_Type.yaml

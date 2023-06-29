@@ -1,0 +1,7 @@
+type: string
+title: CommunicationChannelCodeContent_Type
+description: TBD
+enum:
+  - None
+  - SWA
+  - URL

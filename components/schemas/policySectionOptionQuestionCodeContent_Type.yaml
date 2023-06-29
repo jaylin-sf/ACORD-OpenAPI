@@ -1,0 +1,5 @@
+type: string
+title: PolicySectionOptionQuestionCodeContent_Type
+description: TBD
+enum:
+  - Policy028

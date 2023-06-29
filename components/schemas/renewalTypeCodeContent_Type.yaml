@@ -1,0 +1,9 @@
+type: string
+title: Renewal Type Code Content
+description: TBD
+enum:
+  - AnnuallyRenewal
+  - BranchRenewal
+  - FiveYearsRenewal
+  - MonthlyRenewal
+  - NoRenewal

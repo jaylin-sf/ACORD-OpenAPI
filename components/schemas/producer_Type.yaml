@@ -1,0 +1,25 @@
+type: object
+title: Producer Type
+allOf:
+  - $ref: .\referencedPartyRole_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\partyRoleTypeCode_Type.yaml
+      contact:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\producerContact_Type.yaml
+          - $ref: .\producerContact_Type.yaml
+      producerLicense:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\producerLicense_Type.yaml
+          - $ref: .\producerLicense_Type.yaml
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\producerExternalIdentifier_Type.yaml
+          - $ref: .\producerExternalIdentifier_Type.yaml

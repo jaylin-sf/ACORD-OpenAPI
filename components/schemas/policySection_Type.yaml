@@ -1,0 +1,319 @@
+type: object
+title: PolicySection_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      renewalTypeCode:
+        $ref: .\renewalTypeCode_Type.yaml
+      renewalFrequencyCode:
+        $ref: .\renewalFrequencyCode_Type.yaml
+      renewalYearCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      description:
+        type: string
+      currencyCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      statusCode:
+        $ref: .\policyStatusCode_Type.yaml
+      statusCodeDescription:
+        type: string
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      policyShare:
+        $ref: .\policyShare_Type.yaml
+      policyBilling:
+        $ref: .\policyBilling_Type.yaml
+      option:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policySectionOption_Type.yaml
+          - $ref: .\policySectionOption_Type.yaml
+      perils:
+        $ref: .\perils_Type.yaml
+      attachmentPointAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      limit:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\limit_Type.yaml
+          - $ref: .\limit_Type.yaml
+      deductible:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\deductible_Type.yaml
+          - $ref: .\deductible_Type.yaml
+      excess:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\excess_Type.yaml
+          - $ref: .\excess_Type.yaml
+      coinsurance:
+        $ref: .\coinsurance_Type.yaml
+      reinsurance:
+        $ref: .\reinsurance_Type.yaml
+      lossHistory:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\lossHistory_Type.yaml
+          - $ref: .\lossHistory_Type.yaml
+      claimReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\claimReferences_Type.yaml
+          - $ref: .\claimReferences_Type.yaml
+      claimReportingPeriod:
+        $ref: .\claimReportingPeriod_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyQuestionAnswer_Type.yaml
+          - $ref: .\policyQuestionAnswer_Type.yaml
+      policyForm:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyForm_Type.yaml
+          - $ref: .\policyForm_Type.yaml
+      insuranceAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\insuranceAmountItem_Type.yaml
+          - $ref: .\insuranceAmountItem_Type.yaml
+      finance:
+        $ref: .\finance_Type.yaml
+      referredIndicator:
+        type: boolean
+      referralReferenceIdentifier:
+        type: string
+        maxLength: 255
+      referralAcceptanceReasonDescription:
+        type: string
+      ageBandDetailIndicator:
+        type: boolean
+      ageBandDetail:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\ageBandDetail_Type.yaml
+          - $ref: .\ageBandDetail_Type.yaml
+      controlCountInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\controlCountInformation_Type.yaml
+          - $ref: .\controlCountInformation_Type.yaml
+      policyBackDatedIndicator:
+        type: boolean
+      applicationId:
+        type: string
+        maxLength: 255
+      salesModelTypeCode:
+        $ref: .\salesModelTypeCode_Type.yaml
+      premiumPeriod:
+        $ref: .\premiumPeriod_Type.yaml
+      premiumPaymentTypeCode:
+        $ref: .\premiumPaymentTypeCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml
+      policyInsurer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyInsurer_Type.yaml
+          - $ref: .\policyInsurer_Type.yaml
+      policyProducer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyProducer_Type.yaml
+          - $ref: .\policyProducer_Type.yaml
+      policyInsured:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyInsured_Type.yaml
+          - $ref: .\policyInsured_Type.yaml
+      # policyInterestedParty:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyInterestedParty_Type.yaml
+      #     - $ref: .\policyInterestedParty_Type.yaml
+      # policyDriver:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyDriver_Type.yaml
+      #     - $ref: .\policyDriver_Type.yaml
+      # policyVehicle:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyVehicle_Type.yaml
+      #     - $ref: .\policyVehicle_Type.yaml
+      # policyWatercraft:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyWatercraft_Type.yaml
+      #     - $ref: .\policyWatercraft_Type.yaml
+      # policyProperty:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyProperty_Type.yaml
+      #     - $ref: .\policyProperty_Type.yaml
+      # policyArticle:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyArticle_Type.yaml
+      #     - $ref: .\policyArticle_Type.yaml
+      # policyAnimal:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyAnimal_Type.yaml
+      #     - $ref: .\policyAnimal_Type.yaml
+      # policyEvent:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\policyEvent_Type.yaml
+      #     - $ref: .\policyEvent_Type.yaml
+      originalInceptionDate:
+        type: string
+        format: date
+      reinstatementDate:
+        type: string
+        format: date
+      renewalDate:
+        type: string
+        format: date
+      signedDate:
+        type: string
+        format: date
+      preparedDate:
+        type: string
+        format: date
+      initialRequestDate:
+        type: string
+        format: date
+      lastPremiumPaidDate:
+        type: string
+        format: date
+      firstUnpaidPremiumDate:
+        type: string
+        format: date
+      graceStartDate:
+        type: string
+        format: date
+      lapseDate:
+        type: string
+        format: date
+      terminationDate:
+        type: string
+        format: date
+      lastAnniversaryDate:
+        type: string
+        format: date
+      nextAnniversaryDate:
+        type: string
+        format: date
+      acknowledgementDate:
+        type: string
+        format: date
+      premiumRefundDate:
+        type: string
+        format: date
+      premiumPaidToDate:
+        type: string
+        format: date
+      premiumDueDate:
+        type: string
+        format: date
+      premiumFundedDate:
+        type: string
+        format: date
+      lastMonthiversaryDate:
+        type: string
+        format: date
+      nextMonthiversaryDate:
+        type: string
+        format: date
+      freeLookEndDate:
+        type: string
+        format: date
+      notTakenUpDate:
+        type: string
+        format: date

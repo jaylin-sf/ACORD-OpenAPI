@@ -1,0 +1,16 @@
+type: string
+title: BroadLineOfBusinessTypeCodeContent_Type
+description: Enumerations for the Broad Line Of Business Code List
+enum:
+  - CombinedPersonalCommercial
+  - Commercial
+  - Direct
+  - Farm
+  - Group
+  - GroupAgent
+  - GroupCorporate
+  - GroupSuperFund
+  - Individual
+  - Personal
+  - Reinsurance
+  - Retail

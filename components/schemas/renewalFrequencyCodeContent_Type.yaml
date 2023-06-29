@@ -1,0 +1,9 @@
+type: string
+title: RenewalFrequencyCodeContent_Type
+description: TBD
+enum:
+  - Annually
+  - FiveYearly
+  - Manual
+  - Monthly
+  - None

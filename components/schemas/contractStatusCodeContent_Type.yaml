@@ -1,0 +1,6 @@
+type: string
+title: ContracStatusCodeContent_Type
+description: The Contract Status Code content enumeration
+enum:
+  - Initial
+  - Renewed

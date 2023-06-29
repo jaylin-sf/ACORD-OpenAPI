@@ -1,0 +1,27 @@
+type: object
+title: AttachmentFile_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      fileContentTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      fileName:
+        type: string
+        maxLength: 255
+      fileContentBinaryObject:
+        type: string
+      fileResource:
+        $ref: .\fileResource_Type.yaml

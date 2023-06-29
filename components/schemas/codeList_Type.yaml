@@ -1,0 +1,12 @@
+type: object
+title: CodeList_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      listId:
+        type: string
+        maxLength: 255
+      listAgencyCode:
+        $ref: .\codeListOwnerCode_Type.yaml
+      listDescription:
+        type: string

@@ -1,0 +1,15 @@
+type: object
+title: Settlement Detail
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      insuranceAmountItem:
+        $ref: .\insuranceAmountItem_Type.yaml
+      claimTransactionAmountItem:
+        $ref: .\claimTransactionAmountItem_Type.yaml
+      conversionRateDetail:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\conversionRateDetail_Type.yaml
+          - $ref: .\conversionRateDetail_Type.yaml

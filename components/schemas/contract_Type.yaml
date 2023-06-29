@@ -1,0 +1,5 @@
+type: object
+title: Contract_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties: {}

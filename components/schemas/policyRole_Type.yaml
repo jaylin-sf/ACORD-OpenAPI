@@ -1,0 +1,9 @@
+type: object
+title: PolicyRole_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      policyReferences:
+        $ref: .\policyReferences_Type.yaml
+      policy:
+        $ref: .\policy_Type.yaml

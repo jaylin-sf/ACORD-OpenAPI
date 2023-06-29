@@ -1,0 +1,26 @@
+type: string
+title: Transaction Report Detail Type Code Content
+description: TBD
+enum:
+  - Additional
+  - AdditionalBrokeragePremium
+  - AdditionalFeePremium
+  - AdditionalPremium
+  - Amendment
+  - Cancellation
+  - Claim
+  - Endorsement
+  - EndorsementNilPremium
+  - Freelook
+  - Issue
+  - Lapse
+  - Maturity
+  - NewBusiness
+  - Original
+  - OriginalPremium
+  - Reinstatement
+  - Renewal
+  - ReturnBrokeragePremium
+  - ReturnFeePremium
+  - ReturnPremium
+  - Surrender

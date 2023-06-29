@@ -1,0 +1,7 @@
+type: string
+title: BillingMethodCodeContent_Type
+description: TBD
+enum:
+  - Agency
+  - CompanyAccount
+  - CompanyPolicy

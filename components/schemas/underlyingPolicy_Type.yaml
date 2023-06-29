@@ -1,0 +1,5 @@
+type: object
+title: UnderlyingPolicy_Type
+allOf:
+  - $ref: .\policyRole_Type.yaml
+  - properties: {}

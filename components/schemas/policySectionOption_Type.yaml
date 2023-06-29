@@ -1,0 +1,45 @@
+type: object
+title: PolicySectionOption Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      description:
+        type: string
+      optionCode:
+        $ref: .\policySectionOptionCode_Type.yaml
+      questionCode:
+        $ref: .\policySectionOptionQuestionCode_Type.yaml
+      valuePercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      valueInteger:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      valueIndicator:
+        type: boolean
+      valuePeriod:
+        $ref: .\valuePeriod_Type.yaml
+      valueAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      valueDuration:
+        type: string
+        format: duration
+      valueFrequencyCode:
+        $ref: .\valueFrequencyCodeContent_Type.yaml

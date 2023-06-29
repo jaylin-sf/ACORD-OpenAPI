@@ -1,0 +1,7 @@
+type: string
+title: ShareTypeCodeContent_Type
+description: TBD
+enum:
+  - Lead
+  - NonLead
+  - SingleInsurer

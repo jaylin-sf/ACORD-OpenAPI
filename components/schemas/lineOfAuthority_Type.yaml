@@ -1,0 +1,94 @@
+type: object
+title: Line Of Authority
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      lineOfAuthorityPeriod:
+        $ref: .\lineOfAuthorityPeriod_Type.yaml
+      issueDate:
+        type: string
+        format: date
+      renewalDate:
+        type: string
+        format: date
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      stateOrProvinceName:
+        type: string
+        maxLength: 255
+      lineOfAuthorityCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      lineOfAuthorityDescription:
+        type: string
+      statusCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      statusDescription:
+        type: string
+        maxLength: 255
+      statusReasonCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      statusReasonDescription:
+        type: string
+      statusPeriod:
+        $ref: .\statusPeriod_Type.yaml
+      asOfDate:
+        type: string
+        format: date
+      continuingEducation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\continuingEducation_Type.yaml
+          - $ref: .\continuingEducation_Type.yaml

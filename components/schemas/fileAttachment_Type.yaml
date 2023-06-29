@@ -1,0 +1,13 @@
+type: object
+title: FileAttachment_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - attachmentDocument
+    properties:
+      attachmentTypeCode:
+        $ref: .\attachmentTypeCode_Type.yaml
+      description:
+        type: string
+      attachmentDocument:
+        $ref: .\attachmentDocument_Type.yaml

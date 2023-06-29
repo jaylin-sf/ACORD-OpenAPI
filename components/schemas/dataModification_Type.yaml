@@ -1,0 +1,19 @@
+type: object
+title: Data Modification Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      elementPath:
+        type: string
+        maxLength: 255
+      actionCode:
+        $ref: .\actionCode_Type.yaml
+      previousDataValueDescription:
+        type: string
+        maxLength: 255
+      changeDescription:
+        type: string
+        maxLength: 255
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$

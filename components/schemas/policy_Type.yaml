@@ -1,0 +1,268 @@
+type: object
+title: Policy_Type
+allOf:
+  - $ref: .\contract_Type.yaml
+  - required:
+      - policySection
+    properties:
+      policyholderTypeCode:
+        $ref: .\policyholderTypeCode_Type.yaml
+      policySection:
+        $ref: .\policySection_Type.yaml
+      # workersCompensationSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\workersCompensationSection_Type.yaml
+      #     - $ref: .\workersCompensationSection_Type.yaml
+      # workersCompensationItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\workersCompensationItemSection_Type.yaml
+      #     - $ref: .\workersCompensationItemSection_Type.yaml
+      # professionalIndemnitySection:
+      #   $ref: .\professionalIndemnitySection_Type.yaml
+      # professionalIndemnityItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\professionalIndemnityItemSection_Type.yaml
+      #     - $ref: .\professionalIndemnityItemSection_Type.yaml
+      # personalVehicleSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\personalVehicleSection_Type.yaml
+      #     - $ref: .\personalVehicleSection_Type.yaml
+      # personalVehicleItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\personalVehicleItemSection_Type.yaml
+      #     - $ref: .\personalVehicleItemSection_Type.yaml
+      # commercialVehicleSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\commercialVehicleSection_Type.yaml
+      #     - $ref: .\commercialVehicleSection_Type.yaml
+      # commercialVehicleItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\commercialVehicleItemSection_Type.yaml
+      #     - $ref: .\commercialVehicleItemSection_Type.yaml
+      # personalPropertySection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\personalPropertySection_Type.yaml
+      #     - $ref: .\personalPropertySection_Type.yaml
+      # personalPropertyItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\personalPropertyItemSection_Type.yaml
+      #     - $ref: .\personalPropertyItemSection_Type.yaml
+      # commercialPropertySection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\commercialPropertySection_Type.yaml
+      #     - $ref: .\commercialPropertySection_Type.yaml
+      # commercialPropertyItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\commercialPropertyItemSection_Type.yaml
+      #     - $ref: .\commercialPropertyItemSection_Type.yaml
+      # watercraftSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\watercraftSection_Type.yaml
+      #     - $ref: .\watercraftSection_Type.yaml
+      # watercraftItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\watercraftItemSection_Type.yaml
+      #     - $ref: .\watercraftItemSection_Type.yaml
+      liabilitySection:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\liabilitySection_Type.yaml
+          - $ref: .\liabilitySection_Type.yaml
+      liabilityItemSection:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\liabilityItemSection_Type.yaml
+          - $ref: .\liabilityItemSection_Type.yaml
+      # accidentSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\accidentSection_Type.yaml
+      #     - $ref: .\accidentSection_Type.yaml
+      # accidentItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\accidentItemSection_Type.yaml
+      #     - $ref: .\accidentItemSection_Type.yaml
+      # travelSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\travelSection_Type.yaml
+      #     - $ref: .\travelSection_Type.yaml
+      # travelItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\travelItemSection_Type.yaml
+      #     - $ref: .\travelItemSection_Type.yaml
+      # marineCargoSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\marineCargoSection_Type.yaml
+      #     - $ref: .\marineCargoSection_Type.yaml
+      # marineCargoItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\marineCargoItemSection_Type.yaml
+      #     - $ref: .\marineCargoItemSection_Type.yaml
+      # petSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\petSection_Type.yaml
+      #     - $ref: .\petSection_Type.yaml
+      # petItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\petItemSection_Type.yaml
+      #     - $ref: .\petItemSection_Type.yaml
+      # agricultureSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\agricultureSection_Type.yaml
+      #     - $ref: .\agricultureSection_Type.yaml
+      # agricultureItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\agricultureItemSection_Type.yaml
+      #     - $ref: .\agricultureItemSection_Type.yaml
+      # engineeringSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\engineeringSection_Type.yaml
+      #     - $ref: .\engineeringSection_Type.yaml
+      # engineeringItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\engineeringItemSection_Type.yaml
+      #     - $ref: .\engineeringItemSection_Type.yaml
+      # suretySection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\suretySection_Type.yaml
+      #     - $ref: .\suretySection_Type.yaml
+      # suretyItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\suretyItemSection_Type.yaml
+      #     - $ref: .\suretyItemSection_Type.yaml
+      # valueAddedProductSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\valueAddedProductSection_Type.yaml
+      #     - $ref: .\valueAddedProductSection_Type.yaml
+      # valueAddedProductItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\valueAddedProductItemSection_Type.yaml
+      #     - $ref: .\valueAddedProductItemSection_Type.yaml
+      # consumerFinanceProtectionItemSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\consumerFinanceProtectionItemSection_Type.yaml
+      #     - $ref: .\consumerFinanceProtectionItemSection_Type.yaml
+      # consumerFinanceProtectionSection:
+      #   oneOf:
+      #     - type: array
+      #       items:
+      #         $ref: .\consumerFinanceProtectionSection_Type.yaml
+      #     - $ref: .\consumerFinanceProtectionSection_Type.yaml
+      # lifeAndAnnuitySupplement:
+      #   $ref: .\lifeAndAnnuitySupplement_Type.yaml
+      transactionReportDetail:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\transactionReportDetail_Type.yaml
+          - $ref: .\transactionReportDetail_Type.yaml
+      policyWordingVersion:
+        $ref: .\policyWordingVersion_Type.yaml
+      policyQuestionSetVersion:
+        $ref: .\policyQuestionSetVersion_Type.yaml
+      policyInstanceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      renewableIndicator:
+        type: boolean
+      policyTransactionCode:
+        $ref: .\policyTransactionCode_Type.yaml
+      lineOfBusinessCode:
+        $ref: .\lineOfBusinessCode_Type.yaml
+      assignedIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assignedIdentifier_Type.yaml
+          - $ref: .\assignedIdentifier_Type.yaml
+      insurancePeriod:
+        $ref: .\insurancePeriod_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      cancellationDate:
+        type: string
+        format: date
+      policyName:
+        type: string
+        maxLength: 255
+      distributionChannelCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      productReferences:
+        $ref: .\productReferences_Type.yaml
+      schemeReferences:
+        $ref: .\schemeReferences_Type.yaml

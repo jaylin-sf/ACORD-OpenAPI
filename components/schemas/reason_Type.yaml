@@ -1,0 +1,23 @@
+type: object
+title: Reason Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      reasonCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      reasonDescription:
+        type: string
+        maxLength: 255
