@@ -1,0 +1,9 @@
+type: string
+title: ResultSuccessCodeContent_Type
+description: TBD
+enum:
+  - Success
+  - WithChanges
+  - WithInformation
+  - WithRestriction
+  - WithSuspect

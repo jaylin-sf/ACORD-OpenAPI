@@ -1,0 +1,11 @@
+type: string
+title: ExtendedStatusCodeContent_Type
+description: TBD
+enum:
+  - DataChanged
+  - DataError
+  - DataInformation
+  - DataMissing
+  - DataRestriction
+  - DataSuspect
+  - DataWarning

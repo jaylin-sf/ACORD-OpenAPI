@@ -1,0 +1,16 @@
+type: object
+title: MessageResult_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - statusCode
+      - messageDocumentResult
+    properties:
+      statusCode:
+        $ref: .\messageResultStatusCode_Type.yaml
+      messageDocumentResult:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\messageDocumentResult_Type.yaml
+          - $ref: .\messageDocumentResult_Type.yaml

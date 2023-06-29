@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyQuotation_Type'
+                $ref: '#/components/schemas/policyNewBusinessQuotationProcessResult_Type'
         '400':
           description: Bad Request.
           content:
@@ -80,6 +80,1355 @@ components:
               type: string
         extensions:
           $ref: '#/components/schemas/extensions_Type'
+    ACORDStandardVersionCodeContent_Type:
+      type: string
+      title: ACORDStandardVersionCodeContent_Type
+      description: TBD
+      enum:
+        - AML_1_0_0
+        - AML_1_1_0
+        - AML_1_2_0
+        - AML_1_3_0
+        - AML_1_3_1
+        - AML_1_4_0
+        - AML_1_5_0
+        - AML_1_5_1
+        - AML_1_6_0
+        - AML_2_0_0
+        - AML_2_1_0
+        - AML_2_2_0
+        - AML_2_2_1
+        - AML_2_3_0
+        - AML_2_3_1
+        - AML_2_4_0
+        - AML_2_4_1
+        - AML_2_4_2
+        - AML_2_4_3
+    coreRoleCodeContent_Type:
+      type: string
+      title: CoreRoleCodeContent_Type
+      description: The Core Role Code content enumeration
+      enum:
+        - Agency
+        - Broker
+        - Bureau
+        - ClaimAdministrator
+        - Customer
+        - DataCollectionAgency
+        - EmployeeSecurityId
+        - Employer
+        - FundOrganization
+        - Insured
+        - Insurer
+        - Jurisdiction
+        - ManagingGeneralAgent
+        - PlacingExchange
+        - Police
+        - PostalAuthority
+        - PremiumFinanceCompany
+        - Producer
+        - ProducerLicensingAppointmentExchange
+        - RegulatoryAgency
+        - ServiceProvider
+        - ThirdPartyAdministrator
+        - ThirdPartyEntity
+        - Underwriter
+    organizationExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: OrganizationExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - ABR
+        - ACN
+        - AFS
+        - ASIC
+        - BusinessRegistrationCertificate
+        - DUNSNumberCode
+        - GroupAccountId
+        - IncorporationCertificate
+        - JurisdictionId
+        - OtherId
+        - UnincorporatedClub
+    organizationExternalIdentifier_Type:
+      type: object
+      title: OrganizationExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    organizationNameTypeCodeContent_Type:
+      type: string
+      title: OrganizationNameTypeCodeContent Type
+      description: The type code content of the Organization name
+      enum:
+        - Alias
+        - Branch
+        - Division
+        - DoingBusinessAs
+        - Previous
+        - Primary
+        - Registered
+        - Retailer
+        - TradingBusinessAs
+    organizationName_Type:
+      type: object
+      title: Organization Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+    organizationReferences_Type:
+      type: object
+      title: Organization References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                organizationReference:
+                  type: string
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+                - $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+            organizationName:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationName_Type'
+                - $ref: '#/components/schemas/organizationName_Type'
+    lineOneDetails_Type:
+      type: object
+      title: Line One Details Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            streetName:
+              type: string
+              maxLength: 255
+            streetNumber:
+              type: string
+              maxLength: 255
+            unitNumber:
+              type: string
+              maxLength: 255
+            unitFloorNumber:
+              type: string
+              maxLength: 255
+    includedOrExcludedCodeContent_Type:
+      type: string
+      title: IncludedOrExcludedCodeContent_Type
+      description: TBD
+      enum:
+        - Excluded
+        - Included
+        - NotApplicable
+    regionLimit_Type:
+      type: object
+      title: Region Limit
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            includedOrExcludedCode:
+              $ref: '#/components/schemas/includedOrExcludedCodeContent_Type'
+            description:
+              type: string
+            countryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryName:
+              type: string
+              maxLength: 255
+            regionPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    address_Type:
+      type: object
+      title: Address Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            fullAddressDescription:
+              type: string
+              maxLength: 255
+            lineOne:
+              type: string
+              maxLength: 255
+            lineOneDetails:
+              $ref: '#/components/schemas/lineOneDetails_Type'
+            lineTwo:
+              type: string
+              maxLength: 255
+            lineThree:
+              type: string
+              maxLength: 255
+            lineFour:
+              type: string
+              maxLength: 255
+            cityName:
+              type: string
+              maxLength: 255
+            suburbName:
+              type: string
+              maxLength: 255
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            stateOrProvinceName:
+              type: string
+              maxLength: 255
+            postalCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryName:
+              type: string
+              maxLength: 255
+            countyCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countyName:
+              type: string
+              maxLength: 255
+            regionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            regionName:
+              type: string
+              maxLength: 255
+            regionLimit:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/regionLimit_Type'
+                - $ref: '#/components/schemas/regionLimit_Type'
+    personExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: PersonExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - DriversLicenseId
+        - GovernmentId
+        - JurisdictionId
+        - LocalIdentityDocument
+        - NRIC
+        - OtherId
+        - PassportId
+        - PoliceWarrantCard
+        - TFN
+        - ValidTravelDocument
+        - VisaId
+        - WorkPermitId
+    personExternalIdentifier_Type:
+      type: object
+      title: PersonExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    personNameTypeCodeContent_Type:
+      type: string
+      title: Person Name Type Code Content Type
+      description: The type code content of the Person name
+      enum:
+        - Alias
+        - AlsoKnownAs
+        - Maiden
+        - Previous
+        - Primary
+    personTitlePrefixCodeContent_Type:
+      type: string
+      title: Person Title Prefix Code Content Type
+      description: TBD
+      enum:
+        - AdjunctProfessor
+        - Admiral
+        - Advocate
+        - Archbishop
+        - AssociateProfessor
+        - Bishop
+        - Brigadier
+        - Captain
+        - Colonel
+        - Commissioner
+        - Director
+        - Doctor
+        - Economist
+        - EstateLate
+        - Father
+        - General
+        - Honourable
+        - HonourableJudge
+        - Inspector
+        - Judge
+        - Justice
+        - Lady
+        - Lieutenant
+        - LieutenantColonel
+        - LieutenantCommander
+        - Lord
+        - Magistrate
+        - Major
+        - Minister
+        - Miss
+        - Mr
+        - MrJnr
+        - Mrs
+        - MrSnr
+        - Ms
+        - Pastor
+        - Professor
+        - ProfessorEmerita
+        - ProfessorEmeritus
+        - Psychologist
+        - Rabbi
+        - RevOrReverend
+        - Sergeant
+        - Sir
+        - Sister
+        - SnrSup
+        - Sup
+        - TheHonourable
+        - Trust
+        - Trustee
+        - Unknown
+    personName_Type:
+      type: object
+      title: Person Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+            surname:
+              type: string
+              maxLength: 255
+            givenName:
+              type: string
+              maxLength: 255
+            otherGivenName:
+              type: string
+              maxLength: 255
+            combinedGivenNames:
+              type: string
+              maxLength: 255
+            personTitlePrefix:
+              type: string
+              maxLength: 255
+            personTitlePrefixCode:
+              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
+            nameSuffix:
+              type: string
+              maxLength: 255
+            nickname:
+              type: string
+              maxLength: 255
+            initials:
+              type: string
+              maxLength: 255
+    personReferences_Type:
+      type: object
+      title: PersonReference Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            personReference:
+              type: string
+        externalIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personExternalIdentifier_Type'
+            - $ref: '#/components/schemas/personExternalIdentifier_Type'
+        personName:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personName_Type'
+            - $ref: '#/components/schemas/personName_Type'
+    endPointActorContactRoleCodeContent_Type:
+      type: string
+      title: EndPointActorContactRoleCodeContent_Type
+      description: TBD
+      enum:
+        - Broker
+        - Insured
+        - Insurer
+        - Other
+    contactPeriod_Type:
+      type: object
+      title: Contact Period Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            localStandardTimeAppliesToInceptionDateIndicator:
+              type: boolean
+            periodDuration:
+              type: string
+              format: duration
+            continuousDurationIndicator:
+              type: boolean
+            timePeriodDescription:
+              type: string
+              maxLength: 255
+            bothDaysInclusiveIndicator:
+              type: boolean
+    blackoutPeriod_Type:
+      type: object
+      title: Blackout Period Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    communicationPreferences_Type:
+      type: object
+      title: Communication Preferences Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            priorityRank:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            contactPeriod:
+              $ref: '#/components/schemas/contactPeriod_Type'
+            blackoutPeriod:
+              $ref: '#/components/schemas/blackoutPeriod_Type'
+            doNotContactIndicator:
+              type: boolean
+    communicationMethod_Type:
+      type: object
+      title: Communication Method Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            primaryIndicator:
+              type: boolean
+            previousIndicator:
+              type: boolean
+            communicationPreferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/communicationPreferences_Type'
+                - $ref: '#/components/schemas/communicationPreferences_Type'
+    telephoneTypeCodeContent_Type:
+      type: string
+      title: TelephoneTypeCodeContent_Type
+      description: The Telephone Code content enumeration
+      enum:
+        - Fax
+        - InternetProtocol
+        - Marine
+        - Pager
+        - TextTelephone
+        - Unknown
+        - Wired
+        - Wireless
+    telephone_Type:
+      type: object
+      title: Telephone Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - required:
+            - typeCode
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/telephoneTypeCodeContent_Type'
+            dayIndicator:
+              type: boolean
+            eveningIndicator:
+              type: boolean
+            asOfDate:
+              type: string
+              format: date
+            phoneNumber:
+              type: string
+              minLength: 1
+              maxLength: 32
+              pattern: \+\S+\-\S+\-\S+(\+\S+)?
+            phoneNumberUnformatted:
+              type: string
+    emailTypeCodeContent_Type:
+      type: string
+      title: EmailTypeCodeContent_Type
+      description: The Email Code content enumeration
+      enum:
+        - Business
+        - Personal
+        - Unknown
+    email_Type:
+      type: object
+      title: Email Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/emailTypeCodeContent_Type'
+            emailAddress:
+              type: string
+              maxLength: 255
+            asOfDate:
+              type: string
+              format: date
+    addressReferences_Type:
+      type: object
+      title: Address References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                addressReference:
+                  type: string
+    assignedIdentifier_Type:
+      type: object
+      title: Assigned Identifier Type
+      required:
+        - roleCode
+        - id
+      properties:
+        roleCode:
+          $ref: '#/components/schemas/coreRoleCodeContent_Type'
+        id:
+          type: string
+        identifierDescription:
+          type: string
+    contactAddress_Type:
+      type: object
+      title: Contact Address Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - properties:
+            attentionName:
+              type: string
+              maxLength: 255
+            asOfDate:
+              type: string
+              format: date
+            addressReferences:
+              $ref: '#/components/schemas/addressReferences_Type'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+    mailingAddressExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: MailingAddressExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - PostalAuthority
+    mailingAddressExternalIdentifier_Type:
+      type: object
+      title: MailingAddressExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/mailingAddressExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    mailingAddress_Type:
+      type: object
+      title: Mailing Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
+                - $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
+            postalBarcode:
+              type: string
+            postalBarcodeSortPlan:
+              type: string
+            postalNationalSortPlan:
+              type: string
+    endPointActorContact_Type:
+      type: object
+      title: EndPointActorContact_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            personReferences:
+              $ref: '#/components/schemas/personReferences_Type'
+            userAccessLevelCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            roleCode:
+              $ref: '#/components/schemas/endPointActorContactRoleCodeContent_Type'
+            telephone:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/telephone_Type'
+                - $ref: '#/components/schemas/telephone_Type'
+            email:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/email_Type'
+                - $ref: '#/components/schemas/email_Type'
+            mailingAddress:
+              $ref: '#/components/schemas/mailingAddress_Type'
+    endPointActor_Type:
+      type: object
+      title: EndPointActor_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            roleCode:
+              $ref: '#/components/schemas/coreRoleCodeContent_Type'
+            organizationReferences:
+              $ref: '#/components/schemas/organizationReferences_Type'
+            address:
+              $ref: '#/components/schemas/address_Type'
+            contact:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/endPointActorContact_Type'
+                - $ref: '#/components/schemas/endPointActorContact_Type'
+    sender_Type:
+      type: object
+      title: Sender_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    receiver_Type:
+      type: object
+      title: Receiver_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    processingIntermediary_Type:
+      type: object
+      title: ProcessingIntermediary_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    endPointSystem_Type:
+      type: object
+      title: EndPointSystem_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            systemVendorId:
+              type: string
+              maxLength: 255
+            systemVendorName:
+              type: string
+              maxLength: 255
+            vendorProductName:
+              type: string
+              maxLength: 255
+            vendorProductVersion:
+              type: string
+              maxLength: 255
+    sendingSystem_Type:
+      type: object
+      title: Sending System
+      allOf:
+        - $ref: '#/components/schemas/endPointSystem_Type'
+        - properties: {}
+    batchPeriod_Type:
+      type: object
+      title: BatchPeriod_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            periodDuration:
+              type: string
+              format: duration
+            bothDaysInclusiveIndicator:
+              type: boolean
+    messageHeader_Type:
+      type: object
+      title: MessageHeader_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - messageId
+            - correlationId
+            - messageDateTime
+          properties:
+            ACORDStandardVersionCode:
+              $ref: '#/components/schemas/ACORDStandardVersionCodeContent_Type'
+            messageId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            correlationId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            messageDateTime:
+              type: string
+              format: date-time
+            sender:
+              $ref: '#/components/schemas/sender_Type'
+            receiver:
+              $ref: '#/components/schemas/receiver_Type'
+            processingIntermediary:
+              $ref: '#/components/schemas/processingIntermediary_Type'
+            sendingSystem:
+              $ref: '#/components/schemas/sendingSystem_Type'
+            accountNumberId:
+              type: string
+              maxLength: 255
+            batchId:
+              type: string
+              maxLength: 255
+            messageDocumentCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            batchSequenceNumberNumeric:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            batchPeriod:
+              $ref: '#/components/schemas/batchPeriod_Type'
+            messageSubmissionTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            totalBatchCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    messageResultStatusCodeContent_Type:
+      type: string
+      title: MessageResultStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Accepted
+        - AcceptedWithErrors
+        - Duplicate
+        - Invalid
+        - Rejected
+        - Valid
+    messageDocumentReferences_Type:
+      type: object
+      title: MessageDocumentReferences_Type
+      properties:
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    messageDocumentResultStatusCodeContent_Type:
+      type: string
+      title: MessageDocumentResultStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Pended
+        - Rejected
+        - Success
+    extendedStatusCodeContent_Type:
+      type: string
+      title: ExtendedStatusCodeContent_Type
+      description: TBD
+      enum:
+        - DataChanged
+        - DataError
+        - DataInformation
+        - DataMissing
+        - DataRestriction
+        - DataSuspect
+        - DataWarning
+    extendedStatus_Type:
+      type: object
+      title: ExtendedStatus_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            elementPath:
+              type: string
+              maxLength: 255
+            statusCode:
+              $ref: '#/components/schemas/extendedStatusCodeContent_Type'
+            description:
+              type: string
+            sequenceNumber:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            customStatusCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    externalIdentifierTypeCodeContent_Type:
+      type: string
+      title: ExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - ABR
+        - ACN
+        - AFS
+        - AgreementNumber
+        - AMBestInsurerCode
+        - ANZSCO2006
+        - ANZSCO2009
+        - ANZSCO2013
+        - ANZSIC1993Code
+        - ANZSIC2006Code
+        - ASIC
+        - BranchId
+        - BusinessRegistrationCertificate
+        - CAWCId
+        - CAWCInsurerCode
+        - CISPId
+        - DriversLicenseId
+        - DUNSNumberCode
+        - EmployerId
+        - EquifaxId
+        - ExperianId
+        - FAISActId
+        - FEINId
+        - FinancialInstitutionId
+        - FiscalCode
+        - FRID
+        - FSBCoverLevel1
+        - FSBCoverLevel2
+        - FSBCoverLevel3
+        - FSPReferenceNumber
+        - GISCode
+        - GlassCode
+        - GovernmentId
+        - GreenCardId
+        - GroupAccountId
+        - IAAccountingClass
+        - IAIABC
+        - IAIABCInsurerCode
+        - IASubAccountingClass
+        - IBCInsurerCode
+        - ICECLASS
+        - IdentityDocumentId
+        - IMOShipId
+        - IncorporationCertificate
+        - ISPCode
+        - JurisdictionBureauId
+        - JurisdictionEmployeeId
+        - JurisdictionId
+        - JurisdictionUnemploymentId
+        - LloydsSyndicate
+        - LMICode
+        - LocalIdentityDocument
+        - LondonBrokerReference
+        - LORSCode
+        - MMSStructure
+        - NAICInsurerCode
+        - NAICProducerCode
+        - NAICSCode
+        - NationalId
+        - NCCIId
+        - NCCIInsurerCode
+        - New
+        - NewJerseySLA
+        - NIPRProducerCode
+        - NRIC
+        - ONET
+        - OSHAId
+        - OtherId
+        - PADEInsurerCode
+        - PassportId
+        - PoliceWarrantCard
+        - PoolReZoneCode
+        - PostalAuthority
+        - RegisteredNumber
+        - RegulatoryAgencyFileReferenceNumber
+        - SANonBarCodedID
+        - SAPVIN
+        - SecurityId
+        - SerialNumber
+        - SFN
+        - SocialSecurityNumberId
+        - SPINId
+        - StateRIRSId
+        - SurplusLinesBroker
+        - TaxRegistrationId
+        - TFN
+        - ToBeConfirmed
+        - TransUnionId
+        - TRWId
+        - UnincorporatedClub
+        - UniqueMarketReference
+        - USI
+        - USSICCode
+        - ValidTravelDocument
+        - VATRegistrationNumberId
+        - VehicleIdentificationNumber
+        - VisaId
+        - WatercraftRegistrationNumberId
+        - WorkPermitId
+    externalIdentifier_Type:
+      type: object
+      title: ExternalIdentifier Type
+      required:
+        - typeCode
+        - id
+      properties:
+        typeCode:
+          $ref: '#/components/schemas/externalIdentifierTypeCodeContent_Type'
+        sourceURI:
+          type: string
+          format: uri
+        jurisdictionCode:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                attributes:
+                  type: object
+                  properties:
+                    codeListReference:
+                      type: string
+            - type: string
+              maxLength: 255
+        id:
+          type: string
+          maxLength: 255
+        identifierDescription:
+          type: string
+    actionCodeContent_Type:
+      type: string
+      title: Action Code Content Type
+      description: TBD
+      enum:
+        - Add
+        - AdvisedValue
+        - Delete
+        - ModifyElement
+        - ModifyIdentifierReference
+        - NoModification
+        - RemoveElement
+        - Truncate
+    changeStatus_Type:
+      type: object
+      title: ChangeStatus_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/externalIdentifier_Type'
+                - $ref: '#/components/schemas/externalIdentifier_Type'
+            elementPath:
+              type: string
+              maxLength: 255
+            actionCode:
+              $ref: '#/components/schemas/actionCodeContent_Type'
+            description:
+              type: string
+            sequenceNumber:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            previousValueDescription:
+              type: string
+            previousValueAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            previousValuePercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            previousValueDate:
+              type: string
+              format: date
+            previousValueMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            previousValueCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            previousValueIndicator:
+              type: boolean
+            previousValueInteger:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    resultSuccessCodeContent_Type:
+      type: string
+      title: ResultSuccessCodeContent_Type
+      description: TBD
+      enum:
+        - Success
+        - WithChanges
+        - WithInformation
+        - WithRestriction
+        - WithSuspect
+    resultRejectCodeContent_Type:
+      type: string
+      title: ResultRejectCodeContent_Type
+      description: TBD
+      enum:
+        - DataInvalidOrMissing
+        - DuplicateMessageId
+        - InvalidMessageId
+        - OutOfSynchronization
+        - Unsyncable
+    resultPendedCodeContent_Type:
+      type: string
+      title: ResultPendedCodeContent_Type
+      description: TBD
+      enum:
+        - Accepted
+        - DataError
+        - Pended
+        - PendedOutOfBand
+    messageDocumentResult_Type:
+      type: object
+      title: MessageDocumentResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - messageDocumentReferences
+            - statusCode
+          properties:
+            messageDocumentReferences:
+              $ref: '#/components/schemas/messageDocumentReferences_Type'
+            statusCode:
+              $ref: '#/components/schemas/messageDocumentResultStatusCodeContent_Type'
+            description:
+              type: string
+            extendedStatus:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/extendedStatus_Type'
+                - $ref: '#/components/schemas/extendedStatus_Type'
+            changeStatus:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/changeStatus_Type'
+                - $ref: '#/components/schemas/changeStatus_Type'
+            successCode:
+              $ref: '#/components/schemas/resultSuccessCodeContent_Type'
+            rejectCode:
+              $ref: '#/components/schemas/resultRejectCodeContent_Type'
+            pendedCode:
+              $ref: '#/components/schemas/resultPendedCodeContent_Type'
+    messageResult_Type:
+      type: object
+      title: MessageResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - statusCode
+            - messageDocumentResult
+          properties:
+            statusCode:
+              $ref: '#/components/schemas/messageResultStatusCodeContent_Type'
+            messageDocumentResult:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/messageDocumentResult_Type'
+                - $ref: '#/components/schemas/messageDocumentResult_Type'
+    ACORDMessageResult_Type:
+      type: object
+      title: ACORDMessageResult_Type
+      required:
+        - messageHeader
+        - messageResult
+      properties:
+        messageHeader:
+          $ref: '#/components/schemas/messageHeader_Type'
+        messageResult:
+          $ref: '#/components/schemas/messageResult_Type'
     attachmentTypeCodeContent_Type:
       type: string
       title: AttachmentTypeCodeContent_Type
@@ -352,35 +1701,6 @@ components:
               type: string
             attachmentDocument:
               $ref: '#/components/schemas/attachmentDocument_Type'
-    coreRoleCodeContent_Type:
-      type: string
-      title: CoreRoleCodeContent_Type
-      description: The Core Role Code content enumeration
-      enum:
-        - Agency
-        - Broker
-        - Bureau
-        - ClaimAdministrator
-        - Customer
-        - DataCollectionAgency
-        - EmployeeSecurityId
-        - Employer
-        - FundOrganization
-        - Insured
-        - Insurer
-        - Jurisdiction
-        - ManagingGeneralAgent
-        - PlacingExchange
-        - Police
-        - PostalAuthority
-        - PremiumFinanceCompany
-        - Producer
-        - ProducerLicensingAppointmentExchange
-        - RegulatoryAgency
-        - ServiceProvider
-        - ThirdPartyAdministrator
-        - ThirdPartyEntity
-        - Underwriter
     remarkTypeCodeContent_Type:
       type: string
       title: Remark Type Code Content
@@ -568,435 +1888,6 @@ components:
             listAgencyCode:
               $ref: '#/components/schemas/codeListOwnerCodeContent_Type'
             listDescription:
-              type: string
-    lineOneDetails_Type:
-      type: object
-      title: Line One Details Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            streetName:
-              type: string
-              maxLength: 255
-            streetNumber:
-              type: string
-              maxLength: 255
-            unitNumber:
-              type: string
-              maxLength: 255
-            unitFloorNumber:
-              type: string
-              maxLength: 255
-    includedOrExcludedCodeContent_Type:
-      type: string
-      title: IncludedOrExcludedCodeContent_Type
-      description: TBD
-      enum:
-        - Excluded
-        - Included
-        - NotApplicable
-    regionLimit_Type:
-      type: object
-      title: Region Limit
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            includedOrExcludedCode:
-              $ref: '#/components/schemas/includedOrExcludedCodeContent_Type'
-            description:
-              type: string
-            countryCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryName:
-              type: string
-              maxLength: 255
-            regionPercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-    address_Type:
-      type: object
-      title: Address Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            fullAddressDescription:
-              type: string
-              maxLength: 255
-            lineOne:
-              type: string
-              maxLength: 255
-            lineOneDetails:
-              $ref: '#/components/schemas/lineOneDetails_Type'
-            lineTwo:
-              type: string
-              maxLength: 255
-            lineThree:
-              type: string
-              maxLength: 255
-            lineFour:
-              type: string
-              maxLength: 255
-            cityName:
-              type: string
-              maxLength: 255
-            suburbName:
-              type: string
-              maxLength: 255
-            stateOrProvinceCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            stateOrProvinceName:
-              type: string
-              maxLength: 255
-            postalCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryName:
-              type: string
-              maxLength: 255
-            countyCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countyName:
-              type: string
-              maxLength: 255
-            regionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            regionName:
-              type: string
-              maxLength: 255
-            regionLimit:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/regionLimit_Type'
-                - $ref: '#/components/schemas/regionLimit_Type'
-    contactPeriod_Type:
-      type: object
-      title: Contact Period Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            localStandardTimeAppliesToInceptionDateIndicator:
-              type: boolean
-            periodDuration:
-              type: string
-              format: duration
-            continuousDurationIndicator:
-              type: boolean
-            timePeriodDescription:
-              type: string
-              maxLength: 255
-            bothDaysInclusiveIndicator:
-              type: boolean
-    blackoutPeriod_Type:
-      type: object
-      title: Blackout Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    communicationPreferences_Type:
-      type: object
-      title: Communication Preferences Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            priorityRank:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            contactPeriod:
-              $ref: '#/components/schemas/contactPeriod_Type'
-            blackoutPeriod:
-              $ref: '#/components/schemas/blackoutPeriod_Type'
-            doNotContactIndicator:
-              type: boolean
-    communicationMethod_Type:
-      type: object
-      title: Communication Method Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            primaryIndicator:
-              type: boolean
-            previousIndicator:
-              type: boolean
-            communicationPreferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/communicationPreferences_Type'
-                - $ref: '#/components/schemas/communicationPreferences_Type'
-    telephoneTypeCodeContent_Type:
-      type: string
-      title: TelephoneTypeCodeContent_Type
-      description: The Telephone Code content enumeration
-      enum:
-        - Fax
-        - InternetProtocol
-        - Marine
-        - Pager
-        - TextTelephone
-        - Unknown
-        - Wired
-        - Wireless
-    telephone_Type:
-      type: object
-      title: Telephone Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - required:
-            - typeCode
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/telephoneTypeCodeContent_Type'
-            dayIndicator:
-              type: boolean
-            eveningIndicator:
-              type: boolean
-            asOfDate:
-              type: string
-              format: date
-            phoneNumber:
-              type: string
-              minLength: 1
-              maxLength: 32
-              pattern: \+\S+\-\S+\-\S+(\+\S+)?
-            phoneNumberUnformatted:
-              type: string
-    emailTypeCodeContent_Type:
-      type: string
-      title: EmailTypeCodeContent_Type
-      description: The Email Code content enumeration
-      enum:
-        - Business
-        - Personal
-        - Unknown
-    email_Type:
-      type: object
-      title: Email Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/emailTypeCodeContent_Type'
-            emailAddress:
-              type: string
-              maxLength: 255
-            asOfDate:
-              type: string
-              format: date
-    addressReferences_Type:
-      type: object
-      title: Address References Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            attributes:
-              type: object
-              properties:
-                addressReference:
-                  type: string
-    assignedIdentifier_Type:
-      type: object
-      title: Assigned Identifier Type
-      required:
-        - roleCode
-        - id
-      properties:
-        roleCode:
-          $ref: '#/components/schemas/coreRoleCodeContent_Type'
-        id:
-          type: string
-        identifierDescription:
-          type: string
-    contactAddress_Type:
-      type: object
-      title: Contact Address Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - properties:
-            attentionName:
-              type: string
-              maxLength: 255
-            asOfDate:
-              type: string
-              format: date
-            addressReferences:
-              $ref: '#/components/schemas/addressReferences_Type'
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-    mailingAddressExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: MailingAddressExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - PostalAuthority
-    mailingAddressExternalIdentifier_Type:
-      type: object
-      title: MailingAddressExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/mailingAddressExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    mailingAddress_Type:
-      type: object
-      title: Mailing Address Type
-      allOf:
-        - $ref: '#/components/schemas/contactAddress_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
-                - $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
-            postalBarcode:
-              type: string
-            postalBarcodeSortPlan:
-              type: string
-            postalNationalSortPlan:
               type: string
     billingAddress_Type:
       type: object
@@ -2694,286 +3585,6 @@ components:
         - SelfEmployed
         - Unemployed
         - Volunteer
-    personExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: PersonExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - DriversLicenseId
-        - GovernmentId
-        - JurisdictionId
-        - LocalIdentityDocument
-        - NRIC
-        - OtherId
-        - PassportId
-        - PoliceWarrantCard
-        - TFN
-        - ValidTravelDocument
-        - VisaId
-        - WorkPermitId
-    personExternalIdentifier_Type:
-      type: object
-      title: PersonExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    personNameTypeCodeContent_Type:
-      type: string
-      title: Person Name Type Code Content Type
-      description: The type code content of the Person name
-      enum:
-        - Alias
-        - AlsoKnownAs
-        - Maiden
-        - Previous
-        - Primary
-    personTitlePrefixCodeContent_Type:
-      type: string
-      title: Person Title Prefix Code Content Type
-      description: TBD
-      enum:
-        - AdjunctProfessor
-        - Admiral
-        - Advocate
-        - Archbishop
-        - AssociateProfessor
-        - Bishop
-        - Brigadier
-        - Captain
-        - Colonel
-        - Commissioner
-        - Director
-        - Doctor
-        - Economist
-        - EstateLate
-        - Father
-        - General
-        - Honourable
-        - HonourableJudge
-        - Inspector
-        - Judge
-        - Justice
-        - Lady
-        - Lieutenant
-        - LieutenantColonel
-        - LieutenantCommander
-        - Lord
-        - Magistrate
-        - Major
-        - Minister
-        - Miss
-        - Mr
-        - MrJnr
-        - Mrs
-        - MrSnr
-        - Ms
-        - Pastor
-        - Professor
-        - ProfessorEmerita
-        - ProfessorEmeritus
-        - Psychologist
-        - Rabbi
-        - RevOrReverend
-        - Sergeant
-        - Sir
-        - Sister
-        - SnrSup
-        - Sup
-        - TheHonourable
-        - Trust
-        - Trustee
-        - Unknown
-    personName_Type:
-      type: object
-      title: Person Name Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
-            indexName:
-              type: string
-              maxLength: 255
-            fullName:
-              type: string
-              maxLength: 255
-            surname:
-              type: string
-              maxLength: 255
-            givenName:
-              type: string
-              maxLength: 255
-            otherGivenName:
-              type: string
-              maxLength: 255
-            combinedGivenNames:
-              type: string
-              maxLength: 255
-            personTitlePrefix:
-              type: string
-              maxLength: 255
-            personTitlePrefixCode:
-              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
-            nameSuffix:
-              type: string
-              maxLength: 255
-            nickname:
-              type: string
-              maxLength: 255
-            initials:
-              type: string
-              maxLength: 255
-    personReferences_Type:
-      type: object
-      title: PersonReference Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            personReference:
-              type: string
-        externalIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personExternalIdentifier_Type'
-            - $ref: '#/components/schemas/personExternalIdentifier_Type'
-        personName:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personName_Type'
-            - $ref: '#/components/schemas/personName_Type'
-    organizationExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: OrganizationExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - ABR
-        - ACN
-        - AFS
-        - ASIC
-        - BusinessRegistrationCertificate
-        - DUNSNumberCode
-        - GroupAccountId
-        - IncorporationCertificate
-        - JurisdictionId
-        - OtherId
-        - UnincorporatedClub
-    organizationExternalIdentifier_Type:
-      type: object
-      title: OrganizationExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/organizationExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    organizationNameTypeCodeContent_Type:
-      type: string
-      title: OrganizationNameTypeCodeContent Type
-      description: The type code content of the Organization name
-      enum:
-        - Alias
-        - Branch
-        - Division
-        - DoingBusinessAs
-        - Previous
-        - Primary
-        - Registered
-        - Retailer
-        - TradingBusinessAs
-    organizationName_Type:
-      type: object
-      title: Organization Name Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/organizationNameTypeCodeContent_Type'
-            indexName:
-              type: string
-              maxLength: 255
-            fullName:
-              type: string
-              maxLength: 255
-    organizationReferences_Type:
-      type: object
-      title: Organization References Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            attributes:
-              type: object
-              properties:
-                organizationReference:
-                  type: string
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/organizationExternalIdentifier_Type'
-                - $ref: '#/components/schemas/organizationExternalIdentifier_Type'
-            organizationName:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/organizationName_Type'
-                - $ref: '#/components/schemas/organizationName_Type'
     referencedPartyRole_Type:
       type: object
       title: ReferencedPartyRole_Type
@@ -10886,143 +11497,6 @@ components:
         - Foreign
         - InState
         - OutOfState
-    externalIdentifierTypeCodeContent_Type:
-      type: string
-      title: ExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - ABR
-        - ACN
-        - AFS
-        - AgreementNumber
-        - AMBestInsurerCode
-        - ANZSCO2006
-        - ANZSCO2009
-        - ANZSCO2013
-        - ANZSIC1993Code
-        - ANZSIC2006Code
-        - ASIC
-        - BranchId
-        - BusinessRegistrationCertificate
-        - CAWCId
-        - CAWCInsurerCode
-        - CISPId
-        - DriversLicenseId
-        - DUNSNumberCode
-        - EmployerId
-        - EquifaxId
-        - ExperianId
-        - FAISActId
-        - FEINId
-        - FinancialInstitutionId
-        - FiscalCode
-        - FRID
-        - FSBCoverLevel1
-        - FSBCoverLevel2
-        - FSBCoverLevel3
-        - FSPReferenceNumber
-        - GISCode
-        - GlassCode
-        - GovernmentId
-        - GreenCardId
-        - GroupAccountId
-        - IAAccountingClass
-        - IAIABC
-        - IAIABCInsurerCode
-        - IASubAccountingClass
-        - IBCInsurerCode
-        - ICECLASS
-        - IdentityDocumentId
-        - IMOShipId
-        - IncorporationCertificate
-        - ISPCode
-        - JurisdictionBureauId
-        - JurisdictionEmployeeId
-        - JurisdictionId
-        - JurisdictionUnemploymentId
-        - LloydsSyndicate
-        - LMICode
-        - LocalIdentityDocument
-        - LondonBrokerReference
-        - LORSCode
-        - MMSStructure
-        - NAICInsurerCode
-        - NAICProducerCode
-        - NAICSCode
-        - NationalId
-        - NCCIId
-        - NCCIInsurerCode
-        - New
-        - NewJerseySLA
-        - NIPRProducerCode
-        - NRIC
-        - ONET
-        - OSHAId
-        - OtherId
-        - PADEInsurerCode
-        - PassportId
-        - PoliceWarrantCard
-        - PoolReZoneCode
-        - PostalAuthority
-        - RegisteredNumber
-        - RegulatoryAgencyFileReferenceNumber
-        - SANonBarCodedID
-        - SAPVIN
-        - SecurityId
-        - SerialNumber
-        - SFN
-        - SocialSecurityNumberId
-        - SPINId
-        - StateRIRSId
-        - SurplusLinesBroker
-        - TaxRegistrationId
-        - TFN
-        - ToBeConfirmed
-        - TransUnionId
-        - TRWId
-        - UnincorporatedClub
-        - UniqueMarketReference
-        - USI
-        - USSICCode
-        - ValidTravelDocument
-        - VATRegistrationNumberId
-        - VehicleIdentificationNumber
-        - VisaId
-        - WatercraftRegistrationNumberId
-        - WorkPermitId
-    externalIdentifier_Type:
-      type: object
-      title: ExternalIdentifier Type
-      required:
-        - typeCode
-        - id
-      properties:
-        typeCode:
-          $ref: '#/components/schemas/externalIdentifierTypeCodeContent_Type'
-        sourceURI:
-          type: string
-          format: uri
-        jurisdictionCode:
-          oneOf:
-            - type: object
-              required:
-                - value
-              properties:
-                value:
-                  type: string
-                attributes:
-                  type: object
-                  properties:
-                    codeListReference:
-                      type: string
-            - type: string
-              maxLength: 255
-        id:
-          type: string
-          maxLength: 255
-        identifierDescription:
-          type: string
     taxAmountItem_Type:
       type: object
       title: Tax Amount Item Type
@@ -13371,6 +13845,60 @@ components:
               format: date
             parentPolicySectionReferences:
               $ref: '#/components/schemas/parentPolicySectionReferences_Type'
+    vehicleClassCodeContent_Type:
+      type: string
+      title: Vehicle Class Code Content
+      description: TBD
+      enum:
+        - Breakdown
+        - Bus
+        - Caravan
+        - Commercial
+        - CommercialAndPrivate
+        - Dolly
+        - EarthMoving
+        - Farm
+        - Harvesting
+        - HeavyCommercial
+        - LightCommercial
+        - MediumCommercial
+        - Mobile
+        - Motorcycle
+        - MotorHome
+        - Other
+        - Passenger
+        - PrimeMover
+        - Private
+        - PrivateBus
+        - Safari
+        - ScheduledBus
+        - Tractor
+        - Trailer
+        - Truck
+        - UnscheduledBus
+    policyVehicleReferences_Type:
+      type: object
+      title: Policy Vehicle References Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyVehicleReference:
+              type: string
+        vehicleClassCode:
+          $ref: '#/components/schemas/vehicleClassCodeContent_Type'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+        locationReferences:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/locationReferences_Type'
+            - $ref: '#/components/schemas/locationReferences_Type'
     claimOccurrenceReferences_Type:
       type: object
       title: ClaimOccurrenceReferences_Type
@@ -14015,6 +14543,1129 @@ components:
                   items:
                     $ref: '#/components/schemas/assignedIdentifier_Type'
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
+    cyberSecurityManagementCodeContent_Type:
+      type: string
+      title: Cyber Security Management Code Content
+      description: TBD
+      enum:
+        - Internal
+        - ThirdParty
+        - Unknown
+    cyberContractTypeCodeContent_Type:
+      type: string
+      title: Cyber Contract Type Code Content
+      description: TBD
+      enum:
+        - AddOn
+        - Embedded
+        - Other
+        - Standalone
+    dataUpdateFrequencyCodeContent_Type:
+      type: string
+      title: Data Update Frequency Code Content
+      description: TBD
+      enum:
+        - Annually
+        - Biweekly
+        - Daily
+        - Monthly
+        - None
+        - Other
+        - Quarterly
+        - Unknown
+        - Weekly
+    physicalSecurityMeasuresCodeContent_Type:
+      type: string
+      title: Physical Security Measures Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - Unknown
+        - YesSingleFactor
+    remoteAccessPermissionCodeContent_Type:
+      type: string
+      title: Remote Access Permission Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - YesMultiFactor
+        - YesSingleFactor
+        - YesTwoFactor
+    patchUpdateFrequencyCodeContent_Type:
+      type: string
+      title: Patch Update Frequency Code Content
+      description: TBD
+      enum:
+        - Annually
+        - Biweekly
+        - Daily
+        - Monthly
+        - None
+        - Other
+        - Quarterly
+        - Unknown
+        - Weekly
+    cyberCredentialTypeCodeContent_Type:
+      type: string
+      title: Cyber Credential Type Code Content
+      description: TBD
+      enum:
+        - CyberEssentials
+        - ISO27001
+        - NIST80053
+        - PCIDataSecurityStandards
+        - SSAE16SOC1
+        - SSAE16SOC2
+        - SSAE16SOC3
+    credentialedCodeContent_Type:
+      type: string
+      title: Credentialed Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - Unknown
+        - 'Yes'
+    cyberCredential_Type:
+      type: object
+      title: Cyber Credential
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberCredentialTypeCodeContent_Type'
+            credentialedCode:
+              $ref: '#/components/schemas/credentialedCodeContent_Type'
+    cyberAmountItemTypeCodeContent_Type:
+      type: string
+      title: Cyber Amount Item Type Code Content
+      description: TBD
+      enum:
+        - AnnualInternetRevenue
+        - BusCloudSvcInterruptionPerHourValue
+        - BusInternetInterruptionPerHourValue
+        - CloudServiceRevenue
+        - DataRecoveryCost
+        - PaymentSystemMonthlyTransactions
+    cyberAmountItem_Type:
+      type: object
+      title: Cyber Amount Item
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberAmountItemTypeCodeContent_Type'
+            description:
+              type: string
+            itemAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    assessmentScoreTypeCodeContent_Type:
+      type: string
+      title: Assessment Score Type Code Content
+      description: TBD
+      enum:
+        - AntivirusQualityScore
+        - ApplicationSecurityScore
+        - BusinessRecoveryScore
+        - EncryptionQualityScore
+        - FirewallQualityScore
+        - ITMaturityScore
+        - NetworkIntrusionScore
+        - PrivacyPolicyScore
+        - SecurityAssessmentScore
+        - VendorSecurityScore
+    assessmentScoreCodeContent_Type:
+      type: string
+      title: Assessment Score Code Content
+      description: TBD
+      enum:
+        - AboveAverage
+        - Average
+        - BelowAverage
+        - Excellent
+        - None
+        - Other
+        - Poor
+        - Unknown
+    assessmentScore_Type:
+      type: object
+      title: AssessmentScore
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/assessmentScoreTypeCodeContent_Type'
+            description:
+              type: string
+            assessmentScoreCode:
+              $ref: '#/components/schemas/assessmentScoreCodeContent_Type'
+            assessmentScoreDescription:
+              type: string
+              maxLength: 255
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    cyberCountTypeCodeContent_Type:
+      type: string
+      title: Cyber Count Type Code Content
+      description: TBD
+      enum:
+        - ChildRecords
+        - ChildRelatedRecords
+        - MaximumAnnualPaymentCardRecords
+        - MaximumBreachNotifications
+        - PersonalHealthRecords
+        - PersonalOtherSensitiveRecords
+        - PersonalRecords
+        - WebTraffic
+    cyberCountInformation_Type:
+      type: object
+      title: Cyber Count Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberCountTypeCodeContent_Type'
+            unitCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    questionCodeContent_Type:
+      type: string
+      title: QuestionCodeContent Type
+      description: TBD
+      enum:
+        - ClaimOccurrence016
+        - ClaimOccurrence017
+        - ClaimOccurrence018
+        - ClaimOccurrence019
+        - ClaimOccurrence020
+        - CommercialPolicy001
+        - CommercialPolicy002
+        - CommercialPolicy003
+        - CommercialPolicy004
+        - CommercialPolicy005
+        - CommercialPolicy006
+        - CommercialPolicy007
+        - CommercialPolicy008
+        - CommercialPolicy009
+        - CommercialPolicy010
+        - CommercialPolicy011
+        - CommercialPolicy012
+        - CommercialPolicy101
+        - CommercialPolicy102
+        - CommercialPolicy103
+        - CommercialPolicy104
+        - CommercialPolicy105
+        - CommercialPolicy106
+        - CommercialPolicy107
+        - CommercialPolicy108
+        - CommercialPolicy109
+        - Cyber001
+        - Cyber002
+        - Cyber003
+        - Cyber004
+        - Cyber005
+        - Cyber006
+        - Cyber007
+        - Cyber008
+        - Cyber009
+        - Cyber010
+        - Cyber011
+        - Cyber012
+        - Cyber013
+        - Cyber014
+        - Cyber015
+        - Cyber016
+        - Cyber017
+        - Cyber018
+        - Cyber019
+        - Cyber020
+        - Cyber021
+        - Cyber022
+        - Cyber023
+        - Cyber024
+        - Cyber025
+        - Cyber026
+        - Cyber027
+        - Cyber028
+        - Cyber029
+        - Cyber030
+        - Cyber031
+        - Cyber032
+        - Cyber033
+        - Cyber034
+        - Cyber035
+        - Cyber036
+        - Cyber037
+        - Cyber038
+        - Cyber039
+        - Cyber040
+        - Cyber041
+        - Cyber042
+        - Cyber043
+        - Cyber044
+        - Cyber045
+        - Cyber046
+        - Cyber047
+        - Cyber048
+        - Cyber049
+        - Cyber050
+        - Cyber051
+        - Cyber052
+        - Cyber053
+        - Cyber054
+        - Cyber055
+        - Cyber056
+        - Cyber057
+        - Cyber058
+        - Cyber059
+        - Cyber060
+        - Cyber061
+        - Cyber062
+        - Cyber063
+        - Cyber064
+        - Cyber065
+        - Cyber066
+        - Cyber067
+        - Cyber068
+        - Cyber069
+        - Cyber070
+        - Cyber071
+        - Cyber072
+        - Cyber073
+        - DutyOfDisclosure001
+        - DutyOfDisclosure002
+        - DutyOfDisclosure003
+        - DutyOfDisclosure004
+        - DutyOfDisclosure005
+        - DutyOfDIsclosure006
+        - DutyOfDIsclosure007
+        - EmployeeInformation001
+        - ExportInformation001
+        - ExportInformation002
+        - ExportInformation003
+        - ExportInformation004
+        - ExportInformation005
+        - Fee001
+        - Operations001
+        - Operations002
+        - Operations003
+        - Operations004
+        - Operations005
+        - Operations006
+        - Operations007
+        - Operations008
+        - Operations009
+        - Operations010
+        - Operations011
+        - Operations012
+        - Operations013
+        - Operations014
+        - Operations015
+        - PersonalPropertyItem007
+        - PersonalPropertyItem008
+        - PersonalPropertyItem009
+        - PersonalPropertyItem010
+        - PersonalPropertyItem011
+        - Policy024
+        - Policy025
+        - Policy026
+        - Policy027
+        - Policy028
+        - PolicyProperty031
+        - PolicyProperty032
+        - PolicyProperty033
+        - PolicyProperty034
+        - PolicyProperty040
+        - PolicyProperty041
+        - PolicyProperty042
+        - PolicyProperty043
+        - PolicyProperty044
+        - PolicyProperty045
+        - PolicyProperty046
+        - PolicyProperty047
+        - PolicyProperty048
+        - ProductRecall001
+        - ProductRecall002
+        - ProductRecall003
+        - ProductRecall004
+        - ProductRecall005
+        - ProductRecall006
+        - ProductRecall007
+        - ProductRecall008
+        - ProductRecall009
+        - ProductRecall010
+        - ProfessionalIndemnitySection001
+        - ProfessionalIndemnitySection002
+        - ProfessionalIndemnitySection003
+        - ProfessionalIndemnitySection004
+        - ProfessionalIndemnitySection005
+        - ProfessionalIndemnitySection006
+        - ProfessionalIndemnitySection007
+        - ProfessionalIndemnitySection008
+        - ProfessionalIndemnitySection009
+        - ProfessionalIndemnitySection010
+        - ProfessionalIndemnitySection011
+        - ProfessionalIndemnitySection012
+        - ProfessionalIndemnitySection013
+        - ProfessionalIndemnitySection014
+        - ProfessionalIndemnitySection015
+        - ProfessionalIndemnitySection016
+        - ProfessionalIndemnitySection017
+        - ProfessionalIndemnitySection018
+        - ProfessionalIndemnitySection019
+        - ProfessionalIndemnitySection020
+        - ProfessionalIndemnitySection021
+        - ProfessionalIndemnitySection022
+        - ProfessionalIndemnitySection023
+        - ProfessionalIndemnitySection024
+        - ProfessionalIndemnitySection025
+        - ProfessionalIndemnitySection026
+        - ProfessionalIndemnitySection027
+        - ProfessionalIndemnitySection028
+        - ProfessionalIndemnitySection029
+        - ProfessionalIndemnitySection030
+        - ProfessionalIndemnitySection031
+        - ProfessionalIndemnitySection032
+        - ProfessionalIndemnitySection033
+        - ProfessionalIndemnitySection034
+        - ProfessionalIndemnitySection035
+        - ProfessionalIndemnitySection036
+        - ProfessionalIndemnitySection037
+        - ProfessionalIndemnitySection038
+        - ProfessionalIndemnitySection039
+        - ProfessionalIndemnitySection040
+        - ProfessionalIndemnitySection041
+        - ProfessionalIndemnitySection042
+        - ProfessionalIndemnitySection043
+        - ProfessionalIndemnitySection044
+        - ProfessionalIndemnitySection045
+        - ProfessionalIndemnitySection046
+        - ProfessionalIndemnitySection047
+        - ProfessionalIndemnitySection048
+        - ProfessionalIndemnitySection049
+        - ProfessionalIndemnitySection050
+        - ProfessionalIndemnitySection051
+        - ProfessionalIndemnitySection052
+        - ProfessionalIndemnitySection053
+        - ProfessionalIndemnitySection054
+        - ProfessionalIndemnitySection055
+        - ProfessionalIndemnitySection056
+        - ProfessionalIndemnitySection057
+        - ProfessionalIndemnitySection058
+        - ProfessionalIndemnitySection059
+        - ProfessionalIndemnitySection060
+        - ProfessionalIndemnitySection061
+        - ProfessionalIndemnitySection062
+        - ProfessionalIndemnitySection063
+        - ProfessionalIndemnitySection064
+        - ProfessionalIndemnitySection065
+        - ProfessionalIndemnitySection066
+        - ProfessionalIndemnitySection067
+        - ProfessionalIndemnitySection068
+        - ProfessionalIndemnitySection069
+        - ProfessionalIndemnitySection070
+        - ProfessionalIndemnitySection071
+        - ProfessionalIndemnitySection072
+        - ProfessionalIndemnitySection073
+        - ProfessionalIndemnitySection074
+        - ProfessionalIndemnitySection075
+        - ProfessionalIndemnitySection076
+        - ProfessionalIndemnitySection077
+        - ProfessionalIndemnitySection078
+        - ProfessionalIndemnitySection079
+        - ProfessionalIndemnitySection080
+        - ProfessionalIndemnitySection081
+        - ProfessionalIndemnitySection082
+        - ProfessionalIndemnitySection083
+        - ProfessionalIndemnitySection084
+        - ProfessionalIndemnitySection085
+        - ProfessionalIndemnitySection086
+        - ProfessionalIndemnitySection087
+        - Section001
+        - Underwriting001
+        - AccidentHealth001
+        - AccidentHealth002
+        - AccidentHealth003
+        - AccidentHealth004
+        - AccidentHealth005
+        - AccidentHealth006
+        - AccidentHealth007
+        - AccidentHealth008
+        - AccidentHealth009
+        - AccidentHealth010
+        - AccidentHealth011
+        - AccidentItem001
+        - AccidentItem002
+        - AccidentItem003
+        - AccidentItem004
+        - AccidentItem005
+        - Background001
+        - BusinessPackage001
+        - BusinessPackage002
+        - BusinessPackage003
+        - BusinessPackage004
+        - BusinessPackage005
+        - BusinessPackage006
+        - BusinessPrincipal001
+        - BusinessPrincipal002
+        - ClaimItem001
+        - ClaimItem002
+        - ClaimItem004
+        - ClaimItem005
+        - ClaimItem006
+        - ClaimItem008
+        - ClaimItem009
+        - ClaimItem011
+        - ClaimItem013
+        - ClaimItem014
+        - ClaimItem015
+        - ClaimItem016
+        - ClaimItem017
+        - ClaimItem018
+        - ClaimItem019
+        - ClaimItem020
+        - ClaimItem021
+        - ClaimItem022
+        - ClaimItem023
+        - ClaimItem024
+        - ClaimItem025
+        - ClaimItem026
+        - ClaimItem027
+        - ClaimItem028
+        - ClaimItem029
+        - ClaimItem030
+        - ClaimItem031
+        - ClaimItem032
+        - ClaimItem033
+        - ClaimItem034
+        - ClaimItem035
+        - ClaimItem036
+        - ClaimItem037
+        - ClaimOccurrence001
+        - ClaimOccurrence002
+        - ClaimOccurrence003
+        - ClaimOccurrence005
+        - ClaimOccurrence006
+        - ClaimOccurrence007
+        - ClaimOccurrence008
+        - ClaimOccurrence009
+        - ClaimOccurrence010
+        - ClaimOccurrence011
+        - ClaimOccurrence012
+        - ClaimOccurrence013
+        - ClaimOccurrence014
+        - ClaimOccurrence015
+        - CommercialPolicy013
+        - CommercialPropertyItem001
+        - CommercialPropertyItem002
+        - CommercialPropertyItem003
+        - CommercialPropertyItem004
+        - CommercialPropertyItem005
+        - CommercialPropertyItem006
+        - CommercialPropertyItem007
+        - CommercialPropertySection001
+        - CommercialVehicleSection001
+        - CommercialVehicleSection002
+        - CommercialVehicleSection003
+        - CommercialVehicleSection004
+        - CommercialVehicleSection005
+        - CorporateTravel001
+        - CorporateTravel002
+        - Glass001
+        - Glass002
+        - Glass003
+        - Glass004
+        - Glass005
+        - Glass006
+        - ImportExport001
+        - ImportExport002
+        - ImportExport003
+        - ImportExport004
+        - ImportExport005
+        - LiabilityItem001
+        - LiabilityItem002
+        - LiabilityItem003
+        - LiabilityItem004
+        - LiabilityItem005
+        - LiabilityItem006
+        - LiabilityItem007
+        - LiabilityItem008
+        - LiabilityItem009
+        - MarineCargoSection001
+        - MarineCargoSection002
+        - MarineCargoSection003
+        - MarineCargoSection004
+        - MarineCargoSection005
+        - MarineCargoSection006
+        - MarineCargoSection007
+        - MarineCargoSection008
+        - MarineCargoSection009
+        - MarineCargoSection010
+        - MarineCargoSection011
+        - MarineCargoSection012
+        - MarineCargoSection013
+        - MarineCargoSection014
+        - MarineCargoSection015
+        - MarineCargoSection016
+        - MarineCargoSection017
+        - MarineCargoSection018
+        - MarineCargoSection019
+        - MarineCargoSection020
+        - MarineCargoSection021
+        - MarineCargoSection022
+        - MarineCargoSection023
+        - MarineCargoSection024
+        - MarineCargoSection025
+        - MarineCargoSection026
+        - MarineCargoSection027
+        - MarineCargoSection028
+        - MarineCargoSection029
+        - Person001
+        - PersonalProperty001
+        - PersonalProperty002
+        - PersonalProperty003
+        - PersonalProperty004
+        - PersonalProperty005
+        - PersonalProperty006
+        - PersonalProperty007
+        - PersonalProperty008
+        - PersonalProperty009
+        - PersonalProperty010
+        - PersonalPropertyItem001
+        - PersonalPropertyItem002
+        - PersonalPropertyItem003
+        - PersonalPropertyItem004
+        - PersonalPropertyItem005
+        - PersonalPropertyItem006
+        - PersonalPropertyItem012
+        - PersonalPropertyItem013
+        - PersonalPropertyItem014
+        - PersonalPropertyItem015
+        - PersonalPropertyItem016
+        - PersonalPropertyItem017
+        - PersonalPropertyItem018
+        - PersonalPropertyItem019
+        - PersonalPropertyItem020
+        - PersonalPropertyItem021
+        - PersonalPropertyItem022
+        - PersonalPropertyItem023
+        - PersonalVehicleItemSection001
+        - PersonalVehicleItemSection002
+        - PersonalVehicleItemSectionOption001
+        - PersonalVehicleItemSectionOption003
+        - PersonalVehicleItemSectionOption004
+        - PersonalVehicleSection001
+        - PersonalVehicleSection002
+        - PersonalVehicleSection003
+        - PersonalVehicleSection004
+        - PersonalVehicleSection005
+        - PersonalVehicleSection006
+        - PersonalVehicleSection007
+        - PersonalVehicleSection008
+        - PersonalVehicleSection009
+        - PersonalVehicleSection010
+        - PersonalVehicleSection011
+        - Policy001
+        - Policy002
+        - Policy003
+        - Policy004
+        - Policy005
+        - Policy006
+        - Policy007
+        - Policy008
+        - Policy009
+        - Policy010
+        - Policy011
+        - Policy012
+        - Policy013
+        - Policy014
+        - Policy015
+        - Policy016
+        - Policy017
+        - Policy018
+        - Policy019
+        - Policy020
+        - Policy021
+        - Policy022
+        - Policy023
+        - PolicyDriver001
+        - PolicyDriver002
+        - PolicyDriver003
+        - PolicyDriver004
+        - PolicyDriver005
+        - PolicyDriver006
+        - PolicyDriver007
+        - PolicyDriver008
+        - PolicyDriver009
+        - PolicyProperty001
+        - PolicyProperty002
+        - PolicyProperty003
+        - PolicyProperty004
+        - PolicyProperty005
+        - PolicyProperty006
+        - PolicyProperty007
+        - PolicyProperty008
+        - PolicyProperty009
+        - PolicyProperty010
+        - PolicyProperty011
+        - PolicyProperty012
+        - PolicyProperty013
+        - PolicyProperty014
+        - PolicyProperty015
+        - PolicyProperty016
+        - PolicyProperty017
+        - PolicyProperty018
+        - PolicyProperty019
+        - PolicyProperty020
+        - PolicyProperty021
+        - PolicyProperty022
+        - PolicyProperty023
+        - PolicyProperty024
+        - PolicyProperty025
+        - PolicyProperty026
+        - PolicyProperty027
+        - PolicyProperty028
+        - PolicyProperty029
+        - PolicyProperty030
+        - PolicyProperty035
+        - PolicyProperty036
+        - PolicyProperty037
+        - PolicyProperty038
+        - PolicyProperty039
+        - PreviousBusiness001
+        - PreviousUWNonstandard
+        - PreviousUWStandard
+        - SubsidenceAndLandslip001
+        - SubsidenceAndLandslip002
+        - SubsidenceAndLandslip003
+        - SubsidenceAndLandslip004
+        - SubsidenceAndLandslip005
+        - SubsidenceAndLandslip006
+        - SubsidenceAndLandslip007
+        - SubsidenceAndLandslip008
+        - Watercraft001
+        - Watercraft002
+        - WatercraftItem001
+        - WatercraftItem002
+        - WatercraftItem003
+        - WatercraftItem004
+        - WatercraftItem005
+        - WatercraftItemSection001
+        - WorkersCompensationLineOfBusiness001
+        - WorkersCompensationLineOfBusiness002
+        - WorkersCompensationLineOfBusiness003
+        - WorkersCompensationLineOfBusiness004
+        - WorkersCompensationLineOfBusiness005
+        - WorkersCompensationLineOfBusiness006
+        - WorkersCompensationLineOfBusiness007
+        - WorkersCompensationLineOfBusiness008
+        - WorkersCompensationLineOfBusiness009
+        - WorkersCompensationLineOfBusiness010
+        - WorkersCompensationLineOfBusiness011
+        - WorkersCompensationLineOfBusiness012
+        - WorkersCompensationLineOfBusiness013
+        - WorkersCompensationLineOfBusiness014
+        - WorkersCompensationLineOfBusiness015
+        - WorkersCompensationLineOfBusiness016
+        - WorkersCompensationLineOfBusiness017
+        - WorkersCompensationLineOfBusiness018
+        - WorkersCompensationLineOfBusiness019
+        - WorkersCompensationLineOfBusiness020
+        - WorkersCompensationLineOfBusiness021
+        - WorkersCompensationLineOfBusiness022
+        - WorkersCompensationLineOfBusiness023
+        - WorkersCompensationLineOfBusiness024
+        - WorkersCompensationLineOfBusiness025
+        - WorkersCompensationLineOfBusiness026
+        - WorkersCompensationLineOfBusiness027
+        - WorkersCompensationLineOfBusiness028
+        - WorkersCompensationLineOfBusiness029
+        - WorkersCompensationLineOfBusiness030
+        - WorkersCompensationLineOfBusiness031
+        - WorkersCompensationLineOfBusiness032
+        - WorkersCompensationLineOfBusiness033
+        - WorkersCompensationLineOfBusiness034
+        - WorkersCompensationLineOfBusiness035
+        - WorkersCompensationLineOfBusiness036
+        - WorkersCompensationLineOfBusiness037
+        - WorkersCompensationLineOfBusiness038
+        - WorkersCompensationLineOfBusiness039
+        - WorkersCompensationLineOfBusiness040
+        - WorkersCompensationLineOfBusiness041
+        - WorkersCompensationNoticeOfAssignment001
+        - WorkersCompensationNoticeOfAssignment002
+        - WorkersCompensationNoticeOfAssignment003
+        - WorkersCompensationNoticeOfAssignment004
+        - WorkersCompensationNoticeOfAssignment005
+        - WorkersCompensationNoticeOfAssignment006
+        - WorkersCompensationNoticeOfAssignment007
+        - WorkersCompensationNoticeOfAssignment008
+        - WorkersCompensationNoticeOfAssignment009
+        - WorkersCompensationNoticeOfAssignment010
+        - WorkersCompensationNoticeOfAssignment011
+        - WorkersCompensationNoticeOfAssignment012
+        - WorkersCompensationNoticeOfAssignment013
+        - WorkersCompensationNoticeOfAssignment014
+        - WorkersCompensationNoticeOfAssignment015
+        - WorkersCompensationNoticeOfAssignment016
+        - WorkersCompensationNoticeOfAssignment017
+        - WorkersCompensationNoticeOfAssignment018
+        - WorkersCompensationNoticeOfAssignment019
+        - WorkersCompensationNoticeOfAssignment020
+        - WorkersCompensationNoticeOfAssignment021
+        - WorkersCompensationNoticeOfAssignment022
+        - WorkersCompensationNoticeOfAssignment023
+        - WorkersCompensationNoticeOfAssignment024
+        - WorkersCompensationNoticeOfAssignment025
+        - WorkersCompensationNoticeOfAssignment026
+        - WorkersCompensationNoticeOfAssignment027
+        - WorkersCompensationNoticeOfAssignment028
+        - WorkersCompensationNoticeOfAssignment029
+        - WorkersCompensationNoticeOfAssignment030
+        - WorkersCompensationNoticeOfAssignment031
+        - WorkersCompensationNoticeOfAssignment032
+        - WorkersCompensationNoticeOfAssignment033
+        - WorkersCompensationNoticeOfAssignment034
+        - WorkersCompensationNoticeOfAssignment035
+        - WorkersCompensationNoticeOfAssignment036
+        - WorkersCompensationNoticeOfAssignment037
+        - WorkersCompensationNoticeOfAssignment038
+        - WorkersCompensationNoticeOfAssignment039
+        - WorkersCompensationNoticeOfAssignment040
+        - WorkersCompensationNoticeOfAssignment041
+        - WorkersCompensationNoticeOfAssignment042
+        - WorkersCompensationNoticeOfAssignment043
+        - WorkersCompensationNoticeOfAssignment044
+        - WorkersCompensationNoticeOfAssignment045
+        - WorkersCompensationNoticeOfAssignment046
+        - WorkersCompensationNoticeOfAssignment047
+        - WorkersCompensationNoticeOfAssignment048
+        - WorkersCompensationNoticeOfAssignment049
+        - WorkersCompensationNoticeOfAssignment050
+        - WorkersCompensationPolicy001
+        - WorkersCompensationPolicy002
+        - WorkersCompensationPolicy003
+        - WorkersCompensationPolicy004
+        - WorkersCompensationPolicy005
+    questionAnswer_Type:
+      type: object
+      title: Question Answer Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - questionCode
+            - answerCode
+          properties:
+            questionCode:
+              $ref: '#/components/schemas/questionCodeContent_Type'
+            questionCodeDescription:
+              type: string
+            answerCode:
+              $ref: '#/components/schemas/answerCodeContent_Type'
+            explanation:
+              type: string
+            explanationDate:
+              type: string
+              format: date
+            explanationCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            explanationPeriod:
+              $ref: '#/components/schemas/explanationPeriod_Type'
+            explanationDuration:
+              type: string
+              format: duration
+            explanationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            explanationAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            explanationMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            explanationPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    cyberInformation_Type:
+      type: object
+      title: Cyber Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            businessInterruptionServiceProviderName:
+              type: string
+              maxLength: 255
+            paymentSystemProviderName:
+              type: string
+              maxLength: 255
+            cyberSecurityManagementCode:
+              $ref: '#/components/schemas/cyberSecurityManagementCodeContent_Type'
+            cyberContractTypeCode:
+              $ref: '#/components/schemas/cyberContractTypeCodeContent_Type'
+            cyberContractDescription:
+              type: string
+              maxLength: 255
+            domainName:
+              type: string
+              maxLength: 255
+            legalEntityCode:
+              $ref: '#/components/schemas/legalEntityCodeContent_Type'
+            legalEntityDescription:
+              type: string
+              maxLength: 255
+            cloudPlatformTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            cloudPlatformDescription:
+              type: string
+              maxLength: 255
+            dataUpdateFrequencyCode:
+              $ref: '#/components/schemas/dataUpdateFrequencyCodeContent_Type'
+            dataUpdateFrequencyDescription:
+              type: string
+              maxLength: 255
+            computerOperatingSystemCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            computerOperatingSystemDescription:
+              type: string
+            physicalSecurityMeasuresCode:
+              $ref: '#/components/schemas/physicalSecurityMeasuresCodeContent_Type'
+            physicalSecurityMeasuresDescription:
+              type: string
+              maxLength: 255
+            remoteAccessPermissionCode:
+              $ref: '#/components/schemas/remoteAccessPermissionCodeContent_Type'
+            patchUpdateFrequencyCode:
+              $ref: '#/components/schemas/patchUpdateFrequencyCodeContent_Type'
+            patchUpdateFrequencyDescription:
+              type: string
+              maxLength: 255
+            cyberCredential:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberCredential_Type'
+                - $ref: '#/components/schemas/cyberCredential_Type'
+            cyberAmountItem:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberAmountItem_Type'
+                - $ref: '#/components/schemas/cyberAmountItem_Type'
+            assessmentScore:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assessmentScore_Type'
+                - $ref: '#/components/schemas/assessmentScore_Type'
+            cyberCountInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberCountInformation_Type'
+                - $ref: '#/components/schemas/cyberCountInformation_Type'
+            questionAnswer:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/questionAnswer_Type'
+                - $ref: '#/components/schemas/questionAnswer_Type'
+    treatmentFacilityTypeCodeContent_Type:
+      type: string
+      title: TreatmentFacilityTypeCodeContent_Type
+      description: TheTreatment Facility Type content enumeration
+      enum:
+        - CommunityHospital
+        - Government
+        - Private
+        - Public
+        - RestructuredHospital
+    treatmentRoomTypeCodeContent_Type:
+      type: string
+      title: TreatmentRoomTypeCodeContent_Type
+      description: TheTreatment Room Type content enumeration
+      enum:
+        - CurativeAcuteCareBeds
+        - DayOrOutpatientSurgeryRoom
+        - DoubleRoom
+        - FourBedded
+        - IntensiveOrCriticalCareUnit
+        - LongTermCareBeds
+        - OtherHospitalBeds
+        - RehabilitiveCareBeds
+        - RoomAndBoard
+        - ShortStayWard
+        - SingleRoom
+    medicalFacilityCountInformationCodeContent_Type:
+      type: string
+      title: Medical Facility Count Information Code Content Type
+      description: TBD
+      enum:
+        - AlliedHealthComplimentaryActivities
+        - AlliedHealthProfessions
+        - BedOccupancyPercentage
+        - NumberOfBeds
+        - NumberOfOutPatientsLastYear
+        - NumberOfOutPatientsNextYear
+        - NumberOfOutPatientsThisYear
+        - NumberOfPatients
+        - NumberOfPatientsLastYear
+        - NumberOfPatientsNextYear
+        - NumberOfPatientsThisYear
+        - NumberOfVisitsByInsured
+        - ProcedureTypePatientInformation
+    medicalFacilityCountInformation_Type:
+      type: object
+      title: Medical Facility CountInformation Type
+      required:
+        - typeCode
+      properties:
+        typeCode:
+          $ref: '#/components/schemas/medicalFacilityCountInformationCodeContent_Type'
+        itemCount:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        itemPercent:
+          type: string
+          pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+        description:
+          type: string
+    medicalFacilityInformation_Type:
+      type: object
+      title: Medica lFacility Information Type
+      required:
+        - treatmentFacilityTypeCode
+      properties:
+        treatmentFacilityTypeCode:
+          $ref: '#/components/schemas/treatmentFacilityTypeCodeContent_Type'
+        description:
+          type: string
+        treatmentRoomTypeCode:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
+            - $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
+        medicalFacilityCountInformation:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
+            - $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
+    shareRegistryListingTypeCodeContent_Type:
+      type: string
+      title: Share Registry Listing Type Code Content Type
+      description: TBD
+      enum:
+        - Level1
+        - Level2
+        - Level3
+    stockInformation_Type:
+      type: object
+      title: Stock Information Type
+      required:
+        - shareRegistryListingTypeCode
+      properties:
+        shareRegistryListingTypeCode:
+          $ref: '#/components/schemas/shareRegistryListingTypeCodeContent_Type'
+        exchangeTradedName:
+          type: string
+          maxLength: 255
+        marketCapitalizationAmount:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                currencyCode:
+                  type: string
+                value:
+                  type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            - type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
     liabilityItemQuestionCodeContent_Type:
       type: string
       title: Liability Item Question Code Content Type
@@ -14154,6 +15805,24 @@ components:
       allOf:
         - $ref: '#/components/schemas/ACORDAggregate_Type'
         - properties:
+            policyPropertyReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyPropertyReferences_Type'
+                - $ref: '#/components/schemas/policyPropertyReferences_Type'
+            policyArticleReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyArticleReferences_Type'
+                - $ref: '#/components/schemas/policyArticleReferences_Type'
+            policyVehicleReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyVehicleReferences_Type'
+                - $ref: '#/components/schemas/policyVehicleReferences_Type'
             claimItemReferences:
               oneOf:
                 - type: array
@@ -14229,12 +15898,30 @@ components:
                   items:
                     $ref: '#/components/schemas/employeeInformation_Type'
                 - $ref: '#/components/schemas/employeeInformation_Type'
+            cyberInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberInformation_Type'
+                - $ref: '#/components/schemas/cyberInformation_Type'
             propertyOwnerOnlyIndicator:
               type: boolean
             engageSubcontractorsIndicator:
               type: boolean
             labourHireIndicator:
               type: boolean
+            medicalFacilityInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/medicalFacilityInformation_Type'
+                - $ref: '#/components/schemas/medicalFacilityInformation_Type'
+            stockInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/stockInformation_Type'
+                - $ref: '#/components/schemas/stockInformation_Type'
             lossHistory:
               oneOf:
                 - type: array
@@ -14816,19 +16503,6 @@ components:
         - Personal
         - Reinsurance
         - Retail
-    actionCodeContent_Type:
-      type: string
-      title: Action Code Content Type
-      description: TBD
-      enum:
-        - Add
-        - AdvisedValue
-        - Delete
-        - ModifyElement
-        - ModifyIdentifierReference
-        - NoModification
-        - RemoveElement
-        - Truncate
     dataModification_Type:
       type: object
       title: Data Modification Type
@@ -15010,37 +16684,6 @@ components:
             sequenceNumber:
               type: string
               pattern: ^[0-9]{1,15}$
-    vehicleClassCodeContent_Type:
-      type: string
-      title: Vehicle Class Code Content
-      description: TBD
-      enum:
-        - Breakdown
-        - Bus
-        - Caravan
-        - Commercial
-        - CommercialAndPrivate
-        - Dolly
-        - EarthMoving
-        - Farm
-        - Harvesting
-        - HeavyCommercial
-        - LightCommercial
-        - MediumCommercial
-        - Mobile
-        - Motorcycle
-        - MotorHome
-        - Other
-        - Passenger
-        - PrimeMover
-        - Private
-        - PrivateBus
-        - Safari
-        - ScheduledBus
-        - Tractor
-        - Trailer
-        - Truck
-        - UnscheduledBus
     thirdPartyVehicleReferences_Type:
       type: object
       title: Third Party Vehicle References Type
@@ -15941,88 +17584,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/period_Type'
         - properties: {}
-    treatmentFacilityTypeCodeContent_Type:
-      type: string
-      title: TreatmentFacilityTypeCodeContent_Type
-      description: TheTreatment Facility Type content enumeration
-      enum:
-        - CommunityHospital
-        - Government
-        - Private
-        - Public
-        - RestructuredHospital
-    treatmentRoomTypeCodeContent_Type:
-      type: string
-      title: TreatmentRoomTypeCodeContent_Type
-      description: TheTreatment Room Type content enumeration
-      enum:
-        - CurativeAcuteCareBeds
-        - DayOrOutpatientSurgeryRoom
-        - DoubleRoom
-        - FourBedded
-        - IntensiveOrCriticalCareUnit
-        - LongTermCareBeds
-        - OtherHospitalBeds
-        - RehabilitiveCareBeds
-        - RoomAndBoard
-        - ShortStayWard
-        - SingleRoom
-    medicalFacilityCountInformationCodeContent_Type:
-      type: string
-      title: Medical Facility Count Information Code Content Type
-      description: TBD
-      enum:
-        - AlliedHealthComplimentaryActivities
-        - AlliedHealthProfessions
-        - BedOccupancyPercentage
-        - NumberOfBeds
-        - NumberOfOutPatientsLastYear
-        - NumberOfOutPatientsNextYear
-        - NumberOfOutPatientsThisYear
-        - NumberOfPatients
-        - NumberOfPatientsLastYear
-        - NumberOfPatientsNextYear
-        - NumberOfPatientsThisYear
-        - NumberOfVisitsByInsured
-        - ProcedureTypePatientInformation
-    medicalFacilityCountInformation_Type:
-      type: object
-      title: Medical Facility CountInformation Type
-      required:
-        - typeCode
-      properties:
-        typeCode:
-          $ref: '#/components/schemas/medicalFacilityCountInformationCodeContent_Type'
-        itemCount:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        itemPercent:
-          type: string
-          pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-        description:
-          type: string
-    medicalFacilityInformation_Type:
-      type: object
-      title: Medica lFacility Information Type
-      required:
-        - treatmentFacilityTypeCode
-      properties:
-        treatmentFacilityTypeCode:
-          $ref: '#/components/schemas/treatmentFacilityTypeCodeContent_Type'
-        description:
-          type: string
-        treatmentRoomTypeCode:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
-            - $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
-        medicalFacilityCountInformation:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
-            - $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
     medicalTreatment_Type:
       type: object
       title: Medical Treatment Type
@@ -16218,6 +17779,14 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claim:
               $ref: '#/components/schemas/claim_Type'
+    policyNewBusinessQuotationProcessResult_Type:
+      type: object
+      title: PolicyNewBusinessQuotationProcessResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessageResult_Type'
+        - properties:
+            policyQuotation:
+              $ref: '#/components/schemas/policyQuotation_Type'
     apiError_Type:
       type: object
       title: API Error Details

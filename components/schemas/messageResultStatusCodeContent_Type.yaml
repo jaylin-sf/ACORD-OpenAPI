@@ -1,0 +1,10 @@
+type: string
+title: MessageResultStatusCodeContent_Type
+description: TBD
+enum:
+  - Accepted
+  - AcceptedWithErrors
+  - Duplicate
+  - Invalid
+  - Rejected
+  - Valid

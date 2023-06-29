@@ -1,0 +1,7 @@
+type: string
+title: MessageDocumentResultStatusCodeContent_Type
+description: TBD
+enum:
+  - Pended
+  - Rejected
+  - Success

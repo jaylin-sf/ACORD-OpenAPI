@@ -1,0 +1,32 @@
+type: object
+title: MessageDocumentResult_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - required:
+      - messageDocumentReferences
+      - statusCode
+    properties:
+      messageDocumentReferences:
+        $ref: .\messageDocumentReferences_Type.yaml
+      statusCode:
+        $ref: .\messageDocumentResultStatusCode_Type.yaml
+      description:
+        type: string
+      extendedStatus:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\extendedStatus_Type.yaml
+          - $ref: .\extendedStatus_Type.yaml
+      changeStatus:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\changeStatus_Type.yaml
+          - $ref: .\changeStatus_Type.yaml
+      successCode:
+        $ref: .\resultSuccessCode_Type.yaml
+      rejectCode:
+        $ref: .\resultRejectCode_Type.yaml
+      pendedCode:
+        $ref: .\resultPendedCode_Type.yaml

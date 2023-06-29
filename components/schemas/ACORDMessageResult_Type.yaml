@@ -1,0 +1,10 @@
+type: object
+title: ACORDMessageResult_Type
+required:
+  - messageHeader
+  - messageResult
+properties:
+  messageHeader:
+    $ref: .\messageHeader_Type.yaml
+  messageResult:
+    $ref: .\messageResult_Type.yaml
