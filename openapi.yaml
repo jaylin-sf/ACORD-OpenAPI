@@ -16,17 +16,17 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
-  /quotation/{id}:
+  /cancellationClosingProcess/{id}:
     get:
       tags:
-        - Quotation
-      summary: Get quotation by id
-      description: Get quotation details by id sent via Webhook
-      operationId: GetQuotationById
+        - Cancellation
+      summary: Cancel policy
+      description: Cancel policy
+      operationId: cancellationClosingProcess
       parameters:
         - name: id
           in: path
-          description: Quotation Id
+          description: Opportunity Id
           required: true
           schema:
             type: string
@@ -37,7 +37,42 @@ paths:
           content:
             application/json:
               schema:
-                $ref: components\schemas\policyQuotation_Type.yaml
+                $ref: components\schemas\policyCancellationOrderProcess_Type.yaml
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+
+  /cancellationClosingProcessResult/{id}:
+    get:
+      tags:
+        - Cancellation
+      summary: Cancel policy result
+      description: Cancel policy result
+      operationId: cancellationClosingProcessResult
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\policyCancellationOrderProcessResult_Type.yaml
         '400':
           description: Bad Request.
           content:

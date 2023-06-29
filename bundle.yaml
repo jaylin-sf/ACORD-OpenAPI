@@ -15,17 +15,17 @@ servers:
   - url: https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
-  /quotation/{id}:
+  /cancellationClosingProcess/{id}:
     get:
       tags:
-        - Quotation
-      summary: Get quotation by id
-      description: Get quotation details by id sent via Webhook
-      operationId: GetQuotationById
+        - Cancellation
+      summary: Cancel policy
+      description: Cancel policy
+      operationId: cancellationClosingProcess
       parameters:
         - name: id
           in: path
-          description: Quotation Id
+          description: Opportunity Id
           required: true
           schema:
             type: string
@@ -36,7 +36,41 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyQuotation_Type'
+                $ref: '#/components/schemas/policyCancellationOrderProcess_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+  /cancellationClosingProcessResult/{id}:
+    get:
+      tags:
+        - Cancellation
+      summary: Cancel policy result
+      description: Cancel policy result
+      operationId: cancellationClosingProcessResult
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policyCancellationOrderProcessResult_Type'
         '400':
           description: Bad Request.
           content:
@@ -80,6 +114,970 @@ components:
               type: string
         extensions:
           $ref: '#/components/schemas/extensions_Type'
+    ACORDStandardVersionCodeContent_Type:
+      type: string
+      title: ACORDStandardVersionCodeContent_Type
+      description: TBD
+      enum:
+        - AML_1_0_0
+        - AML_1_1_0
+        - AML_1_2_0
+        - AML_1_3_0
+        - AML_1_3_1
+        - AML_1_4_0
+        - AML_1_5_0
+        - AML_1_5_1
+        - AML_1_6_0
+        - AML_2_0_0
+        - AML_2_1_0
+        - AML_2_2_0
+        - AML_2_2_1
+        - AML_2_3_0
+        - AML_2_3_1
+        - AML_2_4_0
+        - AML_2_4_1
+        - AML_2_4_2
+        - AML_2_4_3
+    coreRoleCodeContent_Type:
+      type: string
+      title: CoreRoleCodeContent_Type
+      description: The Core Role Code content enumeration
+      enum:
+        - Agency
+        - Broker
+        - Bureau
+        - ClaimAdministrator
+        - Customer
+        - DataCollectionAgency
+        - EmployeeSecurityId
+        - Employer
+        - FundOrganization
+        - Insured
+        - Insurer
+        - Jurisdiction
+        - ManagingGeneralAgent
+        - PlacingExchange
+        - Police
+        - PostalAuthority
+        - PremiumFinanceCompany
+        - Producer
+        - ProducerLicensingAppointmentExchange
+        - RegulatoryAgency
+        - ServiceProvider
+        - ThirdPartyAdministrator
+        - ThirdPartyEntity
+        - Underwriter
+    organizationExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: OrganizationExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - ABR
+        - ACN
+        - AFS
+        - ASIC
+        - BusinessRegistrationCertificate
+        - DUNSNumberCode
+        - GroupAccountId
+        - IncorporationCertificate
+        - JurisdictionId
+        - OtherId
+        - UnincorporatedClub
+    organizationExternalIdentifier_Type:
+      type: object
+      title: OrganizationExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+            identifierDescription:
+              type: string
+    organizationNameTypeCodeContent_Type:
+      type: string
+      title: OrganizationNameTypeCodeContent Type
+      description: The type code content of the Organization name
+      enum:
+        - Alias
+        - Branch
+        - Division
+        - DoingBusinessAs
+        - Previous
+        - Primary
+        - Registered
+        - Retailer
+        - TradingBusinessAs
+    organizationName_Type:
+      type: object
+      title: Organization Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/organizationNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+    organizationReferences_Type:
+      type: object
+      title: Organization References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                organizationReference:
+                  type: string
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+                - $ref: '#/components/schemas/organizationExternalIdentifier_Type'
+            organizationName:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/organizationName_Type'
+                - $ref: '#/components/schemas/organizationName_Type'
+    lineOneDetails_Type:
+      type: object
+      title: Line One Details Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            streetName:
+              type: string
+              maxLength: 255
+            streetNumber:
+              type: string
+              maxLength: 255
+            unitNumber:
+              type: string
+              maxLength: 255
+            unitFloorNumber:
+              type: string
+              maxLength: 255
+    includedOrExcludedCodeContent_Type:
+      type: string
+      title: IncludedOrExcludedCodeContent_Type
+      description: TBD
+      enum:
+        - Excluded
+        - Included
+        - NotApplicable
+    regionLimit_Type:
+      type: object
+      title: Region Limit
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            includedOrExcludedCode:
+              $ref: '#/components/schemas/includedOrExcludedCodeContent_Type'
+            description:
+              type: string
+            countryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryName:
+              type: string
+              maxLength: 255
+            regionPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    address_Type:
+      type: object
+      title: Address Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            fullAddressDescription:
+              type: string
+              maxLength: 255
+            lineOne:
+              type: string
+              maxLength: 255
+            lineOneDetails:
+              $ref: '#/components/schemas/lineOneDetails_Type'
+            lineTwo:
+              type: string
+              maxLength: 255
+            lineThree:
+              type: string
+              maxLength: 255
+            lineFour:
+              type: string
+              maxLength: 255
+            cityName:
+              type: string
+              maxLength: 255
+            suburbName:
+              type: string
+              maxLength: 255
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            stateOrProvinceName:
+              type: string
+              maxLength: 255
+            postalCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countryName:
+              type: string
+              maxLength: 255
+            countyCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            countyName:
+              type: string
+              maxLength: 255
+            regionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            regionName:
+              type: string
+              maxLength: 255
+            regionLimit:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/regionLimit_Type'
+                - $ref: '#/components/schemas/regionLimit_Type'
+    personExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: PersonExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - DriversLicenseId
+        - GovernmentId
+        - JurisdictionId
+        - LocalIdentityDocument
+        - NRIC
+        - OtherId
+        - PassportId
+        - PoliceWarrantCard
+        - TFN
+        - ValidTravelDocument
+        - VisaId
+        - WorkPermitId
+    personExternalIdentifier_Type:
+      type: object
+      title: PersonExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    personNameTypeCodeContent_Type:
+      type: string
+      title: Person Name Type Code Content Type
+      description: The type code content of the Person name
+      enum:
+        - Alias
+        - AlsoKnownAs
+        - Maiden
+        - Previous
+        - Primary
+    personTitlePrefixCodeContent_Type:
+      type: string
+      title: Person Title Prefix Code Content Type
+      description: TBD
+      enum:
+        - AdjunctProfessor
+        - Admiral
+        - Advocate
+        - Archbishop
+        - AssociateProfessor
+        - Bishop
+        - Brigadier
+        - Captain
+        - Colonel
+        - Commissioner
+        - Director
+        - Doctor
+        - Economist
+        - EstateLate
+        - Father
+        - General
+        - Honourable
+        - HonourableJudge
+        - Inspector
+        - Judge
+        - Justice
+        - Lady
+        - Lieutenant
+        - LieutenantColonel
+        - LieutenantCommander
+        - Lord
+        - Magistrate
+        - Major
+        - Minister
+        - Miss
+        - Mr
+        - MrJnr
+        - Mrs
+        - MrSnr
+        - Ms
+        - Pastor
+        - Professor
+        - ProfessorEmerita
+        - ProfessorEmeritus
+        - Psychologist
+        - Rabbi
+        - RevOrReverend
+        - Sergeant
+        - Sir
+        - Sister
+        - SnrSup
+        - Sup
+        - TheHonourable
+        - Trust
+        - Trustee
+        - Unknown
+    personName_Type:
+      type: object
+      title: Person Name Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
+            indexName:
+              type: string
+              maxLength: 255
+            fullName:
+              type: string
+              maxLength: 255
+            surname:
+              type: string
+              maxLength: 255
+            givenName:
+              type: string
+              maxLength: 255
+            otherGivenName:
+              type: string
+              maxLength: 255
+            combinedGivenNames:
+              type: string
+              maxLength: 255
+            personTitlePrefix:
+              type: string
+              maxLength: 255
+            personTitlePrefixCode:
+              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
+            nameSuffix:
+              type: string
+              maxLength: 255
+            nickname:
+              type: string
+              maxLength: 255
+            initials:
+              type: string
+              maxLength: 255
+    personReferences_Type:
+      type: object
+      title: PersonReference Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            personReference:
+              type: string
+        externalIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personExternalIdentifier_Type'
+            - $ref: '#/components/schemas/personExternalIdentifier_Type'
+        personName:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/personName_Type'
+            - $ref: '#/components/schemas/personName_Type'
+    endPointActorContactRoleCodeContent_Type:
+      type: string
+      title: EndPointActorContactRoleCodeContent_Type
+      description: TBD
+      enum:
+        - Broker
+        - Insured
+        - Insurer
+        - Other
+    contactPeriod_Type:
+      type: object
+      title: Contact Period Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            localStandardTimeAppliesToInceptionDateIndicator:
+              type: boolean
+            periodDuration:
+              type: string
+              format: duration
+            continuousDurationIndicator:
+              type: boolean
+            timePeriodDescription:
+              type: string
+              maxLength: 255
+            bothDaysInclusiveIndicator:
+              type: boolean
+    blackoutPeriod_Type:
+      type: object
+      title: Blackout Period Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    communicationPreferences_Type:
+      type: object
+      title: Communication Preferences Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            priorityRank:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            contactPeriod:
+              $ref: '#/components/schemas/contactPeriod_Type'
+            blackoutPeriod:
+              $ref: '#/components/schemas/blackoutPeriod_Type'
+            doNotContactIndicator:
+              type: boolean
+    communicationMethod_Type:
+      type: object
+      title: Communication Method Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            primaryIndicator:
+              type: boolean
+            previousIndicator:
+              type: boolean
+            communicationPreferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/communicationPreferences_Type'
+                - $ref: '#/components/schemas/communicationPreferences_Type'
+    telephoneTypeCodeContent_Type:
+      type: string
+      title: TelephoneTypeCodeContent_Type
+      description: The Telephone Code content enumeration
+      enum:
+        - Fax
+        - InternetProtocol
+        - Marine
+        - Pager
+        - TextTelephone
+        - Unknown
+        - Wired
+        - Wireless
+    telephone_Type:
+      type: object
+      title: Telephone Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - required:
+            - typeCode
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/telephoneTypeCodeContent_Type'
+            dayIndicator:
+              type: boolean
+            eveningIndicator:
+              type: boolean
+            asOfDate:
+              type: string
+              format: date
+            phoneNumber:
+              type: string
+              minLength: 1
+              maxLength: 32
+              pattern: \+\S+\-\S+\-\S+(\+\S+)?
+            phoneNumberUnformatted:
+              type: string
+    emailTypeCodeContent_Type:
+      type: string
+      title: EmailTypeCodeContent_Type
+      description: The Email Code content enumeration
+      enum:
+        - Business
+        - Personal
+        - Unknown
+    email_Type:
+      type: object
+      title: Email Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/emailTypeCodeContent_Type'
+            emailAddress:
+              type: string
+              maxLength: 255
+            asOfDate:
+              type: string
+              format: date
+    addressReferences_Type:
+      type: object
+      title: Address References Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            attributes:
+              type: object
+              properties:
+                addressReference:
+                  type: string
+    assignedIdentifier_Type:
+      type: object
+      title: Assigned Identifier Type
+      required:
+        - roleCode
+        - id
+      properties:
+        roleCode:
+          $ref: '#/components/schemas/coreRoleCodeContent_Type'
+        id:
+          type: string
+        identifierDescription:
+          type: string
+    contactAddress_Type:
+      type: object
+      title: Contact Address Type
+      allOf:
+        - $ref: '#/components/schemas/communicationMethod_Type'
+        - properties:
+            attentionName:
+              type: string
+              maxLength: 255
+            asOfDate:
+              type: string
+              format: date
+            addressReferences:
+              $ref: '#/components/schemas/addressReferences_Type'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+    mailingAddressExternalIdentifierTypeCodeContent_Type:
+      type: string
+      title: MailingAddressExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - PostalAuthority
+    mailingAddressExternalIdentifier_Type:
+      type: object
+      title: MailingAddressExternalIdentifier Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+            - id
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/mailingAddressExternalIdentifierTypeCodeContent_Type'
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            sourceURI:
+              type: string
+              format: uri
+            id:
+              type: string
+              maxLength: 255
+            identifierDescription:
+              type: string
+    mailingAddress_Type:
+      type: object
+      title: Mailing Address Type
+      allOf:
+        - $ref: '#/components/schemas/contactAddress_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
+                - $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
+            postalBarcode:
+              type: string
+            postalBarcodeSortPlan:
+              type: string
+            postalNationalSortPlan:
+              type: string
+    endPointActorContact_Type:
+      type: object
+      title: EndPointActorContact_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            personReferences:
+              $ref: '#/components/schemas/personReferences_Type'
+            userAccessLevelCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            roleCode:
+              $ref: '#/components/schemas/endPointActorContactRoleCodeContent_Type'
+            telephone:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/telephone_Type'
+                - $ref: '#/components/schemas/telephone_Type'
+            email:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/email_Type'
+                - $ref: '#/components/schemas/email_Type'
+            mailingAddress:
+              $ref: '#/components/schemas/mailingAddress_Type'
+    endPointActor_Type:
+      type: object
+      title: EndPointActor_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            roleCode:
+              $ref: '#/components/schemas/coreRoleCodeContent_Type'
+            organizationReferences:
+              $ref: '#/components/schemas/organizationReferences_Type'
+            address:
+              $ref: '#/components/schemas/address_Type'
+            contact:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/endPointActorContact_Type'
+                - $ref: '#/components/schemas/endPointActorContact_Type'
+    sender_Type:
+      type: object
+      title: Sender_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    receiver_Type:
+      type: object
+      title: Receiver_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    processingIntermediary_Type:
+      type: object
+      title: ProcessingIntermediary_Type
+      allOf:
+        - $ref: '#/components/schemas/endPointActor_Type'
+        - properties: {}
+    endPointSystem_Type:
+      type: object
+      title: EndPointSystem_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            systemVendorId:
+              type: string
+              maxLength: 255
+            systemVendorName:
+              type: string
+              maxLength: 255
+            vendorProductName:
+              type: string
+              maxLength: 255
+            vendorProductVersion:
+              type: string
+              maxLength: 255
+    sendingSystem_Type:
+      type: object
+      title: Sending System
+      allOf:
+        - $ref: '#/components/schemas/endPointSystem_Type'
+        - properties: {}
+    batchPeriod_Type:
+      type: object
+      title: BatchPeriod_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            periodDuration:
+              type: string
+              format: duration
+            bothDaysInclusiveIndicator:
+              type: boolean
+    messageHeader_Type:
+      type: object
+      title: MessageHeader_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - messageId
+            - correlationId
+            - messageDateTime
+          properties:
+            ACORDStandardVersionCode:
+              $ref: '#/components/schemas/ACORDStandardVersionCodeContent_Type'
+            messageId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            correlationId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            messageDateTime:
+              type: string
+              format: date-time
+            sender:
+              $ref: '#/components/schemas/sender_Type'
+            receiver:
+              $ref: '#/components/schemas/receiver_Type'
+            processingIntermediary:
+              $ref: '#/components/schemas/processingIntermediary_Type'
+            sendingSystem:
+              $ref: '#/components/schemas/sendingSystem_Type'
+            accountNumberId:
+              type: string
+              maxLength: 255
+            batchId:
+              type: string
+              maxLength: 255
+            messageDocumentCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            batchSequenceNumberNumeric:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            batchPeriod:
+              $ref: '#/components/schemas/batchPeriod_Type'
+            messageSubmissionTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            totalBatchCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    ACORDMessage_Type:
+      type: object
+      title: ACORDMessage_Type
+      required:
+        - messageHeader
+      properties:
+        messageHeader:
+          $ref: '#/components/schemas/messageHeader_Type'
     attachmentTypeCodeContent_Type:
       type: string
       title: AttachmentTypeCodeContent_Type
@@ -352,35 +1350,6 @@ components:
               type: string
             attachmentDocument:
               $ref: '#/components/schemas/attachmentDocument_Type'
-    coreRoleCodeContent_Type:
-      type: string
-      title: CoreRoleCodeContent_Type
-      description: The Core Role Code content enumeration
-      enum:
-        - Agency
-        - Broker
-        - Bureau
-        - ClaimAdministrator
-        - Customer
-        - DataCollectionAgency
-        - EmployeeSecurityId
-        - Employer
-        - FundOrganization
-        - Insured
-        - Insurer
-        - Jurisdiction
-        - ManagingGeneralAgent
-        - PlacingExchange
-        - Police
-        - PostalAuthority
-        - PremiumFinanceCompany
-        - Producer
-        - ProducerLicensingAppointmentExchange
-        - RegulatoryAgency
-        - ServiceProvider
-        - ThirdPartyAdministrator
-        - ThirdPartyEntity
-        - Underwriter
     remarkTypeCodeContent_Type:
       type: string
       title: Remark Type Code Content
@@ -568,435 +1537,6 @@ components:
             listAgencyCode:
               $ref: '#/components/schemas/codeListOwnerCodeContent_Type'
             listDescription:
-              type: string
-    lineOneDetails_Type:
-      type: object
-      title: Line One Details Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            streetName:
-              type: string
-              maxLength: 255
-            streetNumber:
-              type: string
-              maxLength: 255
-            unitNumber:
-              type: string
-              maxLength: 255
-            unitFloorNumber:
-              type: string
-              maxLength: 255
-    includedOrExcludedCodeContent_Type:
-      type: string
-      title: IncludedOrExcludedCodeContent_Type
-      description: TBD
-      enum:
-        - Excluded
-        - Included
-        - NotApplicable
-    regionLimit_Type:
-      type: object
-      title: Region Limit
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            includedOrExcludedCode:
-              $ref: '#/components/schemas/includedOrExcludedCodeContent_Type'
-            description:
-              type: string
-            countryCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryName:
-              type: string
-              maxLength: 255
-            regionPercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-    address_Type:
-      type: object
-      title: Address Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            fullAddressDescription:
-              type: string
-              maxLength: 255
-            lineOne:
-              type: string
-              maxLength: 255
-            lineOneDetails:
-              $ref: '#/components/schemas/lineOneDetails_Type'
-            lineTwo:
-              type: string
-              maxLength: 255
-            lineThree:
-              type: string
-              maxLength: 255
-            lineFour:
-              type: string
-              maxLength: 255
-            cityName:
-              type: string
-              maxLength: 255
-            suburbName:
-              type: string
-              maxLength: 255
-            stateOrProvinceCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            stateOrProvinceName:
-              type: string
-              maxLength: 255
-            postalCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countryName:
-              type: string
-              maxLength: 255
-            countyCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            countyName:
-              type: string
-              maxLength: 255
-            regionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            regionName:
-              type: string
-              maxLength: 255
-            regionLimit:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/regionLimit_Type'
-                - $ref: '#/components/schemas/regionLimit_Type'
-    contactPeriod_Type:
-      type: object
-      title: Contact Period Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            localStandardTimeAppliesToInceptionDateIndicator:
-              type: boolean
-            periodDuration:
-              type: string
-              format: duration
-            continuousDurationIndicator:
-              type: boolean
-            timePeriodDescription:
-              type: string
-              maxLength: 255
-            bothDaysInclusiveIndicator:
-              type: boolean
-    blackoutPeriod_Type:
-      type: object
-      title: Blackout Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    communicationPreferences_Type:
-      type: object
-      title: Communication Preferences Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            priorityRank:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            contactPeriod:
-              $ref: '#/components/schemas/contactPeriod_Type'
-            blackoutPeriod:
-              $ref: '#/components/schemas/blackoutPeriod_Type'
-            doNotContactIndicator:
-              type: boolean
-    communicationMethod_Type:
-      type: object
-      title: Communication Method Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            primaryIndicator:
-              type: boolean
-            previousIndicator:
-              type: boolean
-            communicationPreferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/communicationPreferences_Type'
-                - $ref: '#/components/schemas/communicationPreferences_Type'
-    telephoneTypeCodeContent_Type:
-      type: string
-      title: TelephoneTypeCodeContent_Type
-      description: The Telephone Code content enumeration
-      enum:
-        - Fax
-        - InternetProtocol
-        - Marine
-        - Pager
-        - TextTelephone
-        - Unknown
-        - Wired
-        - Wireless
-    telephone_Type:
-      type: object
-      title: Telephone Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - required:
-            - typeCode
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/telephoneTypeCodeContent_Type'
-            dayIndicator:
-              type: boolean
-            eveningIndicator:
-              type: boolean
-            asOfDate:
-              type: string
-              format: date
-            phoneNumber:
-              type: string
-              minLength: 1
-              maxLength: 32
-              pattern: \+\S+\-\S+\-\S+(\+\S+)?
-            phoneNumberUnformatted:
-              type: string
-    emailTypeCodeContent_Type:
-      type: string
-      title: EmailTypeCodeContent_Type
-      description: The Email Code content enumeration
-      enum:
-        - Business
-        - Personal
-        - Unknown
-    email_Type:
-      type: object
-      title: Email Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/emailTypeCodeContent_Type'
-            emailAddress:
-              type: string
-              maxLength: 255
-            asOfDate:
-              type: string
-              format: date
-    addressReferences_Type:
-      type: object
-      title: Address References Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            attributes:
-              type: object
-              properties:
-                addressReference:
-                  type: string
-    assignedIdentifier_Type:
-      type: object
-      title: Assigned Identifier Type
-      required:
-        - roleCode
-        - id
-      properties:
-        roleCode:
-          $ref: '#/components/schemas/coreRoleCodeContent_Type'
-        id:
-          type: string
-        identifierDescription:
-          type: string
-    contactAddress_Type:
-      type: object
-      title: Contact Address Type
-      allOf:
-        - $ref: '#/components/schemas/communicationMethod_Type'
-        - properties:
-            attentionName:
-              type: string
-              maxLength: 255
-            asOfDate:
-              type: string
-              format: date
-            addressReferences:
-              $ref: '#/components/schemas/addressReferences_Type'
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-    mailingAddressExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: MailingAddressExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - PostalAuthority
-    mailingAddressExternalIdentifier_Type:
-      type: object
-      title: MailingAddressExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/mailingAddressExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    mailingAddress_Type:
-      type: object
-      title: Mailing Address Type
-      allOf:
-        - $ref: '#/components/schemas/contactAddress_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
-                - $ref: '#/components/schemas/mailingAddressExternalIdentifier_Type'
-            postalBarcode:
-              type: string
-            postalBarcodeSortPlan:
-              type: string
-            postalNationalSortPlan:
               type: string
     billingAddress_Type:
       type: object
@@ -2694,286 +3234,6 @@ components:
         - SelfEmployed
         - Unemployed
         - Volunteer
-    personExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: PersonExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - DriversLicenseId
-        - GovernmentId
-        - JurisdictionId
-        - LocalIdentityDocument
-        - NRIC
-        - OtherId
-        - PassportId
-        - PoliceWarrantCard
-        - TFN
-        - ValidTravelDocument
-        - VisaId
-        - WorkPermitId
-    personExternalIdentifier_Type:
-      type: object
-      title: PersonExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/personExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    personNameTypeCodeContent_Type:
-      type: string
-      title: Person Name Type Code Content Type
-      description: The type code content of the Person name
-      enum:
-        - Alias
-        - AlsoKnownAs
-        - Maiden
-        - Previous
-        - Primary
-    personTitlePrefixCodeContent_Type:
-      type: string
-      title: Person Title Prefix Code Content Type
-      description: TBD
-      enum:
-        - AdjunctProfessor
-        - Admiral
-        - Advocate
-        - Archbishop
-        - AssociateProfessor
-        - Bishop
-        - Brigadier
-        - Captain
-        - Colonel
-        - Commissioner
-        - Director
-        - Doctor
-        - Economist
-        - EstateLate
-        - Father
-        - General
-        - Honourable
-        - HonourableJudge
-        - Inspector
-        - Judge
-        - Justice
-        - Lady
-        - Lieutenant
-        - LieutenantColonel
-        - LieutenantCommander
-        - Lord
-        - Magistrate
-        - Major
-        - Minister
-        - Miss
-        - Mr
-        - MrJnr
-        - Mrs
-        - MrSnr
-        - Ms
-        - Pastor
-        - Professor
-        - ProfessorEmerita
-        - ProfessorEmeritus
-        - Psychologist
-        - Rabbi
-        - RevOrReverend
-        - Sergeant
-        - Sir
-        - Sister
-        - SnrSup
-        - Sup
-        - TheHonourable
-        - Trust
-        - Trustee
-        - Unknown
-    personName_Type:
-      type: object
-      title: Person Name Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/personNameTypeCodeContent_Type'
-            indexName:
-              type: string
-              maxLength: 255
-            fullName:
-              type: string
-              maxLength: 255
-            surname:
-              type: string
-              maxLength: 255
-            givenName:
-              type: string
-              maxLength: 255
-            otherGivenName:
-              type: string
-              maxLength: 255
-            combinedGivenNames:
-              type: string
-              maxLength: 255
-            personTitlePrefix:
-              type: string
-              maxLength: 255
-            personTitlePrefixCode:
-              $ref: '#/components/schemas/personTitlePrefixCodeContent_Type'
-            nameSuffix:
-              type: string
-              maxLength: 255
-            nickname:
-              type: string
-              maxLength: 255
-            initials:
-              type: string
-              maxLength: 255
-    personReferences_Type:
-      type: object
-      title: PersonReference Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            personReference:
-              type: string
-        externalIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personExternalIdentifier_Type'
-            - $ref: '#/components/schemas/personExternalIdentifier_Type'
-        personName:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/personName_Type'
-            - $ref: '#/components/schemas/personName_Type'
-    organizationExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: OrganizationExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - ABR
-        - ACN
-        - AFS
-        - ASIC
-        - BusinessRegistrationCertificate
-        - DUNSNumberCode
-        - GroupAccountId
-        - IncorporationCertificate
-        - JurisdictionId
-        - OtherId
-        - UnincorporatedClub
-    organizationExternalIdentifier_Type:
-      type: object
-      title: OrganizationExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/organizationExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    organizationNameTypeCodeContent_Type:
-      type: string
-      title: OrganizationNameTypeCodeContent Type
-      description: The type code content of the Organization name
-      enum:
-        - Alias
-        - Branch
-        - Division
-        - DoingBusinessAs
-        - Previous
-        - Primary
-        - Registered
-        - Retailer
-        - TradingBusinessAs
-    organizationName_Type:
-      type: object
-      title: Organization Name Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/organizationNameTypeCodeContent_Type'
-            indexName:
-              type: string
-              maxLength: 255
-            fullName:
-              type: string
-              maxLength: 255
-    organizationReferences_Type:
-      type: object
-      title: Organization References Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            attributes:
-              type: object
-              properties:
-                organizationReference:
-                  type: string
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/organizationExternalIdentifier_Type'
-                - $ref: '#/components/schemas/organizationExternalIdentifier_Type'
-            organizationName:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/organizationName_Type'
-                - $ref: '#/components/schemas/organizationName_Type'
     referencedPartyRole_Type:
       type: object
       title: ReferencedPartyRole_Type
@@ -8355,27 +8615,27 @@ components:
               maxLength: 255
             description:
               type: string
-    policyQuotationTransactionFunctionCodeContent_Type:
+    policyOrderTransactionFunctionCodeContent_Type:
       type: string
-      title: Policy Quotation Transaction Function Code Content Type
+      title: Policy Order Transaction Function Code Content Type
       description: TBD
       enum:
-        - DeclinedQuotation
-        - DeclinedRequestForQuotation
-        - DeclineToRenew
-        - FirmQuotation
-        - GetUnderwritingResultFromUnderwritingEngine
-        - IndicativeQuotation
-        - PassQuoteToUnderwritingEngine
-        - QuotationReferred
-        - ReferralRequired
-        - RenewalInvitation
-        - RequestAdditionalInformation
-        - RequestForAdjustedQuotation
-        - RequestForQuotation
-        - RequestForReferral
-        - SupplyAdditonalInformation
-        - UnsuccessfulQuotation
+        - AdjustmentOfDeclaration
+        - AdjustmentOfDeclarationFinalization
+        - ConfirmedCancellation
+        - ConfirmedLapse
+        - ConfirmedReinstatement
+        - CoverAcceptance
+        - DeclinePolicyOrder
+        - IncreaseCover
+        - LapseCover
+        - LifeEvent
+        - PolicyIssuance
+        - RequestForCancellation
+        - RequestForCover
+        - RequestForIssuance
+        - RequestForReinstatement
+        - TransferCover
     reason_Type:
       type: object
       title: Reason Type
@@ -8400,6 +8660,25 @@ components:
             reasonDescription:
               type: string
               maxLength: 255
+    policyOrderReferences_Type:
+      type: object
+      title: PolicyOrderReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyOrderReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
     policyQuotationReferences_Type:
       type: object
       title: PolicyQuotationReferences_Type
@@ -15920,22 +16199,6 @@ components:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
               $ref: '#/components/schemas/policy_Type'
-    policyRole_Type:
-      type: object
-      title: PolicyRole_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyReferences:
-              $ref: '#/components/schemas/policyReferences_Type'
-            policy:
-              $ref: '#/components/schemas/policy_Type'
-    underlyingPolicy_Type:
-      type: object
-      title: UnderlyingPolicy_Type
-      allOf:
-        - $ref: '#/components/schemas/policyRole_Type'
-        - properties: {}
     claimExperiencePeriod_Type:
       type: object
       title: Claim Experience Period
@@ -16028,6 +16291,17 @@ components:
         - Individual
         - Personal
         - Reinsurance
+        - Retail
+    lodgementTypeCodeContent_Type:
+      type: string
+      title: Lodgement Type Code Content
+      description: TBD
+      enum:
+        - Automatic
+        - Batch
+        - DirectAI
+        - DirectMember
+        - Manual
         - Retail
     actionCodeContent_Type:
       type: string
@@ -21553,9 +21827,9 @@ components:
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
-    policyQuotation_Type:
+    policyOrder_Type:
       type: object
-      title: PolicyQuotation_Type
+      title: PolicyOrder_Type
       allOf:
         - $ref: '#/components/schemas/messageDocument_Type'
         - required:
@@ -21568,7 +21842,7 @@ components:
                     $ref: '#/components/schemas/location_Type'
                 - $ref: '#/components/schemas/location_Type'
             transactionFunctionCode:
-              $ref: '#/components/schemas/policyQuotationTransactionFunctionCodeContent_Type'
+              $ref: '#/components/schemas/policyOrderTransactionFunctionCodeContent_Type'
             description:
               type: string
             reason:
@@ -21580,6 +21854,8 @@ components:
             versionDateTime:
               type: string
               format: date-time
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
             policyQuotationReferences:
               $ref: '#/components/schemas/policyQuotationReferences_Type'
             effectiveDate:
@@ -21595,9 +21871,9 @@ components:
             preparedDate:
               type: string
               format: date
-            validUntilDate:
+            preparedTime:
               type: string
-              format: date
+              format: time
             replyDueDate:
               type: string
               format: date
@@ -21607,12 +21883,6 @@ components:
                   items:
                     $ref: '#/components/schemas/priorPolicy_Type'
                 - $ref: '#/components/schemas/priorPolicy_Type'
-            underlyingPolicy:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/underlyingPolicy_Type'
-                - $ref: '#/components/schemas/underlyingPolicy_Type'
             claimExperiencePeriod:
               $ref: '#/components/schemas/claimExperiencePeriod_Type'
             agreementPortfolio:
@@ -21621,6 +21891,8 @@ components:
               $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
             broadLineOfBusinessDescription:
               type: string
+            lodgementTypeCode:
+              $ref: '#/components/schemas/lodgementTypeCodeContent_Type'
             documentId:
               type: string
               format: uuid
@@ -21651,6 +21923,16 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claim:
               $ref: '#/components/schemas/claim_Type'
+    policyCancellationOrderProcess_Type:
+      type: object
+      title: PolicyCancellationOrderProcess_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessage_Type'
+        - required:
+            - policyOrder
+          properties:
+            policyOrder:
+              $ref: '#/components/schemas/policyOrder_Type'
     apiError_Type:
       type: object
       title: API Error Details
@@ -21667,6 +21949,257 @@ components:
       properties:
         error:
           $ref: '#/components/schemas/apiError_Type'
+    messageResultStatusCodeContent_Type:
+      type: string
+      title: MessageResultStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Accepted
+        - AcceptedWithErrors
+        - Duplicate
+        - Invalid
+        - Rejected
+        - Valid
+    messageDocumentReferences_Type:
+      type: object
+      title: MessageDocumentReferences_Type
+      properties:
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    messageDocumentResultStatusCodeContent_Type:
+      type: string
+      title: MessageDocumentResultStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Pended
+        - Rejected
+        - Success
+    extendedStatusCodeContent_Type:
+      type: string
+      title: ExtendedStatusCodeContent_Type
+      description: TBD
+      enum:
+        - DataChanged
+        - DataError
+        - DataInformation
+        - DataMissing
+        - DataRestriction
+        - DataSuspect
+        - DataWarning
+    extendedStatus_Type:
+      type: object
+      title: ExtendedStatus_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            elementPath:
+              type: string
+              maxLength: 255
+            statusCode:
+              $ref: '#/components/schemas/extendedStatusCodeContent_Type'
+            description:
+              type: string
+            sequenceNumber:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            customStatusCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    changeStatus_Type:
+      type: object
+      title: ChangeStatus_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            externalIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/externalIdentifier_Type'
+                - $ref: '#/components/schemas/externalIdentifier_Type'
+            elementPath:
+              type: string
+              maxLength: 255
+            actionCode:
+              $ref: '#/components/schemas/actionCodeContent_Type'
+            description:
+              type: string
+            sequenceNumber:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            previousValueDescription:
+              type: string
+            previousValueAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            previousValuePercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            previousValueDate:
+              type: string
+              format: date
+            previousValueMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            previousValueCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            previousValueIndicator:
+              type: boolean
+            previousValueInteger:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    resultSuccessCodeContent_Type:
+      type: string
+      title: ResultSuccessCodeContent_Type
+      description: TBD
+      enum:
+        - Success
+        - WithChanges
+        - WithInformation
+        - WithRestriction
+        - WithSuspect
+    resultRejectCodeContent_Type:
+      type: string
+      title: ResultRejectCodeContent_Type
+      description: TBD
+      enum:
+        - DataInvalidOrMissing
+        - DuplicateMessageId
+        - InvalidMessageId
+        - OutOfSynchronization
+        - Unsyncable
+    resultPendedCodeContent_Type:
+      type: string
+      title: ResultPendedCodeContent_Type
+      description: TBD
+      enum:
+        - Accepted
+        - DataError
+        - Pended
+        - PendedOutOfBand
+    messageDocumentResult_Type:
+      type: object
+      title: MessageDocumentResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - messageDocumentReferences
+            - statusCode
+          properties:
+            messageDocumentReferences:
+              $ref: '#/components/schemas/messageDocumentReferences_Type'
+            statusCode:
+              $ref: '#/components/schemas/messageDocumentResultStatusCodeContent_Type'
+            description:
+              type: string
+            extendedStatus:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/extendedStatus_Type'
+                - $ref: '#/components/schemas/extendedStatus_Type'
+            changeStatus:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/changeStatus_Type'
+                - $ref: '#/components/schemas/changeStatus_Type'
+            successCode:
+              $ref: '#/components/schemas/resultSuccessCodeContent_Type'
+            rejectCode:
+              $ref: '#/components/schemas/resultRejectCodeContent_Type'
+            pendedCode:
+              $ref: '#/components/schemas/resultPendedCodeContent_Type'
+    messageResult_Type:
+      type: object
+      title: MessageResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - statusCode
+            - messageDocumentResult
+          properties:
+            statusCode:
+              $ref: '#/components/schemas/messageResultStatusCodeContent_Type'
+            messageDocumentResult:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/messageDocumentResult_Type'
+                - $ref: '#/components/schemas/messageDocumentResult_Type'
+    ACORDMessageResult_Type:
+      type: object
+      title: ACORDMessageResult_Type
+      required:
+        - messageHeader
+        - messageResult
+      properties:
+        messageHeader:
+          $ref: '#/components/schemas/messageHeader_Type'
+        messageResult:
+          $ref: '#/components/schemas/messageResult_Type'
+    policyCancellationOrderProcessResult_Type:
+      type: object
+      title: PolicyCancellationOrderProcessResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessageResult_Type'
+        - properties:
+            policyOrder:
+              $ref: '#/components/schemas/policyOrder_Type'
 security:
   - sctpUsername: []
     sctpPassword: []

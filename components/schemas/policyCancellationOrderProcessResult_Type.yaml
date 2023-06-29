@@ -1,0 +1,7 @@
+type: object
+title: PolicyCancellationOrderProcessResult_Type
+allOf:
+  - $ref: .\ACORDMessageResult_Type.yaml
+  - properties:
+      policyOrder:
+        $ref: .\policyOrder_Type.yaml
