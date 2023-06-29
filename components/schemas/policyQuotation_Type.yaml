@@ -82,12 +82,12 @@ allOf:
             items:
               $ref: .\dataModification_Type.yaml
           - $ref: .\dataModification_Type.yaml
-      # cancellation:
-      #   $ref: .\cancellation_Type.yaml
-      # reinstatement:
-      #   $ref: .\reinstatement_Type.yaml
-      # reissuance:
-      #   $ref: .\reissuance_Type.yaml
+      cancellation:
+        $ref: .\cancellation_Type.yaml
+      reinstatement:
+        $ref: .\reinstatement_Type.yaml
+      reissuance:
+        $ref: .\reinsurance_Type.yaml
       policyReferences:
         $ref: .\policyReferences_Type.yaml
       policy:

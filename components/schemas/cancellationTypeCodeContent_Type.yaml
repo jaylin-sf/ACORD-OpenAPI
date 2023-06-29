@@ -1,0 +1,7 @@
+type: string
+title: Cancellation Type Code Content Type
+description: TBD
+enum:
+  - Cancellation
+  - Nonrenewal
+  - Reinstatement

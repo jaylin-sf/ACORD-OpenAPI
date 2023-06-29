@@ -1,0 +1,8 @@
+type: string
+title: Cancellation Evidence Obtained Code Content Type
+description: TBD
+enum:
+  - NoPolicyOrBondObtained
+  - Other
+  - PolicyOrBondObtained
+  - ReleaseStatementObtained

@@ -1,0 +1,11 @@
+type: string
+title: Reinstatement Type Code Content Type
+description: TBD
+enum:
+  - CancelDateOrReasonCodeChange
+  - CarrierConsideration
+  - CarrierError
+  - NonrenewalStatusWithdrawl
+  - Regular
+  - ReinstatementCancelledFlat
+  - ReinstatementCancelledInTerm

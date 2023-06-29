@@ -1,0 +1,8 @@
+type: string
+title: Cancellation PremiumCalculation Code Content Type
+description: TBD
+enum:
+  - Flat
+  - FullyEarned
+  - ProRata
+  - ShortRate
