@@ -1,0 +1,13 @@
+type: object
+title: PolicyCancellationOrderNotify_Type
+allOf:
+  - $ref: .\ACORDMessage_Type.yaml
+  - required:
+      - policyOrder
+    properties:
+      policyOrder:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyOrder_Type.yaml
+          - $ref: .\policyOrder_Type.yaml
