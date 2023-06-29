@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyQuotation_Type'
+                $ref: '#/components/schemas/policyClosing_Type'
         '400':
           description: Bad Request.
           content:
@@ -8355,27 +8355,14 @@ components:
               maxLength: 255
             description:
               type: string
-    policyQuotationTransactionFunctionCodeContent_Type:
+    policyClosingTransactionFunctionCodeContent_Type:
       type: string
-      title: Policy Quotation Transaction Function Code Content Type
+      title: Policy Closing Transaction Function Code Content Type
       description: TBD
       enum:
-        - DeclinedQuotation
-        - DeclinedRequestForQuotation
-        - DeclineToRenew
-        - FirmQuotation
-        - GetUnderwritingResultFromUnderwritingEngine
-        - IndicativeQuotation
-        - PassQuoteToUnderwritingEngine
-        - QuotationReferred
-        - ReferralRequired
-        - RenewalInvitation
-        - RequestAdditionalInformation
-        - RequestForAdjustedQuotation
-        - RequestForQuotation
-        - RequestForReferral
-        - SupplyAdditonalInformation
-        - UnsuccessfulQuotation
+        - ConfirmedClosing
+        - DeclineClosing
+        - RequestForClosing
     reason_Type:
       type: object
       title: Reason Type
@@ -8408,6 +8395,44 @@ components:
           type: object
           properties:
             policyQuotationReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    policyOrderReferences_Type:
+      type: object
+      title: PolicyOrderReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyOrderReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    policyClosingReferences_Type:
+      type: object
+      title: PolicyClosingReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyClosingReference:
               type: string
         documentId:
           type: string
@@ -15920,58 +15945,6 @@ components:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
               $ref: '#/components/schemas/policy_Type'
-    policyRole_Type:
-      type: object
-      title: PolicyRole_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyReferences:
-              $ref: '#/components/schemas/policyReferences_Type'
-            policy:
-              $ref: '#/components/schemas/policy_Type'
-    underlyingPolicy_Type:
-      type: object
-      title: UnderlyingPolicy_Type
-      allOf:
-        - $ref: '#/components/schemas/policyRole_Type'
-        - properties: {}
-    claimExperiencePeriod_Type:
-      type: object
-      title: Claim Experience Period
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            localStandardTimeAppliesToInceptionDateIndicator:
-              type: boolean
-            startAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            endAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            periodDuration:
-              type: string
-              format: duration
-            continuousDurationIndicator:
-              type: boolean
-            timePeriodDescription:
-              type: string
-              maxLength: 255
-            bothDaysInclusiveIndicator:
-              type: boolean
     investmentAccountReferences_Type:
       type: object
       title: Investment Account References
@@ -16012,6 +15985,16 @@ components:
                   items:
                     $ref: '#/components/schemas/investmentAccountReferences_Type'
                 - $ref: '#/components/schemas/investmentAccountReferences_Type'
+    accountReferences_Type:
+      type: object
+      title: Account References
+      properties:
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
     broadLineOfBusinessCodeContent_Type:
       type: string
       title: BroadLineOfBusinessTypeCodeContent_Type
@@ -21553,9 +21536,9 @@ components:
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
-    policyQuotation_Type:
+    policyClosing_Type:
       type: object
-      title: PolicyQuotation_Type
+      title: PolicyClosing_Type
       allOf:
         - $ref: '#/components/schemas/messageDocument_Type'
         - required:
@@ -21568,7 +21551,7 @@ components:
                     $ref: '#/components/schemas/location_Type'
                 - $ref: '#/components/schemas/location_Type'
             transactionFunctionCode:
-              $ref: '#/components/schemas/policyQuotationTransactionFunctionCodeContent_Type'
+              $ref: '#/components/schemas/policyClosingTransactionFunctionCodeContent_Type'
             description:
               type: string
             reason:
@@ -21582,9 +21565,10 @@ components:
               format: date-time
             policyQuotationReferences:
               $ref: '#/components/schemas/policyQuotationReferences_Type'
-            effectiveDate:
-              type: string
-              format: date
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
+            policyClosingReferences:
+              $ref: '#/components/schemas/policyClosingReferences_Type'
             caseId:
               type: string
             threadId:
@@ -21595,28 +21579,18 @@ components:
             preparedDate:
               type: string
               format: date
-            validUntilDate:
-              type: string
-              format: date
-            replyDueDate:
-              type: string
-              format: date
             priorPolicy:
               oneOf:
                 - type: array
                   items:
                     $ref: '#/components/schemas/priorPolicy_Type'
                 - $ref: '#/components/schemas/priorPolicy_Type'
-            underlyingPolicy:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/underlyingPolicy_Type'
-                - $ref: '#/components/schemas/underlyingPolicy_Type'
-            claimExperiencePeriod:
-              $ref: '#/components/schemas/claimExperiencePeriod_Type'
             agreementPortfolio:
               $ref: '#/components/schemas/agreementPortfolio_Type'
+            accountReferences:
+              $ref: '#/components/schemas/accountReferences_Type'
+            invoiceReferences:
+              $ref: '#/components/schemas/invoiceReferences_Type'
             broadLineOfBusinessCode:
               $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
             broadLineOfBusinessDescription:
