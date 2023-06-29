@@ -1,0 +1,19 @@
+type: object
+title: PolicyClosingReferences_Type
+properties:
+  attributes:
+    type: object
+    properties:
+      policyClosingReference:
+        type: string
+  documentId:
+    type: string
+    format: uuid
+    pattern: >-
+      [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
+  assignedIdentifier:
+    oneOf:
+      - type: array
+        items:
+          $ref: .\assignedIdentifier_Type.yaml
+      - $ref: .\assignedIdentifier_Type.yaml

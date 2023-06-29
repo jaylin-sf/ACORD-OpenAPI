@@ -1,0 +1,7 @@
+type: string
+title: Policy Closing Transaction Function Code Content Type
+description: TBD
+enum:
+  - ConfirmedClosing
+  - DeclineClosing
+  - RequestForClosing
