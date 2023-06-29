@@ -1,0 +1,13 @@
+type: object
+title: PolicyNewBusinessQuotationNotify_Type
+allOf:
+  - $ref: .\ACORDMessage_Type.yaml
+  - required:
+      - policyQuotation
+    properties:
+      policyQuotation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyQuotation_Type.yaml
+          - $ref: .\policyQuotation_Type.yaml
