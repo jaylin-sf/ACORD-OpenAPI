@@ -1,0 +1,7 @@
+type: string
+title: Share Registry Listing Type Code Content Type
+description: TBD
+enum:
+  - Level1
+  - Level2
+  - Level3

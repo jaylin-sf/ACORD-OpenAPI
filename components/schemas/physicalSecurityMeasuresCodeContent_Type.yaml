@@ -1,0 +1,7 @@
+type: string
+title: Physical Security Measures Code Content
+description: TBD
+enum:
+  - 'No'
+  - Unknown
+  - YesSingleFactor

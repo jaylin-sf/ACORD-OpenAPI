@@ -3,24 +3,24 @@ title: Liability Item SectionType
 allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
-      # policyPropertyReferences:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyPropertyReferences_Type.yaml
-      #     - $ref: .\policyPropertyReferences_Type.yaml
-      # policyArticleReferences:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyArticleReferences_Type.yaml
-      #     - $ref: .\policyArticleReferences_Type.yaml
-      # policyVehicleReferences:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyVehicleReferences_Type.yaml
-      #     - $ref: .\policyVehicleReferences_Type.yaml
+      policyPropertyReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyPropertyReferences_Type.yaml
+          - $ref: .\policyPropertyReferences_Type.yaml
+      policyArticleReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyArticleReferences_Type.yaml
+          - $ref: .\policyArticleReferences_Type.yaml
+      policyVehicleReferences:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\policyVehicleReferences_Type.yaml
+          - $ref: .\policyVehicleReferences_Type.yaml
       claimItemReferences:
         oneOf:
           - type: array
@@ -96,30 +96,30 @@ allOf:
             items:
               $ref: .\employeeInformation_Type.yaml
           - $ref: .\employeeInformation_Type.yaml
-      # cyberInformation:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\cyberInformation_Type.yaml
-      #     - $ref: .\cyberInformation_Type.yaml
+      cyberInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\cyberInformation_Type.yaml
+          - $ref: .\cyberInformation_Type.yaml
       propertyOwnerOnlyIndicator:
         type: boolean
       engageSubcontractorsIndicator:
         type: boolean
       labourHireIndicator:
         type: boolean
-      # medicalFacilityInformation:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\medicalFacilityInformation_Type.yaml
-      #     - $ref: .\medicalFacilityInformation_Type.yaml
-      # stockInformation:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\stockInformation_Type.yaml
-      #     - $ref: .\stockInformation_Type.yaml
+      medicalFacilityInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\medicalFacilityInformation_Type.yaml
+          - $ref: .\medicalFacilityInformation_Type.yaml
+      stockInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\stockInformation_Type.yaml
+          - $ref: .\stockInformation_Type.yaml
       lossHistory:
         oneOf:
           - type: array

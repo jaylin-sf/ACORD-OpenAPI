@@ -1,0 +1,10 @@
+type: string
+title: Cyber Amount Item Type Code Content
+description: TBD
+enum:
+  - AnnualInternetRevenue
+  - BusCloudSvcInterruptionPerHourValue
+  - BusInternetInterruptionPerHourValue
+  - CloudServiceRevenue
+  - DataRecoveryCost
+  - PaymentSystemMonthlyTransactions

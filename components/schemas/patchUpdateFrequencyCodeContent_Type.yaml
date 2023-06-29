@@ -1,0 +1,13 @@
+type: string
+title: Patch Update Frequency Code Content
+description: TBD
+enum:
+  - Annually
+  - Biweekly
+  - Daily
+  - Monthly
+  - None
+  - Other
+  - Quarterly
+  - Unknown
+  - Weekly

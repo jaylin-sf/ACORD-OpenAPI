@@ -1,0 +1,14 @@
+type: string
+title: Assessment Score Type Code Content
+description: TBD
+enum:
+  - AntivirusQualityScore
+  - ApplicationSecurityScore
+  - BusinessRecoveryScore
+  - EncryptionQualityScore
+  - FirewallQualityScore
+  - ITMaturityScore
+  - NetworkIntrusionScore
+  - PrivacyPolicyScore
+  - SecurityAssessmentScore
+  - VendorSecurityScore

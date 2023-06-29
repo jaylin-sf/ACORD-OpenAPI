@@ -1,0 +1,8 @@
+type: string
+title: Remote Access Permission Code Content
+description: TBD
+enum:
+  - 'No'
+  - YesMultiFactor
+  - YesSingleFactor
+  - YesTwoFactor

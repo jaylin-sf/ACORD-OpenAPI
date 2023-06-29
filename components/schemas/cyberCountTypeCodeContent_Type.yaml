@@ -1,0 +1,12 @@
+type: string
+title: Cyber Count Type Code Content
+description: TBD
+enum:
+  - ChildRecords
+  - ChildRelatedRecords
+  - MaximumAnnualPaymentCardRecords
+  - MaximumBreachNotifications
+  - PersonalHealthRecords
+  - PersonalOtherSensitiveRecords
+  - PersonalRecords
+  - WebTraffic

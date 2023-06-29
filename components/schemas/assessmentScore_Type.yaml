@@ -1,0 +1,29 @@
+type: object
+title: AssessmentScore
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\assessmentScoreTypeCode_Type.yaml
+      description:
+        type: string
+      assessmentScoreCode:
+        $ref: .\assessmentScoreCode_Type.yaml
+      assessmentScoreDescription:
+        type: string
+        maxLength: 255
+      jurisdictionCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

@@ -1,0 +1,108 @@
+type: object
+title: Cyber Information
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      businessInterruptionServiceProviderName:
+        type: string
+        maxLength: 255
+      paymentSystemProviderName:
+        type: string
+        maxLength: 255
+      cyberSecurityManagementCode:
+        $ref: .\cyberSecurityManagementCode_Type.yaml
+      cyberContractTypeCode:
+        $ref: .\cyberContractTypeCode_Type.yaml
+      cyberContractDescription:
+        type: string
+        maxLength: 255
+      domainName:
+        type: string
+        maxLength: 255
+      legalEntityCode:
+        $ref: .\legalEntityCode_Type.yaml
+      legalEntityDescription:
+        type: string
+        maxLength: 255
+      cloudPlatformTypeCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      cloudPlatformDescription:
+        type: string
+        maxLength: 255
+      dataUpdateFrequencyCode:
+        $ref: .\dataUpdateFrequencyCode_Type.yaml
+      dataUpdateFrequencyDescription:
+        type: string
+        maxLength: 255
+      computerOperatingSystemCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      computerOperatingSystemDescription:
+        type: string
+      physicalSecurityMeasuresCode:
+        $ref: .\physicalSecurityMeasuresCode_Type.yaml
+      physicalSecurityMeasuresDescription:
+        type: string
+        maxLength: 255
+      remoteAccessPermissionCode:
+        $ref: .\remoteAccessPermissionCode_Type.yaml
+      patchUpdateFrequencyCode:
+        $ref: .\patchUpdateFrequencyCode_Type.yaml
+      patchUpdateFrequencyDescription:
+        type: string
+        maxLength: 255
+      cyberCredential:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\cyberCredential_Type.yaml
+          - $ref: .\cyberCredential_Type.yaml
+      cyberAmountItem:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\cyberAmountItem_Type.yaml
+          - $ref: .\cyberAmountItem_Type.yaml
+      assessmentScore:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\assessmentScore_Type.yaml
+          - $ref: .\assessmentScore_Type.yaml
+      cyberCountInformation:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\cyberCountInformation_Type.yaml
+          - $ref: .\cyberCountInformation_Type.yaml
+      questionAnswer:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\questionAnswer_Type.yaml
+          - $ref: .\questionAnswer_Type.yaml

@@ -1,0 +1,12 @@
+type: string
+title: Assessment Score Code Content
+description: TBD
+enum:
+  - AboveAverage
+  - Average
+  - BelowAverage
+  - Excellent
+  - None
+  - Other
+  - Poor
+  - Unknown

@@ -1,0 +1,8 @@
+type: string
+title: Cyber Contract Type Code Content
+description: TBD
+enum:
+  - AddOn
+  - Embedded
+  - Other
+  - Standalone

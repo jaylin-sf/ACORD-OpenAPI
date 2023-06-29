@@ -1,0 +1,23 @@
+type: object
+title: Stock Information Type
+required:
+  - shareRegistryListingTypeCode
+properties:
+  shareRegistryListingTypeCode:
+    $ref: .\shareRegistryListingTypeCodeContent_Type.yaml
+  exchangeTradedName:
+    type: string
+    maxLength: 255
+  marketCapitalizationAmount:
+    oneOf:
+      - type: object
+        required:
+          - value
+        properties:
+          currencyCode:
+            type: string
+          value:
+            type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      - type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

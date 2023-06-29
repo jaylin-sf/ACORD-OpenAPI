@@ -1,0 +1,7 @@
+type: string
+title: Cyber Security Management Code Content
+description: TBD
+enum:
+  - Internal
+  - ThirdParty
+  - Unknown

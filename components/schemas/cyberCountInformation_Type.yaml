@@ -1,0 +1,10 @@
+type: object
+title: Cyber Count Information
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\cyberCountTypeCode_Type.yaml
+      unitCount:
+        type: string
+        pattern: ^[0-9]{1,15}$
