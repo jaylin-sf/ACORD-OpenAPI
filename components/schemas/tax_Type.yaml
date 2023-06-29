@@ -1,0 +1,46 @@
+type: object
+title: Tax Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      typeCode:
+        $ref: .\taxTypeCode_Type.yaml
+      description:
+        type: string
+      assignedIdentifier:
+        $ref: .\assignedIdentifier_Type.yaml
+      effectiveDate:
+        type: string
+        format: date
+      taxAmountItem:
+        $ref: .\taxAmountItem_Type.yaml
+      stateOrProvinceCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      countryCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

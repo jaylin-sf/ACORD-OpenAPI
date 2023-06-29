@@ -13371,6 +13371,60 @@ components:
               format: date
             parentPolicySectionReferences:
               $ref: '#/components/schemas/parentPolicySectionReferences_Type'
+    vehicleClassCodeContent_Type:
+      type: string
+      title: Vehicle Class Code Content
+      description: TBD
+      enum:
+        - Breakdown
+        - Bus
+        - Caravan
+        - Commercial
+        - CommercialAndPrivate
+        - Dolly
+        - EarthMoving
+        - Farm
+        - Harvesting
+        - HeavyCommercial
+        - LightCommercial
+        - MediumCommercial
+        - Mobile
+        - Motorcycle
+        - MotorHome
+        - Other
+        - Passenger
+        - PrimeMover
+        - Private
+        - PrivateBus
+        - Safari
+        - ScheduledBus
+        - Tractor
+        - Trailer
+        - Truck
+        - UnscheduledBus
+    policyVehicleReferences_Type:
+      type: object
+      title: Policy Vehicle References Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyVehicleReference:
+              type: string
+        vehicleClassCode:
+          $ref: '#/components/schemas/vehicleClassCodeContent_Type'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+        locationReferences:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/locationReferences_Type'
+            - $ref: '#/components/schemas/locationReferences_Type'
     claimOccurrenceReferences_Type:
       type: object
       title: ClaimOccurrenceReferences_Type
@@ -14015,6 +14069,1129 @@ components:
                   items:
                     $ref: '#/components/schemas/assignedIdentifier_Type'
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
+    cyberSecurityManagementCodeContent_Type:
+      type: string
+      title: Cyber Security Management Code Content
+      description: TBD
+      enum:
+        - Internal
+        - ThirdParty
+        - Unknown
+    cyberContractTypeCodeContent_Type:
+      type: string
+      title: Cyber Contract Type Code Content
+      description: TBD
+      enum:
+        - AddOn
+        - Embedded
+        - Other
+        - Standalone
+    dataUpdateFrequencyCodeContent_Type:
+      type: string
+      title: Data Update Frequency Code Content
+      description: TBD
+      enum:
+        - Annually
+        - Biweekly
+        - Daily
+        - Monthly
+        - None
+        - Other
+        - Quarterly
+        - Unknown
+        - Weekly
+    physicalSecurityMeasuresCodeContent_Type:
+      type: string
+      title: Physical Security Measures Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - Unknown
+        - YesSingleFactor
+    remoteAccessPermissionCodeContent_Type:
+      type: string
+      title: Remote Access Permission Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - YesMultiFactor
+        - YesSingleFactor
+        - YesTwoFactor
+    patchUpdateFrequencyCodeContent_Type:
+      type: string
+      title: Patch Update Frequency Code Content
+      description: TBD
+      enum:
+        - Annually
+        - Biweekly
+        - Daily
+        - Monthly
+        - None
+        - Other
+        - Quarterly
+        - Unknown
+        - Weekly
+    cyberCredentialTypeCodeContent_Type:
+      type: string
+      title: Cyber Credential Type Code Content
+      description: TBD
+      enum:
+        - CyberEssentials
+        - ISO27001
+        - NIST80053
+        - PCIDataSecurityStandards
+        - SSAE16SOC1
+        - SSAE16SOC2
+        - SSAE16SOC3
+    credentialedCodeContent_Type:
+      type: string
+      title: Credentialed Code Content
+      description: TBD
+      enum:
+        - 'No'
+        - Unknown
+        - 'Yes'
+    cyberCredential_Type:
+      type: object
+      title: Cyber Credential
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberCredentialTypeCodeContent_Type'
+            credentialedCode:
+              $ref: '#/components/schemas/credentialedCodeContent_Type'
+    cyberAmountItemTypeCodeContent_Type:
+      type: string
+      title: Cyber Amount Item Type Code Content
+      description: TBD
+      enum:
+        - AnnualInternetRevenue
+        - BusCloudSvcInterruptionPerHourValue
+        - BusInternetInterruptionPerHourValue
+        - CloudServiceRevenue
+        - DataRecoveryCost
+        - PaymentSystemMonthlyTransactions
+    cyberAmountItem_Type:
+      type: object
+      title: Cyber Amount Item
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberAmountItemTypeCodeContent_Type'
+            description:
+              type: string
+            itemAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    assessmentScoreTypeCodeContent_Type:
+      type: string
+      title: Assessment Score Type Code Content
+      description: TBD
+      enum:
+        - AntivirusQualityScore
+        - ApplicationSecurityScore
+        - BusinessRecoveryScore
+        - EncryptionQualityScore
+        - FirewallQualityScore
+        - ITMaturityScore
+        - NetworkIntrusionScore
+        - PrivacyPolicyScore
+        - SecurityAssessmentScore
+        - VendorSecurityScore
+    assessmentScoreCodeContent_Type:
+      type: string
+      title: Assessment Score Code Content
+      description: TBD
+      enum:
+        - AboveAverage
+        - Average
+        - BelowAverage
+        - Excellent
+        - None
+        - Other
+        - Poor
+        - Unknown
+    assessmentScore_Type:
+      type: object
+      title: AssessmentScore
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/assessmentScoreTypeCodeContent_Type'
+            description:
+              type: string
+            assessmentScoreCode:
+              $ref: '#/components/schemas/assessmentScoreCodeContent_Type'
+            assessmentScoreDescription:
+              type: string
+              maxLength: 255
+            jurisdictionCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    cyberCountTypeCodeContent_Type:
+      type: string
+      title: Cyber Count Type Code Content
+      description: TBD
+      enum:
+        - ChildRecords
+        - ChildRelatedRecords
+        - MaximumAnnualPaymentCardRecords
+        - MaximumBreachNotifications
+        - PersonalHealthRecords
+        - PersonalOtherSensitiveRecords
+        - PersonalRecords
+        - WebTraffic
+    cyberCountInformation_Type:
+      type: object
+      title: Cyber Count Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            typeCode:
+              $ref: '#/components/schemas/cyberCountTypeCodeContent_Type'
+            unitCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+    questionCodeContent_Type:
+      type: string
+      title: QuestionCodeContent Type
+      description: TBD
+      enum:
+        - ClaimOccurrence016
+        - ClaimOccurrence017
+        - ClaimOccurrence018
+        - ClaimOccurrence019
+        - ClaimOccurrence020
+        - CommercialPolicy001
+        - CommercialPolicy002
+        - CommercialPolicy003
+        - CommercialPolicy004
+        - CommercialPolicy005
+        - CommercialPolicy006
+        - CommercialPolicy007
+        - CommercialPolicy008
+        - CommercialPolicy009
+        - CommercialPolicy010
+        - CommercialPolicy011
+        - CommercialPolicy012
+        - CommercialPolicy101
+        - CommercialPolicy102
+        - CommercialPolicy103
+        - CommercialPolicy104
+        - CommercialPolicy105
+        - CommercialPolicy106
+        - CommercialPolicy107
+        - CommercialPolicy108
+        - CommercialPolicy109
+        - Cyber001
+        - Cyber002
+        - Cyber003
+        - Cyber004
+        - Cyber005
+        - Cyber006
+        - Cyber007
+        - Cyber008
+        - Cyber009
+        - Cyber010
+        - Cyber011
+        - Cyber012
+        - Cyber013
+        - Cyber014
+        - Cyber015
+        - Cyber016
+        - Cyber017
+        - Cyber018
+        - Cyber019
+        - Cyber020
+        - Cyber021
+        - Cyber022
+        - Cyber023
+        - Cyber024
+        - Cyber025
+        - Cyber026
+        - Cyber027
+        - Cyber028
+        - Cyber029
+        - Cyber030
+        - Cyber031
+        - Cyber032
+        - Cyber033
+        - Cyber034
+        - Cyber035
+        - Cyber036
+        - Cyber037
+        - Cyber038
+        - Cyber039
+        - Cyber040
+        - Cyber041
+        - Cyber042
+        - Cyber043
+        - Cyber044
+        - Cyber045
+        - Cyber046
+        - Cyber047
+        - Cyber048
+        - Cyber049
+        - Cyber050
+        - Cyber051
+        - Cyber052
+        - Cyber053
+        - Cyber054
+        - Cyber055
+        - Cyber056
+        - Cyber057
+        - Cyber058
+        - Cyber059
+        - Cyber060
+        - Cyber061
+        - Cyber062
+        - Cyber063
+        - Cyber064
+        - Cyber065
+        - Cyber066
+        - Cyber067
+        - Cyber068
+        - Cyber069
+        - Cyber070
+        - Cyber071
+        - Cyber072
+        - Cyber073
+        - DutyOfDisclosure001
+        - DutyOfDisclosure002
+        - DutyOfDisclosure003
+        - DutyOfDisclosure004
+        - DutyOfDisclosure005
+        - DutyOfDIsclosure006
+        - DutyOfDIsclosure007
+        - EmployeeInformation001
+        - ExportInformation001
+        - ExportInformation002
+        - ExportInformation003
+        - ExportInformation004
+        - ExportInformation005
+        - Fee001
+        - Operations001
+        - Operations002
+        - Operations003
+        - Operations004
+        - Operations005
+        - Operations006
+        - Operations007
+        - Operations008
+        - Operations009
+        - Operations010
+        - Operations011
+        - Operations012
+        - Operations013
+        - Operations014
+        - Operations015
+        - PersonalPropertyItem007
+        - PersonalPropertyItem008
+        - PersonalPropertyItem009
+        - PersonalPropertyItem010
+        - PersonalPropertyItem011
+        - Policy024
+        - Policy025
+        - Policy026
+        - Policy027
+        - Policy028
+        - PolicyProperty031
+        - PolicyProperty032
+        - PolicyProperty033
+        - PolicyProperty034
+        - PolicyProperty040
+        - PolicyProperty041
+        - PolicyProperty042
+        - PolicyProperty043
+        - PolicyProperty044
+        - PolicyProperty045
+        - PolicyProperty046
+        - PolicyProperty047
+        - PolicyProperty048
+        - ProductRecall001
+        - ProductRecall002
+        - ProductRecall003
+        - ProductRecall004
+        - ProductRecall005
+        - ProductRecall006
+        - ProductRecall007
+        - ProductRecall008
+        - ProductRecall009
+        - ProductRecall010
+        - ProfessionalIndemnitySection001
+        - ProfessionalIndemnitySection002
+        - ProfessionalIndemnitySection003
+        - ProfessionalIndemnitySection004
+        - ProfessionalIndemnitySection005
+        - ProfessionalIndemnitySection006
+        - ProfessionalIndemnitySection007
+        - ProfessionalIndemnitySection008
+        - ProfessionalIndemnitySection009
+        - ProfessionalIndemnitySection010
+        - ProfessionalIndemnitySection011
+        - ProfessionalIndemnitySection012
+        - ProfessionalIndemnitySection013
+        - ProfessionalIndemnitySection014
+        - ProfessionalIndemnitySection015
+        - ProfessionalIndemnitySection016
+        - ProfessionalIndemnitySection017
+        - ProfessionalIndemnitySection018
+        - ProfessionalIndemnitySection019
+        - ProfessionalIndemnitySection020
+        - ProfessionalIndemnitySection021
+        - ProfessionalIndemnitySection022
+        - ProfessionalIndemnitySection023
+        - ProfessionalIndemnitySection024
+        - ProfessionalIndemnitySection025
+        - ProfessionalIndemnitySection026
+        - ProfessionalIndemnitySection027
+        - ProfessionalIndemnitySection028
+        - ProfessionalIndemnitySection029
+        - ProfessionalIndemnitySection030
+        - ProfessionalIndemnitySection031
+        - ProfessionalIndemnitySection032
+        - ProfessionalIndemnitySection033
+        - ProfessionalIndemnitySection034
+        - ProfessionalIndemnitySection035
+        - ProfessionalIndemnitySection036
+        - ProfessionalIndemnitySection037
+        - ProfessionalIndemnitySection038
+        - ProfessionalIndemnitySection039
+        - ProfessionalIndemnitySection040
+        - ProfessionalIndemnitySection041
+        - ProfessionalIndemnitySection042
+        - ProfessionalIndemnitySection043
+        - ProfessionalIndemnitySection044
+        - ProfessionalIndemnitySection045
+        - ProfessionalIndemnitySection046
+        - ProfessionalIndemnitySection047
+        - ProfessionalIndemnitySection048
+        - ProfessionalIndemnitySection049
+        - ProfessionalIndemnitySection050
+        - ProfessionalIndemnitySection051
+        - ProfessionalIndemnitySection052
+        - ProfessionalIndemnitySection053
+        - ProfessionalIndemnitySection054
+        - ProfessionalIndemnitySection055
+        - ProfessionalIndemnitySection056
+        - ProfessionalIndemnitySection057
+        - ProfessionalIndemnitySection058
+        - ProfessionalIndemnitySection059
+        - ProfessionalIndemnitySection060
+        - ProfessionalIndemnitySection061
+        - ProfessionalIndemnitySection062
+        - ProfessionalIndemnitySection063
+        - ProfessionalIndemnitySection064
+        - ProfessionalIndemnitySection065
+        - ProfessionalIndemnitySection066
+        - ProfessionalIndemnitySection067
+        - ProfessionalIndemnitySection068
+        - ProfessionalIndemnitySection069
+        - ProfessionalIndemnitySection070
+        - ProfessionalIndemnitySection071
+        - ProfessionalIndemnitySection072
+        - ProfessionalIndemnitySection073
+        - ProfessionalIndemnitySection074
+        - ProfessionalIndemnitySection075
+        - ProfessionalIndemnitySection076
+        - ProfessionalIndemnitySection077
+        - ProfessionalIndemnitySection078
+        - ProfessionalIndemnitySection079
+        - ProfessionalIndemnitySection080
+        - ProfessionalIndemnitySection081
+        - ProfessionalIndemnitySection082
+        - ProfessionalIndemnitySection083
+        - ProfessionalIndemnitySection084
+        - ProfessionalIndemnitySection085
+        - ProfessionalIndemnitySection086
+        - ProfessionalIndemnitySection087
+        - Section001
+        - Underwriting001
+        - AccidentHealth001
+        - AccidentHealth002
+        - AccidentHealth003
+        - AccidentHealth004
+        - AccidentHealth005
+        - AccidentHealth006
+        - AccidentHealth007
+        - AccidentHealth008
+        - AccidentHealth009
+        - AccidentHealth010
+        - AccidentHealth011
+        - AccidentItem001
+        - AccidentItem002
+        - AccidentItem003
+        - AccidentItem004
+        - AccidentItem005
+        - Background001
+        - BusinessPackage001
+        - BusinessPackage002
+        - BusinessPackage003
+        - BusinessPackage004
+        - BusinessPackage005
+        - BusinessPackage006
+        - BusinessPrincipal001
+        - BusinessPrincipal002
+        - ClaimItem001
+        - ClaimItem002
+        - ClaimItem004
+        - ClaimItem005
+        - ClaimItem006
+        - ClaimItem008
+        - ClaimItem009
+        - ClaimItem011
+        - ClaimItem013
+        - ClaimItem014
+        - ClaimItem015
+        - ClaimItem016
+        - ClaimItem017
+        - ClaimItem018
+        - ClaimItem019
+        - ClaimItem020
+        - ClaimItem021
+        - ClaimItem022
+        - ClaimItem023
+        - ClaimItem024
+        - ClaimItem025
+        - ClaimItem026
+        - ClaimItem027
+        - ClaimItem028
+        - ClaimItem029
+        - ClaimItem030
+        - ClaimItem031
+        - ClaimItem032
+        - ClaimItem033
+        - ClaimItem034
+        - ClaimItem035
+        - ClaimItem036
+        - ClaimItem037
+        - ClaimOccurrence001
+        - ClaimOccurrence002
+        - ClaimOccurrence003
+        - ClaimOccurrence005
+        - ClaimOccurrence006
+        - ClaimOccurrence007
+        - ClaimOccurrence008
+        - ClaimOccurrence009
+        - ClaimOccurrence010
+        - ClaimOccurrence011
+        - ClaimOccurrence012
+        - ClaimOccurrence013
+        - ClaimOccurrence014
+        - ClaimOccurrence015
+        - CommercialPolicy013
+        - CommercialPropertyItem001
+        - CommercialPropertyItem002
+        - CommercialPropertyItem003
+        - CommercialPropertyItem004
+        - CommercialPropertyItem005
+        - CommercialPropertyItem006
+        - CommercialPropertyItem007
+        - CommercialPropertySection001
+        - CommercialVehicleSection001
+        - CommercialVehicleSection002
+        - CommercialVehicleSection003
+        - CommercialVehicleSection004
+        - CommercialVehicleSection005
+        - CorporateTravel001
+        - CorporateTravel002
+        - Glass001
+        - Glass002
+        - Glass003
+        - Glass004
+        - Glass005
+        - Glass006
+        - ImportExport001
+        - ImportExport002
+        - ImportExport003
+        - ImportExport004
+        - ImportExport005
+        - LiabilityItem001
+        - LiabilityItem002
+        - LiabilityItem003
+        - LiabilityItem004
+        - LiabilityItem005
+        - LiabilityItem006
+        - LiabilityItem007
+        - LiabilityItem008
+        - LiabilityItem009
+        - MarineCargoSection001
+        - MarineCargoSection002
+        - MarineCargoSection003
+        - MarineCargoSection004
+        - MarineCargoSection005
+        - MarineCargoSection006
+        - MarineCargoSection007
+        - MarineCargoSection008
+        - MarineCargoSection009
+        - MarineCargoSection010
+        - MarineCargoSection011
+        - MarineCargoSection012
+        - MarineCargoSection013
+        - MarineCargoSection014
+        - MarineCargoSection015
+        - MarineCargoSection016
+        - MarineCargoSection017
+        - MarineCargoSection018
+        - MarineCargoSection019
+        - MarineCargoSection020
+        - MarineCargoSection021
+        - MarineCargoSection022
+        - MarineCargoSection023
+        - MarineCargoSection024
+        - MarineCargoSection025
+        - MarineCargoSection026
+        - MarineCargoSection027
+        - MarineCargoSection028
+        - MarineCargoSection029
+        - Person001
+        - PersonalProperty001
+        - PersonalProperty002
+        - PersonalProperty003
+        - PersonalProperty004
+        - PersonalProperty005
+        - PersonalProperty006
+        - PersonalProperty007
+        - PersonalProperty008
+        - PersonalProperty009
+        - PersonalProperty010
+        - PersonalPropertyItem001
+        - PersonalPropertyItem002
+        - PersonalPropertyItem003
+        - PersonalPropertyItem004
+        - PersonalPropertyItem005
+        - PersonalPropertyItem006
+        - PersonalPropertyItem012
+        - PersonalPropertyItem013
+        - PersonalPropertyItem014
+        - PersonalPropertyItem015
+        - PersonalPropertyItem016
+        - PersonalPropertyItem017
+        - PersonalPropertyItem018
+        - PersonalPropertyItem019
+        - PersonalPropertyItem020
+        - PersonalPropertyItem021
+        - PersonalPropertyItem022
+        - PersonalPropertyItem023
+        - PersonalVehicleItemSection001
+        - PersonalVehicleItemSection002
+        - PersonalVehicleItemSectionOption001
+        - PersonalVehicleItemSectionOption003
+        - PersonalVehicleItemSectionOption004
+        - PersonalVehicleSection001
+        - PersonalVehicleSection002
+        - PersonalVehicleSection003
+        - PersonalVehicleSection004
+        - PersonalVehicleSection005
+        - PersonalVehicleSection006
+        - PersonalVehicleSection007
+        - PersonalVehicleSection008
+        - PersonalVehicleSection009
+        - PersonalVehicleSection010
+        - PersonalVehicleSection011
+        - Policy001
+        - Policy002
+        - Policy003
+        - Policy004
+        - Policy005
+        - Policy006
+        - Policy007
+        - Policy008
+        - Policy009
+        - Policy010
+        - Policy011
+        - Policy012
+        - Policy013
+        - Policy014
+        - Policy015
+        - Policy016
+        - Policy017
+        - Policy018
+        - Policy019
+        - Policy020
+        - Policy021
+        - Policy022
+        - Policy023
+        - PolicyDriver001
+        - PolicyDriver002
+        - PolicyDriver003
+        - PolicyDriver004
+        - PolicyDriver005
+        - PolicyDriver006
+        - PolicyDriver007
+        - PolicyDriver008
+        - PolicyDriver009
+        - PolicyProperty001
+        - PolicyProperty002
+        - PolicyProperty003
+        - PolicyProperty004
+        - PolicyProperty005
+        - PolicyProperty006
+        - PolicyProperty007
+        - PolicyProperty008
+        - PolicyProperty009
+        - PolicyProperty010
+        - PolicyProperty011
+        - PolicyProperty012
+        - PolicyProperty013
+        - PolicyProperty014
+        - PolicyProperty015
+        - PolicyProperty016
+        - PolicyProperty017
+        - PolicyProperty018
+        - PolicyProperty019
+        - PolicyProperty020
+        - PolicyProperty021
+        - PolicyProperty022
+        - PolicyProperty023
+        - PolicyProperty024
+        - PolicyProperty025
+        - PolicyProperty026
+        - PolicyProperty027
+        - PolicyProperty028
+        - PolicyProperty029
+        - PolicyProperty030
+        - PolicyProperty035
+        - PolicyProperty036
+        - PolicyProperty037
+        - PolicyProperty038
+        - PolicyProperty039
+        - PreviousBusiness001
+        - PreviousUWNonstandard
+        - PreviousUWStandard
+        - SubsidenceAndLandslip001
+        - SubsidenceAndLandslip002
+        - SubsidenceAndLandslip003
+        - SubsidenceAndLandslip004
+        - SubsidenceAndLandslip005
+        - SubsidenceAndLandslip006
+        - SubsidenceAndLandslip007
+        - SubsidenceAndLandslip008
+        - Watercraft001
+        - Watercraft002
+        - WatercraftItem001
+        - WatercraftItem002
+        - WatercraftItem003
+        - WatercraftItem004
+        - WatercraftItem005
+        - WatercraftItemSection001
+        - WorkersCompensationLineOfBusiness001
+        - WorkersCompensationLineOfBusiness002
+        - WorkersCompensationLineOfBusiness003
+        - WorkersCompensationLineOfBusiness004
+        - WorkersCompensationLineOfBusiness005
+        - WorkersCompensationLineOfBusiness006
+        - WorkersCompensationLineOfBusiness007
+        - WorkersCompensationLineOfBusiness008
+        - WorkersCompensationLineOfBusiness009
+        - WorkersCompensationLineOfBusiness010
+        - WorkersCompensationLineOfBusiness011
+        - WorkersCompensationLineOfBusiness012
+        - WorkersCompensationLineOfBusiness013
+        - WorkersCompensationLineOfBusiness014
+        - WorkersCompensationLineOfBusiness015
+        - WorkersCompensationLineOfBusiness016
+        - WorkersCompensationLineOfBusiness017
+        - WorkersCompensationLineOfBusiness018
+        - WorkersCompensationLineOfBusiness019
+        - WorkersCompensationLineOfBusiness020
+        - WorkersCompensationLineOfBusiness021
+        - WorkersCompensationLineOfBusiness022
+        - WorkersCompensationLineOfBusiness023
+        - WorkersCompensationLineOfBusiness024
+        - WorkersCompensationLineOfBusiness025
+        - WorkersCompensationLineOfBusiness026
+        - WorkersCompensationLineOfBusiness027
+        - WorkersCompensationLineOfBusiness028
+        - WorkersCompensationLineOfBusiness029
+        - WorkersCompensationLineOfBusiness030
+        - WorkersCompensationLineOfBusiness031
+        - WorkersCompensationLineOfBusiness032
+        - WorkersCompensationLineOfBusiness033
+        - WorkersCompensationLineOfBusiness034
+        - WorkersCompensationLineOfBusiness035
+        - WorkersCompensationLineOfBusiness036
+        - WorkersCompensationLineOfBusiness037
+        - WorkersCompensationLineOfBusiness038
+        - WorkersCompensationLineOfBusiness039
+        - WorkersCompensationLineOfBusiness040
+        - WorkersCompensationLineOfBusiness041
+        - WorkersCompensationNoticeOfAssignment001
+        - WorkersCompensationNoticeOfAssignment002
+        - WorkersCompensationNoticeOfAssignment003
+        - WorkersCompensationNoticeOfAssignment004
+        - WorkersCompensationNoticeOfAssignment005
+        - WorkersCompensationNoticeOfAssignment006
+        - WorkersCompensationNoticeOfAssignment007
+        - WorkersCompensationNoticeOfAssignment008
+        - WorkersCompensationNoticeOfAssignment009
+        - WorkersCompensationNoticeOfAssignment010
+        - WorkersCompensationNoticeOfAssignment011
+        - WorkersCompensationNoticeOfAssignment012
+        - WorkersCompensationNoticeOfAssignment013
+        - WorkersCompensationNoticeOfAssignment014
+        - WorkersCompensationNoticeOfAssignment015
+        - WorkersCompensationNoticeOfAssignment016
+        - WorkersCompensationNoticeOfAssignment017
+        - WorkersCompensationNoticeOfAssignment018
+        - WorkersCompensationNoticeOfAssignment019
+        - WorkersCompensationNoticeOfAssignment020
+        - WorkersCompensationNoticeOfAssignment021
+        - WorkersCompensationNoticeOfAssignment022
+        - WorkersCompensationNoticeOfAssignment023
+        - WorkersCompensationNoticeOfAssignment024
+        - WorkersCompensationNoticeOfAssignment025
+        - WorkersCompensationNoticeOfAssignment026
+        - WorkersCompensationNoticeOfAssignment027
+        - WorkersCompensationNoticeOfAssignment028
+        - WorkersCompensationNoticeOfAssignment029
+        - WorkersCompensationNoticeOfAssignment030
+        - WorkersCompensationNoticeOfAssignment031
+        - WorkersCompensationNoticeOfAssignment032
+        - WorkersCompensationNoticeOfAssignment033
+        - WorkersCompensationNoticeOfAssignment034
+        - WorkersCompensationNoticeOfAssignment035
+        - WorkersCompensationNoticeOfAssignment036
+        - WorkersCompensationNoticeOfAssignment037
+        - WorkersCompensationNoticeOfAssignment038
+        - WorkersCompensationNoticeOfAssignment039
+        - WorkersCompensationNoticeOfAssignment040
+        - WorkersCompensationNoticeOfAssignment041
+        - WorkersCompensationNoticeOfAssignment042
+        - WorkersCompensationNoticeOfAssignment043
+        - WorkersCompensationNoticeOfAssignment044
+        - WorkersCompensationNoticeOfAssignment045
+        - WorkersCompensationNoticeOfAssignment046
+        - WorkersCompensationNoticeOfAssignment047
+        - WorkersCompensationNoticeOfAssignment048
+        - WorkersCompensationNoticeOfAssignment049
+        - WorkersCompensationNoticeOfAssignment050
+        - WorkersCompensationPolicy001
+        - WorkersCompensationPolicy002
+        - WorkersCompensationPolicy003
+        - WorkersCompensationPolicy004
+        - WorkersCompensationPolicy005
+    questionAnswer_Type:
+      type: object
+      title: Question Answer Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - questionCode
+            - answerCode
+          properties:
+            questionCode:
+              $ref: '#/components/schemas/questionCodeContent_Type'
+            questionCodeDescription:
+              type: string
+            answerCode:
+              $ref: '#/components/schemas/answerCodeContent_Type'
+            explanation:
+              type: string
+            explanationDate:
+              type: string
+              format: date
+            explanationCount:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            explanationPeriod:
+              $ref: '#/components/schemas/explanationPeriod_Type'
+            explanationDuration:
+              type: string
+              format: duration
+            explanationCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            explanationAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            explanationMeasure:
+              oneOf:
+                - type: object
+                  title: Measure Type
+                  required:
+                    - value
+                  properties:
+                    unitCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,15}$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,15}$
+            explanationPercent:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    cyberInformation_Type:
+      type: object
+      title: Cyber Information
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            businessInterruptionServiceProviderName:
+              type: string
+              maxLength: 255
+            paymentSystemProviderName:
+              type: string
+              maxLength: 255
+            cyberSecurityManagementCode:
+              $ref: '#/components/schemas/cyberSecurityManagementCodeContent_Type'
+            cyberContractTypeCode:
+              $ref: '#/components/schemas/cyberContractTypeCodeContent_Type'
+            cyberContractDescription:
+              type: string
+              maxLength: 255
+            domainName:
+              type: string
+              maxLength: 255
+            legalEntityCode:
+              $ref: '#/components/schemas/legalEntityCodeContent_Type'
+            legalEntityDescription:
+              type: string
+              maxLength: 255
+            cloudPlatformTypeCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            cloudPlatformDescription:
+              type: string
+              maxLength: 255
+            dataUpdateFrequencyCode:
+              $ref: '#/components/schemas/dataUpdateFrequencyCodeContent_Type'
+            dataUpdateFrequencyDescription:
+              type: string
+              maxLength: 255
+            computerOperatingSystemCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+            computerOperatingSystemDescription:
+              type: string
+            physicalSecurityMeasuresCode:
+              $ref: '#/components/schemas/physicalSecurityMeasuresCodeContent_Type'
+            physicalSecurityMeasuresDescription:
+              type: string
+              maxLength: 255
+            remoteAccessPermissionCode:
+              $ref: '#/components/schemas/remoteAccessPermissionCodeContent_Type'
+            patchUpdateFrequencyCode:
+              $ref: '#/components/schemas/patchUpdateFrequencyCodeContent_Type'
+            patchUpdateFrequencyDescription:
+              type: string
+              maxLength: 255
+            cyberCredential:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberCredential_Type'
+                - $ref: '#/components/schemas/cyberCredential_Type'
+            cyberAmountItem:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberAmountItem_Type'
+                - $ref: '#/components/schemas/cyberAmountItem_Type'
+            assessmentScore:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assessmentScore_Type'
+                - $ref: '#/components/schemas/assessmentScore_Type'
+            cyberCountInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberCountInformation_Type'
+                - $ref: '#/components/schemas/cyberCountInformation_Type'
+            questionAnswer:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/questionAnswer_Type'
+                - $ref: '#/components/schemas/questionAnswer_Type'
+    treatmentFacilityTypeCodeContent_Type:
+      type: string
+      title: TreatmentFacilityTypeCodeContent_Type
+      description: TheTreatment Facility Type content enumeration
+      enum:
+        - CommunityHospital
+        - Government
+        - Private
+        - Public
+        - RestructuredHospital
+    treatmentRoomTypeCodeContent_Type:
+      type: string
+      title: TreatmentRoomTypeCodeContent_Type
+      description: TheTreatment Room Type content enumeration
+      enum:
+        - CurativeAcuteCareBeds
+        - DayOrOutpatientSurgeryRoom
+        - DoubleRoom
+        - FourBedded
+        - IntensiveOrCriticalCareUnit
+        - LongTermCareBeds
+        - OtherHospitalBeds
+        - RehabilitiveCareBeds
+        - RoomAndBoard
+        - ShortStayWard
+        - SingleRoom
+    medicalFacilityCountInformationCodeContent_Type:
+      type: string
+      title: Medical Facility Count Information Code Content Type
+      description: TBD
+      enum:
+        - AlliedHealthComplimentaryActivities
+        - AlliedHealthProfessions
+        - BedOccupancyPercentage
+        - NumberOfBeds
+        - NumberOfOutPatientsLastYear
+        - NumberOfOutPatientsNextYear
+        - NumberOfOutPatientsThisYear
+        - NumberOfPatients
+        - NumberOfPatientsLastYear
+        - NumberOfPatientsNextYear
+        - NumberOfPatientsThisYear
+        - NumberOfVisitsByInsured
+        - ProcedureTypePatientInformation
+    medicalFacilityCountInformation_Type:
+      type: object
+      title: Medical Facility CountInformation Type
+      required:
+        - typeCode
+      properties:
+        typeCode:
+          $ref: '#/components/schemas/medicalFacilityCountInformationCodeContent_Type'
+        itemCount:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        itemPercent:
+          type: string
+          pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+        description:
+          type: string
+    medicalFacilityInformation_Type:
+      type: object
+      title: Medica lFacility Information Type
+      required:
+        - treatmentFacilityTypeCode
+      properties:
+        treatmentFacilityTypeCode:
+          $ref: '#/components/schemas/treatmentFacilityTypeCodeContent_Type'
+        description:
+          type: string
+        treatmentRoomTypeCode:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
+            - $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
+        medicalFacilityCountInformation:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
+            - $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
+    shareRegistryListingTypeCodeContent_Type:
+      type: string
+      title: Share Registry Listing Type Code Content Type
+      description: TBD
+      enum:
+        - Level1
+        - Level2
+        - Level3
+    stockInformation_Type:
+      type: object
+      title: Stock Information Type
+      required:
+        - shareRegistryListingTypeCode
+      properties:
+        shareRegistryListingTypeCode:
+          $ref: '#/components/schemas/shareRegistryListingTypeCodeContent_Type'
+        exchangeTradedName:
+          type: string
+          maxLength: 255
+        marketCapitalizationAmount:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                currencyCode:
+                  type: string
+                value:
+                  type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            - type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
     liabilityItemQuestionCodeContent_Type:
       type: string
       title: Liability Item Question Code Content Type
@@ -14154,6 +15331,24 @@ components:
       allOf:
         - $ref: '#/components/schemas/ACORDAggregate_Type'
         - properties:
+            policyPropertyReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyPropertyReferences_Type'
+                - $ref: '#/components/schemas/policyPropertyReferences_Type'
+            policyArticleReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyArticleReferences_Type'
+                - $ref: '#/components/schemas/policyArticleReferences_Type'
+            policyVehicleReferences:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/policyVehicleReferences_Type'
+                - $ref: '#/components/schemas/policyVehicleReferences_Type'
             claimItemReferences:
               oneOf:
                 - type: array
@@ -14229,12 +15424,30 @@ components:
                   items:
                     $ref: '#/components/schemas/employeeInformation_Type'
                 - $ref: '#/components/schemas/employeeInformation_Type'
+            cyberInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cyberInformation_Type'
+                - $ref: '#/components/schemas/cyberInformation_Type'
             propertyOwnerOnlyIndicator:
               type: boolean
             engageSubcontractorsIndicator:
               type: boolean
             labourHireIndicator:
               type: boolean
+            medicalFacilityInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/medicalFacilityInformation_Type'
+                - $ref: '#/components/schemas/medicalFacilityInformation_Type'
+            stockInformation:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/stockInformation_Type'
+                - $ref: '#/components/schemas/stockInformation_Type'
             lossHistory:
               oneOf:
                 - type: array
@@ -14849,6 +16062,306 @@ components:
             sequenceNumber:
               type: string
               pattern: ^[0-9]{1,15}$
+    cancellationTypeCodeContent_Type:
+      type: string
+      title: Cancellation Type Code Content Type
+      description: TBD
+      enum:
+        - Cancellation
+        - Nonrenewal
+        - Reinstatement
+    cancellationReasonCodeContent_Type:
+      type: string
+      title: Cancellation Reason Code Content Type
+      description: TBD
+      enum:
+        - AdministrativeChanges
+        - AdministrativeProblems
+        - AdverseMedicalHistory
+        - AgencyCompanyProducerInsurerTermination
+        - BadService
+        - BankAdminError
+        - BrokersAppointment
+        - BusinessClosed
+        - CancelledAtRequestOfFinanceCompany
+        - CancelledByUnderwriterAndOrPlanAdministrator
+        - CancelledCreditCardCollectionStopped
+        - CancelledFraudulentClaims
+        - CancelledInTermsOfCancellationClause
+        - CancelledPhysicalRisk
+        - CancelledUnfavourableClaimsRatio
+        - CancelledUnreasonableClient
+        - CFIAdminError
+        - CFICARAdminError
+        - CFICARChangePlanOrBenefit
+        - CFICAROtherReasons
+        - CFIDishonouredCheque
+        - CFIFreeLook
+        - CFINewCoverRequestApprovedIssuance
+        - CFINonDisclosure
+        - CFIOtherReason
+        - ChangeOfAddress
+        - ChangeOfInterestOrOwnershipAndOrBusinessSold
+        - ChequeDishonored
+        - ClientDoesNotmeetSecurityRequirements
+        - CollectiveLeadNonLeadChange
+        - CompletedOperationsNoEmployeesNoExposureNoOperations
+        - CorporateOfficerNonelection
+        - CourtRelease
+        - CoveragePlacedElsewhere
+        - CoverNotNeededBondHirePurchaseSettled
+        - CoverNotNeededEmigratedMoveToOldAgeHome
+        - CoverNotNeededItemWrittenOffStolenSold
+        - CoverNotNeededLimitedPeriodCover
+        - DeclineAdverseMedHistory
+        - DissatisfiedAboutAPolicyScreeningAction
+        - DissatisfiedWithAgentBroker
+        - DissatisfiedWithHandlingOfClaim
+        - DuplicateCoverage
+        - FailureToComplyWithTermsAndConditionsOrAuditFailure
+        - FailureToPayDeductible
+        - FilingSlipReceivedFromMaster
+        - FreeLook14Day
+        - GuaranteePastRenewalDate
+        - HundredPercentClaimOnBasicCoverForPolicyholder
+        - IncorrectInceptionDate
+        - IncorrectPaymentMethodFrequency
+        - InsuranceNotAllowedInArea
+        - InsuranceNotNeededAssetSold
+        - InsuranceTransferredtoAnotherCompany
+        - InsuredDeceased
+        - InsuredRequestOrCancelledByEmployer
+        - InsuredWithAGroupScheme
+        - ItemWrittenOfforStolen
+        - LastItemOnPolicy
+        - LetterReceivedFromBeneficiary
+        - LimitedPeriod
+        - MaterialMisrepresentationFraud
+        - MisrepresentationOfInformationOnApplication
+        - NoAppointmentOriginalBondReturned
+        - NonDisclosure
+        - NonPaymentOfPremium
+        - NotInGoodFaithEntitledToCoverage
+        - NotTaken
+        - NotTakenUpByClientRequest
+        - OriginalGuaranteeReturned
+        - Other
+        - ParticipationInWrapupComplete
+        - PolicyHolderTurning75
+        - PolicyLapsedArticle45
+        - PremiumsUnaffordable
+        - ProcessingError
+        - ProductUnsuitable
+        - PropertySold
+        - ProposerRequest
+        - RDManualCancellation
+        - ReferToDrawerA
+        - ReferToDrawerBNotProvidedFor
+        - ReferToDrawerCPaymentStopped
+        - ReferToDrawerDAccountClosed
+        - ReferToDrawerENoLongerEmployedWithTheCompany
+        - ReferToDrawerF
+        - ReferToDrawerG
+        - ReferToDrawerHAccountDoesNotExist
+        - ReferToDrawerI
+        - ReferToDrawerJReasonUnknown
+        - ReferToDrawerKAccountTransferred
+        - ReferToDrawerL
+        - ReferToDrawerM
+        - ReferToDrawerN
+        - ReferToDrawerO
+        - ReferToDrawerP
+        - ReferToDrawerQ
+        - ReferToDrawerR
+        - ReferToDrawerS
+        - ReferToDrawerT
+        - ReferToDrawerU
+        - ReferToDrawerV
+        - ReferToDrawerW
+        - ReferToDrawerX
+        - ReferToDrawerY
+        - ReferToDrawerZ
+        - RenewalDateChange
+        - Replacedbyanotherpolicy
+        - ReplacedByMultiBonusPolicy
+        - ReplacedByMultimaxPolicy
+        - ReplacedbyMultiMotorPolicy
+        - ReplacedByPersonalLinesPolicy
+        - ReplacedByPortfolioManagementPolicy
+        - RequirementsIncomplete
+        - RetiringFromBusinessOrOutOfBusiness
+        - RevocationOfVoluntaryMarketAcceptance
+        - Rewritten
+        - SchemeCancelled
+        - Section45
+        - SO
+        - StrictUnderwritingRulesUnacceptableForClient
+        - SubstantialChangeInRisk
+        - TotalLoss
+        - TransferredToAGroupScheme
+        - TransferredtoAmua
+        - UnderwritingReasons
+        - VehicleSold
+        - WithdrawalByPolicyholder
+    cancellationEvidenceObtainedCodeContent_Type:
+      type: string
+      title: Cancellation Evidence Obtained Code Content Type
+      description: TBD
+      enum:
+        - NoPolicyOrBondObtained
+        - Other
+        - PolicyOrBondObtained
+        - ReleaseStatementObtained
+    cancellationPremiumCalculationCodeContent_Type:
+      type: string
+      title: Cancellation PremiumCalculation Code Content Type
+      description: TBD
+      enum:
+        - Flat
+        - FullyEarned
+        - ProRata
+        - ShortRate
+    cancellation_Type:
+      type: object
+      title: Cancellation Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            cancellationTypeCode:
+              $ref: '#/components/schemas/cancellationTypeCodeContent_Type'
+            cancellationReasonCode:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/cancellationReasonCodeContent_Type'
+                - $ref: '#/components/schemas/cancellationReasonCodeContent_Type'
+            cancellationEvidenceObtainedCode:
+              $ref: '#/components/schemas/cancellationEvidenceObtainedCodeContent_Type'
+            cancellationPremiumCalculationCode:
+              $ref: '#/components/schemas/cancellationPremiumCalculationCodeContent_Type'
+            cancellationMailedToInsuredDate:
+              type: string
+              format: date
+            policySubjectToAuditIndicator:
+              type: boolean
+            unearnedFactor:
+              type: string
+              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            minimumPremiumAppliesIndicator:
+              type: boolean
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
+    reinstatementTypeCodeContent_Type:
+      type: string
+      title: Reinstatement Type Code Content Type
+      description: TBD
+      enum:
+        - CancelDateOrReasonCodeChange
+        - CarrierConsideration
+        - CarrierError
+        - NonrenewalStatusWithdrawl
+        - Regular
+        - ReinstatementCancelledFlat
+        - ReinstatementCancelledInTerm
+    cancelledPolicyReferences_Type:
+      type: object
+      title: Cancelled Policy Reference Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            cancelledPolicyReference:
+              type: string
+        lineOfBusinessCode:
+          $ref: '#/components/schemas/lineOfBusinessCodeContent_Type'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+        insurancePeriod:
+          $ref: '#/components/schemas/insurancePeriod_Type'
+        effectiveDate:
+          type: string
+          format: date
+        cancellationDate:
+          type: string
+          format: date
+        policyName:
+          type: string
+          maxLength: 255
+        distributionChannelCode:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                attributes:
+                  type: object
+                  properties:
+                    codeListReference:
+                      type: string
+            - type: string
+              maxLength: 255
+        productReferences:
+          $ref: '#/components/schemas/productReferences_Type'
+        schemeReferences:
+          $ref: '#/components/schemas/schemeReferences_Type'
+    reinstatementReasonCodeContent_Type:
+      type: string
+      title: Reinstatement Reason Code Content Type
+      description: TBD
+      enum:
+        - CancelledInError
+        - Other
+        - PaymentReceived
+        - SupercedingCancellation
+    reinstatement_Type:
+      type: object
+      title: Reinstatement Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            reinstatementTypeCode:
+              $ref: '#/components/schemas/reinstatementTypeCodeContent_Type'
+            cancelledPolicyReferences:
+              $ref: '#/components/schemas/cancelledPolicyReferences_Type'
+            reinstatementReasonCode:
+              $ref: '#/components/schemas/reinstatementReasonCodeContent_Type'
+            correspondingCancelEffectiveDate:
+              type: string
+              format: date
+            stateOrProvinceCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
     claimPartyRole_Type:
       type: object
       title: Claim Party Role_Type
@@ -15010,37 +16523,6 @@ components:
             sequenceNumber:
               type: string
               pattern: ^[0-9]{1,15}$
-    vehicleClassCodeContent_Type:
-      type: string
-      title: Vehicle Class Code Content
-      description: TBD
-      enum:
-        - Breakdown
-        - Bus
-        - Caravan
-        - Commercial
-        - CommercialAndPrivate
-        - Dolly
-        - EarthMoving
-        - Farm
-        - Harvesting
-        - HeavyCommercial
-        - LightCommercial
-        - MediumCommercial
-        - Mobile
-        - Motorcycle
-        - MotorHome
-        - Other
-        - Passenger
-        - PrimeMover
-        - Private
-        - PrivateBus
-        - Safari
-        - ScheduledBus
-        - Tractor
-        - Trailer
-        - Truck
-        - UnscheduledBus
     thirdPartyVehicleReferences_Type:
       type: object
       title: Third Party Vehicle References Type
@@ -15941,88 +17423,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/period_Type'
         - properties: {}
-    treatmentFacilityTypeCodeContent_Type:
-      type: string
-      title: TreatmentFacilityTypeCodeContent_Type
-      description: TheTreatment Facility Type content enumeration
-      enum:
-        - CommunityHospital
-        - Government
-        - Private
-        - Public
-        - RestructuredHospital
-    treatmentRoomTypeCodeContent_Type:
-      type: string
-      title: TreatmentRoomTypeCodeContent_Type
-      description: TheTreatment Room Type content enumeration
-      enum:
-        - CurativeAcuteCareBeds
-        - DayOrOutpatientSurgeryRoom
-        - DoubleRoom
-        - FourBedded
-        - IntensiveOrCriticalCareUnit
-        - LongTermCareBeds
-        - OtherHospitalBeds
-        - RehabilitiveCareBeds
-        - RoomAndBoard
-        - ShortStayWard
-        - SingleRoom
-    medicalFacilityCountInformationCodeContent_Type:
-      type: string
-      title: Medical Facility Count Information Code Content Type
-      description: TBD
-      enum:
-        - AlliedHealthComplimentaryActivities
-        - AlliedHealthProfessions
-        - BedOccupancyPercentage
-        - NumberOfBeds
-        - NumberOfOutPatientsLastYear
-        - NumberOfOutPatientsNextYear
-        - NumberOfOutPatientsThisYear
-        - NumberOfPatients
-        - NumberOfPatientsLastYear
-        - NumberOfPatientsNextYear
-        - NumberOfPatientsThisYear
-        - NumberOfVisitsByInsured
-        - ProcedureTypePatientInformation
-    medicalFacilityCountInformation_Type:
-      type: object
-      title: Medical Facility CountInformation Type
-      required:
-        - typeCode
-      properties:
-        typeCode:
-          $ref: '#/components/schemas/medicalFacilityCountInformationCodeContent_Type'
-        itemCount:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        itemPercent:
-          type: string
-          pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-        description:
-          type: string
-    medicalFacilityInformation_Type:
-      type: object
-      title: Medica lFacility Information Type
-      required:
-        - treatmentFacilityTypeCode
-      properties:
-        treatmentFacilityTypeCode:
-          $ref: '#/components/schemas/treatmentFacilityTypeCodeContent_Type'
-        description:
-          type: string
-        treatmentRoomTypeCode:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
-            - $ref: '#/components/schemas/treatmentRoomTypeCodeContent_Type'
-        medicalFacilityCountInformation:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
-            - $ref: '#/components/schemas/medicalFacilityCountInformation_Type'
     medicalTreatment_Type:
       type: object
       title: Medical Treatment Type
@@ -16210,6 +17610,12 @@ components:
                   items:
                     $ref: '#/components/schemas/dataModification_Type'
                 - $ref: '#/components/schemas/dataModification_Type'
+            cancellation:
+              $ref: '#/components/schemas/cancellation_Type'
+            reinstatement:
+              $ref: '#/components/schemas/reinstatement_Type'
+            reissuance:
+              $ref: '#/components/schemas/reinsurance_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:

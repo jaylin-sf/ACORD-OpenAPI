@@ -1,0 +1,8 @@
+type: string
+title: Reinstatement Reason Code Content Type
+description: TBD
+enum:
+  - CancelledInError
+  - Other
+  - PaymentReceived
+  - SupercedingCancellation

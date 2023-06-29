@@ -1,0 +1,5 @@
+type: string
+title: Tax Amount Item Type Code Content Type
+description: TBD
+enum:
+  - Tax
