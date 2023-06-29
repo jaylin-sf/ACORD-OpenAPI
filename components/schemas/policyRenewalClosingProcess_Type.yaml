@@ -1,0 +1,9 @@
+type: object
+title: PolicyRenewalClosingProcess_Type
+allOf:
+  - $ref: .\ACORDMessage_Type.yaml
+  - required:
+      - policyClosing
+    properties:
+      policyClosing:
+        $ref: .\policyClosing_Type.yaml

@@ -1,0 +1,9 @@
+type: object
+title: PolicyRenewalQuotationProcess_Type
+allOf:
+  - $ref: .\ACORDMessage_Type.yaml
+  - required:
+      - policyQuotation
+    properties:
+      policyQuotation:
+        $ref: .\policyQuotation_Type.yaml

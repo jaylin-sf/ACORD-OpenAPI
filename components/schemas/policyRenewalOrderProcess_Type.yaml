@@ -1,0 +1,9 @@
+type: object
+title: PolicyRenewalOrderProcess_Type
+allOf:
+  - $ref: .\ACORDMessage_Type.yaml
+  - required:
+      - policyOrder
+    properties:
+      policyOrder:
+        $ref: .\policyOrder_Type.yaml

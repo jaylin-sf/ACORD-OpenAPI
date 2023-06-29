@@ -16,17 +16,17 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
-  /quotation/{id}:
+  /renewalClosingProcess/{id}:
     get:
       tags:
-        - Quotation
-      summary: Get quotation by id
-      description: Get quotation details by id sent via Webhook
-      operationId: GetQuotationById
+        - Renewal
+      summary: Renewal policy
+      description: Renewal policy
+      operationId: renewalClosingProcess
       parameters:
         - name: id
           in: path
-          description: Quotation Id
+          description: Opportunity Id
           required: true
           schema:
             type: string
@@ -37,7 +37,42 @@ paths:
           content:
             application/json:
               schema:
-                $ref: components\schemas\policyClosing_Type.yaml
+                $ref: components\schemas\policyRenewalClosingProcess_Type.yaml
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\apiErrorResponse_Type.yaml
+
+  /renewalClosingProcessResult/{id}:
+    get:
+      tags:
+        - Renewal
+      summary: Renewal policy result
+      description: Renewal policy result
+      operationId: renewalClosingProcessResult
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: components\schemas\policyRenewalClosingProcessResult_Type.yaml
         '400':
           description: Bad Request.
           content:
