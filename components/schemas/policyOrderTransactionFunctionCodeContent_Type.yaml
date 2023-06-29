@@ -1,0 +1,20 @@
+type: string
+title: Policy Order Transaction Function Code Content Type
+description: TBD
+enum:
+  - AdjustmentOfDeclaration
+  - AdjustmentOfDeclarationFinalization
+  - ConfirmedCancellation
+  - ConfirmedLapse
+  - ConfirmedReinstatement
+  - CoverAcceptance
+  - DeclinePolicyOrder
+  - IncreaseCover
+  - LapseCover
+  - LifeEvent
+  - PolicyIssuance
+  - RequestForCancellation
+  - RequestForCover
+  - RequestForIssuance
+  - RequestForReinstatement
+  - TransferCover

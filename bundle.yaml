@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/policyNewBusinessQuotationProcessResult_Type'
+                $ref: '#/components/schemas/policyNewBusinessOrderProcess_Type'
         '400':
           description: Bad Request.
           content:
@@ -1036,399 +1036,14 @@ components:
             totalBatchCount:
               type: string
               pattern: ^[0-9]{1,15}$
-    messageResultStatusCodeContent_Type:
-      type: string
-      title: MessageResultStatusCodeContent_Type
-      description: TBD
-      enum:
-        - Accepted
-        - AcceptedWithErrors
-        - Duplicate
-        - Invalid
-        - Rejected
-        - Valid
-    messageDocumentReferences_Type:
+    ACORDMessage_Type:
       type: object
-      title: MessageDocumentReferences_Type
-      properties:
-        documentId:
-          type: string
-          format: uuid
-          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-    messageDocumentResultStatusCodeContent_Type:
-      type: string
-      title: MessageDocumentResultStatusCodeContent_Type
-      description: TBD
-      enum:
-        - Pended
-        - Rejected
-        - Success
-    extendedStatusCodeContent_Type:
-      type: string
-      title: ExtendedStatusCodeContent_Type
-      description: TBD
-      enum:
-        - DataChanged
-        - DataError
-        - DataInformation
-        - DataMissing
-        - DataRestriction
-        - DataSuspect
-        - DataWarning
-    extendedStatus_Type:
-      type: object
-      title: ExtendedStatus_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            elementPath:
-              type: string
-              maxLength: 255
-            statusCode:
-              $ref: '#/components/schemas/extendedStatusCodeContent_Type'
-            description:
-              type: string
-            sequenceNumber:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            customStatusCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    externalIdentifierTypeCodeContent_Type:
-      type: string
-      title: ExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - ABN
-        - ABR
-        - ACN
-        - AFS
-        - AgreementNumber
-        - AMBestInsurerCode
-        - ANZSCO2006
-        - ANZSCO2009
-        - ANZSCO2013
-        - ANZSIC1993Code
-        - ANZSIC2006Code
-        - ASIC
-        - BranchId
-        - BusinessRegistrationCertificate
-        - CAWCId
-        - CAWCInsurerCode
-        - CISPId
-        - DriversLicenseId
-        - DUNSNumberCode
-        - EmployerId
-        - EquifaxId
-        - ExperianId
-        - FAISActId
-        - FEINId
-        - FinancialInstitutionId
-        - FiscalCode
-        - FRID
-        - FSBCoverLevel1
-        - FSBCoverLevel2
-        - FSBCoverLevel3
-        - FSPReferenceNumber
-        - GISCode
-        - GlassCode
-        - GovernmentId
-        - GreenCardId
-        - GroupAccountId
-        - IAAccountingClass
-        - IAIABC
-        - IAIABCInsurerCode
-        - IASubAccountingClass
-        - IBCInsurerCode
-        - ICECLASS
-        - IdentityDocumentId
-        - IMOShipId
-        - IncorporationCertificate
-        - ISPCode
-        - JurisdictionBureauId
-        - JurisdictionEmployeeId
-        - JurisdictionId
-        - JurisdictionUnemploymentId
-        - LloydsSyndicate
-        - LMICode
-        - LocalIdentityDocument
-        - LondonBrokerReference
-        - LORSCode
-        - MMSStructure
-        - NAICInsurerCode
-        - NAICProducerCode
-        - NAICSCode
-        - NationalId
-        - NCCIId
-        - NCCIInsurerCode
-        - New
-        - NewJerseySLA
-        - NIPRProducerCode
-        - NRIC
-        - ONET
-        - OSHAId
-        - OtherId
-        - PADEInsurerCode
-        - PassportId
-        - PoliceWarrantCard
-        - PoolReZoneCode
-        - PostalAuthority
-        - RegisteredNumber
-        - RegulatoryAgencyFileReferenceNumber
-        - SANonBarCodedID
-        - SAPVIN
-        - SecurityId
-        - SerialNumber
-        - SFN
-        - SocialSecurityNumberId
-        - SPINId
-        - StateRIRSId
-        - SurplusLinesBroker
-        - TaxRegistrationId
-        - TFN
-        - ToBeConfirmed
-        - TransUnionId
-        - TRWId
-        - UnincorporatedClub
-        - UniqueMarketReference
-        - USI
-        - USSICCode
-        - ValidTravelDocument
-        - VATRegistrationNumberId
-        - VehicleIdentificationNumber
-        - VisaId
-        - WatercraftRegistrationNumberId
-        - WorkPermitId
-    externalIdentifier_Type:
-      type: object
-      title: ExternalIdentifier Type
-      required:
-        - typeCode
-        - id
-      properties:
-        typeCode:
-          $ref: '#/components/schemas/externalIdentifierTypeCodeContent_Type'
-        sourceURI:
-          type: string
-          format: uri
-        jurisdictionCode:
-          oneOf:
-            - type: object
-              required:
-                - value
-              properties:
-                value:
-                  type: string
-                attributes:
-                  type: object
-                  properties:
-                    codeListReference:
-                      type: string
-            - type: string
-              maxLength: 255
-        id:
-          type: string
-          maxLength: 255
-        identifierDescription:
-          type: string
-    actionCodeContent_Type:
-      type: string
-      title: Action Code Content Type
-      description: TBD
-      enum:
-        - Add
-        - AdvisedValue
-        - Delete
-        - ModifyElement
-        - ModifyIdentifierReference
-        - NoModification
-        - RemoveElement
-        - Truncate
-    changeStatus_Type:
-      type: object
-      title: ChangeStatus_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/externalIdentifier_Type'
-                - $ref: '#/components/schemas/externalIdentifier_Type'
-            elementPath:
-              type: string
-              maxLength: 255
-            actionCode:
-              $ref: '#/components/schemas/actionCodeContent_Type'
-            description:
-              type: string
-            sequenceNumber:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            previousValueDescription:
-              type: string
-            previousValueAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            previousValuePercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            previousValueDate:
-              type: string
-              format: date
-            previousValueMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            previousValueCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            previousValueIndicator:
-              type: boolean
-            previousValueInteger:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    resultSuccessCodeContent_Type:
-      type: string
-      title: ResultSuccessCodeContent_Type
-      description: TBD
-      enum:
-        - Success
-        - WithChanges
-        - WithInformation
-        - WithRestriction
-        - WithSuspect
-    resultRejectCodeContent_Type:
-      type: string
-      title: ResultRejectCodeContent_Type
-      description: TBD
-      enum:
-        - DataInvalidOrMissing
-        - DuplicateMessageId
-        - InvalidMessageId
-        - OutOfSynchronization
-        - Unsyncable
-    resultPendedCodeContent_Type:
-      type: string
-      title: ResultPendedCodeContent_Type
-      description: TBD
-      enum:
-        - Accepted
-        - DataError
-        - Pended
-        - PendedOutOfBand
-    messageDocumentResult_Type:
-      type: object
-      title: MessageDocumentResult_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - messageDocumentReferences
-            - statusCode
-          properties:
-            messageDocumentReferences:
-              $ref: '#/components/schemas/messageDocumentReferences_Type'
-            statusCode:
-              $ref: '#/components/schemas/messageDocumentResultStatusCodeContent_Type'
-            description:
-              type: string
-            extendedStatus:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/extendedStatus_Type'
-                - $ref: '#/components/schemas/extendedStatus_Type'
-            changeStatus:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/changeStatus_Type'
-                - $ref: '#/components/schemas/changeStatus_Type'
-            successCode:
-              $ref: '#/components/schemas/resultSuccessCodeContent_Type'
-            rejectCode:
-              $ref: '#/components/schemas/resultRejectCodeContent_Type'
-            pendedCode:
-              $ref: '#/components/schemas/resultPendedCodeContent_Type'
-    messageResult_Type:
-      type: object
-      title: MessageResult_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - statusCode
-            - messageDocumentResult
-          properties:
-            statusCode:
-              $ref: '#/components/schemas/messageResultStatusCodeContent_Type'
-            messageDocumentResult:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/messageDocumentResult_Type'
-                - $ref: '#/components/schemas/messageDocumentResult_Type'
-    ACORDMessageResult_Type:
-      type: object
-      title: ACORDMessageResult_Type
+      title: ACORDMessage_Type
       required:
         - messageHeader
-        - messageResult
       properties:
         messageHeader:
           $ref: '#/components/schemas/messageHeader_Type'
-        messageResult:
-          $ref: '#/components/schemas/messageResult_Type'
     attachmentTypeCodeContent_Type:
       type: string
       title: AttachmentTypeCodeContent_Type
@@ -8966,27 +8581,27 @@ components:
               maxLength: 255
             description:
               type: string
-    policyQuotationTransactionFunctionCodeContent_Type:
+    policyOrderTransactionFunctionCodeContent_Type:
       type: string
-      title: Policy Quotation Transaction Function Code Content Type
+      title: Policy Order Transaction Function Code Content Type
       description: TBD
       enum:
-        - DeclinedQuotation
-        - DeclinedRequestForQuotation
-        - DeclineToRenew
-        - FirmQuotation
-        - GetUnderwritingResultFromUnderwritingEngine
-        - IndicativeQuotation
-        - PassQuoteToUnderwritingEngine
-        - QuotationReferred
-        - ReferralRequired
-        - RenewalInvitation
-        - RequestAdditionalInformation
-        - RequestForAdjustedQuotation
-        - RequestForQuotation
-        - RequestForReferral
-        - SupplyAdditonalInformation
-        - UnsuccessfulQuotation
+        - AdjustmentOfDeclaration
+        - AdjustmentOfDeclarationFinalization
+        - ConfirmedCancellation
+        - ConfirmedLapse
+        - ConfirmedReinstatement
+        - CoverAcceptance
+        - DeclinePolicyOrder
+        - IncreaseCover
+        - LapseCover
+        - LifeEvent
+        - PolicyIssuance
+        - RequestForCancellation
+        - RequestForCover
+        - RequestForIssuance
+        - RequestForReinstatement
+        - TransferCover
     reason_Type:
       type: object
       title: Reason Type
@@ -9011,6 +8626,25 @@ components:
             reasonDescription:
               type: string
               maxLength: 255
+    policyOrderReferences_Type:
+      type: object
+      title: PolicyOrderReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyOrderReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
     policyQuotationReferences_Type:
       type: object
       title: PolicyQuotationReferences_Type
@@ -11497,6 +11131,143 @@ components:
         - Foreign
         - InState
         - OutOfState
+    externalIdentifierTypeCodeContent_Type:
+      type: string
+      title: ExternalIdentifierTypeCodeContent Type
+      description: TBD
+      enum:
+        - ABN
+        - ABR
+        - ACN
+        - AFS
+        - AgreementNumber
+        - AMBestInsurerCode
+        - ANZSCO2006
+        - ANZSCO2009
+        - ANZSCO2013
+        - ANZSIC1993Code
+        - ANZSIC2006Code
+        - ASIC
+        - BranchId
+        - BusinessRegistrationCertificate
+        - CAWCId
+        - CAWCInsurerCode
+        - CISPId
+        - DriversLicenseId
+        - DUNSNumberCode
+        - EmployerId
+        - EquifaxId
+        - ExperianId
+        - FAISActId
+        - FEINId
+        - FinancialInstitutionId
+        - FiscalCode
+        - FRID
+        - FSBCoverLevel1
+        - FSBCoverLevel2
+        - FSBCoverLevel3
+        - FSPReferenceNumber
+        - GISCode
+        - GlassCode
+        - GovernmentId
+        - GreenCardId
+        - GroupAccountId
+        - IAAccountingClass
+        - IAIABC
+        - IAIABCInsurerCode
+        - IASubAccountingClass
+        - IBCInsurerCode
+        - ICECLASS
+        - IdentityDocumentId
+        - IMOShipId
+        - IncorporationCertificate
+        - ISPCode
+        - JurisdictionBureauId
+        - JurisdictionEmployeeId
+        - JurisdictionId
+        - JurisdictionUnemploymentId
+        - LloydsSyndicate
+        - LMICode
+        - LocalIdentityDocument
+        - LondonBrokerReference
+        - LORSCode
+        - MMSStructure
+        - NAICInsurerCode
+        - NAICProducerCode
+        - NAICSCode
+        - NationalId
+        - NCCIId
+        - NCCIInsurerCode
+        - New
+        - NewJerseySLA
+        - NIPRProducerCode
+        - NRIC
+        - ONET
+        - OSHAId
+        - OtherId
+        - PADEInsurerCode
+        - PassportId
+        - PoliceWarrantCard
+        - PoolReZoneCode
+        - PostalAuthority
+        - RegisteredNumber
+        - RegulatoryAgencyFileReferenceNumber
+        - SANonBarCodedID
+        - SAPVIN
+        - SecurityId
+        - SerialNumber
+        - SFN
+        - SocialSecurityNumberId
+        - SPINId
+        - StateRIRSId
+        - SurplusLinesBroker
+        - TaxRegistrationId
+        - TFN
+        - ToBeConfirmed
+        - TransUnionId
+        - TRWId
+        - UnincorporatedClub
+        - UniqueMarketReference
+        - USI
+        - USSICCode
+        - ValidTravelDocument
+        - VATRegistrationNumberId
+        - VehicleIdentificationNumber
+        - VisaId
+        - WatercraftRegistrationNumberId
+        - WorkPermitId
+    externalIdentifier_Type:
+      type: object
+      title: ExternalIdentifier Type
+      required:
+        - typeCode
+        - id
+      properties:
+        typeCode:
+          $ref: '#/components/schemas/externalIdentifierTypeCodeContent_Type'
+        sourceURI:
+          type: string
+          format: uri
+        jurisdictionCode:
+          oneOf:
+            - type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                attributes:
+                  type: object
+                  properties:
+                    codeListReference:
+                      type: string
+            - type: string
+              maxLength: 255
+        id:
+          type: string
+          maxLength: 255
+        identifierDescription:
+          type: string
     taxAmountItem_Type:
       type: object
       title: Tax Amount Item Type
@@ -16394,22 +16165,6 @@ components:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
               $ref: '#/components/schemas/policy_Type'
-    policyRole_Type:
-      type: object
-      title: PolicyRole_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyReferences:
-              $ref: '#/components/schemas/policyReferences_Type'
-            policy:
-              $ref: '#/components/schemas/policy_Type'
-    underlyingPolicy_Type:
-      type: object
-      title: UnderlyingPolicy_Type
-      allOf:
-        - $ref: '#/components/schemas/policyRole_Type'
-        - properties: {}
     claimExperiencePeriod_Type:
       type: object
       title: Claim Experience Period
@@ -16503,6 +16258,30 @@ components:
         - Personal
         - Reinsurance
         - Retail
+    lodgementTypeCodeContent_Type:
+      type: string
+      title: Lodgement Type Code Content
+      description: TBD
+      enum:
+        - Automatic
+        - Batch
+        - DirectAI
+        - DirectMember
+        - Manual
+        - Retail
+    actionCodeContent_Type:
+      type: string
+      title: Action Code Content Type
+      description: TBD
+      enum:
+        - Add
+        - AdvisedValue
+        - Delete
+        - ModifyElement
+        - ModifyIdentifierReference
+        - NoModification
+        - RemoveElement
+        - Truncate
     dataModification_Type:
       type: object
       title: Data Modification Type
@@ -17987,9 +17766,9 @@ components:
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
-    policyQuotation_Type:
+    policyOrder_Type:
       type: object
-      title: PolicyQuotation_Type
+      title: PolicyOrder_Type
       allOf:
         - $ref: '#/components/schemas/messageDocument_Type'
         - required:
@@ -18002,7 +17781,7 @@ components:
                     $ref: '#/components/schemas/location_Type'
                 - $ref: '#/components/schemas/location_Type'
             transactionFunctionCode:
-              $ref: '#/components/schemas/policyQuotationTransactionFunctionCodeContent_Type'
+              $ref: '#/components/schemas/policyOrderTransactionFunctionCodeContent_Type'
             description:
               type: string
             reason:
@@ -18014,6 +17793,8 @@ components:
             versionDateTime:
               type: string
               format: date-time
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
             policyQuotationReferences:
               $ref: '#/components/schemas/policyQuotationReferences_Type'
             effectiveDate:
@@ -18029,9 +17810,9 @@ components:
             preparedDate:
               type: string
               format: date
-            validUntilDate:
+            preparedTime:
               type: string
-              format: date
+              format: time
             replyDueDate:
               type: string
               format: date
@@ -18041,12 +17822,6 @@ components:
                   items:
                     $ref: '#/components/schemas/priorPolicy_Type'
                 - $ref: '#/components/schemas/priorPolicy_Type'
-            underlyingPolicy:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/underlyingPolicy_Type'
-                - $ref: '#/components/schemas/underlyingPolicy_Type'
             claimExperiencePeriod:
               $ref: '#/components/schemas/claimExperiencePeriod_Type'
             agreementPortfolio:
@@ -18055,6 +17830,8 @@ components:
               $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
             broadLineOfBusinessDescription:
               type: string
+            lodgementTypeCode:
+              $ref: '#/components/schemas/lodgementTypeCodeContent_Type'
             documentId:
               type: string
               format: uuid
@@ -18085,14 +17862,16 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claim:
               $ref: '#/components/schemas/claim_Type'
-    policyNewBusinessQuotationProcessResult_Type:
+    policyNewBusinessOrderProcess_Type:
       type: object
-      title: PolicyNewBusinessQuotationProcessResult_Type
+      title: PolicyNewBusinessOrderProcess_Type
       allOf:
-        - $ref: '#/components/schemas/ACORDMessageResult_Type'
-        - properties:
-            policyQuotation:
-              $ref: '#/components/schemas/policyQuotation_Type'
+        - $ref: '#/components/schemas/ACORDMessage_Type'
+        - required:
+            - policyOrder
+          properties:
+            policyOrder:
+              $ref: '#/components/schemas/policyOrder_Type'
     apiError_Type:
       type: object
       title: API Error Details

@@ -1,0 +1,7 @@
+type: object
+title: ACORDMessage_Type
+required:
+  - messageHeader
+properties:
+  messageHeader:
+    $ref: .\messageHeader_Type.yaml
