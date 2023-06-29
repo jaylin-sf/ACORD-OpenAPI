@@ -1,0 +1,7 @@
+type: object
+title: PolicyEndorsementClosingProcessResult_Type
+allOf:
+  - $ref: .\ACORDMessageResult_Type.yaml
+  - properties:
+      policyClosing:
+        $ref: .\policyClosing_Type.yaml
