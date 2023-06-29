@@ -1,0 +1,10 @@
+type: string
+title: Lodgement Type Code Content
+description: TBD
+enum:
+  - Automatic
+  - Batch
+  - DirectAI
+  - DirectMember
+  - Manual
+  - Retail
