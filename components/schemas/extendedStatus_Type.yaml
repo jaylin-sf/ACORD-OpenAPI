@@ -1,0 +1,30 @@
+type: object
+title: ExtendedStatus_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      elementPath:
+        type: string
+        maxLength: 255
+      statusCode:
+        $ref: .\extendedStatusCode_Type.yaml
+      description:
+        type: string
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      customStatusCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255

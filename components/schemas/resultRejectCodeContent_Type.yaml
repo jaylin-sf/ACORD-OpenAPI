@@ -1,0 +1,9 @@
+type: string
+title: ResultRejectCodeContent_Type
+description: TBD
+enum:
+  - DataInvalidOrMissing
+  - DuplicateMessageId
+  - InvalidMessageId
+  - OutOfSynchronization
+  - Unsyncable

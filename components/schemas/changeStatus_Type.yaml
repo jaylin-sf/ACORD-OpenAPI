@@ -1,0 +1,76 @@
+type: object
+title: ChangeStatus_Type
+allOf:
+  - $ref: .\ACORDAggregate_Type.yaml
+  - properties:
+      externalIdentifier:
+        oneOf:
+          - type: array
+            items:
+              $ref: .\externalIdentifier_Type.yaml
+          - $ref: .\externalIdentifier_Type.yaml
+      elementPath:
+        type: string
+        maxLength: 255
+      actionCode:
+        $ref: .\actionCode_Type.yaml
+      description:
+        type: string
+      sequenceNumber:
+        type: string
+        pattern: ^[0-9]{1,15}$
+      previousValueDescription:
+        type: string
+      previousValueAmount:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              currencyCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      previousValuePercent:
+        type: string
+        pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+      previousValueDate:
+        type: string
+        format: date
+      previousValueMeasure:
+        oneOf:
+          - type: object
+            title: Measure Type
+            required:
+              - value
+            properties:
+              unitCode:
+                type: string
+              value:
+                type: string
+                pattern: ^(\+|-)?[0-9]{1,15}$
+          - type: string
+            pattern: ^(\+|-)?[0-9]{1,15}$
+      previousValueCode:
+        oneOf:
+          - type: object
+            required:
+              - value
+            properties:
+              value:
+                type: string
+              attributes:
+                type: object
+                properties:
+                  codeListReference:
+                    type: string
+          - type: string
+            maxLength: 255
+      previousValueIndicator:
+        type: boolean
+      previousValueInteger:
+        type: string
+        pattern: ^[0-9]{1,15}$
