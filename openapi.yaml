@@ -37,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: components\schemas\policyNewBusinessOrderProcess_Type.yaml
+                $ref: components\schemas\policyNewBusinessOrderProcessResult_Type.yaml
         '400':
           description: Bad Request.
           content:
