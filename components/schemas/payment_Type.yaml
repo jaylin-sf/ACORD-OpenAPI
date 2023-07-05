@@ -6,9 +6,9 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\paymentTypeCode_Type.yaml
+        $ref: .\paymentTypeCodeContent_Type.yaml
       statusCode:
-        $ref: .\paymentStatusCode_Type.yaml
+        $ref: .\paymentStatusCodeContent_Type.yaml
       statusDate:
         type: string
         format: date
@@ -49,6 +49,6 @@ allOf:
         type: string
         format: date
       financialTransactionCode:
-        $ref: .\financialTransactionCode_Type.yaml
+        $ref: .\financialTransactionCodeContent_Type.yaml
       invoiceReferences:
         $ref: .\invoiceReferences_Type.yaml

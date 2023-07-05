@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\bankAccountTypeCode_Type.yaml
+        $ref: .\bankAccountTypeCodeContent_Type.yaml
       accountName:
         type: string
         maxLength: 255

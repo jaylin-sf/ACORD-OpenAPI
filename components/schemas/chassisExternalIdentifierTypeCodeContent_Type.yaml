@@ -1,5 +1,0 @@
-type: string
-title: ChassisExternalIdentifierTypeCodeContent_Type
-description: TBD
-enum:
-  - SerialNumber

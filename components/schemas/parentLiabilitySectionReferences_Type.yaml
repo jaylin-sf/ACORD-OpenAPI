@@ -7,7 +7,7 @@ properties:
       liabilitySectionReference:
         type: string
   typeCode:
-    $ref: .\liabilitySectionTypeCode_Type.yaml
+    $ref: .\liabilitySectionTypeCodeContent_Type.yaml
   assignedIdentifier:
     oneOf:
       - type: array

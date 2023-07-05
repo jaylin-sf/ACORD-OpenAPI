@@ -16,75 +16,18 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
+  /newbusinessQuotationProcess/{id}:
+    $ref: paths/newbusinessQuotationProcess_{id}.yaml
+  /newbusinessQuotationProcessResult/{id}:
+    $ref: paths/newbusinessQuotationProcessResult_{id}.yaml
+  /newbusinessOrderProcess/{id}:
+    $ref: paths/newbusinessOrderProcess_{id}.yaml
+  /newbusinessOrderProcessResult/{id}:
+    $ref: paths/newbusinessOrderProcessResult_{id}.yaml
   /newbusinessClosingProcess/{id}:
-    get:
-      tags:
-        - NewBusiness
-      summary: NewBusiness policy
-      description: NewBusiness policy
-      operationId: newBusinessClosingProcess
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyNewBusinessQuotationProcess_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-
+    $ref: paths/newbusinessClosingProcess_{id}.yaml
   /newbusinessClosingProcessResult/{id}:
-    get:
-      tags:
-        - NewBusiness
-      summary: NewBusiness policy result
-      description: NewBusiness policy result
-      operationId: newBusinessClosingProcessResult
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyNewBusinessQuotationProcessResult_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
+    $ref: paths/newbusinessClosingProcessResult_{id}.yaml
 components:
   securitySchemes:
     sctpUsername:

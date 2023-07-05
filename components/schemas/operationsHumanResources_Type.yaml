@@ -6,9 +6,9 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\operationsHumanResourcesTypeCode_Type.yaml
+        $ref: .\operationsHumanResourcesTypeCodeContent_Type.yaml
       jobCategoryCode:
-        $ref: .\jobCategoryCode_Type.yaml
+        $ref: .\jobCategoryCodeContent_Type.yaml
       jobCategoryDescription:
         type: string
         maxLength: 255

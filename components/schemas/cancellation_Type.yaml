@@ -4,17 +4,17 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       cancellationTypeCode:
-        $ref: .\cancellationTypeCode_Type.yaml
+        $ref: .\cancellationTypeCodeContent_Type.yaml
       cancellationReasonCode:
         oneOf:
           - type: array
             items:
-              $ref: .\cancellationReasonCode_Type.yaml
-          - $ref: .\cancellationReasonCode_Type.yaml
+              $ref: .\cancellationReasonCodeContent_Type.yaml
+          - $ref: .\cancellationReasonCodeContent_Type.yaml
       cancellationEvidenceObtainedCode:
-        $ref: .\cancellationEvidenceObtainedCode_Type.yaml
+        $ref: .\cancellationEvidenceObtainedCodeContent_Type.yaml
       cancellationPremiumCalculationCode:
-        $ref: .\cancellationPremiumCalculationCode_Type.yaml
+        $ref: .\cancellationPremiumCalculationCodeContent_Type.yaml
       cancellationMailedToInsuredDate:
         type: string
         format: date

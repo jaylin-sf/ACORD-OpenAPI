@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\personNameTypeCode_Type.yaml
+        $ref: .\personNameTypeCodeContent_Type.yaml
       indexName:
         type: string
         maxLength: 255
@@ -27,7 +27,7 @@ allOf:
         type: string
         maxLength: 255
       personTitlePrefixCode:
-        $ref: .\personTitlePrefixCode_Type.yaml
+        $ref: .\personTitlePrefixCodeContent_Type.yaml
       nameSuffix:
         type: string
         maxLength: 255

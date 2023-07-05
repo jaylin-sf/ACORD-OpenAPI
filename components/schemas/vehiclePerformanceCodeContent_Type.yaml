@@ -1,9 +1,0 @@
-type: string
-title: Vehicle Performance Code Content Type
-description: TBD
-enum:
-  - Basic
-  - High
-  - Intermediate
-  - SportsCar
-  - SportsPremium

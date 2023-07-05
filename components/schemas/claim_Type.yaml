@@ -20,7 +20,7 @@ allOf:
               $ref: .\claimActivity_Type.yaml
           - $ref: .\claimActivity_Type.yaml
       claimReasonCode:
-        $ref: .\claimReasonCode_Type.yaml
+        $ref: .\claimReasonCodeContent_Type.yaml
       claimCode:
         oneOf:
           - type: object
@@ -38,18 +38,6 @@ allOf:
             maxLength: 255
       justificationDescription:
         type: string
-      financialReview:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\financialReview_Type.yaml
-          - $ref: .\financialReview_Type.yaml
-      interview:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\interview_Type.yaml
-          - $ref: .\interview_Type.yaml
       jurisdictionCode:
         oneOf:
           - type: object
@@ -65,12 +53,6 @@ allOf:
                     type: string
           - type: string
             maxLength: 255
-      medicalTreatment:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\medicalTreatment_Type.yaml
-          - $ref: .\medicalTreatment_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array

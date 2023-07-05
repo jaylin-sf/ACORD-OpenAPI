@@ -1,5 +1,0 @@
-type: object
-title: Extended Warranty Period Type
-allOf:
-  - $ref: .\period_Type.yaml
-  - properties: {}

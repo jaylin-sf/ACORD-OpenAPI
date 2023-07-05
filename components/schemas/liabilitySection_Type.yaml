@@ -7,7 +7,7 @@ allOf:
         type: string
         format: date
       statusCode:
-        $ref: .\policyStatusCode_Type.yaml
+        $ref: .\policyStatusCodeContent_Type.yaml
       policyInsurerReferences:
         oneOf:
           - type: array
@@ -65,7 +65,7 @@ allOf:
               $ref: .\liabilitySectionQuestionAnswer_Type.yaml
           - $ref: .\liabilitySectionQuestionAnswer_Type.yaml
       typeCode:
-        $ref: .\liabilitySectionTypeCode_Type.yaml
+        $ref: .\liabilitySectionTypeCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array

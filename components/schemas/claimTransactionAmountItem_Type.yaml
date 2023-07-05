@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\claimTransactionAmountItemTypeCode_Type.yaml
+        $ref: .\claimTransactionAmountItemTypeCodeContent_Type.yaml
       claimAmountDate:
         type: string
         format: date

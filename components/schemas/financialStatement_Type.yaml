@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\financialStatementTypeCode_Type.yaml
+        $ref: .\financialStatementTypeCodeContent_Type.yaml
       statementDate:
         type: string
         format: date

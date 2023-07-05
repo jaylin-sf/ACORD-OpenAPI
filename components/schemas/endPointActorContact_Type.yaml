@@ -21,7 +21,7 @@ allOf:
           - type: string
             maxLength: 255
       roleCode:
-        $ref: .\endPointActorContactRoleCode_Type.yaml
+        $ref: .\endPointActorContactRoleCodeContent_Type.yaml
       telephone:
         oneOf:
           - type: array

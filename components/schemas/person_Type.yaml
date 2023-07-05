@@ -8,9 +8,9 @@ allOf:
       businessCommunication:
         $ref: .\businessCommunication_Type.yaml
       genderCode:
-        $ref: .\genderCode_Type.yaml
+        $ref: .\genderCodeContent_Type.yaml
       maritalStatusCode:
-        $ref: .\maritalStatusCode_Type.yaml
+        $ref: .\maritalStatusCodeContent_Type.yaml
       deceasedIndicator:
         type: boolean
       nationalityCode:

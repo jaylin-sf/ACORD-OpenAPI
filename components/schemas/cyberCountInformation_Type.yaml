@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\cyberCountTypeCode_Type.yaml
+        $ref: .\cyberCountTypeCodeContent_Type.yaml
       unitCount:
         type: string
         pattern: ^[0-9]{1,15}$

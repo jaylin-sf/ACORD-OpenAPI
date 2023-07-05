@@ -4,15 +4,15 @@ required:
   - treatmentFacilityTypeCode
 properties:
   treatmentFacilityTypeCode:
-    $ref: .\treatmentFacilityTypeCode_Type.yaml
+    $ref: .\treatmentFacilityTypeCodeContent_Type.yaml
   description:
     type: string
   treatmentRoomTypeCode:
     oneOf:
       - type: array
         items:
-          $ref: .\treatmentRoomTypeCode_Type.yaml
-      - $ref: .\treatmentRoomTypeCode_Type.yaml
+          $ref: .\treatmentRoomTypeCodeContent_Type.yaml
+      - $ref: .\treatmentRoomTypeCodeContent_Type.yaml
   medicalFacilityCountInformation:
     oneOf:
       - type: array

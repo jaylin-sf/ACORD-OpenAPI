@@ -4,9 +4,9 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       communicationChannelCode:
-        $ref: .\communicationChannelCode_Type.yaml
+        $ref: .\communicationChannelCodeContent_Type.yaml
       communicationProcessCode:
-        $ref: .\communicationProcessCode_Type.yaml
+        $ref: .\communicationProcessCodeContent_Type.yaml
       resourceReferenceURI:
         type: string
         format: uri

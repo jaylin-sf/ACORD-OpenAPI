@@ -18,12 +18,12 @@ allOf:
       description:
         type: string
       causeCode:
-        $ref: .\causeCode_Type.yaml
+        $ref: .\causeCodeContent_Type.yaml
       statusDate:
         type: string
         format: date
       statusCode:
-        $ref: .\claimStatusCode_Type.yaml
+        $ref: .\claimStatusCodeContent_Type.yaml
       statusCodeDescription:
         type: string
       insuredReferences:
@@ -34,20 +34,8 @@ allOf:
             items:
               $ref: .\claimPartyReferences_Type.yaml
           - $ref: .\claimPartyReferences_Type.yaml
-      thirdPartyDriver:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\thirdPartyDriver_Type.yaml
-          - $ref: .\thirdPartyDriver_Type.yaml
       inDisputeIndicator:
         type: boolean
-      thirdPartyVehicle:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\thirdPartyVehicle_Type.yaml
-          - $ref: .\thirdPartyVehicle_Type.yaml
       exGratiaIndicator:
         type: boolean
       catastropheLossIndicator:
@@ -61,9 +49,9 @@ allOf:
               $ref: .\claimTransactionAmountItem_Type.yaml
           - $ref: .\claimTransactionAmountItem_Type.yaml
       damageDescriptionCode:
-        $ref: .\damageDescriptionCode_Type.yaml
+        $ref: .\damageDescriptionCodeContent_Type.yaml
       damageExtentCode:
-        $ref: .\damageExtentCode_Type.yaml
+        $ref: .\damageExtentCodeContent_Type.yaml
       recoveryDate:
         type: string
         format: date

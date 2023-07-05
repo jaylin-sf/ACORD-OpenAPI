@@ -12,7 +12,7 @@ allOf:
               $ref: .\location_Type.yaml
           - $ref: .\location_Type.yaml
       transactionFunctionCode:
-        $ref: .\policyOrderTransactionFunctionCode_Type.yaml
+        $ref: .\policyOrderTransactionFunctionCodeContent_Type.yaml
       description:
         type: string
       reason:
@@ -55,14 +55,12 @@ allOf:
           - $ref: .\priorPolicy_Type.yaml
       claimExperiencePeriod:
         $ref: .\claimExperiencePeriod_Type.yaml
-      agreementPortfolio:
-        $ref: .\agreementPortfolio_Type.yaml
       broadLineOfBusinessCode:
-        $ref: .\broadLineOfBusinessCode_Type.yaml
+        $ref: .\broadLineOfBusinessCodeContent_Type.yaml
       broadLineOfBusinessDescription:
         type: string
       lodgementTypeCode:
-        $ref: .\lodgementTypeCode_Type.yaml
+        $ref: .\lodgementTypeCodeContent_Type.yaml
       documentId:
         type: string
         format: uuid
@@ -82,10 +80,6 @@ allOf:
           - $ref: .\dataModification_Type.yaml
       cancellation:
         $ref: .\cancellation_Type.yaml
-      reinstatement:
-        $ref: .\reinstatement_Type.yaml
-      reissuance:
-        $ref: .\reinsurance_Type.yaml
       policyReferences:
         $ref: .\policyReferences_Type.yaml
       policy:

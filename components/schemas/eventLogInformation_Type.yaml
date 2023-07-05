@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       eventCode:
-        $ref: .\eventCode_Type.yaml
+        $ref: .\eventCodeContent_Type.yaml
       eventCreationDate:
         type: string
         format: date

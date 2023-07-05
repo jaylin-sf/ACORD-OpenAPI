@@ -5,7 +5,7 @@ required:
   - id
 properties:
   typeCode:
-    $ref: .\externalIdentifierTypeCode_Type.yaml
+    $ref: .\externalIdentifierTypeCodeContent_Type.yaml
   sourceURI:
     type: string
     format: uri

@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\rateTypeCode_Type.yaml
+        $ref: .\rateTypeCodeContent_Type.yaml
       premiumRate:
         type: string
         pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

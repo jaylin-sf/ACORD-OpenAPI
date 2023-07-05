@@ -9,7 +9,7 @@ allOf:
           operationsReference:
             type: string
       typeCode:
-        $ref: .\operationsTypeCode_Type.yaml
+        $ref: .\operationsTypeCodeContent_Type.yaml
       externalIdentifier:
         oneOf:
           - type: array

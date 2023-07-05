@@ -19,7 +19,7 @@ allOf:
           - type: string
             maxLength: 255
       statusCode:
-        $ref: .\continuingEducationStatusCode_Type.yaml
+        $ref: .\continuingEducationStatusCodeContent_Type.yaml
       statusDescription:
         type: string
         maxLength: 255

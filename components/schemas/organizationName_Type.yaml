@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\organizationNameTypeCode_Type.yaml
+        $ref: .\organizationNameTypeCodeContent_Type.yaml
       indexName:
         type: string
         maxLength: 255

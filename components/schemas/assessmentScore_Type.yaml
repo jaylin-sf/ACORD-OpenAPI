@@ -4,11 +4,11 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\assessmentScoreTypeCode_Type.yaml
+        $ref: .\assessmentScoreTypeCodeContent_Type.yaml
       description:
         type: string
       assessmentScoreCode:
-        $ref: .\assessmentScoreCode_Type.yaml
+        $ref: .\assessmentScoreCodeContent_Type.yaml
       assessmentScoreDescription:
         type: string
         maxLength: 255

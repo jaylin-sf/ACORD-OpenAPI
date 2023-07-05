@@ -7,7 +7,7 @@ allOf:
       - id
     properties:
       typeCode:
-        $ref: .\mailingAddressExternalIdentifierTypeCode_Type.yaml
+        $ref: .\mailingAddressExternalIdentifierTypeCodeContent_Type.yaml
       jurisdictionCode:
         oneOf:
           - type: object

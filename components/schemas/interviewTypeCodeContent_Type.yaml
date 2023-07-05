@@ -1,6 +1,0 @@
-type: string
-title: Interview Type Code Content Type
-description: TBD
-enum:
-  - InPerson
-  - PhoneInterview

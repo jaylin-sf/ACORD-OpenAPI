@@ -4,9 +4,9 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       renewalTypeCode:
-        $ref: .\renewalTypeCode_Type.yaml
+        $ref: .\renewalTypeCodeContent_Type.yaml
       renewalFrequencyCode:
-        $ref: .\renewalFrequencyCode_Type.yaml
+        $ref: .\renewalFrequencyCodeContent_Type.yaml
       renewalYearCount:
         type: string
         pattern: ^[0-9]{1,15}$
@@ -28,7 +28,7 @@ allOf:
           - type: string
             maxLength: 255
       statusCode:
-        $ref: .\policyStatusCode_Type.yaml
+        $ref: .\policyStatusCodeContent_Type.yaml
       statusCodeDescription:
         type: string
       stateOrProvinceCode:
@@ -63,8 +63,6 @@ allOf:
             maxLength: 255
       policyShare:
         $ref: .\policyShare_Type.yaml
-      policyBilling:
-        $ref: .\policyBilling_Type.yaml
       option:
         oneOf:
           - type: array
@@ -104,10 +102,6 @@ allOf:
             items:
               $ref: .\excess_Type.yaml
           - $ref: .\excess_Type.yaml
-      coinsurance:
-        $ref: .\coinsurance_Type.yaml
-      reinsurance:
-        $ref: .\reinsurance_Type.yaml
       lossHistory:
         oneOf:
           - type: array
@@ -151,12 +145,6 @@ allOf:
         type: string
       ageBandDetailIndicator:
         type: boolean
-      ageBandDetail:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\ageBandDetail_Type.yaml
-          - $ref: .\ageBandDetail_Type.yaml
       controlCountInformation:
         oneOf:
           - type: array
@@ -168,12 +156,10 @@ allOf:
       applicationId:
         type: string
         maxLength: 255
-      salesModelTypeCode:
-        $ref: .\salesModelTypeCode_Type.yaml
       premiumPeriod:
         $ref: .\premiumPeriod_Type.yaml
       premiumPaymentTypeCode:
-        $ref: .\premiumPaymentTypeCode_Type.yaml
+        $ref: .\premiumPaymentTypeCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array
@@ -203,54 +189,6 @@ allOf:
             items:
               $ref: .\policyInsured_Type.yaml
           - $ref: .\policyInsured_Type.yaml
-      # policyInterestedParty:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyInterestedParty_Type.yaml
-      #     - $ref: .\policyInterestedParty_Type.yaml
-      # policyDriver:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyDriver_Type.yaml
-      #     - $ref: .\policyDriver_Type.yaml
-      # policyVehicle:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyVehicle_Type.yaml
-      #     - $ref: .\policyVehicle_Type.yaml
-      # policyWatercraft:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyWatercraft_Type.yaml
-      #     - $ref: .\policyWatercraft_Type.yaml
-      # policyProperty:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyProperty_Type.yaml
-      #     - $ref: .\policyProperty_Type.yaml
-      # policyArticle:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyArticle_Type.yaml
-      #     - $ref: .\policyArticle_Type.yaml
-      # policyAnimal:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyAnimal_Type.yaml
-      #     - $ref: .\policyAnimal_Type.yaml
-      # policyEvent:
-      #   oneOf:
-      #     - type: array
-      #       items:
-      #         $ref: .\policyEvent_Type.yaml
-      #     - $ref: .\policyEvent_Type.yaml
       originalInceptionDate:
         type: string
         format: date
