@@ -1,6 +1,0 @@
-type: string
-title: Conviction Type Code Content
-description: TBD
-enum:
-  - Motoring
-  - NonMotoring

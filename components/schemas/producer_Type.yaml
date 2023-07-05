@@ -4,7 +4,7 @@ allOf:
   - $ref: .\referencedPartyRole_Type.yaml
   - properties:
       typeCode:
-        $ref: .\partyRoleTypeCode_Type.yaml
+        $ref: .\partyRoleTypeCodeContent_Type.yaml
       contact:
         oneOf:
           - type: array

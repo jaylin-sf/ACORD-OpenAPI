@@ -1,9 +1,0 @@
-type: string
-title: DriverExternalIdentifierTypeCodeContent_Type
-description: TBD
-enum:
-  - CAWCId
-  - JurisdictionId
-  - NCCIId
-  - OSHAId
-  - OtherId

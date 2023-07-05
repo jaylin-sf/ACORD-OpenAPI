@@ -1,5 +1,0 @@
-type: object
-title: Treatment Period Type
-allOf:
-  - $ref: .\period_Type.yaml
-  - properties: {}

@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\insuranceAmountItemTypeCode_Type.yaml
+        $ref: .\insuranceAmountItemTypeCodeContent_Type.yaml
       description:
         type: string
       assignedIdentifier:
@@ -25,4 +25,4 @@ allOf:
               $ref: .\contractAmountItem_Type.yaml
           - $ref: .\contractAmountItem_Type.yaml
       frequencyCode:
-        $ref: .\frequencyCode_Type.yaml
+        $ref: .\frequencyCodeContent_Type.yaml

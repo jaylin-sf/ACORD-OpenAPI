@@ -7,11 +7,11 @@ allOf:
       - answerCode
     properties:
       questionCode:
-        $ref: .\accidentHealthQuestionCode_Type.yaml
+        $ref: .\accidentHealthQuestionCodeContent_Type.yaml
       questionCodeDescription:
         type: string
       answerCode:
-        $ref: .\answerCode_Type.yaml
+        $ref: .\answerCodeContent_Type.yaml
       explanation:
         type: string
       explanationDate:

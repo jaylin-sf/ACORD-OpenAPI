@@ -16,7 +16,7 @@ allOf:
               $ref: .\claimParty_Type.yaml
           - $ref: .\claimParty_Type.yaml
       causeCode:
-        $ref: .\causeCode_Type.yaml
+        $ref: .\causeCodeContent_Type.yaml
       description:
         type: string
       correctivePreventativeActionDescription:
@@ -30,7 +30,7 @@ allOf:
         type: string
         format: date
       statusCode:
-        $ref: .\claimStatusCode_Type.yaml
+        $ref: .\claimStatusCodeContent_Type.yaml
       inDisputeIndicator:
         type: boolean
       incidentDate:
@@ -58,18 +58,6 @@ allOf:
             items:
               $ref: .\claimTransactionAmountItem_Type.yaml
           - $ref: .\claimTransactionAmountItem_Type.yaml
-      tripInformation:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\tripInformation_Type.yaml
-          - $ref: .\tripInformation_Type.yaml
-      flightInformation:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\flightInformation_Type.yaml
-          - $ref: .\flightInformation_Type.yaml
       questionAnswer:
         oneOf:
           - type: array

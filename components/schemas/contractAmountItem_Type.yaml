@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\contractAmountItemTypeCode_Type.yaml
+        $ref: .\contractAmountItemTypeCodeContent_Type.yaml
       description:
         type: string
       itemAmount:

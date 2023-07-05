@@ -9,7 +9,7 @@ allOf:
       messageDocumentReferences:
         $ref: .\messageDocumentReferences_Type.yaml
       statusCode:
-        $ref: .\messageDocumentResultStatusCode_Type.yaml
+        $ref: .\messageDocumentResultStatusCodeContent_Type.yaml
       description:
         type: string
       extendedStatus:
@@ -25,8 +25,8 @@ allOf:
               $ref: .\changeStatus_Type.yaml
           - $ref: .\changeStatus_Type.yaml
       successCode:
-        $ref: .\resultSuccessCode_Type.yaml
+        $ref: .\resultSuccessCodeContent_Type.yaml
       rejectCode:
-        $ref: .\resultRejectCode_Type.yaml
+        $ref: .\resultRejectCodeContent_Type.yaml
       pendedCode:
-        $ref: .\resultPendedCode_Type.yaml
+        $ref: .\resultPendedCodeContent_Type.yaml

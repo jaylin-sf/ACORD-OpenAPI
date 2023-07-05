@@ -12,11 +12,11 @@ allOf:
               $ref: .\assignedIdentifier_Type.yaml
           - $ref: .\assignedIdentifier_Type.yaml
       typeCode:
-        $ref: .\liabilitySectionCoverageTypeCode_Type.yaml
+        $ref: .\liabilitySectionCoverageTypeCodeContent_Type.yaml
       description:
         type: string
       coverageStatusCode:
-        $ref: .\coverageStatusCode_Type.yaml
+        $ref: .\coverageStatusCodeContent_Type.yaml
       insurancePeriod:
         $ref: .\insurancePeriod_Type.yaml
       premiumPeriod:

@@ -7,6 +7,6 @@ allOf:
         type: string
         maxLength: 255
       listAgencyCode:
-        $ref: .\codeListOwnerCode_Type.yaml
+        $ref: .\codeListOwnerCodeContent_Type.yaml
       listDescription:
         type: string

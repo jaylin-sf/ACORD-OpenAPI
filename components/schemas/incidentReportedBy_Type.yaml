@@ -6,6 +6,6 @@ allOf:
       - roleCode
     properties:
       roleCode:
-        $ref: .\coreRoleCode_Type.yaml
+        $ref: .\coreRoleCodeContent_Type.yaml
       personReferences:
         $ref: .\personReferences_Type.yaml

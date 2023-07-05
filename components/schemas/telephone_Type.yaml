@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\telephoneTypeCode_Type.yaml
+        $ref: .\telephoneTypeCodeContent_Type.yaml
       dayIndicator:
         type: boolean
       eveningIndicator:

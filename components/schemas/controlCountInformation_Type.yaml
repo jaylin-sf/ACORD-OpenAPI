@@ -6,7 +6,7 @@ allOf:
       - controlCountTypeCode
     properties:
       controlCountTypeCode:
-        $ref: .\controlCountTypeCode_Type.yaml
+        $ref: .\controlCountTypeCodeContent_Type.yaml
       elementPath:
         type: string
         maxLength: 255

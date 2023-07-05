@@ -7,7 +7,7 @@ properties:
       policyPropertyReference:
         type: string
   typeCode:
-    $ref: .\policyPropertyTypeCode_Type.yaml
+    $ref: .\policyPropertyTypeCodeContent_Type.yaml
   assignedIdentifier:
     oneOf:
       - type: array

@@ -1,5 +1,0 @@
-type: object
-title: IgnitionExternalIdentifier Type
-allOf:
-  - $ref: .\ACORDAggregate_Type.yaml
-  - properties: {}

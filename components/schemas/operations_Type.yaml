@@ -147,7 +147,7 @@ allOf:
               $ref: .\operationsQuestionAnswer_Type.yaml
           - $ref: .\operationsQuestionAnswer_Type.yaml
       typeCode:
-        $ref: .\operationsTypeCode_Type.yaml
+        $ref: .\operationsTypeCodeContent_Type.yaml
       externalIdentifier:
         oneOf:
           - type: array

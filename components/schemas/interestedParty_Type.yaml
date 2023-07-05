@@ -10,9 +10,9 @@ allOf:
               $ref: .\interestedPartyContact_Type.yaml
           - $ref: .\interestedPartyContact_Type.yaml
       relationshipToInsuredCode:
-        $ref: .\relationshipToInsuredCode_Type.yaml
+        $ref: .\relationshipToInsuredCodeContent_Type.yaml
       relationshipToOwnerCode:
-        $ref: .\relationshipToOwnerCode_Type.yaml
+        $ref: .\relationshipToOwnerCodeContent_Type.yaml
       sequenceNumber:
         type: string
         pattern: ^[0-9]{1,15}$

@@ -16,75 +16,18 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
+  /cancellationQuotationProcess/{id}:
+    $ref: paths/cancellationQuotationProcess_{id}.yaml
+  /cancellationQuotationProcessResult/{id}:
+    $ref: paths/cancellationQuotationProcessResult_{id}.yaml
+  /cancellationOrderProcess/{id}:
+    $ref: paths/cancellationOrderProcess_{id}.yaml
+  /cancellationOrderProcessResult/{id}:
+    $ref: paths/cancellationOrderProcessResult_{id}.yaml
   /cancellationClosingProcess/{id}:
-    get:
-      tags:
-        - Cancellation
-      summary: Cancel policy
-      description: Cancel policy
-      operationId: cancellationClosingProcess
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyCancellationClosingProcess_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-
+    $ref: paths/cancellationClosingProcess_{id}.yaml
   /cancellationClosingProcessResult/{id}:
-    get:
-      tags:
-        - Cancellation
-      summary: Cancel policy result
-      description: Cancel policy result
-      operationId: cancellationClosingProcessResult
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyCancellationClosingProcessResult_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
+    $ref: paths/cancellationClosingProcessResult_{id}.yaml
 components:
   securitySchemes:
     sctpUsername:

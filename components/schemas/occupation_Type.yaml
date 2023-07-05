@@ -12,15 +12,15 @@ allOf:
       previousIndicator:
         type: boolean
       occupationalRatingCode:
-        $ref: .\occupationalRatingCode_Type.yaml
+        $ref: .\occupationalRatingCodeContent_Type.yaml
       occupationRatingCodeDescription:
         type: string
       occupationClassCode:
         oneOf:
           - type: array
             items:
-              $ref: .\occupationClassCode_Type.yaml
-          - $ref: .\occupationClassCode_Type.yaml
+              $ref: .\occupationClassCodeContent_Type.yaml
+          - $ref: .\occupationClassCodeContent_Type.yaml
       alternateOccupationClassCode:
         oneOf:
           - type: object

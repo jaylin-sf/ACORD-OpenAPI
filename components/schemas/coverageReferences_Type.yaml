@@ -9,7 +9,7 @@ allOf:
           coverageReference:
             type: string
       typeCode:
-        $ref: .\coverageTypeCode_Type.yaml
+        $ref: .\coverageTypeCodeContent_Type.yaml
       externalIdentifier:
         oneOf:
           - type: array

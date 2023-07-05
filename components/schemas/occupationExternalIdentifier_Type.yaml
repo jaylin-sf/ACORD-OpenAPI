@@ -7,7 +7,7 @@ allOf:
       - id
     properties:
       typeCode:
-        $ref: .\occupationExternalIdentifierTypeCode_Type.yaml
+        $ref: .\occupationExternalIdentifierTypeCodeContent_Type.yaml
       sourceURI:
         type: string
         format: uri

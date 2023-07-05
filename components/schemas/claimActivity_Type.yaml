@@ -4,7 +4,7 @@ properties:
   description:
     type: string
   statusCode:
-    $ref: .\claimStatusCode_Type.yaml
+    $ref: .\claimStatusCodeContent_Type.yaml
   claimEventLog:
     oneOf:
       - type: array
