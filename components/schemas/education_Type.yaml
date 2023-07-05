@@ -10,7 +10,7 @@ allOf:
               $ref: .\educationalInstitution_Type.yaml
           - $ref: .\educationalInstitution_Type.yaml
       educationLevelCode:
-        $ref: .\educationLevelCode_Type.yaml
+        $ref: .\educationLevelCodeContent_Type.yaml
       educationLevelYear:
         type: string
         pattern: YYYY

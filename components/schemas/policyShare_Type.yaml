@@ -6,7 +6,7 @@ allOf:
       policyInsurerReferences:
         $ref: .\policyInsurerReferences_Type.yaml
       shareTypeCode:
-        $ref: .\shareTypeCode_Type.yaml
+        $ref: .\shareTypeCodeContent_Type.yaml
       sharePercent:
         type: string
         pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

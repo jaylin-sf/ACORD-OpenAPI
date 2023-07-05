@@ -1,6 +1,0 @@
-type: string
-title: Third Party Driver Role Code Content_Type
-description: TBD
-enum:
-  - OtherThanRegular
-  - ThirdParty

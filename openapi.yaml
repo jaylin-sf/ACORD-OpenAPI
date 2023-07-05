@@ -16,75 +16,18 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
+  /renewalQuotationProcess/{id}:
+    $ref: paths/renewalQuotationProcess_{id}.yaml
+  /renewalQuotationProcessResult/{id}:
+    $ref: paths/renewalQuotationProcessResult_{id}.yaml
+  /renewalOrderProcess/{id}:
+    $ref: paths/renewalOrderProcess_{id}.yaml
+  /renewalOrderProcessResult/{id}:
+    $ref: paths/renewalOrderProcessResult_{id}.yaml
   /renewalClosingProcess/{id}:
-    get:
-      tags:
-        - Renewal
-      summary: Renewal policy
-      description: Renewal policy
-      operationId: renewalClosingProcess
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyRenewalClosingProcess_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-
+    $ref: paths/renewalClosingProcess_{id}.yaml
   /renewalClosingProcessResult/{id}:
-    get:
-      tags:
-        - Renewal
-      summary: Renewal policy result
-      description: Renewal policy result
-      operationId: renewalClosingProcessResult
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyRenewalClosingProcessResult_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
+    $ref: paths/renewalClosingProcessResult_{id}.yaml
 components:
   securitySchemes:
     sctpUsername:

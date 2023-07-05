@@ -7,7 +7,7 @@ allOf:
       - amountItemValue
     properties:
       typeCode:
-        $ref: .\employeeInformationFinancialAmountItemTypeCode_Type.yaml
+        $ref: .\employeeInformationFinancialAmountItemTypeCodeContent_Type.yaml
       amountItemValue:
         oneOf:
           - type: array

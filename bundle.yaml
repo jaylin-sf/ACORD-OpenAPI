@@ -15,12 +15,148 @@ servers:
   - url: https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
+  /renewalQuotationProcess/{id}:
+    get:
+      tags:
+        - Renewal
+      summary: Renewal quotation process
+      description: Renewal quotation process
+      operationId: renewalQuotationProcess
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policyRenewalQuotationProcess_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+  /renewalQuotationProcessResult/{id}:
+    get:
+      tags:
+        - Renewal
+      summary: Renewal quotation result
+      description: Renewal quotation result
+      operationId: renewalQuotationProcessResult
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policyRenewalQuotationProcessResult_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+  /renewalOrderProcess/{id}:
+    get:
+      tags:
+        - Renewal
+      summary: Renewal order process
+      description: Renewal order process
+      operationId: renewalOrderProcess
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policyRenewalOrderProcess_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+  /renewalOrderProcessResult/{id}:
+    get:
+      tags:
+        - Renewal
+      summary: Renewal order result
+      description: Renewal order result
+      operationId: renewalOrderProcessResult
+      parameters:
+        - name: id
+          in: path
+          description: Opportunity Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/policyRenewalOrderProcessResult_Type'
+        '400':
+          description: Bad Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
+        '500':
+          description: Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apiErrorResponse_Type'
   /renewalClosingProcess/{id}:
     get:
       tags:
         - Renewal
-      summary: Renewal policy
-      description: Renewal policy
+      summary: Renewal closing process
+      description: Renewal closing process
       operationId: renewalClosingProcess
       parameters:
         - name: id
@@ -53,8 +189,8 @@ paths:
     get:
       tags:
         - Renewal
-      summary: Renewal policy result
-      description: Renewal policy result
+      summary: Renewal closing result
+      description: Renewal closing result
       operationId: renewalClosingProcessResult
       parameters:
         - name: id
@@ -8615,14 +8751,27 @@ components:
               maxLength: 255
             description:
               type: string
-    policyClosingTransactionFunctionCodeContent_Type:
+    policyQuotationTransactionFunctionCodeContent_Type:
       type: string
-      title: Policy Closing Transaction Function Code Content Type
+      title: Policy Quotation Transaction Function Code Content Type
       description: TBD
       enum:
-        - ConfirmedClosing
-        - DeclineClosing
-        - RequestForClosing
+        - DeclinedQuotation
+        - DeclinedRequestForQuotation
+        - DeclineToRenew
+        - FirmQuotation
+        - GetUnderwritingResultFromUnderwritingEngine
+        - IndicativeQuotation
+        - PassQuoteToUnderwritingEngine
+        - QuotationReferred
+        - ReferralRequired
+        - RenewalInvitation
+        - RequestAdditionalInformation
+        - RequestForAdjustedQuotation
+        - RequestForQuotation
+        - RequestForReferral
+        - SupplyAdditonalInformation
+        - UnsuccessfulQuotation
     reason_Type:
       type: object
       title: Reason Type
@@ -8655,44 +8804,6 @@ components:
           type: object
           properties:
             policyQuotationReference:
-              type: string
-        documentId:
-          type: string
-          format: uuid
-          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-    policyOrderReferences_Type:
-      type: object
-      title: PolicyOrderReferences_Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            policyOrderReference:
-              type: string
-        documentId:
-          type: string
-          format: uuid
-          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-    policyClosingReferences_Type:
-      type: object
-      title: PolicyClosingReferences_Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            policyClosingReference:
               type: string
         documentId:
           type: string
@@ -9090,431 +9201,6 @@ components:
                       pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
                 - type: string
                   pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-    invoiceReferences_Type:
-      type: object
-      title: Invoice References
-      properties:
-        attributes:
-          type: object
-          properties:
-            invoiceReference:
-              type: string
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-    billingFrequencyCodeContent_Type:
-      type: string
-      title: Billing Frequency Code Content Type
-      description: TBD
-      enum:
-        - Annual
-        - BiAnnual
-        - BiMonthly
-        - Daily
-        - Fortnightly
-        - Monthly
-        - OnceOff
-        - Other
-        - Quarterly
-        - Weekly
-    billingMethodCodeContent_Type:
-      type: string
-      title: BillingMethodCodeContent_Type
-      description: TBD
-      enum:
-        - Agency
-        - CompanyAccount
-        - CompanyPolicy
-    billingPeriod_Type:
-      type: object
-      title: Billing Period_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            periodDuration:
-              type: string
-              format: duration
-            bothDaysInclusiveIndicator:
-              type: boolean
-    paymentTypeCodeContent_Type:
-      type: string
-      title: PaymentTypeCodeContent_Type
-      description: TBD
-      enum:
-        - ACB
-        - AutoPay
-        - BPay
-        - Cash
-        - CashOrCheck
-        - Check
-        - CPFOrdinaryAccount
-        - CPFSpecialAccount
-        - CreditCard
-        - Cybercash
-        - DebitCard
-        - DebitOrder
-        - Draft
-        - EFT
-        - EFTChecking
-        - EFTSavings
-        - GroupBilling
-        - Medisave
-        - MoneyOrder
-        - Other
-        - PaymentThroughPoints
-        - PaymentWaiver
-        - PayrollDeduction
-        - PreAuthorizedDraftCheck
-        - PremiumFinance
-        - SRS
-        - SSV
-        - ThirdPartyPayment
-        - VerbalCheck
-        - WireTransfer
-    paymentStatusCodeContent_Type:
-      type: string
-      title: PaymentStatusCodeContent_Type
-      description: TBD
-      enum:
-        - Approved
-        - Cancelled
-        - Declined
-        - InProgress
-        - New
-        - Paid
-        - Pending
-    bankAccountReferences_Type:
-      type: object
-      title: Bank Account References
-      properties:
-        attributes:
-          type: object
-          properties:
-            bankAccountReference:
-              type: string
-    fromAccount_Type:
-      type: object
-      title: FromAccount_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            bankAccountReferences:
-              $ref: '#/components/schemas/bankAccountReferences_Type'
-            accountNumberId:
-              type: string
-              maxLength: 255
-            routingNumberId:
-              type: string
-              maxLength: 255
-            chequeNumberId:
-              type: string
-              maxLength: 255
-            chequeDate:
-              type: string
-              format: date
-            cardExpirationYearMonth:
-              type: string
-              pattern: YYYYMM
-            description:
-              type: string
-    toAccount_Type:
-      type: object
-      title: ToAccount_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            bankAccountReferences:
-              $ref: '#/components/schemas/bankAccountReferences_Type'
-            accountNumberId:
-              type: string
-              maxLength: 255
-            cardExpirationYearMonth:
-              type: string
-              pattern: YYYYMM
-    paymentPeriod_Type:
-      type: object
-      title: Payment Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        startAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        endAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    financialTransactionCodeContent_Type:
-      type: string
-      title: FinancialTransactionCodeContent_Type
-      description: TBD
-      enum:
-        - Receipt
-        - Refund
-        - ReturnToDrawer
-        - SettlementPayment
-    payment_Type:
-      type: object
-      title: Payment_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/paymentTypeCodeContent_Type'
-            statusCode:
-              $ref: '#/components/schemas/paymentStatusCodeContent_Type'
-            statusDate:
-              type: string
-              format: date
-            statusReasonDescription:
-              type: string
-            paymentAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            fromAccount:
-              $ref: '#/components/schemas/fromAccount_Type'
-            toAccount:
-              $ref: '#/components/schemas/toAccount_Type'
-            paymentPeriod:
-              $ref: '#/components/schemas/paymentPeriod_Type'
-            calculationDescription:
-              type: string
-              maxLength: 255
-            paymentDescription:
-              type: string
-              maxLength: 255
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            paymentDate:
-              type: string
-              format: date
-            financialTransactionCode:
-              $ref: '#/components/schemas/financialTransactionCodeContent_Type'
-            invoiceReferences:
-              $ref: '#/components/schemas/invoiceReferences_Type'
-    bankAccountTypeCodeContent_Type:
-      type: string
-      title: Bank Account Type Code Content
-      description: TBD
-      enum:
-        - Checking
-        - Credit
-        - Debit
-        - Savings
-    accountHolder_Type:
-      type: object
-      title: Account Holder Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            personReferences:
-              $ref: '#/components/schemas/personReferences_Type'
-            organizationReferences:
-              $ref: '#/components/schemas/organizationReferences_Type'
-    bankAccount_Type:
-      type: object
-      title: BankAccount_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/bankAccountTypeCodeContent_Type'
-            accountName:
-              type: string
-              maxLength: 255
-            primaryIndicator:
-              type: boolean
-            accountNumberId:
-              type: string
-              maxLength: 255
-            routingNumberId:
-              type: string
-              maxLength: 255
-            bankBSBNumber:
-              type: string
-              maxLength: 255
-            BPAYBillerId:
-              type: string
-              maxLength: 255
-            cardExpirationYearMonth:
-              type: string
-              pattern: YYYYMM
-            cardSecurityId:
-              type: string
-              maxLength: 255
-            creditAccountName:
-              type: string
-              maxLength: 255
-            continuousAuthorityIndicator:
-              type: boolean
-            continuousAuthorityDate:
-              type: string
-              format: date
-            accountHolder:
-              $ref: '#/components/schemas/accountHolder_Type'
-            electronicServiceURI:
-              type: string
-              format: uri
-            bankName:
-              type: string
-              maxLength: 255
-            branchName:
-              type: string
-              maxLength: 255
-            currencyCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    invoice_Type:
-      type: object
-      title: Invoice_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            invoiceIssuedDate:
-              type: string
-              format: date
-            invoiceAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            paidAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            paidUpUntilDate:
-              type: string
-              format: date
-            description:
-              type: string
-    policyBilling_Type:
-      type: object
-      title: PolicyBilling_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            renewalPeriodIndicator:
-              type: boolean
-            invoiceReferences:
-              $ref: '#/components/schemas/invoiceReferences_Type'
-            frequencyCode:
-              $ref: '#/components/schemas/billingFrequencyCodeContent_Type'
-            frequencyCodeDescription:
-              type: string
-            billingMethodCode:
-              $ref: '#/components/schemas/billingMethodCodeContent_Type'
-            billingPeriod:
-              $ref: '#/components/schemas/billingPeriod_Type'
-            payment:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/payment_Type'
-                - $ref: '#/components/schemas/payment_Type'
-            bankAccount:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/bankAccount_Type'
-                - $ref: '#/components/schemas/bankAccount_Type'
-            instalmentCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            invoice:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/invoice_Type'
-                - $ref: '#/components/schemas/invoice_Type'
     policySectionOptionCodeContent_Type:
       type: string
       title: PolicySectionOptionCodeContent_Type
@@ -10307,115 +9993,6 @@ components:
               pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
             removedIndicator:
               type: boolean
-    coinsurance_Type:
-      type: object
-      title: Coinsurance Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyInsurerReferences:
-              $ref: '#/components/schemas/policyInsurerReferences_Type'
-            coinsurancePercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            coinsuranceAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-    reinsuranceTypeCodeContent_Type:
-      type: string
-      title: ReinsuranceTypeCodeContent_Type
-      description: TBD
-      enum:
-        - AggregateExcessOfLoss
-        - BackupExcessOfLoss
-        - BindingAuthority
-        - CatastropheExcessOfLossPerEvent
-        - ClashExcessOfLoss
-        - Direct
-        - ExcessOfLoss
-        - ExcessOfLossOnExcessOfLoss
-        - ExcessOfLossUmbrellaCover
-        - Facultative
-        - FacultativeCover
-        - FacultativeNonProportional
-        - FacultativeObligatory
-        - FacultativeProportional
-        - FinanceCoverSpreadLossCover
-        - ImBalancedBindingAuthority
-        - ImFacility
-        - LargestClaimCoverGroupExcedent
-        - LimitedBinder
-        - Lineslip
-        - MasterCover
-        - NetQuotaShare
-        - ObligatoryFacultative
-        - OpenCover
-        - PoolExcessOfLoss
-        - PoolQuotaShare
-        - ProportionalTreaty
-        - QuotaShare
-        - QuotaShareOrSurplus
-        - ReinstatementPremiumProtection
-        - SecondRiskCover
-        - SemiAutomaticCoverPostalCover
-        - SpecialTreaty
-        - StopLoss
-        - Surplus
-        - SurplusCover
-        - TreatyReinsurance
-        - WorkingExcessOfLossPerEvent
-        - WorkingExcessOfLossPerRisk
-        - WorkingExcessOfLossPerRiskOrEvent
-        - WXLRisk
-    reinsurance_Type:
-      type: object
-      title: Reinsurance Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/reinsuranceTypeCodeContent_Type'
-            policyInsurerReferences:
-              $ref: '#/components/schemas/policyInsurerReferences_Type'
-            cessionPercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            attachmentPointAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            limitAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
     lossPeriod_Type:
       type: object
       title: Loss Period Type
@@ -10467,88 +10044,6 @@ components:
         - NotAtFaultWithoutExcess
         - Theft
         - Windscreen
-    driverExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: DriverExternalIdentifierTypeCodeContent_Type
-      description: TBD
-      enum:
-        - CAWCId
-        - JurisdictionId
-        - NCCIId
-        - OSHAId
-        - OtherId
-    driverExternalIdentifier_Type:
-      type: object
-      title: DriverExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/driverExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-              maxLength: 255
-            identifierDescription:
-              type: string
-    driverReferences_Type:
-      type: object
-      title: Driver Reference Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            driverReference:
-              type: string
-        externalIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/driverExternalIdentifier_Type'
-            - $ref: '#/components/schemas/driverExternalIdentifier_Type'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-    policyDriverReferences_Type:
-      type: object
-      title: PolicyDriverReferences_Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            policyDriverReference:
-              type: string
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-        driverReferences:
-          $ref: '#/components/schemas/driverReferences_Type'
     policyPropertyTypeCodeContent_Type:
       type: string
       title: Policy Property Type Code Content
@@ -10653,8 +10148,6 @@ components:
                   items:
                     $ref: '#/components/schemas/insurerReferences_Type'
                 - $ref: '#/components/schemas/insurerReferences_Type'
-            policyDriverReferences:
-              $ref: '#/components/schemas/policyDriverReferences_Type'
             policyPropertyReferences:
               $ref: '#/components/schemas/policyPropertyReferences_Type'
             description:
@@ -11484,6 +10977,214 @@ components:
                       pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
                 - type: string
                   pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+    paymentTypeCodeContent_Type:
+      type: string
+      title: PaymentTypeCodeContent_Type
+      description: TBD
+      enum:
+        - ACB
+        - AutoPay
+        - BPay
+        - Cash
+        - CashOrCheck
+        - Check
+        - CPFOrdinaryAccount
+        - CPFSpecialAccount
+        - CreditCard
+        - Cybercash
+        - DebitCard
+        - DebitOrder
+        - Draft
+        - EFT
+        - EFTChecking
+        - EFTSavings
+        - GroupBilling
+        - Medisave
+        - MoneyOrder
+        - Other
+        - PaymentThroughPoints
+        - PaymentWaiver
+        - PayrollDeduction
+        - PreAuthorizedDraftCheck
+        - PremiumFinance
+        - SRS
+        - SSV
+        - ThirdPartyPayment
+        - VerbalCheck
+        - WireTransfer
+    paymentStatusCodeContent_Type:
+      type: string
+      title: PaymentStatusCodeContent_Type
+      description: TBD
+      enum:
+        - Approved
+        - Cancelled
+        - Declined
+        - InProgress
+        - New
+        - Paid
+        - Pending
+    bankAccountReferences_Type:
+      type: object
+      title: Bank Account References
+      properties:
+        attributes:
+          type: object
+          properties:
+            bankAccountReference:
+              type: string
+    fromAccount_Type:
+      type: object
+      title: FromAccount_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            bankAccountReferences:
+              $ref: '#/components/schemas/bankAccountReferences_Type'
+            accountNumberId:
+              type: string
+              maxLength: 255
+            routingNumberId:
+              type: string
+              maxLength: 255
+            chequeNumberId:
+              type: string
+              maxLength: 255
+            chequeDate:
+              type: string
+              format: date
+            cardExpirationYearMonth:
+              type: string
+              pattern: YYYYMM
+            description:
+              type: string
+    toAccount_Type:
+      type: object
+      title: ToAccount_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            bankAccountReferences:
+              $ref: '#/components/schemas/bankAccountReferences_Type'
+            accountNumberId:
+              type: string
+              maxLength: 255
+            cardExpirationYearMonth:
+              type: string
+              pattern: YYYYMM
+    paymentPeriod_Type:
+      type: object
+      title: Payment Period Type
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: time
+        endTime:
+          type: string
+          format: time
+        localStandardTimeAppliesToInceptionDateIndicator:
+          type: boolean
+        startAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        endAge:
+          type: string
+          pattern: ^[0-9]{1,15}$
+        periodDuration:
+          type: string
+          format: duration
+        continuousDurationIndicator:
+          type: boolean
+        timePeriodDescription:
+          type: string
+          maxLength: 255
+        bothDaysInclusiveIndicator:
+          type: boolean
+    financialTransactionCodeContent_Type:
+      type: string
+      title: FinancialTransactionCodeContent_Type
+      description: TBD
+      enum:
+        - Receipt
+        - Refund
+        - ReturnToDrawer
+        - SettlementPayment
+    invoiceReferences_Type:
+      type: object
+      title: Invoice References
+      properties:
+        attributes:
+          type: object
+          properties:
+            invoiceReference:
+              type: string
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    payment_Type:
+      type: object
+      title: Payment_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/paymentTypeCodeContent_Type'
+            statusCode:
+              $ref: '#/components/schemas/paymentStatusCodeContent_Type'
+            statusDate:
+              type: string
+              format: date
+            statusReasonDescription:
+              type: string
+            paymentAmount:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    currencyCode:
+                      type: string
+                    value:
+                      type: string
+                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+                - type: string
+                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
+            fromAccount:
+              $ref: '#/components/schemas/fromAccount_Type'
+            toAccount:
+              $ref: '#/components/schemas/toAccount_Type'
+            paymentPeriod:
+              $ref: '#/components/schemas/paymentPeriod_Type'
+            calculationDescription:
+              type: string
+              maxLength: 255
+            paymentDescription:
+              type: string
+              maxLength: 255
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            paymentDate:
+              type: string
+              format: date
+            financialTransactionCode:
+              $ref: '#/components/schemas/financialTransactionCodeContent_Type'
+            invoiceReferences:
+              $ref: '#/components/schemas/invoiceReferences_Type'
     contractAmountPeriod_Type:
       type: object
       title: Contract Amount Period
@@ -11698,32 +11399,6 @@ components:
                   items:
                     $ref: '#/components/schemas/businessActivityFinancialAmountItem_Type'
                 - $ref: '#/components/schemas/businessActivityFinancialAmountItem_Type'
-    ageBandDetail_Type:
-      type: object
-      title: Age Band Detail Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - assignedIdentifier
-          properties:
-            assignedIdentifier:
-              $ref: '#/components/schemas/assignedIdentifier_Type'
-            startAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            endAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            livesCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    salesModelTypeCodeContent_Type:
-      type: string
-      title: SalesModelTypeCodeContent_Type
-      description: TBD
-      enum:
-        - Direct
-        - Referral
     premiumPeriod_Type:
       type: object
       title: Premium Period Type
@@ -12708,8 +12383,6 @@ components:
                   maxLength: 255
             policyShare:
               $ref: '#/components/schemas/policyShare_Type'
-            policyBilling:
-              $ref: '#/components/schemas/policyBilling_Type'
             option:
               oneOf:
                 - type: array
@@ -12749,10 +12422,6 @@ components:
                   items:
                     $ref: '#/components/schemas/excess_Type'
                 - $ref: '#/components/schemas/excess_Type'
-            coinsurance:
-              $ref: '#/components/schemas/coinsurance_Type'
-            reinsurance:
-              $ref: '#/components/schemas/reinsurance_Type'
             lossHistory:
               oneOf:
                 - type: array
@@ -12796,12 +12465,6 @@ components:
               type: string
             ageBandDetailIndicator:
               type: boolean
-            ageBandDetail:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/ageBandDetail_Type'
-                - $ref: '#/components/schemas/ageBandDetail_Type'
             controlCountInformation:
               oneOf:
                 - type: array
@@ -12813,8 +12476,6 @@ components:
             applicationId:
               type: string
               maxLength: 255
-            salesModelTypeCode:
-              $ref: '#/components/schemas/salesModelTypeCodeContent_Type'
             premiumPeriod:
               $ref: '#/components/schemas/premiumPeriod_Type'
             premiumPaymentTypeCode:
@@ -13656,60 +13317,6 @@ components:
               format: date
             parentPolicySectionReferences:
               $ref: '#/components/schemas/parentPolicySectionReferences_Type'
-    vehicleClassCodeContent_Type:
-      type: string
-      title: Vehicle Class Code Content
-      description: TBD
-      enum:
-        - Breakdown
-        - Bus
-        - Caravan
-        - Commercial
-        - CommercialAndPrivate
-        - Dolly
-        - EarthMoving
-        - Farm
-        - Harvesting
-        - HeavyCommercial
-        - LightCommercial
-        - MediumCommercial
-        - Mobile
-        - Motorcycle
-        - MotorHome
-        - Other
-        - Passenger
-        - PrimeMover
-        - Private
-        - PrivateBus
-        - Safari
-        - ScheduledBus
-        - Tractor
-        - Trailer
-        - Truck
-        - UnscheduledBus
-    policyVehicleReferences_Type:
-      type: object
-      title: Policy Vehicle References Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            policyVehicleReference:
-              type: string
-        vehicleClassCode:
-          $ref: '#/components/schemas/vehicleClassCodeContent_Type'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-        locationReferences:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/locationReferences_Type'
-            - $ref: '#/components/schemas/locationReferences_Type'
     claimOccurrenceReferences_Type:
       type: object
       title: ClaimOccurrenceReferences_Type
@@ -15628,12 +15235,6 @@ components:
                   items:
                     $ref: '#/components/schemas/policyArticleReferences_Type'
                 - $ref: '#/components/schemas/policyArticleReferences_Type'
-            policyVehicleReferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/policyVehicleReferences_Type'
-                - $ref: '#/components/schemas/policyVehicleReferences_Type'
             claimItemReferences:
               oneOf:
                 - type: array
@@ -16029,6 +15630,92 @@ components:
             endDate:
               type: string
               format: date
+    bankAccountTypeCodeContent_Type:
+      type: string
+      title: Bank Account Type Code Content
+      description: TBD
+      enum:
+        - Checking
+        - Credit
+        - Debit
+        - Savings
+    accountHolder_Type:
+      type: object
+      title: Account Holder Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            personReferences:
+              $ref: '#/components/schemas/personReferences_Type'
+            organizationReferences:
+              $ref: '#/components/schemas/organizationReferences_Type'
+    bankAccount_Type:
+      type: object
+      title: BankAccount_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - required:
+            - typeCode
+          properties:
+            typeCode:
+              $ref: '#/components/schemas/bankAccountTypeCodeContent_Type'
+            accountName:
+              type: string
+              maxLength: 255
+            primaryIndicator:
+              type: boolean
+            accountNumberId:
+              type: string
+              maxLength: 255
+            routingNumberId:
+              type: string
+              maxLength: 255
+            bankBSBNumber:
+              type: string
+              maxLength: 255
+            BPAYBillerId:
+              type: string
+              maxLength: 255
+            cardExpirationYearMonth:
+              type: string
+              pattern: YYYYMM
+            cardSecurityId:
+              type: string
+              maxLength: 255
+            creditAccountName:
+              type: string
+              maxLength: 255
+            continuousAuthorityIndicator:
+              type: boolean
+            continuousAuthorityDate:
+              type: string
+              format: date
+            accountHolder:
+              $ref: '#/components/schemas/accountHolder_Type'
+            electronicServiceURI:
+              type: string
+              format: uri
+            bankName:
+              type: string
+              maxLength: 255
+            branchName:
+              type: string
+              maxLength: 255
+            currencyCode:
+              oneOf:
+                - type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                    attributes:
+                      type: object
+                      properties:
+                        codeListReference:
+                          type: string
+                - type: string
+                  maxLength: 255
     settlementDetail_Type:
       type: object
       title: Settlement Detail
@@ -16205,56 +15892,58 @@ components:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
               $ref: '#/components/schemas/policy_Type'
-    investmentAccountReferences_Type:
+    policyRole_Type:
       type: object
-      title: Investment Account References
-      properties:
-        attributes:
-          type: object
-          properties:
-            investmentAccountReference:
-              type: string
-        lineOfBusinessCode:
-          $ref: '#/components/schemas/lineOfBusinessCodeContent_Type'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-        effectiveDate:
-          type: string
-          format: date
-        productReferences:
-          $ref: '#/components/schemas/productReferences_Type'
-    agreementPortfolio_Type:
-      type: object
-      title: Agreement Portfolio
+      title: PolicyRole_Type
       allOf:
         - $ref: '#/components/schemas/ACORDAggregate_Type'
         - properties:
             policyReferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/policyReferences_Type'
-                - $ref: '#/components/schemas/policyReferences_Type'
-            investmentAccountReferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/investmentAccountReferences_Type'
-                - $ref: '#/components/schemas/investmentAccountReferences_Type'
-    accountReferences_Type:
+              $ref: '#/components/schemas/policyReferences_Type'
+            policy:
+              $ref: '#/components/schemas/policy_Type'
+    underlyingPolicy_Type:
       type: object
-      title: Account References
-      properties:
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
+      title: UnderlyingPolicy_Type
+      allOf:
+        - $ref: '#/components/schemas/policyRole_Type'
+        - properties: {}
+    claimExperiencePeriod_Type:
+      type: object
+      title: Claim Experience Period
+      allOf:
+        - $ref: '#/components/schemas/ACORDAggregate_Type'
+        - properties:
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+            startTime:
+              type: string
+              format: time
+            endTime:
+              type: string
+              format: time
+            localStandardTimeAppliesToInceptionDateIndicator:
+              type: boolean
+            startAge:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            endAge:
+              type: string
+              pattern: ^[0-9]{1,15}$
+            periodDuration:
+              type: string
+              format: duration
+            continuousDurationIndicator:
+              type: boolean
+            timePeriodDescription:
+              type: string
+              maxLength: 255
+            bothDaysInclusiveIndicator:
+              type: boolean
     broadLineOfBusinessCodeContent_Type:
       type: string
       title: BroadLineOfBusinessTypeCodeContent_Type
@@ -16507,104 +16196,6 @@ components:
                           type: string
                 - type: string
                   maxLength: 255
-    reinstatementTypeCodeContent_Type:
-      type: string
-      title: Reinstatement Type Code Content Type
-      description: TBD
-      enum:
-        - CancelDateOrReasonCodeChange
-        - CarrierConsideration
-        - CarrierError
-        - NonrenewalStatusWithdrawl
-        - Regular
-        - ReinstatementCancelledFlat
-        - ReinstatementCancelledInTerm
-    cancelledPolicyReferences_Type:
-      type: object
-      title: Cancelled Policy Reference Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            cancelledPolicyReference:
-              type: string
-        lineOfBusinessCode:
-          $ref: '#/components/schemas/lineOfBusinessCodeContent_Type'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-        insurancePeriod:
-          $ref: '#/components/schemas/insurancePeriod_Type'
-        effectiveDate:
-          type: string
-          format: date
-        cancellationDate:
-          type: string
-          format: date
-        policyName:
-          type: string
-          maxLength: 255
-        distributionChannelCode:
-          oneOf:
-            - type: object
-              required:
-                - value
-              properties:
-                value:
-                  type: string
-                attributes:
-                  type: object
-                  properties:
-                    codeListReference:
-                      type: string
-            - type: string
-              maxLength: 255
-        productReferences:
-          $ref: '#/components/schemas/productReferences_Type'
-        schemeReferences:
-          $ref: '#/components/schemas/schemeReferences_Type'
-    reinstatementReasonCodeContent_Type:
-      type: string
-      title: Reinstatement Reason Code Content Type
-      description: TBD
-      enum:
-        - CancelledInError
-        - Other
-        - PaymentReceived
-        - SupercedingCancellation
-    reinstatement_Type:
-      type: object
-      title: Reinstatement Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            reinstatementTypeCode:
-              $ref: '#/components/schemas/reinstatementTypeCodeContent_Type'
-            cancelledPolicyReferences:
-              $ref: '#/components/schemas/cancelledPolicyReferences_Type'
-            reinstatementReasonCode:
-              $ref: '#/components/schemas/reinstatementReasonCodeContent_Type'
-            correspondingCancelEffectiveDate:
-              type: string
-              format: date
-            stateOrProvinceCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
     claimPartyRole_Type:
       type: object
       title: Claim Party Role_Type
@@ -16766,29 +16357,6 @@ components:
             sequenceNumber:
               type: string
               pattern: ^[0-9]{1,15}$
-    thirdPartyVehicleReferences_Type:
-      type: object
-      title: Third Party Vehicle References Type
-      properties:
-        attributes:
-          type: object
-          properties:
-            thirdPartyVehicleReference:
-              type: string
-        vehicleClassCode:
-          $ref: '#/components/schemas/vehicleClassCodeContent_Type'
-        assignedIdentifier:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/assignedIdentifier_Type'
-            - $ref: '#/components/schemas/assignedIdentifier_Type'
-        locationReferences:
-          oneOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/locationReferences_Type'
-            - $ref: '#/components/schemas/locationReferences_Type'
     claimParty_Type:
       type: object
       title: Claim Interested Party Information
@@ -16799,8 +16367,6 @@ components:
               type: boolean
             interestedParty:
               $ref: '#/components/schemas/interestedParty_Type'
-            thirdPartyVehicleReferences:
-              $ref: '#/components/schemas/thirdPartyVehicleReferences_Type'
     causeCodeContent_Type:
       type: string
       title: CauseCodeContent Type
@@ -17098,145 +16664,6 @@ components:
         - properties:
             organizationReferences:
               $ref: '#/components/schemas/organizationReferences_Type'
-    tripDestination_Type:
-      type: object
-      title: Trip Destination Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            description:
-              type: string
-            tripDestinationCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    tripPeriod_Type:
-      type: object
-      title: Trip Period Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            startDate:
-              type: string
-              format: date
-            endDate:
-              type: string
-              format: date
-            startTime:
-              type: string
-              format: time
-            endTime:
-              type: string
-              format: time
-            localStandardTimeAppliesToInceptionDateIndicator:
-              type: boolean
-            startAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            endAge:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            periodDuration:
-              type: string
-              format: duration
-            continuousDurationIndicator:
-              type: boolean
-            timePeriodDescription:
-              type: string
-              maxLength: 255
-            bothDaysInclusiveIndicator:
-              type: boolean
-    tripInformation_Type:
-      type: object
-      title: Trip Information
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            tripDestination:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/tripDestination_Type'
-                - $ref: '#/components/schemas/tripDestination_Type'
-            tripBookingDate:
-              type: string
-              format: date
-            tripPeriod:
-              $ref: '#/components/schemas/tripPeriod_Type'
-            tripReasonCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            transitMethodCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    flightInformation_Type:
-      type: object
-      title: Flight Information
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            scheduledFlightNumber:
-              type: string
-              maxLength: 255
-            scheduledDepartureDateTime:
-              type: string
-              format: date-time
-            scheduledArrivalDateTime:
-              type: string
-              format: date-time
-            scheduledDeparturePoint:
-              type: string
-              maxLength: 255
-            scheduledDestination:
-              type: string
-              maxLength: 255
-            actualFlightNumber:
-              type: string
-              maxLength: 255
-            actualDepartureDateTime:
-              type: string
-              format: date-time
-            actualArrivalDateTime:
-              type: string
-              format: date-time
-            actualDestination:
-              type: string
-              maxLength: 255
     claimOccurrenceQuestionCodeContent_Type:
       type: string
       title: Claim Occurrence Question Code Content Type
@@ -17383,18 +16810,6 @@ components:
                   items:
                     $ref: '#/components/schemas/claimTransactionAmountItem_Type'
                 - $ref: '#/components/schemas/claimTransactionAmountItem_Type'
-            tripInformation:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/tripInformation_Type'
-                - $ref: '#/components/schemas/tripInformation_Type'
-            flightInformation:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/flightInformation_Type'
-                - $ref: '#/components/schemas/flightInformation_Type'
             questionAnswer:
               oneOf:
                 - type: array
@@ -18587,2307 +18002,6 @@ components:
                   items:
                     $ref: '#/components/schemas/assignedIdentifier_Type'
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
-    driverRole_Type:
-      type: object
-      title: DriverRole_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            driverReferences:
-              $ref: '#/components/schemas/driverReferences_Type'
-    thirdPartyDriverRoleCodeContent_Type:
-      type: string
-      title: Third Party Driver Role Code Content_Type
-      description: TBD
-      enum:
-        - OtherThanRegular
-        - ThirdParty
-    policyDriverTypeCodeContent_Type:
-      type: string
-      title: PolicyDriver Type Code Content Type
-      description: TBD
-      enum:
-        - Additional
-        - DeferredDriver
-        - Excluded
-        - Occasional
-        - Principal
-        - Unlicensed
-        - Unrated
-    driversLicenseTypeCodeContent_Type:
-      type: string
-      title: Drivers License Type Code Content Type
-      description: TBD
-      enum:
-        - A
-        - A1
-        - B
-        - C
-        - C1
-        - Commonwealth
-        - EB
-        - EC
-        - EC1
-        - InternationalDriversPermit
-        - LearnersLicense
-        - NeighbouringState
-        - PDP
-        - PDPD
-        - PDPG
-        - PDPP
-    commercialDrivingExperiencePeriod_Type:
-      type: object
-      title: CommercialDrivingExperiencePeriod_Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    driversLicense_Type:
-      type: object
-      title: Drivers License
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/driversLicenseTypeCodeContent_Type'
-            license:
-              $ref: '#/components/schemas/license_Type'
-            commercialDrivingExperiencePeriod:
-              $ref: '#/components/schemas/commercialDrivingExperiencePeriod_Type'
-            firstLicensedCurrentStateDate:
-              type: string
-              format: date
-    noClaimBonus_Type:
-      type: object
-      title: No Claim Bonus Type
-      properties:
-        acquiredMethodDescription:
-          type: string
-          maxLength: 255
-        yearsCount:
-          type: string
-          pattern: ^[0-9]{1,15}$
-    convictionTypeCodeContent_Type:
-      type: string
-      title: Conviction Type Code Content
-      description: TBD
-      enum:
-        - Motoring
-        - NonMotoring
-    conviction_Type:
-      type: object
-      title: Conviction Type
-      properties:
-        typeCode:
-          $ref: '#/components/schemas/convictionTypeCodeContent_Type'
-        description:
-          type: string
-        convictionEnforcementCode:
-          oneOf:
-            - type: object
-              required:
-                - value
-              properties:
-                value:
-                  type: string
-                attributes:
-                  type: object
-                  properties:
-                    codeListReference:
-                      type: string
-            - type: string
-              maxLength: 255
-        convictionDate:
-          type: string
-          format: date
-        convictionObservedIndicator:
-          type: boolean
-    driver_Type:
-      type: object
-      title: Driver Type
-      allOf:
-        - $ref: '#/components/schemas/referencedPersonRole_Type'
-        - properties:
-            driversLicense:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/driversLicense_Type'
-                - $ref: '#/components/schemas/driversLicense_Type'
-            relationshipToInsuredCode:
-              $ref: '#/components/schemas/relationshipToInsuredCodeContent_Type'
-            alternateRelationshipToInsuredCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            noClaimBonus:
-              $ref: '#/components/schemas/noClaimBonus_Type'
-            conviction:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/conviction_Type'
-                - $ref: '#/components/schemas/conviction_Type'
-            lossHistoryIndicator:
-              type: boolean
-            lossHistory:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/lossHistory_Type'
-                - $ref: '#/components/schemas/lossHistory_Type'
-    thirdPartyDriver_Type:
-      type: object
-      title: Third Party Driver
-      allOf:
-        - $ref: '#/components/schemas/driverRole_Type'
-        - properties:
-            thirdPartyDriverRoleCode:
-              $ref: '#/components/schemas/thirdPartyDriverRoleCodeContent_Type'
-            typeCode:
-              $ref: '#/components/schemas/policyDriverTypeCodeContent_Type'
-            hiredDate:
-              type: string
-              format: date
-            driver:
-              $ref: '#/components/schemas/driver_Type'
-            thirdPartyVehicleReferences:
-              $ref: '#/components/schemas/thirdPartyVehicleReferences_Type'
-    claimFreeGroup_Type:
-      type: object
-      title: Claim Free Group Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            valuePercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            valueInteger:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            description:
-              type: string
-            yearCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    vehicleInspectionStatusCodeContent_Type:
-      type: string
-      title: Vehicle Inspection Status Code Content Type
-      description: TBD
-      enum:
-        - BlockTransferPolicyInspectionWaived
-        - Bumpers
-        - ClaimReportedInsuredNotRepairVehicle
-        - Exempt
-        - FrontEndDamage
-        - InspectedDamagePresent
-        - InspectedNoDamage
-        - InspectionCompletedTimelyBasisDamage
-        - InspectionNotCompletedTimelyBasisCoverageGapDamage
-        - InspectionRequiredNotReceived
-        - InspectionWaivedVariousReasons
-        - InteriorUpholsteryDamage
-        - LeftDoorDamage
-        - LeftFenderDamage
-        - LeftFrontDamage
-        - LeftQuarterPanelDamage
-        - LeftSideswipeDamage
-        - MultipleDamage
-        - NewVehicleLacksMandatoryInformation
-        - NoInspection
-        - NoInspectionCoverageSuspended
-        - NoInspectionRequiredNoPhysicalDamage
-        - ProofPurchaseReceived
-        - ProofPurchaseRequired
-        - ProofPurchaseRequiredCoverageRestricted
-        - RearEndDamage
-        - RearWindow
-        - RightDoorDamage
-        - RightFenderDamage
-        - RightFrontDamage
-        - RightQuarterPanelDamage
-        - RightSideswipeDamage
-        - SevenYearsOldInspectionWaived
-        - SideWindowsDamage
-        - TireDamage
-        - VinylTopDamage
-        - Windshield
-        - WithCompanyAtLeast4YearsPhysicalDamageInspectionWaived
-    vehiclePerformanceCodeContent_Type:
-      type: string
-      title: Vehicle Performance Code Content Type
-      description: TBD
-      enum:
-        - Basic
-        - High
-        - Intermediate
-        - SportsCar
-        - SportsPremium
-    operatorExperienceRestrictionCodeContent_Type:
-      type: string
-      title: Operator Experience Restriction Code Content Type
-      description: TBD
-      enum:
-        - NoOperatorLicensedLessThan5Years
-        - NoRestrictions
-        - OperatorLicensedLessThan5YearsNotOwnerOrPrincipalOperator
-        - OwnerOrPrincipalOperatorLicensedLessThan5Years
-    leasedPeriod_Type:
-      type: object
-      title: Leased Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    driverUse_Type:
-      type: object
-      title: Driver Use Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyDriverReferences:
-              $ref: '#/components/schemas/policyDriverReferences_Type'
-            usePercent:
-              type: string
-              pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            primaryIndicator:
-              type: boolean
-    itemValueTypeCodeContent_Type:
-      type: string
-      title: ItemValueTypeCodeContent_Type
-      description: TBD
-      enum:
-        - AgreedValue
-        - AnnualSales
-        - DailyProduction
-        - DeclaredValue
-        - EstimatedAnnualSales
-        - MarketValue
-    itemValue_Type:
-      type: object
-      title: ItemValue_Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/itemValueTypeCodeContent_Type'
-            description:
-              type: string
-            valueAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            unitCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    vehicleUseTypeCodeContent_Type:
-      type: string
-      title: VehicleUseType Code Content Type
-      description: TBD
-      enum:
-        - Business
-        - CarPool
-        - Clergy
-        - Commercial
-        - CommercialDrivingSchool
-        - Commute
-        - Domestic
-        - DrivenToAndFromSchool
-        - DrivenToAndFromWork
-        - DriveWorkSchoolOver15Miles
-        - DriveWorkSchoolUnder15Miles
-        - Farm
-        - ForHire
-        - OffRoadDriving
-        - OnRoadProfessional
-        - Other
-        - Private
-        - PrivateExclusive
-        - PrivateInclusive
-        - PrivateInclusiveLessThan15000
-        - PrivateInclusiveMoreThan15000
-        - Retail
-        - RetiredUse
-        - Service
-        - ShowRestrictedUse
-        - Trade
-        - TrailerOrCaravan
-        - TransportForDayCareCenter
-        - VanPoolsAllOther
-        - VanPoolsEmployerFurnished
-    radiusUseCodeContent_Type:
-      type: string
-      title: Radius Use Code Content Type
-      description: TBD
-      enum:
-        - Intermediate
-        - Local
-        - LongDistance
-    vehicleSpecialUseCodeContent_Type:
-      type: string
-      title: Vehicle Special Use Code Content Type
-      description: TBD
-      enum:
-        - AmusementDevice
-        - BobtailOperations
-        - EmergencyVehicle
-        - Explosives
-        - FarmersLimitedRegistrationPlates
-        - FarmToMarket
-        - FreightForwardingOperations
-        - LiquifiedGas
-        - LiquifiedProducts
-        - MovingVanAssociations
-        - RollingStores
-        - Showroom
-        - ToxicWastes
-        - UsedDumping
-        - UsedDumpingBobtailOperations
-        - UsedLogging
-        - UsedMovingOperations
-    vehicleUse_Type:
-      type: object
-      title: Vehicle Use Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/vehicleUseTypeCodeContent_Type'
-            description:
-              type: string
-            radiusUseCode:
-              $ref: '#/components/schemas/radiusUseCodeContent_Type'
-            radiusMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            vehicleSpecialUseCode:
-              $ref: '#/components/schemas/vehicleSpecialUseCodeContent_Type'
-            alternateVehicleSpecialUseCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            annualDistanceMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            ownerIndicator:
-              type: boolean
-            ownOtherVehicleIndicator:
-              type: boolean
-    vehicleGaragingCodeContent_Type:
-      type: string
-      title: Vehicle Garaging Code Content Type
-      description: TBD
-      enum:
-        - BehindGates
-        - Carport
-        - Driveway
-        - Garaged
-        - NotGaraged
-        - OffStreet
-        - OnStreet
-        - ParkedUndercover
-        - ParkingLot
-    vehicleOvernightLocationCodeContent_Type:
-      type: string
-      title: Vehicle Overnight Locatio nCode Content Type
-      description: TBD
-      enum:
-        - AccessControlledArea
-        - NonEnclosedResidentialArea
-        - RetirementComplex
-        - School
-        - SecuredArea
-        - SecurityVillage
-        - SmallholdingPlotOrFarm
-        - UnsecuredArea
-    vehicleMeasurement_Type:
-      type: object
-      title: Vehicle Measurement
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            lengthMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            widthMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            heightMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            weightMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            massMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            kerbWeightMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-    vehicleArticulatedCodeContent_Type:
-      type: string
-      title: Vehicle Articulated Code Content
-      description: TBD
-      enum:
-        - Articulated
-        - Rigid
-    period_Type:
-      type: object
-      title: Period Type
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        startAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        endAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    manufacturerWarrantyPeriod_Type:
-      type: object
-      title: Manufacturer Warranty Period Type
-      allOf:
-        - $ref: '#/components/schemas/period_Type'
-        - properties: {}
-    manufacturer_Type:
-      type: object
-      title: Manufacturer Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            manufacturerName:
-              type: string
-              maxLength: 255
-            manufacturerCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            manufactureYear:
-              type: string
-              pattern: YYYY
-            modelYear:
-              type: string
-              pattern: YYYY
-            modelName:
-              type: string
-              maxLength: 255
-            modelNumber:
-              type: string
-              maxLength: 255
-            modelCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            brandName:
-              type: string
-              maxLength: 255
-            modelVariant:
-              type: string
-              maxLength: 255
-            modelSeries:
-              type: string
-              maxLength: 255
-            manufacturerWarrantyIndicator:
-              type: boolean
-            manufacturerWarrantyPeriod:
-              $ref: '#/components/schemas/manufacturerWarrantyPeriod_Type'
-    vehicleBodyTypeCodeContent_Type:
-      type: string
-      title: VehicleBodyType Code Content Type
-      description: TBD
-      enum:
-        - Above100000
-        - Caravan
-        - Convertible
-        - Coupe
-        - FiveDoorSedan
-        - FiveDoorSUV
-        - FourDoorExtendedCabChassis
-        - FourDoorHardtop
-        - FourDoorHatchback
-        - FourDoorLiftback
-        - FourDoorSedan
-        - FourDoorSUV
-        - FourDoorWagon
-        - FourWheelDrive
-        - Hardtop
-        - HatchBack
-        - Other
-        - PickupTruck
-        - Sedan
-        - ThreeDoorExtendedCabChassis
-        - Trailer
-        - TwoDoorHardtop
-        - TwoDoorHatchback
-        - TwoDoorLiftback
-        - TwoDoorSedan
-        - TwoDoorSUV
-        - TwoDoorWagon
-        - UpTo100000
-        - Utility
-        - Van
-        - Wagon
-    vehicleBody_Type:
-      type: object
-      title: Vehicle Body Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/vehicleBodyTypeCodeContent_Type'
-            alternateTypeCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            description:
-              type: string
-            colour:
-              type: string
-              maxLength: 255
-            seatingCapacityCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            colourCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    engineExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: EngineExternalIdentifierTypeCodeContent_Type
-      description: TBD
-      enum:
-        - SerialNumber
-    engineExternalIdentifier_Type:
-      type: object
-      title: EngineExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/engineExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    fuelTypeCodeContent_Type:
-      type: string
-      title: FuelType Code Content Type
-      description: TBD
-      enum:
-        - Diesel
-        - Electric
-        - Ethanol
-        - Gasoline
-        - Hybrid
-        - NaturalGas
-        - Other
-        - TurboDiesel
-        - TurboGasoline
-    engine_Type:
-      type: object
-      title: Engine Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/engineExternalIdentifier_Type'
-                - $ref: '#/components/schemas/engineExternalIdentifier_Type'
-            description:
-              type: string
-            capacityMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            displacementMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            cylinderCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-            horsepowerMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            turbochargedIndicator:
-              type: boolean
-            fuelTypeCode:
-              $ref: '#/components/schemas/fuelTypeCodeContent_Type'
-            engineConfigurationName:
-              type: string
-              maxLength: 255
-    chassisExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: ChassisExternalIdentifierTypeCodeContent_Type
-      description: TBD
-      enum:
-        - SerialNumber
-    chassisExternalIdentifier_Type:
-      type: object
-      title: ChassisExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/chassisExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    chassis_Type:
-      type: object
-      title: Chassis Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/chassisExternalIdentifier_Type'
-                - $ref: '#/components/schemas/chassisExternalIdentifier_Type'
-            description:
-              type: string
-            axleCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    transmissionExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: TransmissionExternalIdentifierTypeCodeContent_Type
-      description: TBD
-      enum:
-        - SerialNumber
-    transmissionExternalIdentifier_Type:
-      type: object
-      title: TransmissionExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/transmissionExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    transmissionTypeCodeContent_Type:
-      type: string
-      title: Transmission Type Code Content Type
-      description: TBD
-      enum:
-        - Other
-        - Tiptronic
-        - Unknown
-        - Automatic
-        - Manual
-    transmission_Type:
-      type: object
-      title: Transmission Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/transmissionExternalIdentifier_Type'
-                - $ref: '#/components/schemas/transmissionExternalIdentifier_Type'
-            typeCode:
-              $ref: '#/components/schemas/transmissionTypeCodeContent_Type'
-            alternateTypeCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            description:
-              type: string
-            drivenWheelsCount:
-              type: string
-              pattern: ^[0-9]{1,15}$
-    modificationCategoryCodeContent_Type:
-      type: string
-      title: Modification Class Code Content
-      description: TBD
-      enum:
-        - Body
-        - Cosmetic
-        - Engine
-        - Paint
-        - Performance
-        - PerformanceAndCosmetic
-        - Suspension
-        - Unknown
-        - Wheels
-    vehicleModificationTypeCodeContent_Type:
-      type: string
-      title: VehicleModificationTypeCodeContent_Type
-      description: TBD
-      enum:
-        - EngineModification1
-    vehicleModification_Type:
-      type: object
-      title: Vehicle Modification Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            modificationCategoryCode:
-              $ref: '#/components/schemas/modificationCategoryCodeContent_Type'
-            typeCode:
-              $ref: '#/components/schemas/vehicleModificationTypeCodeContent_Type'
-            description:
-              type: string
-            modifiedDate:
-              type: string
-              format: date
-            valueAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            valuationTypeCode:
-              $ref: '#/components/schemas/valuationTypeCodeContent_Type'
-    vehicleOptionCodeContent_Type:
-      type: string
-      title: Vehicle Option Code Content
-      description: TBD
-      enum:
-        - AirConditioner
-        - AluAwning
-        - AudioPlayer
-        - AutomaticParking
-        - BikeCarrier
-        - BulBars
-        - Canopy
-        - ClimateConrol
-        - CruiseControl
-        - Drawers
-        - FogLightFront
-        - FogLightsRear
-        - FourXJerryCans
-        - FrontEndSpoiler
-        - GasBottleHolder
-        - HandsFreePhoneKit
-        - HiLiftJack
-        - HiLiftJackBracket
-        - HowlingMoonTent
-        - JerryCanHolders
-        - KeylessEntry
-        - LeatherSeats
-        - LightProtectionCovers
-        - LongRangeFuelTank
-        - LuggageCompartmentCovers
-        - LuggageRails
-        - MagWheels
-        - MantecSnorkel
-        - MemorySeats
-        - MetallicPaint
-        - MiniVideoPlayers
-        - MobilePhonePreparation
-        - MonitorTV
-        - NavigationSystem
-        - NudgeBar
-        - OpenGameViewing
-        - ParkAssist
-        - ProtectionPlates
-        - RearEndSpolier
-        - RearViewCamera
-        - RecoveryWinch
-        - RollBars
-        - RoofRack
-        - Rubberising
-        - SeatHeating
-        - SideRails
-        - SideRailsForBin
-        - SideSteps
-        - Skirtings
-        - SmashAndGrab
-        - SoundEquipment
-        - SpareWheelHolder
-        - Spoiler
-        - SportWheels
-        - SpotLights
-        - SteeringProtectionPlate
-        - SunRoof
-        - TonneauCover
-        - TowBar
-        - TwoWayRadio
-        - VideoScreen
-        - WarnSpotLights
-        - WinchRecovery
-        - XenonLamps
-    vehicleOption_Type:
-      type: object
-      title: Vehicle Option Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            vehicleOptionCode:
-              $ref: '#/components/schemas/vehicleOptionCodeContent_Type'
-            description:
-              type: string
-            valueAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-    unrepairedDamageTypeCodeContent_Type:
-      type: string
-      title: UnrepairedDamageTypeCodeContent_Type
-      description: TBD
-      enum:
-        - Collision
-        - Hail
-        - MinorDentsAndScratches
-        - Other
-        - Rust
-    unrepairedDamage_Type:
-      type: object
-      title: Unrepaired Damage Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/unrepairedDamageTypeCodeContent_Type'
-            description:
-              type: string
-    antiTheftDeviceTypeCodeContent_Type:
-      type: string
-      title: AntiTheftDeviceTypeCodeContent_Type
-      description: TBD
-      enum:
-        - ActiveDisabling
-        - AdditionalSecurityDevice
-        - Alarm
-        - AlarmAndImmoiliser
-        - AlarmMotionSensor
-        - Datadot
-        - ElectronicDisabling
-        - EtchedWindow
-        - FleetManagementSystem
-        - FuelCutOff
-        - Gearlock
-        - HoodLock
-        - IgnitionKillSwitch
-        - Immobiliser
-        - LockedGarage
-        - MicroDotting
-        - None
-        - PassiveDisabling
-        - Present
-        - SecurityBattery
-        - ShakerSwitch
-        - SteeringLock
-        - TrackingActive
-        - TrackingEarlyWarningActive
-        - TrackingEarlyWarningPassive
-        - TrackingPassive
-        - TrackingRecoveryDevice
-        - Unknown
-        - WindowId
-    antiTheftDeviceProductCodeContent_Type:
-      type: string
-      title: Anti Theft Device Product Code Content Type
-      description: TBD
-      enum:
-        - ACCORD
-        - ACCORDGT
-        - ACMTrackAlphaTrack
-        - Agrippa
-        - AgrippaLockACar
-        - AlarmFactory
-        - AlarmFitted
-        - AlarmNil
-        - ALFAROMEO
-        - Apple
-        - ASSAABLOYSA
-        - ATLASDISCOVERY
-        - ATRALOCK
-        - AUDIKLINE
-        - Autogarde
-        - AUTOKEYS
-        - Automate
-        - AUTOMOTIVECONTROLSYSTEM
-        - AutoTrackerSentinel
-        - AutoTrakIS1001ACS
-        - Autowatch
-        - Autowatch329TiVICCApproved
-        - Autowatch887
-        - AutowatchClassic875GhostPlus
-        - AutowatchClassic875Lite
-        - AutowatchPFK
-        - BanditVehicleSecuritySystem
-        - BeamE
-        - BEARLOCK
-        - BidtrackActiv
-        - BidtrackExecutive
-        - BidtrackHighAlert
-        - BMW
-        - BMW3INTLOCK
-        - BMWKLINE
-        - Boomerang
-        - Budilock
-        - Budilock001
-        - Budilock002
-        - Budilock003
-        - Budilock004
-        - Budilock005
-        - Budilock006
-        - Budilock007
-        - Budilock008
-        - Budilock009
-        - Budilock010
-        - Budilock011
-        - Budilock012
-        - Budilock013
-        - BudilockMSI
-        - CapitalAir
-        - CARLOX
-        - CAROOCELL
-        - CARTRACK
-        - CELLSECURE
-        - CELLSTOP
-        - CommunicatorFM200
-        - CommunicatorFM300
-        - Computask
-        - Conlog
-        - ControlInstruments
-        - CTrack
-        - CWTechnologies
-        - CybergraphyExact
-        - CybergraphyExclusive
-        - DAEWOO
-        - DatatDot
-        - DEFENDALOCK
-        - DIAMONDLOCK
-        - DIAMONDLOCK10
-        - DIAMONDLOCK101
-        - DIAMONDLOCK102
-        - DIAMONDLOCK103
-        - DIAMONDLOCK104
-        - DIAMONDLOCK14
-        - DIAMONDLOCK15
-        - DIAMONDLOCK16
-        - DIAMONDLOCK17
-        - DIAMONDLOCK18
-        - DigicellDigit3B
-        - DigiCoreFleetManagement
-        - DIGICORETECHNOLOGY
-        - Doc
-        - DuoSolutions
-        - DuoSolutionsProvider
-        - DUPEC
-        - DuroVIP
-        - EC49
-        - ESCO
-        - EUROLOCK
-        - EVERLOCK
-        - EWCOP
-        - EWCOPTracer
-        - ExecUFleet
-        - EZTRADE312
-        - FinTrack
-        - FORDESCORT
-        - FORDFALCON
-        - FORDFIESTA
-        - FOXGUARD
-        - Global
-        - GlobalTelematicsOrchidTCU
-        - GMC
-        - GRIDELECTROHUNTER
-        - GRIDELECTRONICS
-        - GRIDELECTRONICS005
-        - GRIDELECTRONICS006
-        - GRIDELECTRONICS007
-        - GRIDELECTRONICS008
-        - GRIDELECTRONICS009
-        - GRIDELECTRONICS010
-        - GRIDELECTRONICS011
-        - GRIDELECTRONICS014
-        - GRIDELECTRONICS015
-        - GRIDELECTRONICS016
-        - GRIDELECTRONICS017
-        - GRIDELECTRONICS018
-        - GRIPTECHPtyLtd
-        - GT
-        - HUNTER
-        - HUNTERGEARLOCK
-        - HYUNDAI
-        - HYUNDAIBAKKIEH100
-        - HYUNDAIELANTRASW
-        - ImmobiliserFactory
-        - ImmobiliserFitted
-        - ImmobiliserNil
-        - INHIBITOR
-        - INTERTRAC
-        - JAGUARREEKS1997EN
-        - KCSALES
-        - LANDROVERDISCOVERY
-        - LiveTrack
-        - LOCKACAR
-        - LOCKSYS
-        - LOCKTECH
-        - Magnum
-        - Magtec6000VICCApproved
-        - MAPOGO
-        - MATLOCK
-        - Matrix
-        - MatrixECOAH16
-        - MAZDAASTINA
-        - MAZDAETUDE
-        - MLOCK
-        - MOBILETRAKER
-        - MOTOJOY
-        - MOTOJOYMAPOGO
-        - MSI
-        - MULTLOCK
-        - MULTLOCK005
-        - MULTLOCK006
-        - MULTLOCK007
-        - MULTLOCK008
-        - MULTLOCK009
-        - MULTLOCK010
-        - MULTLOCK011
-        - MULTLOCK012
-        - MULTLOCK013
-        - MULTLOCK014
-        - MULTLOCK015
-        - MULTLOCK016
-        - MULTLOCK017
-        - MULTLOCK018
-        - MULTLOCK101
-        - MULTLOCK102
-        - MULTLOCK103
-        - MULTLOCK104
-        - MyTracer
-        - NeoTrackG2
-        - None
-        - OmniBridgeFMProtector43101
-        - OmniBridgeShurDrivesD100
-        - ORCHID
-        - Other
-        - OTOMATE
-        - OTOMATEMSI
-        - Pacific
-        - PAMLOCK
-        - PAOPEI
-        - PAOPEITLOCK
-        - PEDSAFE
-        - PFK
-        - PFKELECTRONICS
-        - PGGCommunications
-        - Phantom450
-        - Phoenix
-        - PI
-        - PinpointPT200
-        - PIVEHICLESECURITY
-        - POWERGRIP
-        - PowerlockCanadaVehicleInformationCentreOfCanadaVICCApproved
-        - POWERTRACK
-        - PROTG
-        - RAMCO
-        - RAMSAY
-        - RANGERVER
-        - Raptor
-        - Raptor001
-        - Raptor002
-        - Raptor003
-        - Raptor004
-        - Raptor005
-        - Raptor006
-        - Raptor007
-        - Raptor008
-        - Raptor009
-        - Raptor010
-        - Raptor011
-        - Raptor012
-        - Raptor013
-        - Raptor014
-        - Raptor015
-        - Raptor016
-        - Raptor017
-        - Raptor018
-        - RaptorEagle
-        - RaptorFalcon
-        - RaptorHawk
-        - RaptorStealth
-        - RHINO
-        - ROSHNIENTERPRISES
-        - SAAB
-        - SAELECTRONICTRACKINGSYSTEMSLTD
-        - SANJI
-        - SANJIINTELLICAKEYPAD
-        - SANJU
-        - SelfTrack
-        - Sherlock
-        - SIRIUS
-        - SKYGISTICS
-        - SKYTRAX
-        - SmarTrack
-        - SmartSurvAdvanced
-        - SmartSurvClassicLifestyle
-        - SmartSurvPlus
-        - SmartSurvPremier
-        - SmartSurvTrackMaster
-        - SmartSurvWireless
-        - SNITCHSECURITYSA
-        - SolidEjectorLock
-        - SolidGearlokSA
-        - SolidGearlokSA001
-        - SolidGearlokSA002
-        - SolidGearlokSA003
-        - SolidGearlokSA004
-        - SolidGearlokSA005
-        - SolidGearlokSA007
-        - SolidGearlokSA008
-        - SolidGearlokSA009
-        - SolidGearlokSA010
-        - SolidGearlokSA011
-        - SolidGearlokSA012
-        - SolidGearlokSA013
-        - SPAV
-        - SPRINGSHADE
-        - StarTrac
-        - STEALTH
-        - SuperDurogarde
-        - TAZLOK
-        - TECHNOFLEET
-        - TheftbusterTB300VVICCApproved
-        - THIBA
-        - TISONICS
-        - TOYOTA
-        - TOYOTACOROLLA16
-        - TOYOTACOROLLA18
-        - TOYOTALAWSFLOORSHIFT
-        - TRABEGASFUELLOCK
-        - TRACKER
-        - TrackingBandit
-        - TrackingBanditInterac
-        - TrackingBanditInteracActive
-        - TrackingBanditInteracHiAlert
-        - TrackingBanditInterlock
-        - TrackingBanditPinlock
-        - TrackingCarTrackCT1
-        - TrackingCarTrackExecutivePlus
-        - TrackingCarTrackQuickCT1
-        - TrackingCarTrackQuickPlus
-        - TrackingCellSecureEagleFindItV5
-        - TrackingCellSecureEagleTraceeV4
-        - TrackingCellStopMk5
-        - TrackingDataTrak
-        - TrackingDataTrakMK2D
-        - TrackingDataTrakMK4
-        - TrackingDataTrakOnlyGauteng
-        - TrackingDigiCoreCTrack
-        - TrackingDigiCoreCTrackSecurePlus
-        - TrackingDigiCoreInsureProtect
-        - TrackingDigiCoreSecurePlusProtect
-        - TrackingDuoSolutionsDatalogger
-        - TrackingMatrix
-        - TrackingMatrixEscosec
-        - TrackingMatrixMX1
-        - TrackingMatrixMX2
-        - TrackingMatrixMX3
-        - TrackingMobileTrackerFrankie
-        - TrackingMobileTrackerFrankiePlus
-        - TrackingMTrack
-        - TrackingNetStar
-        - TrackingNetStarCyberSleuth
-        - TrackingNetStarVBU150220
-        - TrackingNetStarVBU170210
-        - TrackingNetStarVBU450
-        - TrackingNetStarVBU470
-        - TrackingNetStarVBU480
-        - TrackingNetStarVigil
-        - TrackingNetStarVigilSupreme
-        - TrackingOrbtechBuddi3
-        - TrackingOrbtechBuddi5
-        - TrackingOrbtechBuddiTrack
-        - TrackingOrchidDX120
-        - TrackingOrchidDX170
-        - TrackingOrchidDX200
-        - TrackingOrchidDX250
-        - TrackingSkyTrax
-        - TrackingSkyTraxF4
-        - TrackingSmartTrakActivePlus
-        - TrackingSmartTrakClassic
-        - TrackingSmartTrakElite
-        - TrackingSmartTrakLifeStyle
-        - TrackingSmartTrakLifeStyleActive
-        - TrackingTracetec
-        - TrackingTrackerAlert
-        - TrackingTrackerLocateAlert
-        - TrackingTrackerLocateRetrieve
-        - TrackingTrackerMotorolaSTRK9700SA
-        - TrackingTrackerRetrieve
-        - TRANSLOCK
-        - ULOCK
-        - VAC
-        - VACInhibitor
-        - VECTA
-        - VehicleManufacturerOriginalEquipmentManufacturer
-        - Viasat
-        - VICCApproved
-        - VIKACOROLLACAMRY
-        - VIRO
-        - VIROEsco
-        - VIROGearlock
-        - VIROSolidGearlock
-        - VOLVO
-        - VSS150
-        - VWKOMBI
-        - VWVR6
-        - YALEGEARLOCK
-        - YALEGEARLOCK001
-        - YALEGEARLOCK002
-        - YALEGEARLOCK003
-        - YALEGEARLOCK004
-        - YALEGEARLOCK005
-        - YALEGEARLOCK006
-        - YALEGEARLOCK007
-        - YALEGEARLOCK008
-        - YALEGEARLOCK009
-        - YALEGEARLOCK010
-        - YALEGEARLOCK011
-        - YALEGEARLOCK012
-        - YALEGEARLOCK013
-        - YALEGEARLOCK014
-        - YALEGEARLOCK015
-        - YALEGEARLOCK016
-        - YALEGEARLOCK017
-        - YALEGEARLOCK018
-    antiTheftDevice_Type:
-      type: object
-      title: Anti Theft Device Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/antiTheftDeviceTypeCodeContent_Type'
-            description:
-              type: string
-            antiTheftDeviceProductCode:
-              $ref: '#/components/schemas/antiTheftDeviceProductCodeContent_Type'
-    registrationPeriod_Type:
-      type: object
-      title: Registration Period
-      properties:
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        startTime:
-          type: string
-          format: time
-        endTime:
-          type: string
-          format: time
-        localStandardTimeAppliesToInceptionDateIndicator:
-          type: boolean
-        startAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        endAge:
-          type: string
-          pattern: ^[0-9]{1,15}$
-        periodDuration:
-          type: string
-          format: duration
-        continuousDurationIndicator:
-          type: boolean
-        timePeriodDescription:
-          type: string
-          maxLength: 255
-        bothDaysInclusiveIndicator:
-          type: boolean
-    registrationExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: RegistrationExternalIdentifierTypeCodeContent Type
-      description: TBD
-      enum:
-        - IMOShipId
-        - JurisdictionId
-        - NationalId
-        - VehicleIdentificationNumber
-        - WatercraftRegistrationNumberId
-    registrationExternalIdentifier_Type:
-      type: object
-      title: RegistrationExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/registrationExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-            registrationAgencyName:
-              type: string
-              maxLength: 255
-    registration_Type:
-      type: object
-      title: Registration Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            policyInterestedPartyReferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/policyInterestedPartyReferences_Type'
-                - $ref: '#/components/schemas/policyInterestedPartyReferences_Type'
-            registrationDate:
-              type: string
-              format: date
-            registrationPeriod:
-              $ref: '#/components/schemas/registrationPeriod_Type'
-            registrationCountryCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            registrationPortCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            registrationPortName:
-              type: string
-            registryStatusCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/registrationExternalIdentifier_Type'
-                - $ref: '#/components/schemas/registrationExternalIdentifier_Type'
-    ignitionExternalIdentifier_Type:
-      type: object
-      title: IgnitionExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties: {}
-    ignition_Type:
-      type: object
-      title: Ignition Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/ignitionExternalIdentifier_Type'
-                - $ref: '#/components/schemas/ignitionExternalIdentifier_Type'
-            ignitionTypeCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            description:
-              type: string
-            vehicleKeyCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    extendedWarrantyPeriod_Type:
-      type: object
-      title: Extended Warranty Period Type
-      allOf:
-        - $ref: '#/components/schemas/period_Type'
-        - properties: {}
-    driverSideCodeContent_Type:
-      type: string
-      title: Driver Side Code Content
-      description: The Driver Side Code content enumeration
-      enum:
-        - LeftHandDrive
-        - Other
-        - RightHandDrive
-        - Unknown
-    vehicleTypeCodeContent_Type:
-      type: string
-      title: VehicleType Code Content Type
-      description: TBD
-      enum:
-        - AirportBus
-        - AirportLimousine
-        - AllVehicles
-        - AllVehiclesExcludingMotorcycles
-        - Ambulance
-        - AmbulanceEmergency
-        - AmbulanceNonEmergency
-        - AmphibiousVehicle
-        - AntiqueVehicle
-        - ATV
-        - BeachBuggy
-        - BusesNotOtherwiseClassified
-        - Cabriolet
-        - CamperTrailer
-        - Caravan
-        - CargoVan
-        - CharterBus
-        - ChurchBus
-        - ClassicAuto
-        - CommercialVehicle
-        - CompactCar
-        - DetachableCamperBody
-        - DriverTrainingCommercial
-        - DumpSemiTrailer
-        - DumpTrailer
-        - DumpTruck
-        - DuneBuggy
-        - EightPassengerSportVan
-        - ElectricVehicle
-        - ExtendedCargoVan
-        - ExtendedSportVan
-        - ExtendedWindowVan
-        - ExtraHeavyTrucks
-        - ExtraHeavyTruckTractors
-        - FarmVehicle
-        - FireDepartmentsNonPrivatePassengerType
-        - FireDepartmentsPrivatePassengerType
-        - FoldingPopUpCampers
-        - FourWheelDrive
-        - FullTrailers
-        - FuneralFlowerCar
-        - FuneralHearse
-        - FuneralHearseAmbulanceEmergency
-        - FuneralHearseAmbulanceNonEmergency
-        - FuneralLimousine
-        - GoCart
-        - GolfCart
-        - GrassMower
-        - HeavyTrucks
-        - HeavyTruckTractors
-        - HeavyVehicleHorse
-        - HeavyVehicleHorseAndTrailer
-        - HeavyVehicleHorseTrailer
-        - Imports
-        - InterCityBus
-        - KitCar
-        - LawEnforcementAgencyMotorcycle
-        - LawEnforcementAgencyNonPrivatePassengerTypeNonMotorcycle
-        - LawEnforcementAgencyPrivatePassengerType
-        - LDV
-        - LightTrucks
-        - Limousine
-        - MediumTrucks
-        - Minibike
-        - Minibus
-        - MiniVan
-        - MobileHomeTrailerGreater22Feet
-        - MobileHomeTrailerLess22Feet
-        - MobileHomeTrailerOther
-        - MobileHomeTrailerUnspecified
-        - Moped
-        - Motorbike
-        - MotorcycleCruiser
-        - MotorcycleDelivery
-        - MotorcycleQuad
-        - MotorcycleScrambler
-        - MotorcycleStreetBike
-        - MotorScooter
-        - OtherMotorizedCycles
-        - OtherSchoolBus
-        - OwnerOperated
-        - PanelVan
-        - PickupWithCamper
-        - PickupWithCamperBody
-        - PickupWithCanopy
-        - PrivateVehicle
-        - PublicVehicleNotOtherwiseClassified
-        - RecreationalTrailer
-        - RecreationalVehicle
-        - RefrigeratedTrailers
-        - RefrigeratedTrucks
-        - SchoolBusOwnedByPoliticalSubdivisionSchoolDistrict
-        - SedanDeliveryPanelTruck
-        - SelfPropelledMotorHomeOver22Feet
-        - SelfPropelledMotorHomeUpTo22Feet
-        - SemiTrailer
-        - ServiceTrucks
-        - ServiceUtilityTrailer
-        - ShowroomTrailer
-        - SightseeingBus
-        - Snowmobile
-        - SocialServicesVehicleAllOther
-        - SocialServicesVehicleEmployeeOperated
-        - Special
-        - SpecialMobileEquipmentFarm
-        - SpecialMobileEquipmentNonFarm
-        - SportCoupe
-        - SportSedan
-        - SportUtilityVehicle
-        - SportVan
-        - StationWagon
-        - StepVan
-        - SuburbanCarryAll
-        - TankSemiTrailers
-        - TankTrailers
-        - TankTrucks
-        - Taxi
-        - ThreeWheeler
-        - TrailBike
-        - Trailers
-        - TransportationAthletesEntertainers
-        - TransportationEmployeesAllOther
-        - TransportationEmployeesPrivatePassengerType
-        - Trucks
-        - TurboCharged
-        - Unknown
-        - UrbanBus
-        - UtilityTrailer
-        - UtilityVan
-        - VanCamper
-        - VanPoolsAllOther
-        - VanPoolsEmployerFurnished
-        - WatercraftTrailer
-        - WindowVan
-    vehicleExternalIdentifierTypeCodeContent_Type:
-      type: string
-      title: VehicleExternalIdentifierTypeCodeContent_Type
-      description: TBD
-      enum:
-        - GlassCode
-        - VehicleIdentificationNumber
-    vehicleExternalIdentifier_Type:
-      type: object
-      title: VehicleExternalIdentifier Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - id
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/vehicleExternalIdentifierTypeCodeContent_Type'
-            jurisdictionCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            sourceURI:
-              type: string
-              format: uri
-            id:
-              type: string
-            identifierDescription:
-              type: string
-    vehicle_Type:
-      type: object
-      title: Vehicle Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            measurement:
-              $ref: '#/components/schemas/vehicleMeasurement_Type'
-            maximumSpeedMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            vehicleArticulatedCode:
-              $ref: '#/components/schemas/vehicleArticulatedCodeContent_Type'
-            manufacturer:
-              $ref: '#/components/schemas/manufacturer_Type'
-            vehicleBody:
-              $ref: '#/components/schemas/vehicleBody_Type'
-            engine:
-              $ref: '#/components/schemas/engine_Type'
-            chassis:
-              $ref: '#/components/schemas/chassis_Type'
-            transmission:
-              $ref: '#/components/schemas/transmission_Type'
-            vehicleModification:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleModification_Type'
-                - $ref: '#/components/schemas/vehicleModification_Type'
-            vehicleOption:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleOption_Type'
-                - $ref: '#/components/schemas/vehicleOption_Type'
-            unrepairedDamage:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/unrepairedDamage_Type'
-                - $ref: '#/components/schemas/unrepairedDamage_Type'
-            antiTheftDevice:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/antiTheftDevice_Type'
-                - $ref: '#/components/schemas/antiTheftDevice_Type'
-            registration:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/registration_Type'
-                - $ref: '#/components/schemas/registration_Type'
-            ignition:
-              $ref: '#/components/schemas/ignition_Type'
-            purchasedNewIndicator:
-              type: boolean
-            extendedWarrantyPeriod:
-              $ref: '#/components/schemas/extendedWarrantyPeriod_Type'
-            industryGroupRatingCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            vehicleImportedIndicator:
-              type: boolean
-            driverSideCode:
-              $ref: '#/components/schemas/driverSideCodeContent_Type'
-            typeCode:
-              $ref: '#/components/schemas/vehicleTypeCodeContent_Type'
-            externalIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleExternalIdentifier_Type'
-                - $ref: '#/components/schemas/vehicleExternalIdentifier_Type'
-    thirdPartyVehicle_Type:
-      type: object
-      title: Third Party Vehicle
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            purchaseDate:
-              type: string
-              format: date
-            purchasePriceAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            vehicleSymbolCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-            claimFreeGroup:
-              $ref: '#/components/schemas/claimFreeGroup_Type'
-            vehicleAlteredIndicator:
-              type: boolean
-            vehicleOptionsIncludedIndicator:
-              type: boolean
-            vehicleModificationsIncludedIndicator:
-              type: boolean
-            antiTheftDeviceIndicator:
-              type: boolean
-            antiLockBrakesIndicator:
-              type: boolean
-            existingUnrepairedDamageIndicator:
-              type: boolean
-            vehicleInspectionStatusCode:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleInspectionStatusCodeContent_Type'
-                - $ref: '#/components/schemas/vehicleInspectionStatusCodeContent_Type'
-            vehiclePerformanceCode:
-              $ref: '#/components/schemas/vehiclePerformanceCodeContent_Type'
-            fourWheelDriveIndicator:
-              type: boolean
-            tractionControlIndicator:
-              type: boolean
-            odometerReadingAtPurchaseMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            odometerReadingAtApplicationMeasure:
-              oneOf:
-                - type: object
-                  title: Measure Type
-                  required:
-                    - value
-                  properties:
-                    unitCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,15}$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,15}$
-            seenVehicleIndicator:
-              type: boolean
-            dualControlsIndicator:
-              type: boolean
-            carpoolIndicator:
-              type: boolean
-            employeeOperatedIndicator:
-              type: boolean
-            operatorExperienceRestrictionCode:
-              $ref: '#/components/schemas/operatorExperienceRestrictionCodeContent_Type'
-            isRegisteredIndicator:
-              type: boolean
-            nonOwnedVehicleIndicator:
-              type: boolean
-            leasedPeriod:
-              $ref: '#/components/schemas/leasedPeriod_Type'
-            financedAmount:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    currencyCode:
-                      type: string
-                    value:
-                      type: string
-                      pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-                - type: string
-                  pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
-            agreedValueRequiredIndicator:
-              type: boolean
-            driverUse:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/driverUse_Type'
-                - $ref: '#/components/schemas/driverUse_Type'
-            itemValue:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/itemValue_Type'
-                - $ref: '#/components/schemas/itemValue_Type'
-            vehicleUse:
-              $ref: '#/components/schemas/vehicleUse_Type'
-            youngestDriverBirthYear:
-              type: string
-              pattern: YYYY
-            regularDriverBirthYear:
-              type: string
-              pattern: YYYY
-            underTwentyFiveIndicator:
-              type: boolean
-            vehicleGaragingCode:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleGaragingCodeContent_Type'
-                - $ref: '#/components/schemas/vehicleGaragingCodeContent_Type'
-            vehicleOvernightLocationCode:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/vehicleOvernightLocationCodeContent_Type'
-                - $ref: '#/components/schemas/vehicleOvernightLocationCodeContent_Type'
-            vehicle:
-              $ref: '#/components/schemas/vehicle_Type'
-            vehicleClassCode:
-              $ref: '#/components/schemas/vehicleClassCodeContent_Type'
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            locationReferences:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/locationReferences_Type'
-                - $ref: '#/components/schemas/locationReferences_Type'
     catastrophe_Type:
       type: object
       title: Catastrophe Type
@@ -21164,20 +18278,8 @@ components:
                   items:
                     $ref: '#/components/schemas/claimPartyReferences_Type'
                 - $ref: '#/components/schemas/claimPartyReferences_Type'
-            thirdPartyDriver:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/thirdPartyDriver_Type'
-                - $ref: '#/components/schemas/thirdPartyDriver_Type'
             inDisputeIndicator:
               type: boolean
-            thirdPartyVehicle:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/thirdPartyVehicle_Type'
-                - $ref: '#/components/schemas/thirdPartyVehicle_Type'
             exGratiaIndicator:
               type: boolean
             catastropheLossIndicator:
@@ -21550,170 +18652,6 @@ components:
         - ThirdPartyVehicleArtIIExcess
         - TotalAndPermanentDisability
         - UnemploymentCover
-    financialReviewTypeCodeContent_Type:
-      type: string
-      title: FinancialReviewTypeCode Content
-      description: TBD
-      enum:
-        - Audited
-        - Compiled
-        - Internal
-        - Reviewed
-        - Unaudited
-    financialReviewFinancialAmountItemTypeCodeContent_Type:
-      type: string
-      title: Financial Review Financial Amount Item Type Code Content Type
-      description: TBD
-      enum:
-        - AnnualSalaryDisability
-        - AnnualSalaryReview
-    financialReviewFinancialAmountItem_Type:
-      type: object
-      title: Financial Review Financial Amount Item Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - required:
-            - typeCode
-            - amountItemValue
-          properties:
-            typeCode:
-              $ref: '#/components/schemas/financialReviewFinancialAmountItemTypeCodeContent_Type'
-            amountItemValue:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/amountItemValue_Type'
-                - $ref: '#/components/schemas/amountItemValue_Type'
-            compensationBasisCode:
-              oneOf:
-                - type: object
-                  required:
-                    - value
-                  properties:
-                    value:
-                      type: string
-                    attributes:
-                      type: object
-                      properties:
-                        codeListReference:
-                          type: string
-                - type: string
-                  maxLength: 255
-    financialReview_Type:
-      type: object
-      title: Financial Review
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            typeCode:
-              $ref: '#/components/schemas/financialReviewTypeCodeContent_Type'
-            reviewDate:
-              type: string
-              format: date
-            financialAmountItem:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/financialReviewFinancialAmountItem_Type'
-                - $ref: '#/components/schemas/financialReviewFinancialAmountItem_Type'
-    interviewTypeCodeContent_Type:
-      type: string
-      title: Interview Type Code Content Type
-      description: TBD
-      enum:
-        - InPerson
-        - PhoneInterview
-    interviewTerminationReasonCodeContent_Type:
-      type: string
-      title: Interview Termination Reason Code Content Type
-      description: TBD
-      enum:
-        - Completed
-        - TeleUnderwritingInboundCall
-        - TeleUnderwritingOutboundCall
-        - UnsuccessfulTeleUnderwritingCallIncorrectNumberDetails
-        - UnsuccessfulTeleUnderwritingCallMemberRequestedNotToContinueRequirementsSent
-        - UnsuccessfulTeleUnderwritingCallMemberUnavailableMessageLeft
-        - UnsuccessfulTeleUnderwritingCallMemberUnavailableNoMessageLeft
-        - UnsuccessfulTeleUnderwritingCallMemberUnavailableRescheduled
-    intervieweeBusinessRelationshipRoleCodeContent_Type:
-      type: string
-      title: IntervieweeBusinessRelationshipRoleCodeContent_Type
-      description: TBD
-      enum:
-        - Doctor
-        - Employer
-        - Member
-    intervieweeInformation_Type:
-      type: object
-      title: Interviewee Information Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            roleCode:
-              $ref: '#/components/schemas/intervieweeBusinessRelationshipRoleCodeContent_Type'
-            personReferences:
-              $ref: '#/components/schemas/personReferences_Type'
-            interviewRequestIndicator:
-              type: boolean
-            interviewedIndicator:
-              type: boolean
-    interview_Type:
-      type: object
-      title: Interview Type
-      allOf:
-        - $ref: '#/components/schemas/ACORDAggregate_Type'
-        - properties:
-            assignedIdentifier:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/assignedIdentifier_Type'
-                - $ref: '#/components/schemas/assignedIdentifier_Type'
-            interviewTypeCode:
-              $ref: '#/components/schemas/interviewTypeCodeContent_Type'
-            interviewTerminationReasonCode:
-              $ref: '#/components/schemas/interviewTerminationReasonCodeContent_Type'
-            interviewNotes:
-              type: string
-            interviewDate:
-              type: string
-              format: date
-            intervieweeInformation:
-              $ref: '#/components/schemas/intervieweeInformation_Type'
-    treatmentPeriod_Type:
-      type: object
-      title: Treatment Period Type
-      allOf:
-        - $ref: '#/components/schemas/period_Type'
-        - properties: {}
-    medicalTreatment_Type:
-      type: object
-      title: Medical Treatment Type
-      required:
-        - typeCode
-      properties:
-        typeCode:
-          oneOf:
-            - type: object
-              required:
-                - value
-              properties:
-                value:
-                  type: string
-                attributes:
-                  type: object
-                  properties:
-                    codeListReference:
-                      type: string
-            - type: string
-              maxLength: 255
-        description:
-          type: string
-        treatmentPeriod:
-          $ref: '#/components/schemas/treatmentPeriod_Type'
-        medicalFacilityInformation:
-          $ref: '#/components/schemas/medicalFacilityInformation_Type'
     claim_Type:
       type: object
       title: Claim Type
@@ -21755,18 +18693,6 @@ components:
                   maxLength: 255
             justificationDescription:
               type: string
-            financialReview:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/financialReview_Type'
-                - $ref: '#/components/schemas/financialReview_Type'
-            interview:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/interview_Type'
-                - $ref: '#/components/schemas/interview_Type'
             jurisdictionCode:
               oneOf:
                 - type: object
@@ -21782,12 +18708,6 @@ components:
                           type: string
                 - type: string
                   maxLength: 255
-            medicalTreatment:
-              oneOf:
-                - type: array
-                  items:
-                    $ref: '#/components/schemas/medicalTreatment_Type'
-                - $ref: '#/components/schemas/medicalTreatment_Type'
             assignedIdentifier:
               oneOf:
                 - type: array
@@ -21796,9 +18716,9 @@ components:
                 - $ref: '#/components/schemas/assignedIdentifier_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
-    policyClosing_Type:
+    policyQuotation_Type:
       type: object
-      title: PolicyClosing_Type
+      title: PolicyQuotation_Type
       allOf:
         - $ref: '#/components/schemas/messageDocument_Type'
         - required:
@@ -21811,7 +18731,7 @@ components:
                     $ref: '#/components/schemas/location_Type'
                 - $ref: '#/components/schemas/location_Type'
             transactionFunctionCode:
-              $ref: '#/components/schemas/policyClosingTransactionFunctionCodeContent_Type'
+              $ref: '#/components/schemas/policyQuotationTransactionFunctionCodeContent_Type'
             description:
               type: string
             reason:
@@ -21825,10 +18745,9 @@ components:
               format: date-time
             policyQuotationReferences:
               $ref: '#/components/schemas/policyQuotationReferences_Type'
-            policyOrderReferences:
-              $ref: '#/components/schemas/policyOrderReferences_Type'
-            policyClosingReferences:
-              $ref: '#/components/schemas/policyClosingReferences_Type'
+            effectiveDate:
+              type: string
+              format: date
             caseId:
               type: string
             threadId:
@@ -21839,18 +18758,26 @@ components:
             preparedDate:
               type: string
               format: date
+            validUntilDate:
+              type: string
+              format: date
+            replyDueDate:
+              type: string
+              format: date
             priorPolicy:
               oneOf:
                 - type: array
                   items:
                     $ref: '#/components/schemas/priorPolicy_Type'
                 - $ref: '#/components/schemas/priorPolicy_Type'
-            agreementPortfolio:
-              $ref: '#/components/schemas/agreementPortfolio_Type'
-            accountReferences:
-              $ref: '#/components/schemas/accountReferences_Type'
-            invoiceReferences:
-              $ref: '#/components/schemas/invoiceReferences_Type'
+            underlyingPolicy:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/underlyingPolicy_Type'
+                - $ref: '#/components/schemas/underlyingPolicy_Type'
+            claimExperiencePeriod:
+              $ref: '#/components/schemas/claimExperiencePeriod_Type'
             broadLineOfBusinessCode:
               $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
             broadLineOfBusinessDescription:
@@ -21873,10 +18800,6 @@ components:
                 - $ref: '#/components/schemas/dataModification_Type'
             cancellation:
               $ref: '#/components/schemas/cancellation_Type'
-            reinstatement:
-              $ref: '#/components/schemas/reinstatement_Type'
-            reissuance:
-              $ref: '#/components/schemas/reinsurance_Type'
             policyReferences:
               $ref: '#/components/schemas/policyReferences_Type'
             policy:
@@ -21885,16 +18808,16 @@ components:
               $ref: '#/components/schemas/claimReferences_Type'
             claim:
               $ref: '#/components/schemas/claim_Type'
-    policyRenewalClosingProcess_Type:
+    policyRenewalQuotationProcess_Type:
       type: object
-      title: PolicyRenewalClosingProcess_Type
+      title: PolicyRenewalQuotationProcess_Type
       allOf:
         - $ref: '#/components/schemas/ACORDMessage_Type'
         - required:
-            - policyClosing
+            - policyQuotation
           properties:
-            policyClosing:
-              $ref: '#/components/schemas/policyClosing_Type'
+            policyQuotation:
+              $ref: '#/components/schemas/policyQuotation_Type'
     apiError_Type:
       type: object
       title: API Error Details
@@ -22154,6 +19077,303 @@ components:
           $ref: '#/components/schemas/messageHeader_Type'
         messageResult:
           $ref: '#/components/schemas/messageResult_Type'
+    policyRenewalQuotationProcessResult_Type:
+      type: object
+      title: PolicyRenewalQuotationProcessResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessageResult_Type'
+        - properties:
+            policyQuotation:
+              $ref: '#/components/schemas/policyQuotation_Type'
+    policyOrderTransactionFunctionCodeContent_Type:
+      type: string
+      title: Policy Order Transaction Function Code Content Type
+      description: TBD
+      enum:
+        - AdjustmentOfDeclaration
+        - AdjustmentOfDeclarationFinalization
+        - ConfirmedCancellation
+        - ConfirmedLapse
+        - ConfirmedReinstatement
+        - CoverAcceptance
+        - DeclinePolicyOrder
+        - IncreaseCover
+        - LapseCover
+        - LifeEvent
+        - PolicyIssuance
+        - RequestForCancellation
+        - RequestForCover
+        - RequestForIssuance
+        - RequestForReinstatement
+        - TransferCover
+    policyOrderReferences_Type:
+      type: object
+      title: PolicyOrderReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyOrderReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    lodgementTypeCodeContent_Type:
+      type: string
+      title: Lodgement Type Code Content
+      description: TBD
+      enum:
+        - Automatic
+        - Batch
+        - DirectAI
+        - DirectMember
+        - Manual
+        - Retail
+    policyOrder_Type:
+      type: object
+      title: PolicyOrder_Type
+      allOf:
+        - $ref: '#/components/schemas/messageDocument_Type'
+        - required:
+            - transactionFunctionCode
+          properties:
+            location:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/location_Type'
+                - $ref: '#/components/schemas/location_Type'
+            transactionFunctionCode:
+              $ref: '#/components/schemas/policyOrderTransactionFunctionCodeContent_Type'
+            description:
+              type: string
+            reason:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/reason_Type'
+                - $ref: '#/components/schemas/reason_Type'
+            versionDateTime:
+              type: string
+              format: date-time
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
+            policyQuotationReferences:
+              $ref: '#/components/schemas/policyQuotationReferences_Type'
+            effectiveDate:
+              type: string
+              format: date
+            caseId:
+              type: string
+            threadId:
+              type: string
+            initialRequestDate:
+              type: string
+              format: date
+            preparedDate:
+              type: string
+              format: date
+            preparedTime:
+              type: string
+              format: time
+            replyDueDate:
+              type: string
+              format: date
+            priorPolicy:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/priorPolicy_Type'
+                - $ref: '#/components/schemas/priorPolicy_Type'
+            claimExperiencePeriod:
+              $ref: '#/components/schemas/claimExperiencePeriod_Type'
+            broadLineOfBusinessCode:
+              $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
+            broadLineOfBusinessDescription:
+              type: string
+            lodgementTypeCode:
+              $ref: '#/components/schemas/lodgementTypeCodeContent_Type'
+            documentId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            dataModification:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/dataModification_Type'
+                - $ref: '#/components/schemas/dataModification_Type'
+            cancellation:
+              $ref: '#/components/schemas/cancellation_Type'
+            policyReferences:
+              $ref: '#/components/schemas/policyReferences_Type'
+            policy:
+              $ref: '#/components/schemas/policy_Type'
+            claimReferences:
+              $ref: '#/components/schemas/claimReferences_Type'
+            claim:
+              $ref: '#/components/schemas/claim_Type'
+    policyRenewalOrderProcess_Type:
+      type: object
+      title: PolicyRenewalOrderProcess_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessage_Type'
+        - required:
+            - policyOrder
+          properties:
+            policyOrder:
+              $ref: '#/components/schemas/policyOrder_Type'
+    policyRenewalOrderProcessResult_Type:
+      type: object
+      title: PolicyRenewalOrderProcessResult_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessageResult_Type'
+        - properties:
+            policyOrder:
+              $ref: '#/components/schemas/policyOrder_Type'
+    policyClosingTransactionFunctionCodeContent_Type:
+      type: string
+      title: Policy Closing Transaction Function Code Content Type
+      description: TBD
+      enum:
+        - ConfirmedClosing
+        - DeclineClosing
+        - RequestForClosing
+    policyClosingReferences_Type:
+      type: object
+      title: PolicyClosingReferences_Type
+      properties:
+        attributes:
+          type: object
+          properties:
+            policyClosingReference:
+              type: string
+        documentId:
+          type: string
+          format: uuid
+          pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    accountReferences_Type:
+      type: object
+      title: Account References
+      properties:
+        assignedIdentifier:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/assignedIdentifier_Type'
+            - $ref: '#/components/schemas/assignedIdentifier_Type'
+    policyClosing_Type:
+      type: object
+      title: PolicyClosing_Type
+      allOf:
+        - $ref: '#/components/schemas/messageDocument_Type'
+        - required:
+            - transactionFunctionCode
+          properties:
+            location:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/location_Type'
+                - $ref: '#/components/schemas/location_Type'
+            transactionFunctionCode:
+              $ref: '#/components/schemas/policyClosingTransactionFunctionCodeContent_Type'
+            description:
+              type: string
+            reason:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/reason_Type'
+                - $ref: '#/components/schemas/reason_Type'
+            versionDateTime:
+              type: string
+              format: date-time
+            policyQuotationReferences:
+              $ref: '#/components/schemas/policyQuotationReferences_Type'
+            policyOrderReferences:
+              $ref: '#/components/schemas/policyOrderReferences_Type'
+            policyClosingReferences:
+              $ref: '#/components/schemas/policyClosingReferences_Type'
+            caseId:
+              type: string
+            threadId:
+              type: string
+            initialRequestDate:
+              type: string
+              format: date
+            preparedDate:
+              type: string
+              format: date
+            priorPolicy:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/priorPolicy_Type'
+                - $ref: '#/components/schemas/priorPolicy_Type'
+            accountReferences:
+              $ref: '#/components/schemas/accountReferences_Type'
+            invoiceReferences:
+              $ref: '#/components/schemas/invoiceReferences_Type'
+            broadLineOfBusinessCode:
+              $ref: '#/components/schemas/broadLineOfBusinessCodeContent_Type'
+            broadLineOfBusinessDescription:
+              type: string
+            documentId:
+              type: string
+              format: uuid
+              pattern: '[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+            assignedIdentifier:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/assignedIdentifier_Type'
+                - $ref: '#/components/schemas/assignedIdentifier_Type'
+            dataModification:
+              oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/dataModification_Type'
+                - $ref: '#/components/schemas/dataModification_Type'
+            cancellation:
+              $ref: '#/components/schemas/cancellation_Type'
+            policyReferences:
+              $ref: '#/components/schemas/policyReferences_Type'
+            policy:
+              $ref: '#/components/schemas/policy_Type'
+            claimReferences:
+              $ref: '#/components/schemas/claimReferences_Type'
+            claim:
+              $ref: '#/components/schemas/claim_Type'
+    policyRenewalClosingProcess_Type:
+      type: object
+      title: PolicyRenewalClosingProcess_Type
+      allOf:
+        - $ref: '#/components/schemas/ACORDMessage_Type'
+        - required:
+            - policyClosing
+          properties:
+            policyClosing:
+              $ref: '#/components/schemas/policyClosing_Type'
     policyRenewalClosingProcessResult_Type:
       type: object
       title: PolicyRenewalClosingProcessResult_Type

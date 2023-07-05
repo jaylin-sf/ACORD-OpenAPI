@@ -7,7 +7,7 @@ allOf:
         type: string
         format: date
       suspensionRevocationReasonCode:
-        $ref: .\suspensionRevocationReasonCode_Type.yaml
+        $ref: .\drivingRecordCodeContent_Type.yaml
       suspensionPeriod:
         $ref: .\suspensionPeriod_Type.yaml
       reinstatementDate:

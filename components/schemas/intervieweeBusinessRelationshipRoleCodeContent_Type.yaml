@@ -1,7 +1,0 @@
-type: string
-title: IntervieweeBusinessRelationshipRoleCodeContent_Type
-description: TBD
-enum:
-  - Doctor
-  - Employer
-  - Member

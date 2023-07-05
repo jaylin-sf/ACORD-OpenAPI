@@ -15,12 +15,6 @@ allOf:
             items:
               $ref: .\policyArticleReferences_Type.yaml
           - $ref: .\policyArticleReferences_Type.yaml
-      policyVehicleReferences:
-        oneOf:
-          - type: array
-            items:
-              $ref: .\policyVehicleReferences_Type.yaml
-          - $ref: .\policyVehicleReferences_Type.yaml
       claimItemReferences:
         oneOf:
           - type: array
@@ -31,7 +25,7 @@ allOf:
         type: string
         format: date
       statusCode:
-        $ref: .\policyStatusCode_Type.yaml
+        $ref: .\policyStatusCodeContent_Type.yaml
       retroactiveDate:
         type: string
         format: date
@@ -83,7 +77,7 @@ allOf:
               $ref: .\liabilityItemSectionOption_Type.yaml
           - $ref: .\liabilityItemSectionOption_Type.yaml
       primaryCoverageCode:
-        $ref: .\liabilityPrimaryCoverageCode_Type.yaml
+        $ref: .\liabilityPrimaryCoverageCodeContent_Type.yaml
       coverage:
         oneOf:
           - type: array
@@ -133,7 +127,7 @@ allOf:
               $ref: .\liabilityItemQuestionAnswer_Type.yaml
           - $ref: .\liabilityItemQuestionAnswer_Type.yaml
       typeCode:
-        $ref: .\liabilityItemSectionTypeCode_Type.yaml
+        $ref: .\liabilityItemSectionTypeCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array

@@ -4,7 +4,7 @@ allOf:
   - $ref: .\referencedPartyRole_Type.yaml
   - properties:
       employerCode:
-        $ref: .\employerCode_Type.yaml
+        $ref: .\employerCodeContent_Type.yaml
       employerDescription:
         type: string
         maxLength: 255

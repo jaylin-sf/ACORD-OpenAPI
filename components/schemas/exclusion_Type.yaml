@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       exclusionCategoryCode:
-        $ref: .\exclusionCategoryCode_Type.yaml
+        $ref: .\exclusionCategoryCodeContent_Type.yaml
       exclusionNameCode:
         type: string
         maxLength: 255

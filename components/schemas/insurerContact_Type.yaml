@@ -6,7 +6,7 @@ allOf:
       personReferences:
         $ref: .\personReferences_Type.yaml
       roleCode:
-        $ref: .\insurerContactRoleCode_Type.yaml
+        $ref: .\insurerContactRoleCodeContent_Type.yaml
       telephone:
         oneOf:
           - type: array

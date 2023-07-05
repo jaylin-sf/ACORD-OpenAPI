@@ -4,7 +4,7 @@ allOf:
   - $ref: .\communicationMethod_Type.yaml
   - properties:
       typeCode:
-        $ref: .\emailTypeCode_Type.yaml
+        $ref: .\emailTypeCodeContent_Type.yaml
       emailAddress:
         type: string
         maxLength: 255

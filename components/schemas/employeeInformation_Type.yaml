@@ -6,11 +6,11 @@ allOf:
       personReferences:
         $ref: .\personReferences_Type.yaml
       occupationalRatingCode:
-        $ref: .\occupationalRatingCode_Type.yaml
+        $ref: .\occupationalRatingCodeContent_Type.yaml
       occupationRatingCodeDescription:
         type: string
       occupationClassCode:
-        $ref: .\occupationClassCode_Type.yaml
+        $ref: .\occupationClassCodeContent_Type.yaml
       occupationDescription:
         type: string
         maxLength: 255
@@ -21,9 +21,9 @@ allOf:
         type: string
         pattern: ^[0-9]{1,15}$
       taxFilingStatusCode:
-        $ref: .\taxFilingStatusCode_Type.yaml
+        $ref: .\taxFilingStatusCodeContent_Type.yaml
       statusCode:
-        $ref: .\employeeInformationStatusCode_Type.yaml
+        $ref: .\employeeInformationStatusCodeContent_Type.yaml
       unitCount:
         type: string
         pattern: ^[0-9]{1,15}$

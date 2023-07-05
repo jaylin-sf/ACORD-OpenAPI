@@ -12,7 +12,7 @@ allOf:
       organizationCommunication:
         $ref: .\organizationCommunication_Type.yaml
       legalEntityCode:
-        $ref: .\legalEntityCode_Type.yaml
+        $ref: .\legalEntityCodeContent_Type.yaml
       legalEntityDescription:
         type: string
         maxLength: 255

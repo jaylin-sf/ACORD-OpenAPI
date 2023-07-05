@@ -2,7 +2,7 @@ type: object
 title: Trading Services Information Type
 properties:
   financialInstitutionTypeCode:
-    $ref: .\financialInstitutionTypeCode_Type.yaml
+    $ref: .\financialInstitutionTypeCodeContent_Type.yaml
   tradingServicesOfferedIndicator:
     type: boolean
   tradingServicesTypeCode:

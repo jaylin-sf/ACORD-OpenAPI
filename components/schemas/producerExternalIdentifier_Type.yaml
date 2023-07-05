@@ -7,7 +7,7 @@ allOf:
       - id
     properties:
       typeCode:
-        $ref: .\producerExternalIdentifierTypeCode_Type.yaml
+        $ref: .\producerExternalIdentifierTypeCodeContent_Type.yaml
       jurisdictionCode:
         oneOf:
           - type: object

@@ -7,7 +7,7 @@ allOf:
       - messageDocumentResult
     properties:
       statusCode:
-        $ref: .\messageResultStatusCode_Type.yaml
+        $ref: .\messageResultStatusCodeContent_Type.yaml
       messageDocumentResult:
         oneOf:
           - type: array

@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\cyberAmountItemTypeCode_Type.yaml
+        $ref: .\cyberAmountItemTypeCodeContent_Type.yaml
       description:
         type: string
       itemAmount:

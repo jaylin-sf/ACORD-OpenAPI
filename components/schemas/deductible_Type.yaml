@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\deductibleTypeCode_Type.yaml
+        $ref: .\deductibleTypeCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array
@@ -12,7 +12,7 @@ allOf:
               $ref: .\assignedIdentifier_Type.yaml
           - $ref: .\assignedIdentifier_Type.yaml
       deductibleAppliesCode:
-        $ref: .\deductibleAppliesCode_Type.yaml
+        $ref: .\deductibleAppliesCodeContent_Type.yaml
       description:
         type: string
       deductibleAmountItem:

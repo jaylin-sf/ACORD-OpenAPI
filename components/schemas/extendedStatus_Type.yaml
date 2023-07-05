@@ -7,7 +7,7 @@ allOf:
         type: string
         maxLength: 255
       statusCode:
-        $ref: .\extendedStatusCode_Type.yaml
+        $ref: .\extendedStatusCodeContent_Type.yaml
       description:
         type: string
       sequenceNumber:

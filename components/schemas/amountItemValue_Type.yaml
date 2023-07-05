@@ -4,9 +4,9 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       financialPeriodCode:
-        $ref: .\financialPeriodCode_Type.yaml
+        $ref: .\financialPeriodCodeContent_Type.yaml
       domesticForeignCode:
-        $ref: .\domesticForeignCode_Type.yaml
+        $ref: .\domesticForeignCodeContent_Type.yaml
       stateOrProvinceCode:
         oneOf:
           - type: object

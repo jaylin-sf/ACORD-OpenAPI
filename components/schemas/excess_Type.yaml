@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\excessTypeCode_Type.yaml
+        $ref: .\excessTypeCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array
@@ -12,7 +12,7 @@ allOf:
               $ref: .\assignedIdentifier_Type.yaml
           - $ref: .\assignedIdentifier_Type.yaml
       excessAppliesCode:
-        $ref: .\excessAppliesCode_Type.yaml
+        $ref: .\excessAppliesCodeContent_Type.yaml
       description:
         type: string
       excessAmount:

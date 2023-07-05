@@ -7,7 +7,7 @@ properties:
       claimPartyReference:
         type: string
   roleCode:
-    $ref: .\interestedPartyRoleCode_Type.yaml
+    $ref: .\interestedPartyBusinessRelationshipRoleCodeContent_Type.yaml
   assignedIdentifier:
     oneOf:
       - type: array
