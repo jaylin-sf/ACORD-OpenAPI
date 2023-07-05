@@ -7,14 +7,14 @@ allOf:
         oneOf:
           - type: array
             items:
-              $ref: .\perilIncludedCode_Type.yaml
-          - $ref: .\perilIncludedCode_Type.yaml
+              $ref: .\perilCodeContent_Type.yaml
+          - $ref: .\perilCodeContent_Type.yaml
       perilExcludedCode:
         oneOf:
           - type: array
             items:
-              $ref: .\perilExcludedCode_Type.yaml
-          - $ref: .\perilExcludedCode_Type.yaml
+              $ref: .\perilCodeContent_Type.yaml
+          - $ref: .\perilCodeContent_Type.yaml
       exclusion:
         oneOf:
           - type: array

@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\businessActivityTypeCode_Type.yaml
+        $ref: .\businessActivityTypeCodeContent_Type.yaml
       description:
         type: string
       financialAmountItem:

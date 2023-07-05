@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Endorsement
+  summary: Endorsement quotation process
+  description: Endorsement quotation process
+  operationId: endorsementQuotationProcess
+  parameters:
+    - name: id
+      in: path
+      description: Opportunity Id
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\components\schemas\policyEndorsementQuotationProcess_Type.yaml
+    '400':
+      description: Bad Request.
+      content:
+        application/json:
+          schema:
+            $ref: ..\components\schemas\apiErrorResponse_Type.yaml
+    '500':
+      description: Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: ..\components\schemas\apiErrorResponse_Type.yaml

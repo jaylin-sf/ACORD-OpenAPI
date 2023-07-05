@@ -5,7 +5,7 @@ required:
   - id
 properties:
   roleCode:
-    $ref: .\coreRoleCode_Type.yaml
+    $ref: .\coreRoleCodeContent_Type.yaml
   id:
     type: string
   identifierDescription:

@@ -1,9 +1,0 @@
-type: string
-title: RegistrationExternalIdentifierTypeCodeContent Type
-description: TBD
-enum:
-  - IMOShipId
-  - JurisdictionId
-  - NationalId
-  - VehicleIdentificationNumber
-  - WatercraftRegistrationNumberId

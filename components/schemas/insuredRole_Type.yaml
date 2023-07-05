@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       roleCode:
-        $ref: .\insuredBusinessRelationshipRoleCode_Type.yaml
+        $ref: .\insuredBusinessRelationshipRoleCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array

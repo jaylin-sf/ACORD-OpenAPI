@@ -1,6 +1,0 @@
-type: string
-title: Vehicle Articulated Code Content
-description: TBD
-enum:
-  - Articulated
-  - Rigid

@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\taxAmountItemTypeCode_Type.yaml
+        $ref: .\taxAmountItemTypeCodeContent_Type.yaml
       description:
         type: string
       itemAmount:
@@ -60,7 +60,7 @@ allOf:
           - type: string
             maxLength: 255
       purviewCode:
-        $ref: .\purviewCode_Type.yaml
+        $ref: .\purviewCodeContent_Type.yaml
       externalIdentifier:
         oneOf:
           - type: array

@@ -6,7 +6,7 @@ allOf:
       - attachmentDocument
     properties:
       attachmentTypeCode:
-        $ref: .\attachmentTypeCode_Type.yaml
+        $ref: .\attachmentTypeCodeContent_Type.yaml
       description:
         type: string
       attachmentDocument:

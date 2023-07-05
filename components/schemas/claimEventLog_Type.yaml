@@ -7,7 +7,7 @@ allOf:
         type: string
         format: date
       statusCode:
-        $ref: .\claimEventLogStatusCode_Type.yaml
+        $ref: .\claimEventLogStatusCodeContent_Type.yaml
       eventLogInformation:
         oneOf:
           - type: array

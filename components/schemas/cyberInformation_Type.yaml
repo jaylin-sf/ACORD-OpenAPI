@@ -10,9 +10,9 @@ allOf:
         type: string
         maxLength: 255
       cyberSecurityManagementCode:
-        $ref: .\cyberSecurityManagementCode_Type.yaml
+        $ref: .\cyberSecurityManagementCodeContent_Type.yaml
       cyberContractTypeCode:
-        $ref: .\cyberContractTypeCode_Type.yaml
+        $ref: .\cyberContractTypeCodeContent_Type.yaml
       cyberContractDescription:
         type: string
         maxLength: 255
@@ -20,7 +20,7 @@ allOf:
         type: string
         maxLength: 255
       legalEntityCode:
-        $ref: .\legalEntityCode_Type.yaml
+        $ref: .\legalEntityCodeContent_Type.yaml
       legalEntityDescription:
         type: string
         maxLength: 255
@@ -43,7 +43,7 @@ allOf:
         type: string
         maxLength: 255
       dataUpdateFrequencyCode:
-        $ref: .\dataUpdateFrequencyCode_Type.yaml
+        $ref: .\dataUpdateFrequencyCodeContent_Type.yaml
       dataUpdateFrequencyDescription:
         type: string
         maxLength: 255
@@ -65,14 +65,14 @@ allOf:
       computerOperatingSystemDescription:
         type: string
       physicalSecurityMeasuresCode:
-        $ref: .\physicalSecurityMeasuresCode_Type.yaml
+        $ref: .\physicalSecurityMeasuresCodeContent_Type.yaml
       physicalSecurityMeasuresDescription:
         type: string
         maxLength: 255
       remoteAccessPermissionCode:
-        $ref: .\remoteAccessPermissionCode_Type.yaml
+        $ref: .\remoteAccessPermissionCodeContent_Type.yaml
       patchUpdateFrequencyCode:
-        $ref: .\patchUpdateFrequencyCode_Type.yaml
+        $ref: .\patchUpdateFrequencyCodeContent_Type.yaml
       patchUpdateFrequencyDescription:
         type: string
         maxLength: 255

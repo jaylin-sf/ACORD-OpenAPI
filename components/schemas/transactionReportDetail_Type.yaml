@@ -2,7 +2,7 @@ type: object
 title: Transaction Report Detail
 properties:
   typeCode:
-    $ref: .\transactionReportDetailTypeCode_Type.yaml
+    $ref: .\transactionReportDetailTypeCodeContent_Type.yaml
   assignedIdentifier:
     oneOf:
       - type: array

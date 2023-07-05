@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       typeCode:
-        $ref: .\lossTypeCode_Type.yaml
+        $ref: .\lossTypeCodeContent_Type.yaml
       alternateLossTypeCode:
         oneOf:
           - type: object
@@ -26,8 +26,6 @@ allOf:
             items:
               $ref: .\insurerReferences_Type.yaml
           - $ref: .\insurerReferences_Type.yaml
-      policyDriverReferences:
-        $ref: .\policyDriverReferences_Type.yaml
       policyPropertyReferences:
         $ref: .\policyPropertyReferences_Type.yaml
       description:
@@ -103,4 +101,4 @@ allOf:
           - type: string
             pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
       claimStatusCode:
-        $ref: .\claimStatusCode_Type.yaml
+        $ref: .\claimStatusCodeContent_Type.yaml

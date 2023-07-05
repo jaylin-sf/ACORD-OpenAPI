@@ -4,9 +4,9 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       assigningEntityCode:
-        $ref: .\assigningEntityCode_Type.yaml
+        $ref: .\assigningEntityCodeContent_Type.yaml
       perilCode:
-        $ref: .\perilCode_Type.yaml
+        $ref: .\perilCodeContent_Type.yaml
       zoneId:
         type: string
       zoneName:

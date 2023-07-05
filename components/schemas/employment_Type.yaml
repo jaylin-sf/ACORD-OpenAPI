@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       statusCode:
-        $ref: .\employmentStatusCode_Type.yaml
+        $ref: .\employmentStatusCodeContent_Type.yaml
       alternateEmploymentStatusCode:
         oneOf:
           - type: object
@@ -29,7 +29,7 @@ allOf:
       employer:
         $ref: .\employer_Type.yaml
       titleRelationshipCode:
-        $ref: .\titleRelationshipCode_Type.yaml
+        $ref: .\titleRelationshipCodeContent_Type.yaml
       employmentPeriod:
         oneOf:
           - type: array

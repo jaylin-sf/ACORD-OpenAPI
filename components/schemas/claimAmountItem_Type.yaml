@@ -6,7 +6,7 @@ allOf:
       - typeCode
     properties:
       typeCode:
-        $ref: .\claimAmountItemTypeCode_Type.yaml
+        $ref: .\claimAmountItemTypeCodeContent_Type.yaml
       itemAmount:
         oneOf:
           - type: object

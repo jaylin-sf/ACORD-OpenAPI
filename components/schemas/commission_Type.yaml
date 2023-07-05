@@ -28,7 +28,7 @@ allOf:
               $ref: .\tax_Type.yaml
           - $ref: .\tax_Type.yaml
       commissionBasisCode:
-        $ref: .\commissionBasisCode_Type.yaml
+        $ref: .\commissionBasisCodeContent_Type.yaml
       paymentDate:
         type: string
         format: date

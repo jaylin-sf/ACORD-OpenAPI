@@ -12,9 +12,9 @@ allOf:
       description:
         type: string
       optionCode:
-        $ref: .\policySectionOptionCode_Type.yaml
+        $ref: .\policySectionOptionCodeContent_Type.yaml
       questionCode:
-        $ref: .\policySectionOptionQuestionCode_Type.yaml
+        $ref: .\policySectionOptionQuestionCodeContent_Type.yaml
       valuePercent:
         type: string
         pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

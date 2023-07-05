@@ -8,7 +8,7 @@ allOf:
       - messageDateTime
     properties:
       ACORDStandardVersionCode:
-        $ref: .\ACORDStandardVersionCode_Type.yaml
+        $ref: .\ACORDStandardVersionCodeContent_Type.yaml
       messageId:
         type: string
         format: uuid

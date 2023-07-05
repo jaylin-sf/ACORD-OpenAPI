@@ -17,7 +17,7 @@ allOf:
           - type: string
             pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$
       paymentFrequencyCode:
-        $ref: .\frequencyCode_Type.yaml
+        $ref: .\frequencyCodeContent_Type.yaml
       wageEffectiveDate:
         type: string
         format: date

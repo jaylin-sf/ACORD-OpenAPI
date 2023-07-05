@@ -12,9 +12,9 @@ allOf:
       description:
         type: string
       optionCode:
-        $ref: .\liabilityCoverageOptionCode_Type.yaml
+        $ref: .\liabilityCoverageOptionCodeContent_Type.yaml
       questionCode:
-        $ref: .\liabilityCoverageOptionQuestionCode_Type.yaml
+        $ref: .\liabilityCoverageOptionQuestionCodeContent_Type.yaml
       valuePercent:
         type: string
         pattern: ^(\+|-)?[0-9]{1,10}(\.[0-9]{1,10})?$

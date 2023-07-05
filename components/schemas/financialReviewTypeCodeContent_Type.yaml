@@ -1,9 +1,0 @@
-type: string
-title: FinancialReviewTypeCode Content
-description: TBD
-enum:
-  - Audited
-  - Compiled
-  - Internal
-  - Reviewed
-  - Unaudited

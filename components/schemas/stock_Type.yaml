@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       exchangeTradedCode:
-        $ref: .\exchangeTradedCode_Type.yaml
+        $ref: .\exchangeTradedCodeContent_Type.yaml
       exchangeTickerSymbolCode:
         oneOf:
           - type: object

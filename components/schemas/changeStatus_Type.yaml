@@ -13,7 +13,7 @@ allOf:
         type: string
         maxLength: 255
       actionCode:
-        $ref: .\actionCode_Type.yaml
+        $ref: .\actionCodeContent_Type.yaml
       description:
         type: string
       sequenceNumber:

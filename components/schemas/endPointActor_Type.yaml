@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       roleCode:
-        $ref: .\coreRoleCode_Type.yaml
+        $ref: .\coreRoleCodeContent_Type.yaml
       organizationReferences:
         $ref: .\organizationReferences_Type.yaml
       address:

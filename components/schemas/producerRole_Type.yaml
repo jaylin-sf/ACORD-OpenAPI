@@ -4,7 +4,7 @@ allOf:
   - $ref: .\ACORDAggregate_Type.yaml
   - properties:
       roleCode:
-        $ref: .\producerBusinessRelationshipRoleCode_Type.yaml
+        $ref: .\producerBusinessRelationshipRoleCodeContent_Type.yaml
       assignedIdentifier:
         oneOf:
           - type: array

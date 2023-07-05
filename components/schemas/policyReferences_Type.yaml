@@ -7,7 +7,7 @@ properties:
       policyReference:
         type: string
   lineOfBusinessCode:
-    $ref: .\lineOfBusinessCode_Type.yaml
+    $ref: .\lineOfBusinessCodeContent_Type.yaml
   assignedIdentifier:
     oneOf:
       - type: array

@@ -16,75 +16,18 @@ servers:
       https://virtserver.swaggerhub.com/SteadfastTech/InsurerAPI-ST-TEST/1.4.0.20230303
     description: SwaggerHub API Auto Mocking
 paths:
+  /endorsementQuotationProcess/{id}:
+    $ref: paths/endorsementQuotationProcess_{id}.yaml
+  /endorsementQuotationProcessResult/{id}:
+    $ref: paths/endorsementQuotationProcessResult_{id}.yaml
+  /endorsementOrderProcess/{id}:
+    $ref: paths/endorsementOrderProcess_{id}.yaml
+  /endorsementOrderProcessResult/{id}:
+    $ref: paths/endorsementOrderProcessResult_{id}.yaml
   /endorsementClosingProcess/{id}:
-    get:
-      tags:
-        - Endorsement
-      summary: Endorsement policy
-      description: Endorsement policy
-      operationId: endorsementClosingProcess
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyEndorsementClosingProcess_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-
-  /cancellationClosingProcessResult/{id}:
-    get:
-      tags:
-        - Endorsement
-      summary: Endorsement policy result
-      description: Endorsement policy result
-      operationId: endorsementClosingProcessResult
-      parameters:
-        - name: id
-          in: path
-          description: Opportunity Id
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\policyEndorsementClosingProcessResult_Type.yaml
-        '400':
-          description: Bad Request.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
-        '500':
-          description: Server Error.
-          content:
-            application/json:
-              schema:
-                $ref: components\schemas\apiErrorResponse_Type.yaml
+    $ref: paths/endorsementClosingProcess_{id}.yaml
+  /endorsementClosingProcessResult/{id}:
+    $ref: paths/endorsementClosingProcessResult_{id}.yaml
 components:
   securitySchemes:
     sctpUsername:
